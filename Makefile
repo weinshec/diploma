@@ -22,6 +22,8 @@ export TEXINPUTS := ${TEXINPUTS}:${INPUT}
 
 all: ${INPUT}/${PROJECT}.tex
 	pdflatex -output-directory ${OUT} $<
+	bibtex ${OUT}/${PROJECT}.aux
+	pdflatex -output-directory ${OUT} $<
 	pdflatex -output-directory ${OUT} $<
 	cp ${OUT}/${PROJECT}.pdf ${PWD}
 
