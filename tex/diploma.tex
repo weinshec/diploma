@@ -4,10 +4,25 @@
 \usepackage[german]{babel}
 \usepackage[utf8]{inputenc}
 
+% Define font
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
 % Image/Graphics package
 \usepackage{graphicx}
 \usepackage{epstopdf}
 \epstopdfsetup{outdir=./temp/eps2pdf/}
+
+% Math package (fleqn => left sided)
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb}
+
+%\SI-Units (Details: http://mirrors.ctan.org/macros/latex/contrib/SIunits/SIunits.pdf)
+\usepackage[mediumspace,squaren]{SIunits}
+
+% Fancy stuff
+\usepackage[Sonny]{fncychap}
+\usepackage{url}
 
 % Declare abstract environment
 \newenvironment{abstract}{\cleardoublepage\null\vfill\begin{center}\bfseries Zusammenfassung \end{center}}{\vfill\null}
