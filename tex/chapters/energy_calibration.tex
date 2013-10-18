@@ -9,13 +9,131 @@
 %                                    Energiekalibration der Vorwärts-Elektronen
 %
 \chapter{Energiekalibration der Vorwärts-Elektronen}
+\label{energy_calibration}
 
 \begin{quote}
-    Die Energiekalibration des elektromagnetischen Kalorimeters für Elektronen im Vorwärtsbereich ist von essentieller
-    Bedeutung für Messund der Vorwärts-Rückwärts-Asymmetrie.
+    Die Energiekalibration des elektromagnetischen Kalorimeters für Elektronen 
+    ist von essentieller Bedeutung für Messung der Vorwärts-Rückwärts-
+    Asymmetrie. Dieses Kapitel beschreibt die Kalibration für Elektronen mit
+    hohen Pseudorapiditäten. Dabei wird zunächst auf \development 
 \end{quote}
 
 
-\section{Einführung}
-Hier kommt das aller erste einführende Kapitel hin \cite{fitzgerald:realigning_research_and_practice}
+
+%______________________________________________________________________________
+%                                                                    Grundlagen
+%
+\section{Grundlagen}
+\label{energy_calibration:grundlagen}
+\begin{itemize}
+    \item Messung der Energie mit Kalorimeter (Verweis auf Detektor Kapitel)
+    \item Notwendigkeit der Energiekalibration (Benötigte Präzision für 
+        Vorwärts-Rückwärts-Asymmetrie)
+    \item Vorangegangene Schritte ( Calibration-Hits, Test-Beam-Runs, 3-Stufen)
+    \item Was im folgenden passiert (Vorwärts-Kalibration, in-situ
+        kalibration, was ist noch zu kalibrieren)
+\end{itemize}
+
+
+
+%______________________________________________________________________________
+%                                                      Beschreibung der Methode 
+%
+\section{Beschreibung der Methode}
+\label{energy_calibration:beschreibung_der_methode}
+
+\begin{itemize}
+    \item \sout{Betrachteter Prozess, CF-Ereignisse}
+    \item Definition der Korrektur-Faktoren
+    \item Annahmen (perfekte zentral-Elektronen)
+    \item Vereinfachung der Formeln und Extraktion
+    \item 2-stufige Exktraktion
+    \item Selektion und Samples
+    \item Fit-Modelle, Effizienzkurve
+\end{itemize}
+
+Für die Kalibration der Vorwärts-Elektronen betrachtet man den elektroschwachen
+Zerfalls-Prozess $Z/\gamma^* \rightarrow ee$ eines Z-Bosons in zwei
+Elektronen\footnote{Die Bezeichnung \textit{Elektron} wird hier und im
+Folgenden synonym für Elektronen und Positronen verwendet}. Dabei werden nur
+Ereignisse selektiert, in denen eines der beiden Elektronen im Zentral-Bereich,
+das andere im Vorwärts-Bereich detektiert wird. Diese Einbeziehung der Zentral-
+Elektronen ist aus mehreren Gründen notwendig. Zum einen stehen entsprechende
+Elektron-Trigger\footnote{siehe hierzu Kapitel
+\ref{experimenteller_aufbau:atlas_detector:trigger-system}}
+nur im Zentral-Bereich zur Verfügung. Zum anderen wäre die Selektion von
+Ereignissen mit beiden Elektronen im Vorwärts-Bereich, in hohem Maße von
+Untergrund-Prozessen dominiert, bei denen andere Objekte, überwiegend Jets,
+fälschlicherweise als Elektronen rekonstruiert werden\footnote{vgl. Kapitel
+\ref{experimenteller_aufbau:elektronen_in_atlas}}.
+Allerdings stellt die Hinzunahme der Zentral-Elektronen die Kalibration der
+Vorwärts-Elektronen ab initio in die Abhängigkeit einer vorangegangen 
+Kalibration der Zentral-Elektronen.
+
+Im folgenden Abschnitt werden zunächst einige grundlegende Annahmen eingeführt
+und die Kalibration-Konstanten für Vorwärts-Elektronen definiert.
+
+
+\subsection{Definitionen und Annahmen}
+\label{energy_calibration:beschreibung_der_methode:definitionen_und_annahmen}
+
+Die invariante Masse zweier relativistischer Teilchen, deren Ruhemassen
+gegenüber ihren Energien vernachlässigt werden können, ergibt sich aus
+\begin{equation}
+    \label{invariant_mass:basic}
+    m = \sqrt{ 2 \cdot E_1 E_2 (1-\cos\theta_{12}) }
+\end{equation}
+Dabei bezeichnet $E_i$ die Energie des Teilchens $i$ und $\theta_{12}$ den
+Öffnungswinkel zwischen beiden. Für die hier beschriebene Kalibration der
+Vorwärts-Elektronen identifiziert man o.B.d.A. die Energie des
+Zentral-Elektrons mit $E_1$ und die Energie des Vorwärts-Elektrons mit $E_2$.
+
+Der Kalibrations-Faktor $\alpha$ wird definiert, um die Abweichung zwischen
+wahrer und gemessener Energie zu korrigieren, wobei für die wahre Energie
+der Wert aus \acs{MC}-Simulationen angenommen wird.
+\development
+\begin{equation}
+    \label{definition:energy_scale}
+    E_\text{(meas)} = E_\text{(true)} (1+\alpha)
+\end{equation}
+Die Indices (meas) und (true) zeigen dabei jeweils die gemessene bzw. wahre
+Größe an. 
+
+Für die Messung der invarianten Masse heißt das:
+\begin{equation}
+    \begin{array}{rcl}
+        m_\text{(meas)} &=& \sqrt{ 2 \cdot E_{1,\text{(meas)}} E_{2,\text{(meas)}}
+                            (1-\cos\theta_{12})} \\
+                        &=& \sqrt{ 2 \cdot E_{1,\text{(true)}} E_{2,\text{(true)}}
+                            (1+\alpha_1)(1+\alpha_2)(1-\cos\theta_{12})}
+
+    \end{array}
+\end{equation}
+
+
+%______________________________________________________________________________
+%                                       Exktraktion der Kalibrations-Konstanten
+%
+\section{Extraktion der Kalibrations-Konstanten}
+\label{energy_calibration:extraktion_der_kalibrations-konstanten}
+\begin{itemize}
+    \item Beispielhafte Fits
+    \item Exktraktion der Energy-Scales
+    \item Extraktion der Constant-Terms
+    \item Systematiken
+\end{itemize}
+
+
+
+%______________________________________________________________________________
+%                                                       Ergebnisse und Ausblick
+%
+\section{Ergebnisse und Ausblick}
+\label{energy_calibration:ergebnisse_und_ausblick}
+\begin{itemize}
+    \item Zusammenfassung
+    \item Diskussion ( Dominiert von Zentral-Skalen, Modell-Probleme )
+    \item Verbesserungen ( Neue Zentral-Skalen, Template-Ansatz )
+\end{itemize}
+
 
