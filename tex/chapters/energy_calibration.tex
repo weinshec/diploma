@@ -32,6 +32,7 @@
     \item Vorangegangene Schritte ( Calibration-Hits, Test-Beam-Runs, 3-Stufen)
     \item Was im folgenden passiert (Vorwärts-Kalibration, in-situ
         kalibration, was ist noch zu kalibrieren)
+    \item Zusätzliches Material
 \end{itemize}
 
 
@@ -45,7 +46,7 @@
 \begin{itemize}
     \item \sout{Betrachteter Prozess, CF-Ereignisse}
     \item Definition der Korrektur-Faktoren
-    \item Annahmen (perfekte zentral-Elektronen)
+    \item \sout{Annahmen (perfekte zentral-Elektronen)}
     \item Vereinfachung der Formeln und Extraktion
     \item 2-stufige Exktraktion
     \item Selektion und Samples
@@ -83,32 +84,75 @@ gegenüber ihren Energien vernachlässigt werden können, ergibt sich aus
     \label{invariant_mass:basic}
     m = \sqrt{ 2 \cdot E_1 E_2 (1-\cos\theta_{12}) }
 \end{equation}
-Dabei bezeichnet $E_i$ die Energie des Teilchens $i$ und $\theta_{12}$ den
-Öffnungswinkel zwischen beiden. Für die hier beschriebene Kalibration der
-Vorwärts-Elektronen identifiziert man o.B.d.A. die Energie des
-Zentral-Elektrons mit $E_1$ und die Energie des Vorwärts-Elektrons mit $E_2$.
+Dabei bezeichnet $E_{1/2}$ die Energie des Teilchens 1 bzw. 2 und $\theta_{12}$
+den Öffnungswinkel zwischen beiden. Für die hier beschriebene Kalibration der
+Vorwärts-Elektronen identifiziert man o.B.d.A. die Energie des Elektrons im
+Zentral-Bereich mit $E_1$ und die Energie des Vorwärts-Elektrons mit $E_2$.
 
-Der Kalibrations-Faktor $\alpha$ wird definiert, um die Abweichung zwischen
-wahrer und gemessener Energie zu korrigieren, wobei für die wahre Energie
-der Wert aus \acs{MC}-Simulationen angenommen wird.
-\development
+Man definiert nun den Kalibrations-Faktor $\alpha_i$, der die Abweichung zischen
+wahrer und gemessener Energie korrigiert, wobei als beste Schätzung für die
+\textit{wahre Energie} die \acs{MC}-Simulation des betrachteten Prozesses
+herangezogen wird:
 \begin{equation}
     \label{definition:energy_scale}
-    E_\text{(meas)} = E_\text{(true)} (1+\alpha)
+    E_\text{(data)} = E_\text{(MC)} (1+\alpha_i)
 \end{equation}
-Die Indices (meas) und (true) zeigen dabei jeweils die gemessene bzw. wahre
-Größe an. 
+Der Index $i$ weist darauf hin, dass für verschiedene Bereiche des
+EM-Kalorimeters unterschiedliche Kalibrationskonstanten gelten. Man wählt eine
+Unterteilung in der Pseudorapidität $\eta$, da mögliche Unterschiede vor allem
+durch nicht-simuliertes passives Material, welches die Elektronen vor ihrem 
+Eintritt in das Kalorimeter passieren, verursacht werden. Die grundsätzlich
+inhomogene Verteilung von Materie vor dem Kalorimeter ist in Abbildung
+\ref{fig:extra_material} dargestellt.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{img/extra_material}
+    \caption[Material vor dem EM-Kalorimeter]
+        {Die Menge an Material in Einheiten der Strahlungslänge $X_0$, die die
+        Elektronen vor dem Kalorimeter durchfliegen, als Funktion der 
+        Pseudorapidität $\eta$. Das zusätzliche Material wurde hier lediglich 
+        zu systematischen Studien eingeführt und entspricht nicht der 
+        tatsächlichen Verteilung. (Quelle: \cite{Aad:2011mk})}
+    \label{fig:extra_material}
+\end{figure}
+Eine zusätzliche Unterteilung im Azimuthalwinkel $\phi$ wird nicht
+vorgenommen, vielmehr geht man hier von einer isotropen Verteilung aus.
 
-Für die Messung der invarianten Masse heißt das:
+Wie bereits im einführenden Abschnitt \ref{energy_calibration:grundlagen}
+erwähnt, werden die Elektronen im Zentral-Bereich als bereits perfekt
+kalibriert angenommen, sodass gilt:
 \begin{equation}
-    \begin{array}{rcl}
-        m_\text{(meas)} &=& \sqrt{ 2 \cdot E_{1,\text{(meas)}} E_{2,\text{(meas)}}
-                            (1-\cos\theta_{12})} \\
-                        &=& \sqrt{ 2 \cdot E_{1,\text{(true)}} E_{2,\text{(true)}}
-                            (1+\alpha_1)(1+\alpha_2)(1-\cos\theta_{12})}
-
-    \end{array}
+    \label{definition:perfect_central_electrons}
+    E_\text{(data)}^\text{C} = E_\text{(MC)}^\text{C}
+    \qquad \Longleftrightarrow \qquad
+    \alpha_i^\text{C} = 0
+    \qquad\qquad
+    ^C : \text{zentral}
 \end{equation}
+Für die Messung der invarianten Masse (\ref{invariant_mass:basic}) des
+\acs{CF}-Elektron-Paares folgt nun mit (\ref{definition:energy_scale}) und
+(\ref{definition:perfect_central_electrons}):
+\begin{align}
+    m_\text{(data)}   &= \sqrt{ 2 \cdot E^C_\text{(data)} E^F_{\text{(data)}}
+                         (1-\cos\theta)} 
+                         \qquad ^C: \text{zentral}, \quad ^F: vorwärts
+                         \nonumber \\[5pt]
+                      &= \sqrt{ 2 \cdot E^C_\text{(MC)} E^F_{\text{(MC)}}
+                         (1+\alpha^F_i)(1-\cos\theta)}
+                         \nonumber \\[15pt]
+    m^2_\text{(data)} &= 2 \cdot E^C_\text{(MC)} E^F_{\text{(MC)}}
+                         (1+\alpha^F_i)(1-\cos\theta)
+                         \nonumber \\[5pt]
+                      &= m^2_\text{(MC)} (1+\alpha^F_i)
+                         \label{eq:invariant_mass_sq}
+\end{align}
+Gleichung (\ref{eq:invariant_mass_sq}) liefert somit die Möglichkeit zur
+Extraktion der Kalibrations-Faktoren $alpha_i^F$
+\begin{equation}
+    \label{eq:extraction_alpha}
+    \alpha_i^F = \frac{m^2_\text{(data)}}{m^2_\text{(MC)}} - 1
+\end{equation}
+\development
 
 
 %______________________________________________________________________________
