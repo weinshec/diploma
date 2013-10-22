@@ -45,9 +45,9 @@
 
 \begin{itemize}
     \item \sout{Betrachteter Prozess, CF-Ereignisse}
-    \item Definition der Korrektur-Faktoren
+    \item \sout{Definition der Korrektur-Faktoren}
     \item \sout{Annahmen (perfekte zentral-Elektronen)}
-    \item Vereinfachung der Formeln und Extraktion
+    \item \sout{Vereinfachung der Formeln und Extraktion}
     \item 2-stufige Exktraktion
     \item Selektion und Samples
     \item Fit-Modelle, Effizienzkurve
@@ -73,6 +73,7 @@ Kalibration der Zentral-Elektronen.
 
 Im folgenden Abschnitt werden zunächst einige grundlegende Annahmen eingeführt
 und die Kalibration-Konstanten für Vorwärts-Elektronen definiert.
+
 
 
 \subsection{Definitionen und Annahmen}
@@ -147,12 +148,169 @@ Für die Messung der invarianten Masse (\ref{invariant_mass:basic}) des
                          \label{eq:invariant_mass_sq}
 \end{align}
 Gleichung (\ref{eq:invariant_mass_sq}) liefert somit die Möglichkeit zur
-Extraktion der Kalibrations-Faktoren $alpha_i^F$
+Extraktion der Kalibrations-Faktoren
 \begin{equation}
     \label{eq:extraction_alpha}
     \alpha_i^F = \frac{m^2_\text{(data)}}{m^2_\text{(MC)}} - 1
 \end{equation}
-\development
+
+Neben der der Korrektur der Energieskala in Daten, muss auf Seiten der
+Simulation noch die Energieauflösung\footnote{siehe hierzu auch Kapitel
+\ref{experimenteller_aufbau:atlas_detector:elektromagnetisches_kalorimeter}}
+korrigiert werden. Wie eingangs bereits erwähnt ist die Auflösung des
+Kalorimeters in der Simulation oftmals überschätzt, sodass eine zusätzliche
+künstliche Verschmierung eingeführt wird um dies zu kompensieren.
+
+Nach Gleichung (\ref{eq:calorimeter_resolution}) ist die Auflösung des
+Kalorimeters gegeben durch 
+\begin{equation}
+    \left(\frac{\sigma_E}{E}\right)_\text{(MC)} =
+        \frac{a}{\sqrt{E}} \oplus \frac{b}{E} \oplus c
+\end{equation}
+Der sognannte \textit{Sampling Term} $a$ wird dabei als von der Simulation
+wohl modelliert angenommen, während der \textit{Rauschterm} $b$ aus Messungen
+mit Test-Strahlen extrahiert wird (siehe \cite{1748-0221-5-11-P11006}). Jeder
+zusätzliche Beitrag spiegelt sich im konstanten Term $c$ wieder. Dieser ist
+nicht simulierbar und muss aus einem Vergleich mit der tatsächlichen Auflösung
+in den Daten gewonnen werden. Dazu bildet man die partiellen Ableitungen von
+Gleichung (\ref{invariant_mass:basic})
+\begin{align}
+    \frac{\del m}{\del E_i} \;&=\; \frac{1}{2m} \frac{m^2}{E_i}
+        \;=\; \frac{m}{2 E_i} \qquad\quad i \in \{1,2\}
+\end{align}
+und bildet die Gaußsche Fehlerfortpflanzung für die Auflösung der invarianten
+Masse:
+\begin{align}
+    \sigma_m^2 \;&=\; \left(\frac{\del m}{\del E_1}\sigma_{E_1}\right)^2 +
+                      \left(\frac{\del m}{\del E_2}\sigma_{E_2}\right)^2
+                \;=\; \frac{m^2}{4E_1^2}\sigma_{E_1}^2 +
+                      \frac{m^2}{4E_2^2}\sigma_{E_2}^2
+                      \nonumber \\[5pt]
+    \Longleftrightarrow \quad
+    \frac{4\sigma_m^2}{m^2} &= \frac{\sigma_{E_1}^2}{E_1^2} +
+                               \frac{\sigma_{E_2}^2}{E_2^2}
+\end{align}
+Führt man nun für die Auflösung in der Simulation den konstanten Term $c$ ein
+und vergleicht mit der Auflösung in den Daten so folgt:
+\begin{align}
+    &\sigma_{E_i}^2/E_i^2 \longrightarrow \sigma_{E_i}^2/E_i^2 + c_i^2
+    \nonumber \\[10pt]
+    &4\left(\frac{\sigma_m^2}{m^2}\right)_\text{(data)}
+        = 4\left(\frac{\sigma_m^2}{m^2}\right)_\text{(MC)}
+        + c_1^2 + c_2^2
+\end{align}
+Auch hier wird, wie schon bei der Energieskala, die Kalibration der
+Zentral-Elektronen als perfekt angenommen, sodass $c_1 = 0$ gesetzt werden
+kann. Desweiteren wird ebenfalls eine Unterteilung des Kalorimeters in der
+Pseudorapidität $\eta$ vorgenommen\footnote{Es handelt sich um die selbe
+Unterteilung, wie schon für die Kalibrations-Faktoren der Energieskala},
+was durch den Index $i$ angezeigt wird.
+\begin{align}
+    \label{eq:extraction_constant_terms}
+    4\left(\frac{\sigma_m^2}{m^2}\right)_\text{(data)}
+        &= 4\left(\frac{\sigma_m^2}{m^2}\right)_\text{(MC)}
+        + \left(c_i^F\right)^2
+\end{align}
+Gleichung (\ref{eq:extraction_constant_terms}) bietet somit die Möglichkeit zur
+Extraktion der Verschmierungsterme
+\begin{align}
+    c_i^F &= \sqrt{ 4 \left[ \left(\frac{\sigma_m}{m}\right)^2_\text{(data)}
+             - \left(\frac{\sigma_m}{m}\right)^2_\text{(MC)} \right] }
+    \label{eq:constant_terms}
+\end{align}
+
+
+
+\subsection{Extraktionsmethode}
+\label{energy_calibration:beschreibung_der_methode:extraktionsmethode}
+Nachdem nun die notwendigen Definitionen und Annahmen zur Exktraktion der
+Kali\-brations-Faktoren getroffen wurden, kann eine Prozedur zu deren
+Bestimmung entwickelt werden.
+
+Es müssen die Energieskalen\footnote{Der obere Index $F$ an den
+Kalibrationsfaktoren wird im Folgenden der Einfachheit halber weggelassen}
+$\alpha_i$ und die Verschmierungsterme $c_i$ für jeden Bereich in $\eta$ separat
+gewonnen werden. Angepasst an die typischen Größen der Elektronschauer\footnote
+{vlg hierzu auch Kapitel\ref{experimenteller_aufbau:elektronen_in_atlas}} im
+Kalorimeter hat sich folgene Unterteilung als sinnvoll erwiesen:
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \multicolumn{6}{c}{\textbf{EMEC}} \\
+        \hline
+        2.5 - 2.6 & 2.6 - 2.7 & 2.7 - 2.8 & 2.8 - 2.9 & 2.9 - 3.0 & 3.0 - 3.16
+        \\ \hline
+    \end{tabular}
+    \vspace{10pt}
+
+    \begin{tabular}{|c|c|c|}
+        \multicolumn{3}{c}{\textbf{FCal}} \\
+        \hline
+        3.35 - 3.6 & 3.6 - 4.0 & 4.0 - 4.9 \\
+        \hline
+    \end{tabular}
+    \caption{Unterteilung der Vorwärts-Kalorimeter in der Pseudorapidität
+             $|\eta|$ zur Extraktion der Kalibrations-Konstanten}
+    \label{tab:calibration_binning}
+\end{table}
+
+Hierbei wurde der Bereich zwischen $3.16 < |\eta| < 3.35$ exkludiert, da sich
+hier der Übergangsbereich zwischen \acs{EMEC} und \acs{FCal} befindet.
+
+Das grundlegende Prinzip zur Extraktion der Kalibrations-Faktoren besteht nun
+darin, für jede Unterteilung des Kalorimeters (Tabelle
+\ref{tab:calibration_binning}) die invarianten Massenspektren in Daten und
+Simulation zu erstellen und mittels einer Kurvenanpassung analytischer
+Funktionen die Werte für Masse und Auflösung aus den Gleichungen
+(\ref{eq:extraction_alpha}) und (\ref{eq:constant_terms}) zu bestimmen.
+
+Zur Erstellung der invarianten Massenspektren werden Selektions-Schnitte
+angewandt, die auf Seiten der Daten für eine Untergrund-Unterdrückung sorgen.
+Tabelle \ref{tab:calibration_cuts} zeigt eine Übersicht über die Schnitte
+auf Daten und Simulation.
+\begin{savenotes}
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|}
+        \hline
+        \multicolumn{2}{|c|}{\textbf{Event basierte Schnitte}} \\
+        \hline\hline
+        \acs{GRL} (nur Daten) & (...)\_EgammaForward.xml\footnote{Verwendete \ac{GRL}:
+            data12\_8TeV.periodAllYear\_DetStatus-v61-pro14-02
+            \_DQDefects-00-01-00\_PHYS\_StandardGRL\_All\_Good
+            \_EgammaForward.xml} \\
+        \hline
+        Trigger & e24vhi\_medium1 \textit{or} e60\_medium1 \\
+        \hline
+        primärer Vertex & $\geq 3$ \\
+        \hline
+    \end{tabular}
+    \vspace{15pt}
+
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \multicolumn{3}{|c|}{\textbf{Elektron basierte Schnitte}} \\
+        \textbf{Schnitt}&\textbf{Zentral-Elektron}&\textbf{Vorwärts-Elektron}\\
+        \hline \hline
+        Pseudorapidität & $|\eta| \leq 2.47$ & $2.5 \leq |\eta| \leq 4.9$ \\
+        \hline
+        Transversal-Impuls & $p_T > 25.0 \GeV$ & $p_T > 20.0 \GeV$ \\
+        \hline
+        Autor & 1 \textit{or} 3 & 8 \\
+        \hline
+        ID & \textit{tight++} & \textit{forward\_tight} \\
+        \hline
+        OQ & \multicolumn{2}{|c|}{- good object quality -} \\
+        \hline
+    \end{tabular}
+    \caption[Übersicht über die bei der Energiekalibration verwendeten
+        Selektion-Schnitte auf Daten und Simulation]
+        {Übersicht über die bei der Energiekalibration verwendeten
+        Selektions-Schnitte auf Daten (links) und Simulation (rechts)}
+    \label{tab:calibration_cuts}
+\end{table}
+\end{savenotes}
+
 
 
 %______________________________________________________________________________

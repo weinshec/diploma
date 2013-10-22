@@ -18,7 +18,7 @@
 \usepackage{amssymb}
 
 %\SI-Units (Details: http://mirrors.ctan.org/macros/latex/contrib/SIunits/SIunits.pdf)
-\usepackage[mediumspace,squaren]{SIunits}
+\usepackage[thickspace,squaren]{SIunits}
 
 % Fancy stuff
 \usepackage[Sonny]{fncychap}
@@ -35,6 +35,13 @@
 % Declare development marker
 \usepackage{color}
 \newcommand{\development}{\textcolor{red}{\textbf{--under development--}}}
+
+% Footnote package for footnotes in tables
+\usepackage{footnote}
+
+% Custom definitions
+\newcommand{\del}{\partial}
+\newcommand{\GeV}{\;\giga\electronvolt}
 
 %______________________________________________________________________________
 %                                                           General definitions
@@ -55,6 +62,6 @@
 
 \backmatter
 \bibliography{bib/diploma}
-\bibliographystyle{plain}
+\bibliographystyle{bib/hep}
 
 \end{document}
