@@ -49,7 +49,7 @@
     \item \sout{Annahmen (perfekte zentral-Elektronen)}
     \item \sout{Vereinfachung der Formeln und Extraktion}
     \item 2-stufige Exktraktion
-    \item Selektion und Samples
+    \item \sout{Selektion und Samples}
     \item Fit-Modelle, Effizienzkurve
 \end{itemize}
 
@@ -90,9 +90,9 @@ den Öffnungswinkel zwischen beiden. Für die hier beschriebene Kalibration der
 Vorwärts-Elektronen identifiziert man o.B.d.A. die Energie des Elektrons im
 Zentral-Bereich mit $E_1$ und die Energie des Vorwärts-Elektrons mit $E_2$.
 
-Man definiert nun den Kalibrations-Faktor $\alpha_i$, der die Abweichung zischen
-wahrer und gemessener Energie korrigiert, wobei als beste Schätzung für die
-\textit{wahre Energie} die \acs{MC}-Simulation des betrachteten Prozesses
+Man definiert nun den Kalibrations-Faktor $\alpha_i$, der die Abweichung
+zischen wahrer und gemessener Energie korrigiert, wobei als beste Schätzung für
+die \textit{wahre Energie} die \acs{MC}-Simulation des betrachteten Prozesses
 herangezogen wird:
 \begin{equation}
     \label{definition:energy_scale}
@@ -105,6 +105,7 @@ durch nicht-simuliertes passives Material, welches die Elektronen vor ihrem
 Eintritt in das Kalorimeter passieren, verursacht werden. Die grundsätzlich
 inhomogene Verteilung von Materie vor dem Kalorimeter ist in Abbildung
 \ref{fig:extra_material} dargestellt.
+
 \begin{figure}
     \centering
     \includegraphics[width=0.7\textwidth]{img/extra_material}
@@ -116,8 +117,10 @@ inhomogene Verteilung von Materie vor dem Kalorimeter ist in Abbildung
         tatsächlichen Verteilung. (Quelle: \cite{Aad:2011mk})}
     \label{fig:extra_material}
 \end{figure}
+
 Eine zusätzliche Unterteilung im Azimuthalwinkel $\phi$ wird nicht
 vorgenommen, vielmehr geht man hier von einer isotropen Verteilung aus.
+\newline
 
 Wie bereits im einführenden Abschnitt \ref{energy_calibration:grundlagen}
 erwähnt, werden die Elektronen im Zentral-Bereich als bereits perfekt
@@ -228,11 +231,13 @@ Kali\-brations-Faktoren getroffen wurden, kann eine Prozedur zu deren
 Bestimmung entwickelt werden.
 
 Es müssen die Energieskalen\footnote{Der obere Index $F$ an den
-Kalibrationsfaktoren wird im Folgenden der Einfachheit halber weggelassen}
-$\alpha_i$ und die Verschmierungsterme $c_i$ für jeden Bereich in $\eta$ separat
-gewonnen werden. Angepasst an die typischen Größen der Elektronschauer\footnote
-{vlg hierzu auch Kapitel\ref{experimenteller_aufbau:elektronen_in_atlas}} im
-Kalorimeter hat sich folgene Unterteilung als sinnvoll erwiesen:
+Kalibrations-Faktoren wird hier und im Folgenden der Einfachheit halber
+weggelassen} $\alpha_i$ und die Verschmierungsterme $c_i$ für jeden Bereich in
+$\eta$ separat gewonnen werden. Angepasst an die typischen Größen der
+Elektronschauer\footnote{vlg hierzu auch Kapitel
+\ref{experimenteller_aufbau:elektronen_in_atlas}} im Kalorimeter hat sich
+folgene Unterteilung in der Pseudorapidität als sinnvoll erwiesen:
+
 \begin{table}[h]
     \centering
     \begin{tabular}{|c|c|c|c|c|c|}
@@ -254,20 +259,30 @@ Kalorimeter hat sich folgene Unterteilung als sinnvoll erwiesen:
     \label{tab:calibration_binning}
 \end{table}
 
-Hierbei wurde der Bereich zwischen $3.16 < |\eta| < 3.35$ exkludiert, da sich
+Der Bereich zwischen $3.16 < |\eta| < 3.35$ wurde exkludiert, da sich
 hier der Übergangsbereich zwischen \acs{EMEC} und \acs{FCal} befindet.
 
 Das grundlegende Prinzip zur Extraktion der Kalibrations-Faktoren besteht nun
 darin, für jede Unterteilung des Kalorimeters (Tabelle
 \ref{tab:calibration_binning}) die invarianten Massenspektren in Daten und
 Simulation zu erstellen und mittels einer Kurvenanpassung analytischer
-Funktionen die Werte für Masse und Auflösung aus den Gleichungen
+Funktionen die Parameter Masse und Auflösung für die Gleichungen
 (\ref{eq:extraction_alpha}) und (\ref{eq:constant_terms}) zu bestimmen.
 
+Dem zugrunde liegt der volle Datensatz aus 2012 mit $8\TeV$
+Schwerpunkts-Energie und einer integrierten Gesamtluminosität\footnote{nach
+Anwendung der \ac{GRL}, siehe weiter unten} von $20.3\fb^{-1}$.
+Simulationsseitig wird das inklusiv in der invarianten Masse generierte
+$Z\rightarrow ee$ Signal-Monte-Carlo\footnote{Dataset ID: 147806 (siehe Tabelle
+\ref{tab:MC_samples})} mit etwa 10 Millionen generierten Ereignissen verwendet.
+
 Zur Erstellung der invarianten Massenspektren werden Selektions-Schnitte
-angewandt, die auf Seiten der Daten für eine Untergrund-Unterdrückung sorgen.
-Tabelle \ref{tab:calibration_cuts} zeigt eine Übersicht über die Schnitte
-auf Daten und Simulation.
+angewandt, die auf Seiten der Daten für eine Unterdrückung des Untergrundes
+sorgen. Tabelle \ref{tab:calibration_cuts} zeigt eine Übersicht über die
+verwendeten Schnitte\footnote{Eine detailiertere Beschreibung der Schnitte
+findet sich in Kapitel \ref{daten_simulation_selektion:selektion}} auf Daten
+und Simulation.
+
 \begin{savenotes}
 \begin{table}[h]
     \centering
@@ -275,7 +290,8 @@ auf Daten und Simulation.
         \hline
         \multicolumn{2}{|c|}{\textbf{Event basierte Schnitte}} \\
         \hline\hline
-        \acs{GRL} (nur Daten) & (...)\_EgammaForward.xml\footnote{Verwendete \ac{GRL}:
+        \acs{GRL} (nur Daten) & (...)\_EgammaForward.xml\footnote{Verwendete
+            \ac{GRL}:
             data12\_8TeV.periodAllYear\_DetStatus-v61-pro14-02
             \_DQDefects-00-01-00\_PHYS\_StandardGRL\_All\_Good
             \_EgammaForward.xml} \\
@@ -303,13 +319,62 @@ auf Daten und Simulation.
         OQ & \multicolumn{2}{|c|}{- good object quality -} \\
         \hline
     \end{tabular}
-    \caption[Übersicht über die bei der Energiekalibration verwendeten
-        Selektion-Schnitte auf Daten und Simulation]
-        {Übersicht über die bei der Energiekalibration verwendeten
-        Selektions-Schnitte auf Daten (links) und Simulation (rechts)}
+    \caption{Übersicht über die bei der Energiekalibration verwendeten
+        Selektions-Schnitte auf Daten und Simulation}
     \label{tab:calibration_cuts}
 \end{table}
 \end{savenotes}
+
+Für die Kurvenanpassung wird zur Beschreibung des Signal-Anteils die aus der
+theoretischen Vorhersage bekannte Breit-Wigner-Verteilung für die Z-Resonanz
+benutzt. Um die endliche Auflösung des Detektors und Bremsstrahlungseffekte der
+Elektronen zu berücksichtigen, wird diese Verteilung mit einer Crystal-Ball
+Distribution\footnote{siehe \cite[Appendix F]{Gaiser:1982yw}} gefaltet. Diese
+besteht aus einer Gaußschen Glockenkurve zur Beschreibung der Auflösung und
+geht links des Maximums in einen langsam Abfallenden Polynomischen Anteil über,
+der die Verschiebung zu niederigeren invarianten Massen durch Bremsstrahlung
+repräsentiert (siehe Abbildung \ref{fig:crystal_ball}). Die analytische Form
+beider Verteilungen zeigen die Gleichungen (\ref{eq:breit_wigner}) und
+(\ref{eq:crystal_ball}) 
+\begin{align}
+    f_\text{BW}(x) &= \frac{1}{(x-\mu)^2+\frac{1}{4}\sigma^2}
+    \label{eq:breit_wigner}\\[10pt]
+    f_\text{CB}(x) &=
+        \begin{cases}
+            \frac{(\frac{n}{|\alpha|})^n e^{-\frac{1}{2}\alpha^2}}
+                 {\left( \frac{n}{|\alpha|}-|\alpha|-x \right)^n}
+                & \text{,für}\quad x < -|\alpha| \\
+            \exp\Bigl[-\frac{1}{2}\left( \frac{x-\mu}{\sigma} \right)^2 \Bigr]
+                & \text{,für}\quad x > -|\alpha|
+        \end{cases}
+    \label{eq:crystal_ball}
+\end{align}
+Zur Abschätzung des nach Selektion verbleibenden Untergrundes in den
+invarianten Massenspektren der Daten wird eine exponentiell abfallende
+Verteilung angenommen, auf die die oben beschriebene Faltung des Signal-Modells
+addiert wird:
+\begin{equation}
+    f_\text{fit}(m_{ee}) = f_\text{BW}(m_{ee}) \;\otimes\; f_\text{CB}(m_{ee})
+        \;+\; f_\text{exp}(m_{ee})
+    \label{eq:fit_model_raw}
+\end{equation}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.48\textwidth]{plots/breit_wigner}
+    \hfill
+    \includegraphics[width=0.48\textwidth]{plots/crystal_ball}
+    \caption[Wahrscheinlichkeitsdichte-Verteilungen für eine Breit-Wigner
+        Verteilung und eine Crystal-Ball Verteilung]
+        {Wahrscheinlichkeitsdichte-Verteilungen für eine Breit-Wigner
+        Verteilung (links) und eine Crystal-Ball Verteilung (rechts) mit
+        illustrativ gewählten Parametern}
+    \label{fig:crystal_ball}
+\end{figure}
+
+
+
 
 
 
