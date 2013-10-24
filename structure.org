@@ -58,12 +58,32 @@
         ( Schnitte und Kriterien )
 
 + Energiekalibration
-    + Einführung
-        ( Notwendigkeit, Grundlagen )
-    + Methode
-        ( benutzte Samples, Fit-Modelle, Effizienzkurve )
-    + Ergebnisse
-        ( Fits, Probleme(Startparameter), Ergebnisse, Systematiken )
+    + Grundlagen
+        + Messung der Energie mit Kalorimeter (Verweis auf Detektor Kapitel)
+        + Notwendigkeit der Energiekalibration (Benötigte Präzision für 
+           Vorwärts-Rückwärts-Asymmetrie)
+        + Vorangegangene Schritte ( Calibration-Hits, Test-Beam-Runs, 3-Stufen)
+        + Was im folgenden passiert (Vorwärts-Kalibration, in-situ
+           kalibration, was ist noch zu kalibrieren)
+        + Zusätzliches Material
+    + Beschreibung der Methode
+        + Betrachteter Prozess, CF-Ereignisse
+        + Definition der Korrektur-Faktoren
+        + Annahmen (perfekte zentral-Elektronen)
+        + Vereinfachung der Formeln und Extraktion
+        + 2-stufige Exktraktion
+        + Selektion und Samples
+        + Fit-Modelle
+    + Extraktion der Kalibrations-Konstanten
+        + Beispielhafte Fits
+        + Effizienzkurve
+        + Exktraktion der Energy-Scales
+        + Extraktion der Constant-Terms
+        + Systematiken
+    + Ergebnisse und Ausblick
+        + Zusammenfassung
+        + Diskussion ( Dominiert von Zentral-Skalen, Modell-Probleme )
+        + Verbesserungen ( Neue Zentral-Skalen, Template-Ansatz )
     
 + Vorwärts-Rückwärts-Asymmetrie
     + Kinematische Verteilungen

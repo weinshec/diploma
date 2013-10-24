@@ -48,9 +48,9 @@
     \item \sout{Definition der Korrektur-Faktoren}
     \item \sout{Annahmen (perfekte zentral-Elektronen)}
     \item \sout{Vereinfachung der Formeln und Extraktion}
-    \item 2-stufige Exktraktion
+    \item \sout{2-stufige Exktraktion}
     \item \sout{Selektion und Samples}
-    \item Fit-Modelle, Effizienzkurve
+    \item \sout{Fit-Modelle}
 \end{itemize}
 
 Für die Kalibration der Vorwärts-Elektronen betrachtet man den elektroschwachen
@@ -269,15 +269,8 @@ Simulation zu erstellen und mittels einer Kurvenanpassung analytischer
 Funktionen die Parameter Masse und Auflösung für die Gleichungen
 (\ref{eq:extraction_alpha}) und (\ref{eq:constant_terms}) zu bestimmen.
 
-Dem zugrunde liegt der volle Datensatz aus 2012 mit $8\TeV$
-Schwerpunkts-Energie und einer integrierten Gesamtluminosität\footnote{nach
-Anwendung der \ac{GRL}, siehe weiter unten} von $20.3\fb^{-1}$.
-Simulationsseitig wird das inklusiv in der invarianten Masse generierte
-$Z\rightarrow ee$ Signal-Monte-Carlo\footnote{Dataset ID: 147806 (siehe Tabelle
-\ref{tab:MC_samples})} mit etwa 10 Millionen generierten Ereignissen verwendet.
-
 Zur Erstellung der invarianten Massenspektren werden Selektions-Schnitte
-angewandt, die auf Seiten der Daten für eine Unterdrückung des Untergrundes
+angewendet, die auf Seiten der Daten für eine Unterdrückung des Untergrundes
 sorgen. Tabelle \ref{tab:calibration_cuts} zeigt eine Übersicht über die
 verwendeten Schnitte\footnote{Eine detailiertere Beschreibung der Schnitte
 findet sich in Kapitel \ref{daten_simulation_selektion:selektion}} auf Daten
@@ -326,15 +319,16 @@ und Simulation.
 \end{savenotes}
 
 Für die Kurvenanpassung wird zur Beschreibung des Signal-Anteils die aus der
-theoretischen Vorhersage bekannte Breit-Wigner-Verteilung für die Z-Resonanz
-benutzt. Um die endliche Auflösung des Detektors und Bremsstrahlungseffekte der
-Elektronen zu berücksichtigen, wird diese Verteilung mit einer Crystal-Ball
-Distribution\footnote{siehe \cite[Appendix F]{Gaiser:1982yw}} gefaltet. Diese
-besteht aus einer Gaußschen Glockenkurve zur Beschreibung der Auflösung und
-geht links des Maximums in einen langsam Abfallenden Polynomischen Anteil über,
-der die Verschiebung zu niederigeren invarianten Massen durch Bremsstrahlung
-repräsentiert (siehe Abbildung \ref{fig:crystal_ball}). Die analytische Form
-beider Verteilungen zeigen die Gleichungen (\ref{eq:breit_wigner}) und
+theoretischen Vorhersage bekannte Breit-Wigner-Verteilung\footnote{siehe
+\cite{PhysRev.49.519}} für die Z-Resonanz benutzt. Um die endliche Auflösung
+des Detektors sowie Bremsstrahlungseffekte der Elektronen zu berücksichtigen,
+wird diese Verteilung mit einer Crystal-Ball Distribution\footnote{siehe
+\cite[Appendix F]{Gaiser:1982yw}} gefaltet. Diese besteht aus einer Gaußschen
+Glockenkurve zur Beschreibung der Auflösung und geht links des Maximums in
+einen langsam Abfallenden Polynomischen Anteil über, der die Verschiebung zu
+niederigeren invarianten Massen durch Bremsstrahlung repräsentiert (siehe
+Abbildung \ref{fig:crystal_ball}, rechts). Die analytische Form beider
+Verteilungen zeigen die Gleichungen (\ref{eq:breit_wigner}) und
 (\ref{eq:crystal_ball}) 
 \begin{align}
     f_\text{BW}(x) &= \frac{1}{(x-\mu)^2+\frac{1}{4}\sigma^2}
@@ -349,16 +343,6 @@ beider Verteilungen zeigen die Gleichungen (\ref{eq:breit_wigner}) und
         \end{cases}
     \label{eq:crystal_ball}
 \end{align}
-Zur Abschätzung des nach Selektion verbleibenden Untergrundes in den
-invarianten Massenspektren der Daten wird eine exponentiell abfallende
-Verteilung angenommen, auf die die oben beschriebene Faltung des Signal-Modells
-addiert wird:
-\begin{equation}
-    f_\text{fit}(m_{ee}) = f_\text{BW}(m_{ee}) \;\otimes\; f_\text{CB}(m_{ee})
-        \;+\; f_\text{exp}(m_{ee})
-    \label{eq:fit_model_raw}
-\end{equation}
-
 
 \begin{figure}
     \centering
@@ -373,8 +357,85 @@ addiert wird:
     \label{fig:crystal_ball}
 \end{figure}
 
+Die Faltung beider Verteilungen dient zur Beschreibung des Signals und wird in
+den Spektren der Simulation zur Kurvenanpassung verwendet.
+\begin{equation}
+    f_\text{sig}(m_{ee}) = f_\text{BW}(m_{ee}) \;\otimes\; f_\text{CB}(m_{ee})
+    \label{eq:fit_model}
+\end{equation}
+Zur Anpassung an die Datenverteilungen muss die obige Gleichung
+(\ref{eq:fit_model}) noch um einen weiteren Term erweitert werden, um den nach
+Selektion noch verbleibenden Untergrund abzuschätzen. Hierfür wird eine
+exponentiel abfallende Verteilung benutzt:
+\begin{equation}
+    f_\text{sig+bkg}(m_{ee}) = f_\text{BW}(m_{ee})
+        \;\otimes\; f_\text{CB}(m_{ee})
+        \;+\; f_\text{exp}(m_{ee})
+    \label{eq:fit_model_bkg}
+\end{equation}
 
+Die für die Extraktion den Kalibration-Faktoren relevanten Parameter des
+Modells sind der Erwartungswert der Breit-Wigner-Verteilung $\mu_\text{BW}$,
+der die Position der Resonanz beschreibt und somit die Energieskala
+determiniert, sowie die Breite der Crystal-Ball-Verteilung $\sigma_\text{CB}$,
+welche die Detektorauflösung repräsentiert. Die jeweils korrespondierenden
+Parameter, also der Erwartungswert Crystal-Ball-Verteilung $\mu_\text{CB}$ und
+die Breite der Breit-Wigner-Verteilung $\sigma_\text{BW}$, werden während der
+Kurvenanpassung konstant gehalten, um Interferenzen mit den relevanten
+Parametern zu umgehen. Die Wahl der festen Parameter ist in Tabelle
+\ref{tab:fit_parameters} zu finden, wobei der Wert für $\sigma_{BW}$ auf die
+Breite des Z-Resonanz gesetzt wurde (siehe \cite{PhysRevD.86.010001})
 
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|l|c|c|}
+        \hline
+        \textbf{Verteilung} & \textbf{Parameter} & \textbf{Wert} \\
+        \hline \hline
+        \multirow{2}{*}{Breit-Wigner} & $\mu_\text{BW}$      & frei       \\
+                                      & $\sigma_\text{BW}$   & $2.49\GeV$ \\
+        \hline
+        \multirow{4}{*}{Crystal-Ball} & $\mu_\text{CB}$      & $0.00\GeV$ \\
+                                      & $\sigma_\text{CB}$   & frei       \\
+                                      & $\alpha_\text{CB}$   & frei       \\
+                                      & $n_\text{CB}$        & frei       \\
+        \hline
+        Exponential (nur in Daten)    & $\lambda_\text{exp}$ & frei       \\
+        \hline
+    \end{tabular}
+    \caption{Übersicht der Parameter für Kurvenanpassungen in invarianten
+        Massenspektren zur Energiekalibration}
+    \label{tab:fit_parameters}
+\end{table}
+
+Die tatsächliche Prozedur zur Extraktion der Kalibrations-Faktoren ist
+mehrstufig aufgebaut und lässt sich iterativ beschreiben:
+\begin{description}
+    \item[Vorbereitung I:]
+        Selektion der Daten und Simulations-Ereignisse mit Anwendung der
+        Kalibration-Faktoren für Zentral-Elektronen.
+    \item[Extraktion I:]
+        Erstellung der invarianten Massenspektren und Durchführung der
+        Kurvenanpassung. Extraktion der Kalibration-Faktoren $\alpha_i$ der
+        Energieskala aus den Parametern $\mu_\text{BW}$ der Kurvenanpassung
+        mittels Gleichung (\ref{eq:extraction_alpha}).
+    \item[Vorbereitung II:]
+        Selektion der Daten und Simulations-Ereignisse mit Anwendung der
+        Kalibration-Faktoren für Zentral-Elektronen und der neu gewonnen
+        Energieskalen $\alpha_i$ für Vorwärts-Elektronen in Daten.
+    \item[Extraktion II:]
+        Erstellung der invarianten Massenspektren und Durchführung der
+        Kurvenanpassung. Extraktion der Kalibration-Faktoren $c_i$ der
+        Auflösung aus den Parametern $\mu_\text{BW}$ und $\sigma_{CB}$ der
+        Kurvenanpassung mittels Gleichung (\ref{eq:constant_terms}).
+\end{description}
+Die Kalibration-Faktoren $\alpha_i$ und $c_i$ können mit dem hier gewählten
+Ansatz der Extraktion\footnote{Andere Möglichkeiten zur Extraktion der
+Kalibrationskonstanten werden im abschließenden Abschnitt
+\ref{energy_calibration:ergebnisse_und_ausblick} diskutiert} aus den Parametern
+von Kurvenanpassungen nicht simultan in einem Schritt extrahiert werden, da
+Gleichung (\ref{eq:constant_terms}) unmittelbar von der Energieskala abhängt
+und somit die oben beschriebene Mehrstufigkeit indiziert.
 
 
 
@@ -383,12 +444,57 @@ addiert wird:
 %
 \section{Extraktion der Kalibrations-Konstanten}
 \label{energy_calibration:extraktion_der_kalibrations-konstanten}
+
 \begin{itemize}
     \item Beispielhafte Fits
+    \item Effizienzkurve
     \item Exktraktion der Energy-Scales
     \item Extraktion der Constant-Terms
     \item Systematiken
 \end{itemize}
+
+Der Kalibration zugrunde liegen der volle Datensatz aus 2012 mit $8\TeV$
+Schwer\-punktsenergie und einer integrierten Gesamtluminosität\footnote{nach
+Anwendung der \ac{GRL}} von $20.3\fb^{-1}$, sowie simulationsseitig das
+inklusiv in der invarianten Masse generierte $Z\rightarrow ee$
+Signal-Monte-Carlo\footnote{Dataset ID: 147806 (siehe Tabelle
+\ref{tab:MC_samples})} mit etwa 10 Millionen generierten Ereignissen. Nach
+Anwendung der Selektions-Kriterien (Tabelle \ref{tab:calibration_cuts})
+verbleiben noch 4577323 Ereignisse ($\approx 12\%$) in Daten und 949095
+Ereignisse ($\approx 1\%$) in der Simulation. Tabelle
+\ref{tab:remaining_electrons} zeigt eine detailiertere Darstellung über Anzahl
+der Elektronkandidaten nach jedem Schnitt.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|l|r|r|}
+        \hline
+        & \multicolumn{2}{|c|}{Elektronkandidaten} \\
+        \textbf{Schnitt} & \textbf{Daten} & \textbf{Simulation} \\
+        \hline\hline
+        \ac{GRL}           & 3954702112 & (75195428) \\
+        Detektor Status    & 3945153030 & (75195428) \\
+        Trigger            & 1402546381 & 48781893 \\
+        primärer Vertex    & 1400899527 & 48503958 \\
+        Pseudorapidität    & 1328016208 & 46608879 \\
+        Transversal-Impuls &  498956943 & 19742239 \\
+        Autor              &  378463236 & 18690503 \\
+        ID                 &   76603185 &  9441601 \\
+        OQ                 &   75178238 &  9263740 \\
+        \hline
+    \end{tabular}
+    \caption[Anzahl der Elektronkandidaten in Simulation und Daten nach
+        Selektionschnitten]
+        {Anzahl der Elektronkandidaten in Simulation und Daten nach
+        Selektionschnitten. Die Auflistung ist inklusiv, d.h. untere Schnitte
+        enthalten implizit alle vorangegangenen Schnitte. \textit{\ac{GRL}} und
+    \textit{Detektor Status} sind für Simulationsergeignisse irrelevant.}
+    \label{tab:remaining_electrons}
+\end{table}
+
+Zusätzlich zu den Selektionsschnitten werden auf die verbleibenden Elektronen
+(-Paare) folgende Skalenfaktoren angewendet:
+
 
 
 

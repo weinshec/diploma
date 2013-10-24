@@ -23,6 +23,7 @@ ENTRY
     author
     booktitle
     chapter
+    cite
     collaboration
     edition
     editor
@@ -221,8 +222,8 @@ FUNCTION {format.collaboration}
 { collaboration empty$
     { "" }
     { collaboration num.names$ #1 >
-        {" (" collaboration * " Collaborations)" * }
-        {" (" collaboration * " Collaboration)" * }
+        {" (" collaboration * "" * }
+        {" (" collaboration * "" * }
     if$
     }
   if$
@@ -1150,7 +1151,7 @@ FUNCTION {author.key.label}
     }
     { collaboration empty$
         {author format.lab.names }
-        {collaboration format.lab.names }
+        {author format.lab.names }
       if$
     }
   if$
@@ -1202,27 +1203,37 @@ FUNCTION {editor.key.organization.label}
 }
 
 FUNCTION {calc.label}
-{ type$ "book" =
-  type$ "inbook" =
-  or
-    'author.editor.key.label
-    { type$ "proceedings" =
-        'editor.key.organization.label
-        { type$ "manual" =
-            'author.key.organization.label
-            'author.key.label
+{ cite empty$
+    {
+      type$ "book" =
+      type$ "inbook" =
+      or
+        'author.editor.key.label
+        { type$ "proceedings" =
+            'editor.key.organization.label
+            { type$ "manual" =
+                'author.key.organization.label
+                'author.key.label
+              if$
+            }
           if$
         }
       if$
+      duplicate$
+      year field.or.null purify$ #-1 #2 substring$
+      *
+      'label :=
+      year field.or.null purify$ #-1 #4 substring$
+      *
+      sortify 'sort.label :=
+    }
+    {
+      cite
+      'label :=
+      cite
+      sortify 'sort.label :=
     }
   if$
-  duplicate$
-  year field.or.null purify$ #-1 #2 substring$
-  *
-  'label :=
-  year field.or.null purify$ #-1 #4 substring$
-  *
-  sortify 'sort.label :=
 }
 
 FUNCTION {sort.format.names}
