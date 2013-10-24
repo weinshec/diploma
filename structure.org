@@ -1,0 +1,87 @@
+### Kaptielübersicht:
+
++ Abstract
+
++ Einführung / Motivation
+    ( Standardmodell, Parameter, Suchen, neue Beiträge )
+
++ Theoretischer Hintergrund
+    + Standardmodell
+        + Einführung
+            ( Leptonen, Quarks, Wechselwirkungen, Eichinvarianz )
+        + Starke Wechselwirkung
+            ( Farbladung, Confinement )
+        + Elektro-Schwache Wechselwirkung
+            ( GSW-Theorie, Mischungswinkel )
+        + Spontane Symmetriebrechung
+            ( Higgs-Mechanismus )
+    + Vorwärts-Rückwärts-Asymmetrie
+        + Theoretische Beschreibung
+            ( Vorhersagen aus Standard-Modell )
+        + Messung mit Hadron-Collidern
+            ( PDFs, Colins-Soper-Frame )
+        + Extraktion des schwachen Mischungswinkels
+            ( Prinzip d. Template-Fits )
+
++ Experimenteller Aufbau
+    + CERN & LHC
+        ( allgemeines Beschreibung )
+    + ATLAS-Detektor 
+        + Allgemeiner Aufbau
+            ( grober Überblick, Koordinatensystem, Dimensionen, Magnete )
+        + Spursystem
+            ( Pixel, SCT, TRT )
+        + Elektromagnetisches Kalorimeter
+            ( Aufbau, Funktion, Auflösung )
+        + Hadronisches Kalorimeter
+            ( kurze Beschreibung, evntl. in 'Allgemeiner Aufbau' )
+        + Myonen-Detektoren
+            ( kurze Beschreibung, evntl. in 'Allgemeiner Aufbau' )
+        + Trigger-System & DAQ
+            ( L1-, L2- & HL-Trigger, Datenverarbeitungen )
+    + Elektronen in Atlas (--think about--)
+        + Einführung
+            ( relevante Komponenten, Rekonstruktionsalgorithmen, Ladungsidentifikation, ... )
+        + Definition
+            ( Loose/Medium/Tight, MVA Schnitte )
+
++ Daten, Simulation & Selektion
+    + Datensatz
+    + Simulation
+        + Prinzip
+            ( Eventgeneration, Detektorsimulation )
+        + Benutzte Samples
+            ( Übersicht mit Generatoren und Eigenschaften )
+        + Korrekturen
+            ( benutzte Skalenfaktoren )
+    + Selektion
+        ( Schnitte und Kriterien )
+
++ Energiekalibration
+    + Einführung
+        ( Notwendigkeit, Grundlagen )
+    + Methode
+        ( benutzte Samples, Fit-Modelle, Effizienzkurve )
+    + Ergebnisse
+        ( Fits, Probleme(Startparameter), Ergebnisse, Systematiken )
+    
++ Vorwärts-Rückwärts-Asymmetrie
+    + Kinematische Verteilungen
+        ( Masse, pT, Daten-MC Vergleich )
+    + Untergrundabschätzung
+        ( Simulierte Samples, Reverse-ID-Methode )
+    + Rohe-AFB-Verteilungen
+        ( Untergrund reduzierte Verteilungen )
+    + Entfaltete Verteilungen (--think about--)
+        ( Prinzip der Bayesischen Entfaltung, AFB Verteilungen )
+
++ Schwacher Mischungswinkel
+    + Grundlagen der Extraktion
+        ( Template Erzeugung, Faltung mit Detektoreffekten )
+    + Extraktion
+        ( Template Fits, Resultate, Systematiken )
+
++ Zusammenfassung / Ausblick
+
++ Anhang
+
