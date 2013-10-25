@@ -400,7 +400,7 @@ Breite des Z-Resonanz gesetzt wurde (siehe \cite{PhysRevD.86.010001})
                                       & $\alpha_\text{CB}$   & frei       \\
                                       & $n_\text{CB}$        & frei       \\
         \hline
-        Exponential (nur in Daten)    & $\lambda_\text{exp}$ & frei       \\
+        Exponential (nur in Daten)    & $\alpha_\text{exp}$  & frei       \\
         \hline
     \end{tabular}
     \caption{Übersicht der Parameter für Kurvenanpassungen in invarianten
@@ -492,14 +492,131 @@ der Elektronkandidaten nach jedem Schnitt.
     \label{tab:remaining_electrons}
 \end{table}
 
-Zusätzlich zu den Selektionsschnitten werden auf die verbleibenden Elektronen
-(-Paare) folgende Skalenfaktoren angewendet:
+Die invarianten Massenspektren werden nun aus den Ereignissen generiert, die
+alle Schnitte passieren konnten, wobei Ereignisse der Monte-Carlo-Simulation
+stets mit einem individuellen Gewicht in die Histogramme eingehen. Die
+Zusammensetzung der Gewichte 
+\begin{equation}
+    w_\text{event} = w_\text{pile-up} \cdot w_\text{vertex-pos} \cdot
+                     w_\text{ID} \cdot w_\text{reco} \cdot w_\text{trigger}
+    \label{eq:calibration_weights}
+\end{equation}
+beinhaltet Korrekturen für ungleiche Pile-Up Bedingungen, die Position des
+Primärvertex, sowie unterschiedliche Effizienzen bei der Rekonstruktion,
+Identifikation und Triggersimulation der Elektronen\footnote{mehr zu Grundlagen
+und Anwendung der verwendeten Gewichte in Kapitel
+\ref{daten_simulation_selektion:korrekturen}}.
+
+Abbildung \ref{fig:example_mee_p26} zeigt beispielhaft zwei resultierende
+Massenspektren aus Daten und Simulation.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.48\textwidth]{plots/example_mee_data_p26}
+    \hfill
+    \includegraphics[width=0.48\textwidth]{plots/example_mee_mc_p26}
+    \caption[Beispielhafte invariante Massenspektren nach Selektion aus Daten
+        und Simulation für den Bereich $2.6 < \eta < 2.7$ der Pseudorapidität]
+        {Beispielhafte invariante Massenspektren nach Selektion aus Daten
+        (links) und Simulation (rechts) für den Bereich $2.6 < \eta < 2.7$ der
+            Pseudorapidität.(Nur statistische Unsicherheiten)}
+    \label{fig:example_mee_p26}
+\end{figure}
+
+Für die Kurvenanpassung wird das von W. Verkerke, D. Kirkby entwickelte
+\textit{\textsc{RooFit} Paket für Datenmodellierung} (\cite{Verkerke:2003ir})
+verwendet, dass bereits als \textsc{C++}-Bibliothek in \textsc{ROOT} zur
+Verfügung steht und native Implementationen aller benötigten Verteilungen aus
+(\ref{eq:fit_model}) bzw. (\ref{eq:fit_model_bkg}) bereit stellt.
+
+Die simple Durchführung der Kurvenanpassung mit den oben beschriebenen Modellen
+wirft allerdings zunächst zwei Probleme auf.
+
+Zum einen hängen die Werte der resultierenden Parameter stark davon ab, welcher
+Satz von Startparametern an die Minimierungsprozedur übergeben wird, da diese
+häufig vor erreichen des globalen Minimums in lokale Minima konvergiert. Zur
+Umgehung dieses Problems wird deshalb jede Kurvenanpassung 1000 mal
+durchgeführt, wobei jedesmal ein anderer, zufällig innerhalb bestimmter Grenzen
+generierter Satz von Parametern als Startwerte vorgegeben wird. Aus den dadurch
+erzeugten 1000 Sätzen von resultierenden Parametern wird dann derjenige
+ausgewählt, der die beste Beschreibung der Datenpunkte, quantifiziert über
+einen $\chi^2$-Test, durch die analytischen Funktionen liefert.
+
+Zum anderen führt die Wahl der Schnitte auf die Transversal-Impulse in
+Kombination mit einem durch die \ac{CF}-Selektion determinierten Öffnungswinkel
+der Elektronen zu einer Verzerrung der Form der Z-Resonanz, insbesondere für
+hohe Pseudorapiditäten des Vorwärts-Elektrons. Dies hat zur Folge, dass der
+Bereich des invarianten Massenspektrums links der Resonanz deutlich weniger
+populiert ist, als es die analytischen Modelle (\ref{eq:fit_model}) und
+(\ref{eq:fit_model_bkg}) zu beschreiben in der Lage sind. Abbildung
+\ref{fig:example_fits} zeigt die Kurvenanpassung von Gleichung
+(\ref{eq:fit_model_bkg}) an die Daten und Simulation in für einen nah an der
+Strahlachse liegenden Bereich des Kalorimeters.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.48\textwidth]{plots/bad_fit_data_p40}
+    \hfill
+    \includegraphics[width=0.48\textwidth]{plots/bad_fit_mc_p40}
+    \caption[Kurvenanpassung ohne Berücksichtigung der Verzerrung der
+        Z-Resonanz durch die kinematischen Schnitte]
+        {Kurvenanpassung ohne Berücksichtigung der Verzerrung der Z-Resonanz
+        durch die kinematischen Schnitte für den mittleren \acs{FCal}-Bereich
+        in Daten (links) und Simulation (rechts)}
+    \label{fig:example_fits}
+\end{figure}
+
+Die Lösung dieses Problems liegt in der Erweiterung der Modelle um eine weitere
+Funktion, welche die oben beschriebene Verzerrung des Spektrums abbildet. Eine
+Betrachtung der invarianten Massenverteilung der Elektronen auf Generator-Level
+gibt Aufschluss über die Auswirkung der kinematischen Schnitte ohne die
+Beeinflussung durch Detektoreffekte zu implizieren. Abbildung
+\ref{fig:efficiency_p40} zeigt für den selben Bereich des Kalorimeters das
+Verhältnis des invarianten Massenspektrum auf Generator-Niveau mit und ohne
+kinematische Schnitte. Die Indizes $p_T,\eta$ am Dividenden symbolisiert die
+Anwendung der Schnitte auf Transversal-Impuls und Pseudorapidität.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.6\textwidth]{plots/efficiency_p40}
+    \caption[Quotient der invarianten Massenspektren mit und ohne kinematische
+        Schnitte auf Generator-Level]
+        {Quotient der invarianten Massenspektren mit und ohne kinematische
+        Schnitte auf Generator-Level (schwarz). Kurvenanpassung einer linearen
+        Funktion (blau).}
+    \label{fig:efficiency_p40}
+\end{figure}
+
+Wie sich zeigt weist dieser Quotient, im Folgenden mit \textit{kinematischer
+Akzeptanz} bezeichnet, einem linearen Verlauf, was die Modellierung durch
+folgende Funktion nahe legt:
+\begin{equation}
+    f_\text{acc}(m_{ee}) = s \cdot (m_{ee}-c)
+    \label{eq:acceptance}
+\end{equation}
+Alle anderen Bereiche der Vorwärts-Kalorimeter zeigen einen ähnlichen linearen
+Verlauf der Akzeptanz, sodass eine globale Erweiterung der analytischen Modelle
+angestrebt werden kann:
+\begin{equation}
+    f_\text{sig(+bkg)}(m_{ee}) \longrightarrow f_\text{sig(+bkg)}(m_{ee})
+    \cdot f_\text{acc}(m_{ee})
+    \label{eq:fit_model_extended}
+\end{equation}
+Die Parameter $s$ und $c$ der Akzeptanz-Funktion werden dabei, wie bereits in
+Abbildung \ref{fig:efficiency_p40} gezeigt, auf Generator-Level für jeden
+Bereich des Kalorimeters separat bestimmt und während der eigentlichen
+Kurvenanpassung von (\ref{eq:fit_model_extended}) zur Extraktion der
+Kalibrations-Faktoren konstant gehalten, um keine zusätzlichen freien Parameter
+in die Modelle einzuführen. Tabelle \ref{tab:acceptance_slope} und
+\ref{tab:acceptance_const} zeigen eine Auflistung beider Akzeptanzparameter für
+alle Bereiche.
+
 
 
 
 
 %______________________________________________________________________________
-%                                                       Ergebnisse und Ausblick
+%                                                       Ergebnisse und Ausblick 
 %
 \section{Ergebnisse und Ausblick}
 \label{energy_calibration:ergebnisse_und_ausblick}
