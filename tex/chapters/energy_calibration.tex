@@ -446,10 +446,11 @@ und somit die oben beschriebene Mehrstufigkeit indiziert.
 \label{energy_calibration:extraktion_der_kalibrations-konstanten}
 
 \begin{itemize}
-    \item Beispielhafte Fits
-    \item Effizienzkurve
-    \item Exktraktion der Energy-Scales
-    \item Extraktion der Constant-Terms
+    \item \sout{Beispielhafte Fits}
+    \item \sout{Effizienzkurve}
+    \item \sout{Exktraktion der Energy-Scales}
+    \item \sout{Extraktion der Constant-Terms}
+    \item Closure-Tests
     \item Systematiken
 \end{itemize}
 
@@ -529,6 +530,10 @@ verwendet, dass bereits als \textsc{C++}-Bibliothek in \textsc{ROOT} zur
 Verfügung steht und native Implementationen aller benötigten Verteilungen aus
 (\ref{eq:fit_model}) bzw. (\ref{eq:fit_model_bkg}) bereit stellt.
 
+
+
+\subsection{Erweiterung der Modelle und Extraktions-Prozedur}
+\label{energy_calibration:erweiterung_der_modelle_und_prozedur}
 Die simple Durchführung der Kurvenanpassung mit den oben beschriebenen Modellen
 wirft allerdings zunächst zwei Probleme auf.
 
@@ -606,9 +611,86 @@ Die Parameter $s$ und $c$ der Akzeptanz-Funktion werden dabei, wie bereits in
 Abbildung \ref{fig:efficiency_p40} gezeigt, auf Generator-Level für jeden
 Bereich des Kalorimeters separat bestimmt und während der eigentlichen
 Kurvenanpassung von (\ref{eq:fit_model_extended}) zur Extraktion der
-Kalibrations-Faktoren konstant gehalten, um keine zusätzlichen freien Parameter
-in die Modelle einzuführen. Tabelle \ref{tab:acceptance_parameters} im Anhang
-zeigt eine Auflistung beider Akzeptanzparameter für alle Bereiche.
+Kalibrations-Faktoren konstant gehalten, sodass durch die Erweiterung keine
+zusätzlichen freien Parameter in die Modelle eingeführt werden. Tabelle
+\ref{tab:acceptance_parameters} im Anhang zeigt eine Auflistung beider
+Akzeptanzparameter für alle Bereiche.
+
+Unter Berücksichtigung der kinematischen Akzeptanz verbessert sich die
+Beschreibung der Datenpunkte durch die analytischen Modelle nach
+Kurvenanpassung deutlich. Abbildung \ref{fig:good_example_fit} zeigt die
+Kurvenanpassung im selben Bereich des Kalorimeters unter Einbeziehung der
+kinematischen Akzeptanz Funktion in das Modell.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.48\textwidth]{plots/fit_data_p40}
+    \hfill
+    \includegraphics[width=0.5\textwidth]{plots/fit_mc_p40}
+    \caption[Kurvenanpassung mit Berücksichtigung der kinematischen Akzeptanz]
+        {Kurvenanpassung mit Berücksichtigung der kinematischen Akzeptanz für
+        den mittleren \acs{FCal}-Bereich in Daten (links) und Simulation
+        (rechts).}
+    \label{fig:good_example_fit}
+\end{figure}
+
+
+
+\subsection{Extraktion der Kalibrations-Faktoren}
+\label{energy_calibration:extraction_energy_scales}
+Die Extraktion der Kalibrations-Faktoren der Energieskala basiert, wie in
+Abschnitt \ref{energy_calibration:beschreibung_der_methode:extraktionsmethode}
+beschrieben, auf den selektierten Ereignissen mit kalibrierten
+Zentral-Elektronen (\textit{Vorbereitung I}) und der eigentlichen Bestimmung
+der Faktoren $\alpha_i$ aus den darauf folgenden Kurvenanpassungen
+(\textit{Extraktion I}) der invarianten Massenspektren. In Abbildung
+\ref{fig:alpha_stat} sind die resultierenden Werte der Kalibrationfaktoren
+$\alpha_i$ dargestellt. Die angegebenen Unsicherheiten sind hier rein
+statistischer Natur und resultieren aus der \textit{Schätzung} der Parameter
+durch die Kurvenanpassung\footnote{Studien zu systematischen Variationen folgen
+in Abschnitt \ref{energy_calibration:systematics}}.
+
+\begin{figure}[h]
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=1.\textwidth]{plots/alpha_stat}
+        \captionsetup{format=plain}
+        \caption{Kalibrations-Faktoren der Energieskala für die verschiedenen
+            Bereiche des Kalorimeters (nur statistische Unsicherheiten)}
+        \label{fig:alpha_stat}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=1.\textwidth]{plots/cdata_stat}
+        \captionsetup{format=plain}
+        \caption{Kalibrations-Faktoren der Auflösung für die verschiedenen
+            Bereiche des Kalorimeters (nur statistische Unsicherheiten)}
+        \label{fig:cdata_stat}
+    \end{minipage}
+\end{figure}
+
+Man erkennt, dass die Korrekturen im Bereich weniger Prozent liegen und
+zumindest eine schwache Symmetrie in der Struktur der Verteilung im negativen
+und positiven Pseudorapiditäts-Bereich aufweisen.
+
+Diese Faktoren werden nun verwendet, um in der zweiten Iteration die
+Energieskala der Vorwärts-Elektronen in den Daten zu korrigieren
+(\textit{Vorbereitung II}) und anschließend die Extraktion der
+Kalibrations-Faktoren der Auflösung (\textit{Extraktion II}) vorzunehmen.
+Die resultierenden Werte für diese Faktoren $c_i$ sind in Abbildung
+\ref{fig:cdata_stat} zu sehen und ebenfalls mit statistischen Unsicherheiten
+aufgetragen.
+
+Auch hier liegen die Korrekturen im Porzent-Bereich und zeigen in ihrer
+Struktur eine gewisse Symmetrie. Jedoch stellt man zudem fest, dass einige der
+Faktoren  negativ sind, was im 
+
+
+
+\subsection{Systematische Unsicherheiten}
+\label{energy_calibration:systematics}
+
 
 
 
