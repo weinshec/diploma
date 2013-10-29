@@ -77,7 +77,7 @@ und die Kalibration-Konstanten für Vorwärts-Elektronen definiert.
 
 
 \subsection{Definitionen und Annahmen}
-\label{energy_calibration:beschreibung_der_methode:definitionen_und_annahmen}
+\label{energy_calibration:definitionen_und_annahmen}
 
 Die invariante Masse zweier relativistischer Teilchen, deren Ruhemassen
 gegenüber ihren Energien vernachlässigt werden können, ergibt sich aus
@@ -225,7 +225,7 @@ Extraktion der Verschmierungsterme
 
 
 \subsection{Extraktionsmethode}
-\label{energy_calibration:beschreibung_der_methode:extraktionsmethode}
+\label{energy_calibration:extraktionsmethode}
 Nachdem nun die notwendigen Definitionen und Annahmen zur Exktraktion der
 Kali\-brations-Faktoren getroffen wurden, kann eine Prozedur zu deren
 Bestimmung entwickelt werden.
@@ -450,7 +450,7 @@ und somit die oben beschriebene Mehrstufigkeit indiziert.
     \item \sout{Effizienzkurve}
     \item \sout{Exktraktion der Energy-Scales}
     \item \sout{Extraktion der Constant-Terms}
-    \item Closure-Tests
+    \item \sout{Closure-Tests}
     \item Systematiken
 \end{itemize}
 
@@ -493,10 +493,11 @@ der Elektronkandidaten nach jedem Schnitt.
     \label{tab:remaining_electrons}
 \end{table}
 
-Die invarianten Massenspektren werden nun aus den Ereignissen generiert, die
-alle Schnitte passieren konnten, wobei Ereignisse der Monte-Carlo-Simulation
-stets mit einem individuellen Gewicht in die Histogramme eingehen. Die
-Zusammensetzung der Gewichte 
+Die invarianten Massenspektren werden nun aus den Ereignissen erstellt, die
+alle Schnitte passieren konnten, und werden standardmäßig in einem Fenster
+zwischen $75 \GeV$ und $105 \GeV$ betrachtet. In simulierte Spektren gehen die
+Monte-Carlo-Ereignisse dabei stets mit einem individuellen Gewicht in die
+Histogramme ein. Die Zusammensetzung der Gewichte 
 \begin{equation}
     w_\text{event} = w_\text{pile-up} \cdot w_\text{vertex-pos} \cdot
                      w_\text{ID} \cdot w_\text{reco} \cdot w_\text{trigger}
@@ -639,7 +640,7 @@ kinematischen Akzeptanz Funktion in das Modell.
 \subsection{Extraktion der Kalibrations-Faktoren}
 \label{energy_calibration:extraction_energy_scales}
 Die Extraktion der Kalibrations-Faktoren der Energieskala basiert, wie in
-Abschnitt \ref{energy_calibration:beschreibung_der_methode:extraktionsmethode}
+Abschnitt \ref{energy_calibration:extraktionsmethode}
 beschrieben, auf den selektierten Ereignissen mit kalibrierten
 Zentral-Elektronen (\textit{Vorbereitung I}) und der eigentlichen Bestimmung
 der Faktoren $\alpha_i$ aus den darauf folgenden Kurvenanpassungen
@@ -678,19 +679,131 @@ Diese Faktoren werden nun verwendet, um in der zweiten Iteration die
 Energieskala der Vorwärts-Elektronen in den Daten zu korrigieren
 (\textit{Vorbereitung II}) und anschließend die Extraktion der
 Kalibrations-Faktoren der Auflösung (\textit{Extraktion II}) vorzunehmen.
+Dabei beobachtet man in einigen Bereichen des Kalorimeters, dass der Radikand
+in Gleichung (\ref{eq:constant_terms}) negative Werte annimmt, sodass die
+Wurzel auf den reellen Zahlen nicht mehr definiert ist. Dieser Fall tritt immer
+dann auf, wenn die Auflösung in den Daten besser ist, als die Simulation dies
+beschreibt.
+\begin{equation}
+    \sigma_\text{(data)} < \sigma_\text{(MC)}
+    \label{eq:resolution}
+\end{equation}
+
 Die resultierenden Werte für diese Faktoren $c_i$ sind in Abbildung
 \ref{fig:cdata_stat} zu sehen und ebenfalls mit statistischen Unsicherheiten
-aufgetragen.
+aufgetragen. Für den oben beschriebenen Fall (\ref{eq:resolution}) wurde hier
+das Vorzeichen des Radikanden vor die Wurzel gezogen (negative $c_i$), um ein
+Maß für den Unterschied der Auflösung in Daten und Simulation zu gewinnen. Auch
+für die Kalibrations-Faktoren der Auflösung liegen die Korrekturen im
+Prozent-Bereich und zeigen in ihrer Struktur eine gewisse Symmetrie.
 
-Auch hier liegen die Korrekturen im Porzent-Bereich und zeigen in ihrer
-Struktur eine gewisse Symmetrie. Jedoch stellt man zudem fest, dass einige der
-Faktoren  negativ sind, was im 
+In dieser zweiten Iteration ist es zudem möglich eine Konsistenz-Prüfung der
+zuvor extrahierten Kalibrations-Faktoren $\alpha_i$ durchzuführen. Da die
+Energieskala der Vorwärts-Elektronen in \textit{Vorbereitung II} durch diese
+korrigiert wurden, müsste der Versuch einer erneuten Extraktion zu
+verschwindenen Kalibrations-Faktoren führen. Abbildung \ref{fig:alpha_2nd}
+zeigt diesen Versuch der erneuten Extraktion der Kalibrations-Faktoren für die
+Energie-Skala\footnote{Um Verwechslungen auszuschließen mit $\alpha'_i$
+bezeichnet}.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.6\textwidth]{plots/alpha_2nd}
+    \caption[Konsistenz-Prüfung der extrahierten Kalibrations-Faktoren
+        $\alpha_i$ der Energieskala]
+        {Konsistenz-Prüfung der extrahierten Kalibrations-Faktoren
+        $\alpha_i$ der Energieskala. Nach Korrektur der Energieskalen durch die
+        $\alpha_i$ wird erneut versucht Kalibrations-Faktoren $\alpha'_i$ zu
+        bestimmen}
+    \label{fig:alpha_2nd}
+\end{figure}
+
+Wie sich sich zeigt sind mit einer Ausnahme alle Faktoren $\alpha'_i$ innerhalb
+ihrer statistischen Unsicherheiten mit Null verträglich, was für die Konsistenz
+der ermitteln Kalibrations-Faktoren bestätigt.
 
 
 
 \subsection{Systematische Unsicherheiten}
 \label{energy_calibration:systematics}
+Die Bestimmung der Kalibrations-Faktoren für Energie und Auflösung basiert auf
+gewissen Annahmen und Vorraussetzungen wie bespielsweise die vorangegangene
+Kalibration der Zentral-Elektronen (vgl. Abschnitt
+\ref{energy_calibration:definitionen_und_annahmen}).
+Hierdurch werden unter Umständen systematische Effekte eingeführt, die sich auf
+die zu bestimmenden Faktoren auswirken. Zu deren Studium variiert man die
+eingehenden Größen einzeln innerhalb ihrer Unsicherheit und wiederholt die
+obige Extraktions-Prozedur für jede dieser geänderten Konfigurationen separat.
+Die mögliche Abweichung von den zuvor in
+\ref{energy_calibration:extraction_energy_scales} bestimmten Werten $\alpha_i$
+und $c_i$ ist dann ein Maß für den Einfluss der variierten Größe und induziert
+somit zusätzliche systematische Unsicherheiten.
 
+Folgende Zusammenstellung zeigt die untersuchten systematischen Einflüsse und
+deren Variation im Sinne der oben beschriebenen Änderungen der Konfiguration.
+
+\begin{description}
+    \item[Kalibration der Zentral-Elektronen:]
+        Der offensichtlichste Effekt ist der Einfluss der Kalibration der
+        Elektronen im Zentral-Bereich. Da diese in
+        \ref{energy_calibration:definitionen_und_annahmen} als perfekt
+        kalibriert angenommen wurden hat deren Unsicherheit direkten Einfluss
+        auf die Extraktion der Kakibrations-Faktoren.
+        
+        Das zur Anwendung der Korrekturen von ATLAS bereitgestellte
+        Software-Paket\footnote{siehe Abschnit \ref{},
+        \textit{EnergyRescalerUpgrade}} bietet die Möglichkeit systematische
+        Variationen der Kalibrations-Faktoren für die Zentral-Elektronen
+        durchzuführen. Diese werden, entsprechend der internen Empfehlungen zu
+        diesem Paket, separat durchgeführt die resultierenden Abweichungen
+        später quadratisch aufsummiert.
+
+    \item[Skalenfaktoren der Rekonstruktions-Effizienzen:]
+        Die Effizienzen für die Rekonstruktion von Elektronen werden in der
+        Simulation nachträglich durch Skalenfaktoren korrigiert (siehe hierzu
+        Abschnitt \ref{}). Die Bestimmung dieser Skalenfaktoren unterliegt
+        jedoch ebenfalls gewissen Unsicherheiten, welche Einfluss auf die
+        extrahierten Kalibrations-Faktoren nehmen.
+
+        Auch hier ist es softwareseitig möglich, die Variation der
+        Skalenfaktoren innerhalb ihrer Unsicherheiten unabhängig voneinander
+        durchzuführen.
+
+    \item[Massenfenster:]
+        Die spezielle Wahl des Massenfensters, in dem die Spektren der
+        invarianten Masse betrachtet und die Kurvenanpassungen durchgeführt
+        werden, impliziert durch die Hinzuname bzw. das Ausschließen von
+        Datenpunkten eine gewisse Variation der Kalibrations-Konstaten.
+
+        Aus diesem Grund wird neben dem Standard-Massenfenster, auch ein
+        vergrößertes Massenfenster betrachtet:
+        \[
+            70 \GeV < m_{ee} < 110 \GeV
+        \]
+        %Ein weitere Variation mit einem gegenüber des Standards verkleinerten
+        %Massenfenster wurde untersucht, stellte sich allerdings als wenig
+        %sinnvoll heraus, da 
+
+    \item[Untergrund-Modell:]
+        Wie in \ref{energy_calibration:extraktionsmethode} beschrieben wird der
+        in den Daten nach Selektion verbleibende Untergrund mit einer
+        Exponentialfunktion abgeschätzt. Obwohl diese Wahl physikalisch
+        motiviert und sinnvoll ist, so sie auch auf eine andere Funktion fallen
+        können, die ebenso plausibel den Untergrund modelliert.
+
+        Als alternative Verteilung wird deshalb ein Potenzgesetz der Form
+        \[
+            f_\text{bkg}(m_{ee}) \sim\;\frac{a}{m_{ee}^4}
+        \]
+        gewählt und so der Einfluss des Untergundmodells ermittelt.
+
+    \item[Parameter der kinematischen Akzeptanz:]
+        In Abschnitt
+        \ref{energy_calibration:erweiterung_der_modelle_und_prozedur} wurde die
+        Erweiterung der analytischen Modelle durch die kinematische Akzeptanz
+        eingeführt, 
+
+\end{description}
 
 
 
