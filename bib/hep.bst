@@ -222,8 +222,8 @@ FUNCTION {format.collaboration}
 { collaboration empty$
     { "" }
     { collaboration num.names$ #1 >
-        {" (" collaboration * "" * }
-        {" (" collaboration * "" * }
+        {" (" collaboration * ")" * }
+        {" (" collaboration * ")" * }
     if$
     }
   if$

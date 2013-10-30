@@ -13,9 +13,23 @@
 
 \begin{quote}
     Die Energiekalibration des elektromagnetischen Kalorimeters für Elektronen 
-    ist von essentieller Bedeutung für Messung der Vorwärts-Rückwärts-
-    Asymmetrie. Dieses Kapitel beschreibt die Kalibration für Elektronen mit
-    hohen Pseudorapiditäten. Dabei wird zunächst auf \development 
+    ist von essentieller Bedeutung nicht nur für Messung der
+    Vorwärts-Rückwärts-Asymmetrie, sondern vielmehr für jede Analyse oder
+    Messung, die Elektronen einbezieht. Dieses Kapitel beschreibt die
+    Kalibration für Elektronen mit hohen Pseudorapiditäten.
+
+    Dabei werden im ersten Abschnitt \ref{energy_calibration:grundlagen}
+    zunächst die Grundlagen und bereits vorangegangen Schritte auf dem Weg zur
+    Kalibrations erläutert. Anschließend wird in
+    \ref{energy_calibration:beschreibung_der_methode} detailiert die verwendete
+    Methode zur Extraktion der Kalibrations-Faktoren beschrieben und elementare
+    Definitionen und Annahmen eingeführt. Der darauf folgende Abschnitt
+    \ref{energy_calibration:extraktion_der_kalibrations-konstanten} legt dann
+    die eigentliche Extraktion der Kalibrations-Faktoren dar und zeigt
+    systematische Betrachtungen zur Abschätzung der Unsicherheiten. Der letzte
+    Abschnitt \ref{energy_calibration:ergebnisse_und_ausblick} fasst dann
+    nochmals die wichtigsten Ergebnisse zusammen und zeigt Wege auf, wie die
+    Kalibration in Zukunft weiter verbessert kann.
 \end{quote}
 
 
@@ -25,6 +39,7 @@
 %
 \section{Grundlagen}
 \label{energy_calibration:grundlagen}
+
 \begin{itemize}
     \item Messung der Energie mit Kalorimeter (Verweis auf Detektor Kapitel)
     \item Notwendigkeit der Energiekalibration (Benötigte Präzision für 
@@ -34,6 +49,12 @@
         kalibration, was ist noch zu kalibrieren)
     \item Zusätzliches Material
 \end{itemize}
+
+Das Prinzip dem die Energiemessung in den elektromagnetischen Kalorimetern in
+ATLAS folgt, ist in Abschnitt \ref{}
+erläutert worden. Die Energiekalibration ermöglicht die Übersetzung der
+Ausgangsgrößen der Kalorimeter in physikalisch sinnvolle Einheiten.
+
 
 
 
@@ -139,7 +160,7 @@ Für die Messung der invarianten Masse (\ref{invariant_mass:basic}) des
 \begin{align}
     m_\text{(data)}   &= \sqrt{ 2 \cdot E^C_\text{(data)} E^F_{\text{(data)}}
                          (1-\cos\theta)} 
-                         \qquad ^C: \text{zentral}, \quad ^F: vorwärts
+                         \qquad ^C: \text{zentral}, \quad ^F: \text{vorwärts}
                          \nonumber \\[5pt]
                       &= \sqrt{ 2 \cdot E^C_\text{(MC)} E^F_{\text{(MC)}}
                          (1+\alpha^F_i)(1-\cos\theta)}
@@ -451,7 +472,7 @@ und somit die oben beschriebene Mehrstufigkeit indiziert.
     \item \sout{Exktraktion der Energy-Scales}
     \item \sout{Extraktion der Constant-Terms}
     \item \sout{Closure-Tests}
-    \item Systematiken
+    \item \sout{Systematiken}
 \end{itemize}
 
 Der Kalibration zugrunde liegen der volle Datensatz aus 2012 mit $8\TeV$
@@ -801,12 +822,96 @@ deren Variation im Sinne der oben beschriebenen Änderungen der Konfiguration.
         In Abschnitt
         \ref{energy_calibration:erweiterung_der_modelle_und_prozedur} wurde die
         Erweiterung der analytischen Modelle durch die kinematische Akzeptanz
-        eingeführt, 
+        eingeführt, deren analytische Funktion durch zwei Parameter bestimmt
+        ist, die zwar während der Extraktions-Prozedur konstant gehalten werden
+        dennoch ebenfalls durch Kurvenanpassungen nur innerhalb gewisser
+        Unsicherheiten bestimmt wurden.
 
+        Um den Auswirkungen dieser Unsicherheiten auf die Kalibrations-Faktoren
+        zu untersuchen, werden beide Parameter unabhängig von einander
+        innerhalb ihrer Toleranzen variiert. Da die beiden Parameter als
+        vollständig korreliert angenommen werden, müssen die resultierenden
+        Abweichungen zu den Zentral-Werten der Kalibrations-Faktoren linear
+        addiert werden.
 \end{description}
 
+In den Abbildungen \ref{fig:alpha_uncert} und \ref{fig:cdata_uncert} werden die
+Abweichungen zu den in Abschnitt
+\ref{energy_calibration:extraction_energy_scales} bestimmen Werten für jede
+systematische Variation einzeln dargestellt. Im Fall von Variation, die in
+zwei Richtungen\footnote{meist die Variation eines Skalenfaktors zum oberen und
+unteren Rand seiner Unsicherheit} betrachtet werden, wie beispielsweise die
+Variation der Skalenfaktoren, wird die größere von beiden Abweichungen als Maß
+für die systematische Unsicherheit angenommen, um zu einer konservativen
+Fehlerabschätzung zu gelangen.
 
+\begin{figure}[h]
+    \begin{minipage}[t]{0.48\textwidth}
+        \centering
+        \[
+            \sigma = \max\{ | \alpha_i^0 - \alpha_i^\uparrow   | ,
+                            | \alpha_i^0 - \alpha_i^\downarrow | \}
+        \]
+        \includegraphics[width=1.\textwidth]{plots/alpha_uncert}
+        \captionsetup{format=plain}
+        \caption{Abweichungen von den Kalibration-Faktoren $\alpha_i$ der
+            Energieskala unter systematischen Variationen}
+        \label{fig:alpha_uncert}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.48\textwidth}
+        \centering
+        \[
+            \sigma = \max\{ | c_i^0 - c_i^\uparrow   | ,
+                            | c_i^0 - c_i^\downarrow | \}
+        \]
+        \includegraphics[width=1.\textwidth]{plots/cdata_uncert}
+        \captionsetup{format=plain}
+        \caption{Abweichungen von den Kalibration-Faktoren $c_i$ der
+        Auflösung unter systematischen Variationen}
+        \label{fig:cdata_uncert}
+    \end{minipage}
+\end{figure}
 
+Betrachtet man die entstehenden Abweichungen, so fällt zunächst auf, dass diese
+für die Kalibrations-Faktoren $\alpha_i$ der Energieskala sehr viel
+gleichmäßiger verteilt sind, als dies bei den Faktoren $c_i$ der Auflösung der
+Fall ist. Die Ursache liegt in der Sensitivität der Parameterschätzung der
+Breite auf die Qualität der Kurvenanpassung. Während die Bestimmung Resonanz-
+Position deutlich stabiler ist, hängt die Anpassung der Breite empfindlich von
+der Beschreibung der Flanken durch das analytische Modell ab. Obwohl die
+Übereinstimmung der Kurvenform der Datenpunkt mit dem Modell durch die
+Einführung der kinematischen Akzeptanz deutlich verbessert werden konnte (vgl.
+Abbschnit \ref{energy_calibration:erweiterung_der_modelle_und_prozedur} und
+Abbildung \ref{fig:good_example_fit}), bleiben Bereiche in denen die
+Beschreibung durch statistische Fluktuationen verschlechtert wird. Abbildung
+\ref{fig:still_bad_fit} zeigt ein Beispiel hierfür.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.6\textwidth]{plots/still_bad_fit}
+    \caption[Kurvenanpassung des inv. Massenspektrums in einem Bereich, der
+        trotz kinematischer Akzeptanz schlecht beschrieben wird]
+        {Kurvenanpassung des invarianten Massenspektrums in der Simulation in
+        einem Bereich des Kalorimeters der trotz kinematischer Akzeptanz nur
+        mäßig durch das Modell beschrieben wird.}
+    \label{fig:still_bad_fit}
+\end{figure}
+
+Es ist offensichtlich, dass hier die Breite durch die Kurvenanpassung 
+überschätzt wird. Mögliche Lösungsansätze hierfür werden im folgenden Kapitel
+diskutiert.
+
+Als nächstes fällt auf, dass die resultierende Gesamtunsicherheit auf die
+Kalibrations-Faktoren $\alpha_i$ von einer bestimmten Variation dominiert sind.
+In der Abbildung wird diese Konfiguration mit ESCALE\_METHOD bezeichnet und
+basiert auf der Variation der Extraktions-Methode für die Kalibrations-Faktoren
+der Zentral-Elektronen. Man verwendete dort neben der Standard-Methode des
+Likelihood noch einen Ansatz, der auf dem Vergleich mit simulierten
+Formvorlagen basiert\footnote{Für eine genauere Erläuterung siehe
+\cite{Agustoni:1335395}}. Hierin spiegelt sich die bereits in Abschnitt
+\ref{energy_calibration:beschreibung_der_methode} beschriebene Abhängigkeit
+von der Kalibration der Zentral-Elektronen wieder.
 
 
 %______________________________________________________________________________
@@ -816,6 +921,7 @@ deren Variation im Sinne der oben beschriebenen Änderungen der Konfiguration.
 \label{energy_calibration:ergebnisse_und_ausblick}
 \begin{itemize}
     \item Zusammenfassung
+    \item Scales mit Systematiken
     \item Diskussion ( Dominiert von Zentral-Skalen, Modell-Probleme )
     \item Verbesserungen ( Neue Zentral-Skalen, Template-Ansatz )
 \end{itemize}
