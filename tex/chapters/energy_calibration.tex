@@ -20,7 +20,7 @@
 
     Dabei werden im ersten Abschnitt \ref{energy_calibration:grundlagen}
     zunächst die Grundlagen und bereits vorangegangen Schritte auf dem Weg zur
-    Kalibrations erläutert. Anschließend wird in
+    Energiemessung erläutert. Anschließend wird in
     \ref{energy_calibration:beschreibung_der_methode} detailiert die verwendete
     Methode zur Extraktion der Kalibrations-Faktoren beschrieben und elementare
     Definitionen und Annahmen eingeführt. Der darauf folgende Abschnitt
@@ -41,19 +41,45 @@
 \label{energy_calibration:grundlagen}
 
 \begin{itemize}
-    \item Messung der Energie mit Kalorimeter (Verweis auf Detektor Kapitel)
-    \item Notwendigkeit der Energiekalibration (Benötigte Präzision für 
-        Vorwärts-Rückwärts-Asymmetrie)
-    \item Vorangegangene Schritte ( Calibration-Hits, Test-Beam-Runs, 3-Stufen)
-    \item Was im folgenden passiert (Vorwärts-Kalibration, in-situ
-        kalibration, was ist noch zu kalibrieren)
-    \item Zusätzliches Material
+    \item \sout{Messung der Energie mit Kalorimeter (Verweis auf Detektor
+        Kapitel)}
+    \item \sout{Notwendigkeit der Energiekalibration (Benötigte Präzision für 
+        Vorwärts-Rückwärts-Asymmetrie)}
+    \item \sout{Vorangegangene Schritte ( Calibration-Hits, Test-Beam-Runs,
+        3-Stufen)}
+    \item \sout{Was im folgenden passiert (Vorwärts-Kalibration, in-situ
+        kalibration, was ist noch zu kalibrieren)}
+    \item \sout{Zusätzliches Material}
 \end{itemize}
 
-Das Prinzip dem die Energiemessung in den elektromagnetischen Kalorimetern in
-ATLAS folgt, ist in Abschnitt \ref{}
-erläutert worden. Die Energiekalibration ermöglicht die Übersetzung der
-Ausgangsgrößen der Kalorimeter in physikalisch sinnvolle Einheiten.
+Das Grundlegende Prinzip mit dem in ATLAS die Energie von Elektronen in den
+elektromagnetischen Kalorimetern gemessen wird ist bereits in Kapitel \ref{}
+erläutert worden. Die gewünschte Information über die Energiedeposition in
+einem Elektron-Cluster durchläuft ausgehend von den rohen Signalen, also
+Spannungen und Ströme, zahlreiche Stufen der Kalibration um zu physikalisch
+sinnvollen Einheiten wie $Elektronvolt$ zu gelangen. Dazu zählen die
+Konvertierung der digitalisierten Pulsformen einzelner Zellen in $\MeV$ auf der
+Basis von Kalibrations-Faktoren, die vor Montage des Detektors mit
+Test-Strahlen definierter Energie ermittelt wurden (siehe \cite{Aleksa:942528}
+und \cite{1748-0221-3-02-P02002}), sowie das clustern benachbarter Zellen durch
+die Rekonstruktionsalgorithmen\footnote{vgl. Kapitel \ref{}}.
+
+Der letzte Schritt ist die Bestimmung der Energieskala durch eine
+\textit{in-situ} Kalibration mithilfe realer Ereignisse. Durch diese werden
+dann die genaue Lage der einzelnen Kalorimeter-Komponenten im Detektor und das
+für die Konstruktion notwendige zusätzliche Material, welches die Elektronen
+auf dem Weg ins Kalorimeter passieren, berücksichtigt. In der vorliegenden
+Arbeit wird dieser letzte Kalibrationsschritt für Elektronen im
+Vorwärts-Bereich angestrebt, da diese in der späteren Messung der
+Vorwärts-Rückwärts-Asymmetrie eine zentrale Rolle spielen werden, wobei die
+bestmögliche Messung der Energie obligat ist. Für den Zentral-Bereich liegen
+bereits vorläufige Kalibration-Faktoren, welche von der zuständigen internen
+Arbeitsgruppe bereitgestellt werden\footnote{fehlende referenz \cite{}}.
+
+
+
+
+
 
 
 
@@ -877,13 +903,13 @@ Betrachtet man die entstehenden Abweichungen, so fällt zunächst auf, dass dies
 für die Kalibrations-Faktoren $\alpha_i$ der Energieskala sehr viel
 gleichmäßiger verteilt sind, als dies bei den Faktoren $c_i$ der Auflösung der
 Fall ist. Die Ursache liegt in der Sensitivität der Parameterschätzung der
-Breite auf die Qualität der Kurvenanpassung. Während die Bestimmung Resonanz-
-Position deutlich stabiler ist, hängt die Anpassung der Breite empfindlich von
-der Beschreibung der Flanken durch das analytische Modell ab. Obwohl die
-Übereinstimmung der Kurvenform der Datenpunkt mit dem Modell durch die
-Einführung der kinematischen Akzeptanz deutlich verbessert werden konnte (vgl.
-Abbschnit \ref{energy_calibration:erweiterung_der_modelle_und_prozedur} und
-Abbildung \ref{fig:good_example_fit}), bleiben Bereiche in denen die
+Breite auf die Qualität der Kurvenanpassung. Während die Bestimmung der
+Resonanz-Position sehr stabil ist, hängt die Anpassung der Breite
+empfindlich von der Beschreibung der Flanken durch das analytische Modell ab.
+Obwohl die Übereinstimmung der Kurvenform der Datenpunkt mit dem Modell durch
+die Einführung der kinematischen Akzeptanz deutlich verbessert werden konnte
+(vgl.  Abbschnit \ref{energy_calibration:erweiterung_der_modelle_und_prozedur}
+und Abbildung \ref{fig:good_example_fit}), bleiben Bereiche in denen die
 Beschreibung durch statistische Fluktuationen verschlechtert wird. Abbildung
 \ref{fig:still_bad_fit} zeigt ein Beispiel hierfür.
 
@@ -906,12 +932,24 @@ Als nächstes fällt auf, dass die resultierende Gesamtunsicherheit auf die
 Kalibrations-Faktoren $\alpha_i$ von einer bestimmten Variation dominiert sind.
 In der Abbildung wird diese Konfiguration mit ESCALE\_METHOD bezeichnet und
 basiert auf der Variation der Extraktions-Methode für die Kalibrations-Faktoren
-der Zentral-Elektronen. Man verwendete dort neben der Standard-Methode des
-Likelihood noch einen Ansatz, der auf dem Vergleich mit simulierten
+der Zentral-Elektronen. Man verwendete dort neben des Standard-Likelihood noch
+einen Ansatz, der auf dem Vergleich der Massenspektren in Daten mit simulierten
 Formvorlagen basiert\footnote{Für eine genauere Erläuterung siehe
 \cite{Agustoni:1335395}}. Hierin spiegelt sich die bereits in Abschnitt
 \ref{energy_calibration:beschreibung_der_methode} beschriebene Abhängigkeit
 von der Kalibration der Zentral-Elektronen wieder.
+
+Alle übrigen Variationen zeigen weit weniger Einfluss auf die Extraktion der
+Kalibrations-Faktoren. Zur Bestimmung der systeamtischen Gesamtunsicherheit auf
+die in \ref{energy_calibration:extraction_energy_scales} bestimmten Werte von
+$\alpha_i$ und $c_i$ werden die Abweichungen von unabhängig angenommenen
+Variation (Effizienz-Skalenfaktoren, Zentral-Elektronen Kalibration,
+Massenfenster, Untergrundmodell) quadratisch, die Abweichungen korrelierter
+Variationen (Parameter der kinematischen Akzeptanz) linear aufsummiert.
+
+Tabelle \ref{tab:energy_scales} im Anhang fasst die Kalibrationsfaktoren
+inklusive aller Unsicherheiten in einer Übersicht zusammen.
+
 
 
 %______________________________________________________________________________
@@ -920,10 +958,71 @@ von der Kalibration der Zentral-Elektronen wieder.
 \section{Ergebnisse und Ausblick}
 \label{energy_calibration:ergebnisse_und_ausblick}
 \begin{itemize}
-    \item Zusammenfassung
-    \item Scales mit Systematiken
-    \item Diskussion ( Dominiert von Zentral-Skalen, Modell-Probleme )
-    \item Verbesserungen ( Neue Zentral-Skalen, Template-Ansatz )
+    \item \sout{Zusammenfassung}
+    \item \sout{Scales mit Systematiken}
+    \item \sout{Diskussion ( Dominiert von Zentral-Skalen, Modell-Probleme )}
+    \item \sout{Verbesserungen ( Neue Zentral-Skalen, Template-Ansatz )}
 \end{itemize}
 
+In den vorangegangen Abschnitten wurde die Methodik zur Extraktion der
+Kalibrations-Faktoren der Energie und Auflösung für Elektronen im
+Vorwärts-Bereich beschrieben und deren Durchführung präsentiert. Zusätzlich
+wurden Studien zu systematischen Einflüssen betrieben und deren Effekt auf die
+Unsicherheiten der extrahierten Faktoren untersucht. Die Abbildungen
+\ref{fig:alpha_syst} und \ref{fig:cdata_syst} zeigen nochmal zusammenfassend
+die resultierenden Werte inklusive der vollen Unsicherheiten.
+
+\begin{figure}
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=1.\textwidth]{plots/alpha_syst}
+        \captionsetup{format=plain}
+        \caption{Kalibrations-Faktoren der Energieskala für die verschiedenen
+            Bereiche des Kalorimeters (stat. und syst. Unsicherheiten)}
+        \label{fig:alpha_syst}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=1.\textwidth]{plots/cdata_syst}
+        \captionsetup{format=plain}
+        \caption{Kalibrations-Faktoren der Auflösung für die verschiedenen
+            Bereiche des Kalorimeters (stat. und syst. Unsicherheiten)}
+        \label{fig:cdata_syst}
+    \end{minipage}
+\end{figure}
+
+Wie in Abschnitt \ref{energy_calibration:erweiterung_der_modelle_und_prozedur}
+beschrieben wurde mussten die anfänglichen Modelle zur Kurvenanpassung
+erweitert werden, um die Verzerrung der invarianten Massenspektren durch die
+hohen kinematischen Anforderungen während der Ereignisselektion zu
+kompensieren.  Dies führte zwar zu einer deutlichen Verbesserung der
+Beschreibung durch die analytischen Funktionen, jedoch verbleiben Bereiche in
+denen die Form der Spektren immernoch von den angepassten Verteilungen
+abweicht, was eine große Unsicherheit bei der Schätzung der Resonanzbreite und
+somit der Auflösung impliziert. Einen Ausweg aus dieser Problematik verspricht
+die Exktraktion mittels gewichteter Formvorlagen der invarianten Massenspekren.
+Hierbei würde man in Daten und Simulation für jeden Kalorimeterbereich Sätze
+von invarianten Massenspektren mit verschiedenen künstlich eingeführten Werten
+von $\alpha_i$ bzw. $c_i$ erstellen und anschließend jenes Paar der
+Kalibrations-Faktoren bestimmen, das in einem $\chi^2$-Test zwischen Daten
+und Simulation den besten Wert erzielte. Der Vorteil hierbei ist, dass keine
+analytische Funktion bestimmt werden muss, die die exakte Verteilung der
+Datenpunkte wiederspiegelt. Ein Nachteil wäre \development
+
+Die systematischen Unsicherheiten sind bei den Kalibrations-Faktoren $\alpha_i$
+der Energieskala deutlich von der Unsicherheit auf die Zentral-Elektronen
+dominiert. Da die zuständige interne Arbeitsgruppe bei ATLAS stets bemüht ist
+deren Methode zu verfeinern und die Unsicherheiten zu reduzieren, würde
+auch die vorliegende Kalibration im Vorwärts-Bereich unmittelbar von diesen
+Verbesserungen profitieren. Die systematischen Unsicherheiten für dir
+Kalibrations-Faktoren der Auflösung sind em ehesten von der unvollkommenen
+Beschreibung durch die Modelle beherrscht, sodass hier vermutlich erst mit der
+Einführung einer anderen, möglicherweise der oben beschriebenen Methode der
+$\chi^2$-Tests mit Formvorlagen mit einer Verbesserung zu rechnen ist.
+
+Die in dieser Arbeit bestimmten Kalibrations-Faktoren sind inzwischen von der
+Arbeitsgruppe für die Kalibration von Elektronen in ATLAS in das interne 
+Software-Paket und deren Empfehlungen zur Durchführung von Elektron basierten
+Analysen aufgenommen worden.
 
