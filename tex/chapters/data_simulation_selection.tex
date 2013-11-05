@@ -38,18 +38,18 @@ Zeit implementierte Trigger-Menü oder globale \ac{LHC} Parameter, werden dann
 mit einem Buchstaben zusammengefasst (Periode A, B, ...).
 
 Der vorliegende Datensatz wurde in der Zeit zwischen dem 04. April 2012 und dem
-16. Dezember 2012 aufgenommen und umfasst \textbf{??} Perioden, die einer
-integrierten Gesamtluminosität von $20.3 \fb^{-1}$ entsprechen\footnote{nach
-Anwenung der \ac{GRL}} (siehe Abbildung \ref{fig:lumi}). Der Detektor wurde
-hierbei in einer Konfiguration betrieben, die einen zeitlichen Abstand zwischen
-den Teilchen-Paketen von $50\:\nano\second$ gewährleistet, woraus eine
+16. Dezember 2012 aufgenommen und umfasst 10 Perioden, die einer integrierten
+Gesamtluminosität von $20.3 \fb^{-1}$ entsprechen\footnote{nach Anwenung der
+\ac{GRL} (siehe Kapitel \ref{})} (siehe Abbildung \ref{fig:lumi}). Der Detektor
+wurde hierbei in einer Konfiguration betrieben, die einen zeitlichen Abstand
+zwischen den Teilchen-Paketen von $50\:\nano\second$ gewährleistet, woraus eine
 instantane Luminosität\footnote{Erläuterungen zur Messung der Luminosität in
-ATLAS finden sich in Kapitel \ref{}}
-von $XX.X \fb^{-1}\second^{-1}$ resultiert.
+ATLAS finden sich in Kapitel \ref{}} von bis zu
+$7.73 \cdot 10^{-33} \centi\meter^{-2}\second^{-1}$ resultiert.
 
 Eine hohe instantane Luminosität verspricht eine große Rate interessanter
 Ereignisse, jedoch bedingt sie auch viele unerwünschte Neben-Ereignisse,
-vorwiegend aus inelastischer Streuprozessen, die einen signifikanten Einfluss
+vorwiegend aus inelastischen Streuprozessen, die einen signifikanten Einfluss
 auf die Messung nehmen können. Dieser Effekt wird als \textit{Pile-Up}
 bezeichnet und ist in Abbildung \ref{fig:pileup} illustriert.
 
@@ -112,16 +112,16 @@ Zerfall in ein Leptonpaar, und die Simulation der Detektorantwort, also der
 Betrachtung aller physikalischer Subprozesse, die von den Produkt-Teilchen im
 Detektor induziert werden (Detektor-Antwort).
 
-Im ersten Schritt der Ereignis-Simulation kommen so genannte
+Im ersten Schritt, der Ereignis-Simulation, kommen so genannte
 \textit{Monte-Carlo Generatoren} zum Einsatz. Dies sind meist von theoretischen
 Physikern implementierte Software Pakete, die, hochkonfigurierbar, mittels
 Zufallszahlen die gewünschten Prozesse, samt der kinematischen Parameter der
-eingehenden und ausgehenden Teilchen, Ereignisse simulieren. Dies geschieht auf
-der Basis von Matrixelementen und der Beschreibung des Phasenraumes. Die voran
-gestellte Berechnung der Matrixelemente findet meist in führender (LO) oder
-nächst-führender (NLO) Ordnung statt. Betrachtungen in höheren Ordnungen werden
-aufgrund der übermäßigen Komplexität durch Umgewichtungen von Simulationen
-niedrigerer Ordnung realisiert\footnote{siehe auch Abschnitt
+eingehenden und ausgehenden Teilchen als Ereignisse simulieren. Dies geschieht
+auf der Basis von Matrixelementen und der Beschreibung des Phasenraumes. Die
+voran gestellte Berechnung der Matrixelemente findet meist in führender (LO)
+oder nächst-führender (NLO) Ordnung statt. Betrachtungen in höheren Ordnungen
+werden aufgrund der übermäßigen Komplexität durch Umgewichtungen von
+Simulationen niedrigerer Ordnung realisiert\footnote{siehe auch Abschnitt
 \ref{mc_corrections}}. Neben dem harten Streuprozess inklusive aller
 beteiligten Partonen werden anschließend weitere Effekte wie Fragmentation und
 Bremsstrahlung berücksichtigt.
@@ -147,7 +147,7 @@ wie zum Beispiel das oben beschriebene Pile-up aber auch Beiträge durch
 Prozesse hoher Ordnung. Um dennoch sinnvolle Vergleiche zwischen Daten und
 Simulation anstellen zu können werden die simulierten Datensätze umgewichtet.
 So gibt es für jede Korrektur einen Satz sogenannter Skalenfaktoren, die jedem
-simulierten Ereignis ein möglicherweise von 1 verschiedenes Gewicht zuornden.
+simulierten Ereignis ein oftmals von 1 verschiedenes Gewicht zuordnen.
 
 Im Folgenden wird eine kurze Übersicht über die möglichen Korrekturen gegeben:
 
@@ -183,14 +183,21 @@ Im Folgenden wird eine kurze Übersicht über die möglichen Korrekturen gegeben
 
 Für ausßnahmslos alle hier beschriebenen Korrekturen werden von den zuständigen
 Arbeitsgruppen in ATLAS Software-Pakete bereitgestellt, die alle benötigten
-Skalenfaktoren beinhalten.
+Skalenfaktoren beinhalten und regelmäßig auf den Stand neuster Erkenntnis
+aktualisiert werden.
 
 
 
 \subsection{Benutzte Monte-Carlo Simulationen}
 \label{used_mc_samples}
+Hier wird eine Übersicht über die in dieser Arbeit verwendeten Monte-Carlo
+Simulationen gegeben.
 
-
+\subsubsection*{Drell-Yan Prozess}
+Die wichtigste Monte-Carlo Simulation ist die des in dieser Arbeit betrachteten
+Signalprozesses $q\bar q \rightarrow \gamma^*/Z \rightarrow e^+e^-$ zu deren
+Erstellung eine Kombination der beiden Generatoren \textsc{Powheg}
+(\cite{Alioli:2010xd}) und \textsc{Pythia8} (\cite{Sjostrand:2007gs})
 
 
 
