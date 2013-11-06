@@ -104,13 +104,14 @@ der Vergleich zwischen Simulation und realen Daten.
 
 \subsection{Erzeugung simulierter Datensätze}
 \label{event_generation}
-Die Erstellung einer Simulation geschieht für gewöhnlich in mehreren Schritten.
-Eine grobe Unterteilung ist die Unterscheidung zwischen der Simulation des
-eigentlichen physikalischen Prozesses, wie beispielsweise die Annihilation
-eines Quarks und eines Antiquarks zu einem Z-Boson und dessen nachfolgenden
-Zerfall in ein Leptonpaar, und die Simulation der Detektorantwort, also der
-Betrachtung aller physikalischer Subprozesse, die von den Produkt-Teilchen im
-Detektor induziert werden (Detektor-Antwort).
+Die Erstellung einer Simulation, im folgenden meist nur noch als
+\textit{Monte-Carlo} bezeichnet, geschieht für gewöhnlich in mehreren
+Schritten. Eine grobe Unterteilung ist die Unterscheidung zwischen der
+Simulation des eigentlichen physikalischen Prozesses, wie beispielsweise die
+Annihilation eines Quarks und eines Antiquarks zu einem Z-Boson und dessen
+nachfolgenden Zerfall in ein Leptonpaar, und die Simulation der
+Detektorantwort, also der Betrachtung aller physikalischer Subprozesse, die von
+den Produkt-Teilchen im Detektor induziert werden (Detektor-Antwort).
 
 Im ersten Schritt, der Ereignis-Simulation, kommen so genannte
 \textit{Monte-Carlo Generatoren} zum Einsatz. Dies sind meist von theoretischen
@@ -124,7 +125,8 @@ werden aufgrund der übermäßigen Komplexität durch Umgewichtungen von
 Simulationen niedrigerer Ordnung realisiert\footnote{siehe auch Abschnitt
 \ref{mc_corrections}}. Neben dem harten Streuprozess inklusive aller
 beteiligten Partonen werden anschließend weitere Effekte wie Fragmentation und
-Bremsstrahlung berücksichtigt.
+Bremsstrahlung berücksichtigt. Alle bis zu diesem Punkt gewonnenen Werte
+bezeichnet man als \textit{Generator-Level}.
 
 Die Information über entstandene, vom Wechselwirkungspunkt auslaufende Teilchen
 wird nun der Detektor-Simulation übergeben, welche die Wechselwirkung mit
@@ -190,14 +192,83 @@ aktualisiert werden.
 
 \subsection{Benutzte Monte-Carlo Simulationen}
 \label{used_mc_samples}
-Hier wird eine Übersicht über die in dieser Arbeit verwendeten Monte-Carlo
-Simulationen gegeben.
+Die meisten in dieser verwendeten Monte-Carlo Simulationen werden von der ATLAS
+\textit{Monte-Carlo Working Group} produziert und verifiziert\footnote{alle
+eigens generierten Monte-Carlo Simulationen werden gesondert gekennzeichnet}.
+Sie unterscheiden sich vor allem in der Wahl des Generators und des simulierten
+Prozesses, durchlaufen aber alle dieselbe Detektorsiumlation.
 
-\subsubsection*{Drell-Yan Prozess}
+Eine Übersicht über die verschieden Prozesse und Generatoren wird im folgenden
+gegeben und ist in Tabelle \ref{} im Anhang zusammengefasst; detailiertere
+Informationen über die Motivation und die tatsächliche Verwendung der jeweiligen
+Monte-Carlos wird später in den betreffenden Kapiteln gegeben.
+
+\subsubsection*{Drell-Yan}
 Die wichtigste Monte-Carlo Simulation ist die des in dieser Arbeit betrachteten
 Signalprozesses $q\bar q \rightarrow \gamma^*/Z \rightarrow e^+e^-$ zu deren
-Erstellung eine Kombination der beiden Generatoren \textsc{Powheg}
-(\cite{Alioli:2010xd}) und \textsc{Pythia8} (\cite{Sjostrand:2007gs})
+Produktion eine Kombination der beiden Generatoren \textsc{Powheg}
+(\cite{Alioli:2010xd}) und \textsc{Pythia8} (\cite{Sjostrand:2007gs}) benutzt
+wurde. \textsc{Powheg} übernimmt dabei die Simulation des harten Prozesses auf
+nächst-führender Ordnung (NLO) und übergibt die Parton-Information an
+\textsc{Pythia8}, welches dann die weiteren Prozesse, wie Fragmentation
+simuliert. Es wurden neben einem inklusiv in der invarianten Masse generierten
+Monte-Carlo mit etwa 10 Millionen Ereignissen auch auf höhere Massenbereiche
+eingeschränkte Monte-Carlos mit jeweils 1 Million Ereignissen produziert, um
+auch in hohen invarianten Massenbereichen ausreichend statistische Signifikanz
+zu gewährleisten. Das erste dieser massenbeschränkten Monte-Carlos hat eine
+untere Grenze von $m_{ee} > 120 \GeV$, sodass bei gleichzeitiger Verwendung mit
+dem inklusiv generierten Monte-Carlo letzteres an dieser Grenze auf
+Generator-Level abgeschnitten werden muss. Die Arbeitsgruppe für die Suche
+nach schweren Eichboson in ATLAS stellt für diese Monte-Carlos massenabhängige
+kFaktoren bereit, die die bestehende Simulation auf NNLO umgewichten.
+
+Ebenso sind für den verwandten Prozess
+$q\bar q \rightarrow \gamma^*/Z \rightarrow \tau^+\tau^-$ analog zu obiger 
+Herangehensweise und Konfiguration Monte-Carlos produziert worden, die in
+der vorliegenden Arbeit zur Abschätzung des Untergrundes durch diesen Prozess
+verwendet werden. Die Schnittgrenze zwischen den massenbeschränkten und dem
+inklusiv produzierten Monte-Carlo liegt hier allerdings bei $250 \GeV$.
+
+\subsubsection*{W+Lepton}
+Der Zerfall eines W-Bosons in ein Elektron bzw. Positron und ein entsprechendes
+Neutrino oder in ein $\tau^+/\tau^-$ und ein entsprechendes Neutrino wird mit
+der selben Kombination von Generatoren, wie schon beim Drell-Yan Prozess
+simuliert. Jeder der eben genannten Prozesse wird dabei separat generiert,
+sodass also insgesammt vier Sätze von Simulationen erzeugt wurden mit insgesamt
+etwa 40 Millionen Ereignissen für den Zerfall in Elektronen oder Positron und
+7 Millionen Ereignissen für den Zerfall in $\tau$-Leptonen.
+
+\subsubsection*{Top-Produktion}
+Die Produktion eines einzelnen Top-Quarks oder eines Paares von Top-Quarks ist
+ein relevanter Prozess für die Abschätzung des Untergrundes der späteren
+Analyse. Top-Quarks Zerfallen zu fast 100\% in ein b-Quark und ein W-Boson,
+wobei letzteres wie oben beschrieben in ein Lepton und ein entsprechendes
+Neutrino zerfallen kann.
+
+Abbildung \ref{fig:singletop} zeigt die möglichen Produktionskanäle für ein
+einzelnes Top-Quark. Für jeden der gezeigten Kanäle (a,b,c) wird ein separates
+Monte-Carlo generiert, wobei für (a) und (b) jeweils noch zwischen dem
+konsekutiven Zerfall des W-Boson in ein Elektron/Positron und $\tau^+/\tau^-$
+unterschieden wird.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1.\textwidth]{img/singletop}
+    \caption[Produktionskanäle für ein einzelnes Top-Quark in Proton-Proton
+        Kollisionen]
+        {Produktion eines einzelnen Top-Quarks in Proton-Proton Kollisionen im
+        s-Kanal (a), t-Kanal(b) und mit einem W-Boson im Ausgangszustand (c).}
+    \label{fig:singletop}
+\end{figure}
+
+Für die Produktion im t-Kanal (b) wurde für den harten Prozess \textsc{AcerMC}
+(\cite{Kersevan:2004yg}) als Generator verwendet, der eine Schnittstelle zu
+\textsc{Pythia6} (\cite{1126-6708-2006-05-026}) zur Simulation von
+Bremsstrahlung und Hadronisierung bereitstellt. Die beiden anderen Kanäle und
+die Produktion eines Top-Paares wurden hingegen mit \textsc{MC@NLO}
+(\cite{Frixione:2002ik}) simuliert, ein Generator, der neben dem harten Prozess
+auch die Hadronisierung beschreibt.
+
 
 
 
