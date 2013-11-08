@@ -13,6 +13,7 @@
 \usepackage{epstopdf}
 \epstopdfsetup{outdir=./temp/eps2pdf/}
 \usepackage[labelfont=bf]{caption}
+\usepackage[section]{placeins}
 
 % Rotations
 \usepackage{rotating}
@@ -24,6 +25,8 @@
 % Math package (fleqn => left sided)
 \usepackage[fleqn]{amsmath}
 \usepackage{amssymb}
+\mathcode`,="013B %comma spacing
+%\mathcode`.="613A
 
 %\SI-Units (Details: http://mirrors.ctan.org/macros/latex/contrib/SIunits/SIunits.pdf)
 \usepackage[thickspace,squaren]{SIunits}
