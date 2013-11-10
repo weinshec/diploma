@@ -402,19 +402,69 @@ Chronologie, wie sie auch in der späteren Analyse eingehalten wurde.
 
     \cutitem{Spuren in Primärvertex}{Daten \& Simulation}{Ereignis-Kriterium}
         Als letztes ereignisbasiertes Kriterium wird die Anforderung an den
-        Primärvertex gestellt Ausgangspunkt mehr als 2 rekonstrukierter Spuren 
-        zu sein. Dies dient der Diskriminierung des Beitrags hochenergetischer
-        kosmischer Myonen an der Ereignisselektion.
+        Primärvertex gestellt Ausgangspunkt \textbf{mehr als 2 rekonstrukierter
+        Spuren} zu sein. Dies dient der Diskriminierung des Beitrags
+        hochenergetischer kosmischer Myonen an der Ereignisselektion.
         \newline\development (Korrektheit Prüfen)
 
     \cutitem{Pseudorapidität}{Daten \& Simulation}{Elektron-Schnitt}
-        Dieser erste Schnitt auf die einzelnen Elektronkandidaten wird benutzt,
-        um Ereignisse in zwei grundlegenden Klassen zu kategorisieren. Der für
-        diese Arbeit interassante Endzustand besteht aus genau zwei Elektronen,
-        sodass 
-        Ereingisse mit Beteiligung
+        Die in Kapitel \ref{} dargelegte
+        Geometrie des Detektors initiierte die Unterscheidung zwischen
+        Zentral- und Vorwärts-Elektronen. Eben diese Trennung macht eine
+        Klassifizierung der Ereignisse in Zentral-Vorwärts, das heißt ein
+        Elektron wird im Zentral-Bereich, das andere im Vorwärts-Bereich,
+        rekonstruiert und Zentral-Zentral, also beide Elektronen im
+        Zentral-Bereich, sinnvoll. Der Einfachheit halber werden diese beiden
+        Klassen im Folgenden entsprechend ihrer englischen Übersetzung mit
+        \emph{CC} (central-central) und \emph{CF} (central-forward) abgekürzt. 
 
-    \cutitem{Transversal-Impuls}{Daten \& Simulation}{Elektron-Schnitt}
+        Die Schnitte auf die Elektron-Kandidaten sind analog zur
+        Detektor-Geometrie gewählt, wobei die Übergangsregionen zwischen den
+        Kalorimetern exludiert wurden.
+        \begin{table}[h!]
+            \centering
+            \begin{tabular}{|c|c|c|}
+                \hline
+                \bf{Bereich} & \bf{Akzeptiert} & \bf{Exkludiert} \\
+                \hline \hline
+                Zentral  & $|\eta| < 2,47$      & $1,37 < |\eta| < 1,52$ \\
+                Vorwärts & $2,5 < |\eta| < 4,9$ & $3,16 < |\eta| < 3,35$ \\
+                \hline
+            \end{tabular}
+        \end{table}
+
+        Durch diese Exklusion der Übergangsregionen wird gewährleistet, dass
+        sich die Schauer der Elektronkandidaten wohl innerhalb des aktiven
+        Kalorimetermaterials enwickeln und so ein Energieverlust in den
+        schlecht instrumentierten Bereichen unterbunden wird.
+
+
+    \cutitem{Transversalimpuls}{Daten \& Simulation}{Elektron-Schnitt}
+        Der Schnitt auf den Transversalimpuls der Elektronkandidaten reduziert
+        vor allem die Untergrundbeiträge durch niederenergetische Jets. Während
+        die kinematischen Kriterien des Triggers lediglich für
+        Zentral-Elektronen greifen, verlangt dieser Schnitt die zusätzliche
+        Konformität der Vorwärts-Elektronen. Bei der Wahl des Schnittwertes ist
+        darauf zu achten, dass dieser oberhalb der intrinsischen
+        Trigger-Schwelle liegt, um zu gewährleisten, dass die Selektion nicht
+        jene Elektronkandidaten ausschließt, die zu eine positiven
+        Trigger-Entscheidung geführt haben.
+
+        In dieser Arbeit wurden zwei Konfigurationen von Grenzwerten für den
+        Schnitt auf den Transversalimpuls verwendet; die Motivation für die
+        spezielle Wahl der Schnittwerte wird in den entsprechenden Kapitel
+        gegeben.
+
+        Für die eigentliche Analyse, der Messung der Vorwärts-Rückwärts
+        Asymmetrie (Kapitel \ref{})
+        wurde ein Grenzwert von \emph{$30\GeV$} symmetrisch für Zentral- und
+        Vorwärts-Elektronen gewählt.
+
+        Die voran gestellte Energiekalibration der Elektronen
+        \ref{energy_calibration} verwendet hingegen asymmetrische Bedingungen
+        von \emph{$25\GeV$} für Zentral-Elektronen und \emph{$20\GeV$} für
+        Vorwärts-Elektronen.
+
     \cutitem{Autor}{Daten \& Simulation}{Elektron-Schnitt}
     \cutitem{Identifikation}{Daten \& Simulation}{Elektron-Schnitt}
     \cutitem{Objekt-Qualität}{Daten \& Simulation}{Elektron-Schnitt}
