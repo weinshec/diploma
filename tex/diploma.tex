@@ -50,6 +50,11 @@
 % Footnote package for footnotes in tables
 \usepackage{footnote}
 
+% Create cut description environment
+\usepackage{calc}
+\usepackage{enumitem}
+\newcommand{\cutitem}[3]{\item[#1]\hfill\begin{description}[leftmargin=!,labelwidth=\widthof{\bfseries Anwendung:}] \item[Anwendung:] #2 \item[Typ:] #3 \end{description}}
+
 % Custom definitions
 \newcommand{\del}{\partial}
 \newcommand{\MeV}{\;\mega\electronvolt}

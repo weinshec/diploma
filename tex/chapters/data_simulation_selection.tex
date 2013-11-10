@@ -365,13 +365,60 @@ denkbar, wie beispielsweise die logische Verkettung von Ja/Nein-Entscheidungen
 oder mehrdimensionale Schnittwerte auf der Basis multivariater Studien (siehe
 Vorwärts-Elektron Identifikation, Abschnitt \ref{}).
 
-Man unterscheidet dabei grob in Ereigbnis basierten Kriterien und solchen, die
-Bedingungen an einzelne Teilchen stellen.
+Man kann grob zwei Klassen von Kriterien unterscheiden, jene die sich auf das
+Ereignis als ganzes beziehen und solche, die auf Eigenschaften einzelner
+Teilchen(-kanditaten) abzielen. Die folgende Übersicht zeigt die in dieser
+Arbeit angewendeten Selektionkriterien und folgt dabei der derselben
+Chronologie, wie sie auch in der späteren Analyse eingehalten wurde.
 
-\subsection{Ereignisbasierte Selektionkriterien}
+\begin{description}
+    \cutitem{Good-Run-List (GRL)}{nur auf Daten}{Ereignis-Kriterium}
+        Die Anwendung der \ac{GRL} wurde bereits in Kapitel \ref{} motiviert
+        und erläutert und ist hier lediglich der Vollständigkeit halber
+        aufgeführt. Die verwendete \ac{GRL} trägt die ATLAS interne Bezeichnung
+        \begin{verbatim}
+    data12_8TeV.periodAllYear_DetStatus-v61-pro14-02_
+    DQDefects-00-01-00_PHYS_StandardGRL_All_Good_
+    EgammaForward.xml \end{verbatim}
+        und steht für bestmögliche Detektor-Bedingungen inklusive der
+        elektromagnetischen Kalorimeter im Vorwärts-Bereich.
 
+    \cutitem{Trigger}{Daten \& Simulation}{Ereignis-Kriterium}
+        Wie schon in Kapitel \ref{} erklärt, reduziert die Wahl des richtigen
+        Triggers die Gesamtzahl der Ereignisse auf eine überschaubare
+        Teilmenge, welche nur noch jene Ereignisse enthält, die bestimmten
+        grundlegenden Anforderungen genügen und somit für die angestrebte
+        Analyse als interessant gelten. Hierdurch findet bereits eine enorme
+        Unterdrückung von Untergrund-Prozessen statt. Die von der
+        \textit{egamma}-Gruppe empfohlene Trigger-Konfiguration für Analysen
+        mit einem Elektronkandidaten ist die Verknpüfung durch ein logisches
+        \emph{ODER} der beiden \acl{HLT}
+        \begin{verbatim}
+    e24vhi_medium1   (oder)   e60_medium1 \end{verbatim}
+        Darin steht \texttt{eXX} für das Passieren der Level-2
+        Triggerentscheidung eines Elektronkandidaten mit Transversal-Impuls
+        größer \texttt{XX} $\GeV$.
+        \newline\development (v,h,i,medium1)
 
+    \cutitem{Spuren in Primärvertex}{Daten \& Simulation}{Ereignis-Kriterium}
+        Als letztes ereignisbasiertes Kriterium wird die Anforderung an den
+        Primärvertex gestellt Ausgangspunkt mehr als 2 rekonstrukierter Spuren 
+        zu sein. Dies dient der Diskriminierung des Beitrags hochenergetischer
+        kosmischer Myonen an der Ereignisselektion.
+        \newline\development (Korrektheit Prüfen)
 
+    \cutitem{Pseudorapidität}{Daten \& Simulation}{Elektron-Schnitt}
+        Dieser erste Schnitt auf die einzelnen Elektronkandidaten wird benutzt,
+        um Ereignisse in zwei grundlegenden Klassen zu kategorisieren. Der für
+        diese Arbeit interassante Endzustand besteht aus genau zwei Elektronen,
+        sodass 
+        Ereingisse mit Beteiligung
+
+    \cutitem{Transversal-Impuls}{Daten \& Simulation}{Elektron-Schnitt}
+    \cutitem{Autor}{Daten \& Simulation}{Elektron-Schnitt}
+    \cutitem{Identifikation}{Daten \& Simulation}{Elektron-Schnitt}
+    \cutitem{Objekt-Qualität}{Daten \& Simulation}{Elektron-Schnitt}
+\end{description}
 
 
 
