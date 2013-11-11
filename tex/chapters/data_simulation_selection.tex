@@ -10,7 +10,14 @@
 \chapter{Daten, Simulation \& Selektion}
 
 \begin{quote}
-    The abstract come last
+    Die Grundlage jeder wissentschaftlichen Arbeit ist die Datenerhebung. In
+    diesem Kapitel wird zunächst kurz auf die Parameter des Beschleunigers und
+    des Detektors während der Datenahme eingegangen und der erhobene Datensatz
+    charakterisiert. Anschließend werden Aspekte der vergleichenden Monte-Carlo 
+    Simulation erörtert und die in dieser Arbeit benutzten simulierten
+    Datensätze vorgestellt. Abschließend werden noch eine Reihe von
+    Selektionskriterien erläutert, die aus der Gesamtheit der erhobenen Daten
+    die für die folgende Analyse interessanten Informationen filtern.
 \end{quote}
 
 
@@ -343,12 +350,10 @@ Monte-Carlo Simulationen zu finden.
 \section{Selektion}
 \label{data_sim_selection:selection}
 
-\begin{itemize}
-    \item \sout{Motivation für Schnitte (Untergrund-Diskriminierung)}
-    \item Event-basierte Schnitte (Trigger, Detektor, primVertex)
-    \item Elektron-basierte Schnitte (CC/CF, pT, ID, Autor, IQ)
-    \item kurze erwähnung andere schnitte (MET,Jets,...)
-\end{itemize}
+% + Motivation für Schnitte (Untergrund-Diskriminierung)
+% + Event-basierte Schnitte (Trigger, Detektor, primVertex)
+% + Elektron-basierte Schnitte (CC/CF, pT, ID, Autor, IQ)
+% + kurze erwähnung andere schnitte (MET,Jets,...)
 
 Als \textit{Selektion} bezeichnet man die Gesamtheit von Kriterien, deren
 Anwendung auf die vollständige Ereignismenge eines Datensatzes zu jener
@@ -397,15 +402,17 @@ Chronologie, wie sie auch in der späteren Analyse eingehalten wurde.
     e24vhi_medium1   (oder)   e60_medium1 \end{verbatim}
         Darin steht \texttt{eXX} für das Passieren der Level-2
         Triggerentscheidung eines Elektronkandidaten mit Transversal-Impuls
-        größer \texttt{XX} $\GeV$.
-        \newline\development (v,h,i,medium1)
+        größer \texttt{XX} $\GeV$. Die Bezeichnung \texttt{medium1}
+        repräsentiert das Äquivalent zur Identifikationsstufe\footnote{siehe
+        Kapitel \ref{}} \textit{medium++} und die Anhänge \texttt{vhi} fordern
+        einen isolierten Elektronkandidaten, ohne Energiedeposition im
+        dahinterliegedenden hadronischen Kalorimeter mit \development
 
     \cutitem{Spuren in Primärvertex}{Daten \& Simulation}{Ereignis-Kriterium}
         Als letztes ereignisbasiertes Kriterium wird die Anforderung an den
         Primärvertex gestellt Ausgangspunkt \textbf{mehr als 2 rekonstrukierter
-        Spuren} zu sein. Dies dient der Diskriminierung des Beitrags
-        hochenergetischer kosmischer Myonen an der Ereignisselektion.
-        \newline\development (Korrektheit Prüfen)
+        Spuren} zu sein. Dies dient der Verbesserung der Positionsbestimmung
+        des Vertex und erhöht die Qualität der Zuordnung der Teilchenspuren.
 
     \cutitem{Pseudorapidität}{Daten \& Simulation}{Elektron-Schnitt}
         Die in Kapitel \ref{} dargelegte
@@ -460,15 +467,50 @@ Chronologie, wie sie auch in der späteren Analyse eingehalten wurde.
         wurde ein Grenzwert von \emph{$30\GeV$} symmetrisch für Zentral- und
         Vorwärts-Elektronen gewählt.
 
-        Die voran gestellte Energiekalibration der Elektronen
+        Die voran gestellte Energiekalibration der Elektronen in Kapitel
         \ref{energy_calibration} verwendet hingegen asymmetrische Bedingungen
         von \emph{$25\GeV$} für Zentral-Elektronen und \emph{$20\GeV$} für
         Vorwärts-Elektronen.
 
     \cutitem{Autor}{Daten \& Simulation}{Elektron-Schnitt}
+        Mit diesem Kriterium wird sichergestellt, dass die Elektronkandidaten
+        vom jeweils korrekten Rekonstruktionsalgorithmus\footnote{die
+        Rekonstruktionsalgorithmen wurden in Kapitel \ref{}
+        erläutert} analysiert wurden. Diese tragen eine interne eindeutige
+        Nummer, den sogenannten Autor, die während der Rekonstruktion in die
+        Teilchenattribute eingetragen wird. Es werden deshalb für jeden
+        Elektronkandidaten abhängig von seiner Klassifizierung (Zentral- oder
+        Vorwärts-Elektron) folgende Bedingungen gestellt:
+        \begin{table}[h!]
+            \centering
+            \begin{tabular}{|c|c|}
+                \hline
+                \bf{Bereich} & \bf{Autor} \\
+                \hline \hline
+                Zentral  & 1 \textit{oder} 3 \\
+                Vorwärts & 8                 \\
+                \hline
+            \end{tabular}
+        \end{table}
+
     \cutitem{Identifikation}{Daten \& Simulation}{Elektron-Schnitt}
+        Dieser Schnitt legt die Identifikationsstufe für die Elektronkandidaten
+        fest. Diese wurden in Kapitel \ref{} definiert und unterscheiden sich
+        in 3 Kategorien. Für die vorliegende Arbeit wurde, wenn nicht explizit
+        abweichend notiert, sowohl für Zentral- als auch für
+        Vorwärts-Elektronen das höchste Niveau der Identifikation gefordet,
+        also \textbf{\textit{tight++}} bzw. \textbf{\textit{forward-tight}},
+        was die größte Diskriminierung gegen andersartige Teilchen,
+        Fake-Elektronen\footnote{siehe Kapitel \ref{}}, gewährleistet.
+
     \cutitem{Objekt-Qualität}{Daten \& Simulation}{Elektron-Schnitt}
+        Das letzte Kriterium der Selektionsreihe prüft die Integrität
+        Elektronkandidaten in dem Sinne, als diese nicht in, oder zu dicht an
+        Kalorimeterbereichen liegen dürfen, in denen bekanntermaßen
+        Hardwarefehler o.Ä. aufgetreten sind.
 \end{description}
-
-
+Implizit beinhaltet die oben aufgeführte Selektion noch die Prüfung nach dem
+Vorhandensein von mindestens 2 Elektronkandidaten, da der Selektionsalgorithmus
+ein Ereignis automatisch verwirft, sobald deren Zahl durch Anwendung der
+Schnitte unter 2 sinkt.
 
