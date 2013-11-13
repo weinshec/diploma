@@ -21,11 +21,10 @@
 \label{theory:standardmodell}
 
 \begin{itemize}
-    \item Einführung (Quarks, Leptonen, Wechselwirkungen, Eichinvarianz)
+    \item \sout{Einführung (Quarks, Leptonen, Wechselwirkungen, Eichinvarianz)}
     \item Starke Wechselwirkung (Farbladung, Confinement)
     \item Elektroschwache Theorie (GSW, Mischungswinkel)
     \item Spontane-Symmetriebrechung (Higgs-Mechanismus)
-    \item Hadron-Collider (PDFs, QCD, inelastische Streuung)
 \end{itemize}
 
 Das Standardmodell der Teilchenphysik beschreibt die Dynamik subatomarer
@@ -34,11 +33,151 @@ elektromagnetischen, der schwachen und der starken Wechselwirkung.
 Außerordentlich erfolgreich in der Erklärung einer Vielzahl experimenteller
 Resultate, wurde die Existenz mehrerer heute bekannter Teilchen bereits vor
 deren Entdeckung vom Standardmodell vorhergesagt. Der erst kürzlich erfolgte
-experimentelle Nachweis des Higgs-Bosons vervollständigte die Liste der vom
-Standardmodell postulierten Teilchen.
+experimentelle Nachweis des Higgs-Bosons durch das ATLAS-Experiment
+(\cite{Aad:2012tfa}) komplettiert die Liste der vom Standardmodell postulierten
+Teilchen und führt dessen Erfolg fort.
 
-Man unterscheidet zwischen zwei Familien von Teilchen, den Bosonen mit
-ganzzahligem Spin und den Fermionen mit halbzahligem Spin.
+Das Standardmodell unterscheidet zwei Klassen von Teilchen. Die Bosonen mit
+ganzzahligem Spin, welche die Austauschteilchen der fundamentalen
+Wechselwirkungen repräsentieren und die Fermionen mit halbzahligem Spin, die
+die Bausteine der bekannten Materie sind und auschließlich über den Austauch
+von Bosonen miteinander wechselwirken.  
+
+Mathematisch beschrieben wird das Standardmodell durch Quantenfeldtheorien. Die
+\ac{QED} erklärt dabei die elektromagnetische und die schwache Wechselwirkung,
+während die \ac{QCD} die starke Wechselwirkung begründet. Beide sind
+Eichtheorien, sodass die Forderung nach lokaler Eichinvarianz der
+Lagrangedichten die Existenz der Austauschteilchen, den Eichbosonen, notwendig
+macht. Es hängt dabei von der jeweiligen Symmetriegruppe ab, wie viele
+Eichbosonen benötigt werden. Das bekannteste Eichboson ist das Photon
+($\gamma$), welches die elektromagnetische Wechselwirkung vermittelt, selbst
+aber ungeladen und masselos ist. Die schwache Wechselwirkung hingegen kennt
+drei Austauschteilchen, die beiden geladenen $W^\pm$ Bosonen und das neutrale
+Z-Boson. Alle drei besitzen eine nicht-verschwindende Masse, was nachträgliche
+Einführung des Higgs-Mechanismus\footnote{siehe Abschnitt \ref{}}
+notwendig gemacht hat. Die Bosonen der starken Wechselwirkung sind die acht
+Gluonen ($g$), die wiederum masselos sind keine elektrische Ladung Tragen. Eine
+Übersicht über die Austauschteilchen ist in Tabelle \ref{tab:bosons} zu finden.
+
+\begin{table}
+    \centering
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        \bf{Eichboson} & \bf{Symbol} & \bf{Masse} $[\GeV]$ & \bf{Ladung} &
+        \bf{Wechselwirkung} \\
+        \hline\hline
+        Photon        & $\gamma$ & $0$       & $0$        & elektromagnetisch \\
+        $W^\pm$-Boson & $W^\pm$  & $80,385 $ & $\pm 1\;e$ & schwach \\
+        $Z$-Boson     & $Z$      & $91,1876$ & $0$        & schwach \\
+        Gluon         & $g$      & $0$       & $0$        & stark \\
+        \hline
+    \end{tabular}
+    \caption[Die Eichbosonen des Standardmodells]
+        {Die Eichbosonen des Standardmodells mit Massen
+        (\cite{PhysRevD.86.010001}) und Ladung}
+    \label{tab:bosons}
+\end{table}
+
+Die Fermionen werden unterschieden in solche mit ganzahliger elektrischer
+Ladung, den Leptonen, und jene mit drittelzahliger Ladungen, den Quarks. Die
+Familie der Leptonen umfasst drei geladene ($Q=-1e$) Teilchen, das Elektron
+($e^-$), das Myon ($\mu^-$) und das Tauon ($\tau^-$) und jeweils dazuhörige
+ungeladene Neutrinos ($\nu_e,\nu_\mu,\nu_\tau$). Die geladenen Leptonen
+wechselwirken sowohl elektromagnetisch, als auch über die schwache
+Wechselwirkung, während die elektrisch neutralen Neutrinos lediglich an der
+schwachen Wechselwirkung beteiligt sind. Die Massen der geladenen Leptonen sind
+wohl bekannt, während für die Massen der Neutrino bloß obere Grenzen angegeben
+werden können. Deren absolute Werte und vor allem deren Hierarchie sind
+Gegenstand aktueller Forschung\footnote{siehe zum Beispiel
+\cite{Winter:2013ema}}. Unter den Quarks, den Konstituenten hadronischer
+Materie, existieren solche mit Ladung $Q=+\tfrac{2}{3}e$, die sogenannten
+\textit{up-type} Quarks, und solche mit $Q=-\tfrac{1}{3}e$, die
+\textit{down-type} Quarks. Alle Quarks koppeln neben der elektromagnetischen
+und schwachen Wechselwirkung, zudem noch über die starke Wechselwirkung.
+Zu allen Fermionen existieren entsprechende Antiteilchen, die sich zu ihrem
+jeweiligen Teilchenpartner nur durch deren Quantenzahlen unterscheiden. Tabelle
+\ref{tab:fermions} listet die Fermionen des Standardmodells, wobei auf die
+Aufführung der Antiteilchen der Einfachheit halber verzichtet wurde.
+
+\begin{table}
+    \centering
+    \begin{tabular}{|l|c|l|c|}
+        \hline
+        \bf{Lepton} & \bf{Symbol} & \bf{Masse} & \bf{Ladung} \\
+        \hline\hline
+        Elektron          & $e^-$      & $0,511 \MeV$             & $-1\;e$ \\
+        Elektron-Neutrino & $\nu_e$    & $<0,205 \eV$ (95\%C.L.)  & $0$     \\
+        \hline
+        Myon              & $\mu^-$    & $105,658 \MeV$           & $-1\;e$ \\
+        Myon-Neutrino     & $\nu_\mu$  & $<0,19 \MeV$  (90\%C.L.) & $0$     \\
+        \hline
+        Tauon             & $\tau^-$   & $1776,82 \MeV$           & $-1\;e$ \\
+        Tauon-Neutrino    & $\nu_\tau$ & $<18,2 \MeV$  (95\%C.L.) & $0$     \\
+        \hline\hline
+        \bf{Quark} & \bf{Symbol} & \bf{Masse} & \bf{Ladung} \\
+        \hline\hline
+        up      & $u$ & $2,3 \MeV$    & $+2/3\;e$ \\
+        down    & $d$ & $4,8 \MeV$    & $-1/3\;e$ \\
+        \hline
+        charm   & $c$ & $1,275 \GeV$  & $+2/3\;e$ \\
+        strange & $s$ & $95  \MeV$    & $-1/3\;e$ \\
+        \hline
+        top     & $t$ & $4,66 \GeV$   & $+2/3\;e$ \\
+        bottom  & $b$ & $173,07 \GeV$ & $-1/3\;e$ \\
+        \hline
+    \end{tabular}
+    \caption[Die Fermionen des Standardmodells]
+        {Die Fermionen des Standardmodells mit Massen
+        (\cite{PhysRevD.86.010001}) und Ladung}
+    \label{tab:fermions}
+\end{table}
+
+
+\subsection{Phenomenologie der starken Wechselwirkung}
+Die starke Wechselwirkung erklärt die Dynamik zwischen den Quarks und wird
+mathematisch durch die $SU(3)$ symmetrische \ac{QCD} beschrieben. Die $SU(3)$
+Gruppe wird durch 8 Generatoren erzeugt, deren physikalische Entsprechung die 8
+Gluonen, der starten Wechselwirkung sind. Die hier relevante Quantenzahl ist
+die sogenannte \textit{Farbladung}, welche die Ausprägungen rot, grün und blau
+bzw. antirot, antigrün und antiblau annehmen kann. Die Summe aller drei (Anti-)
+Farben ist Null und man von einem \textit{weißen} Zustand\footnote{In Analogie
+zur additiven Farbmischung}. (Anti-)Quarks tragen stets eine der (Anti-)Farben,
+während die Gluonen immer eine Farb- und eine Antifarbladung tragen. Das
+direkte Produkt des Farbtripletts mit dem Antifarbtriplett ergibt ein
+Farb-Oktett plus ein farbneutrales Singulett. Da in der Natur allerdings keine
+farbneutralen freien Gluonen beobachtet werden, gilt dieser Singulettzustand
+als unphysikalisch und wird deshalb verworfen. Die acht Zustände des Oktetts
+werden den acht Gluonfeldern zugeordnet. (Anti-)Quarks tragen immer eine
+(Anti-)Farbladung und treten in der Natur ebenfalls nicht als freie Teilchen
+auf. Dieses Phänomen bezeichnet man als \textit{Confinement} und führt dazu,
+dass Quarks nur in Bindungszuständen, sogenannten Hadronen, vorkommen.
+
+\development
+Teilchen sein müssen deren Konstituenten in Summe weiß sein müssen. Dies ist
+möglich durch die Addition aller drei Farben bzw. Antifarben
+(rot+grün+blau=weiß) oder die Gegenseitige Aufhebung einer Farbe mit ihrerer
+jeweiligen Antifarbe. Die zusammengesetzten Teilchen sind dann Mesonen
+(2Teilchen) oder Baryonen(3Teilchen) die man alle unter dem Begriff Hadronen
+zusammenfasst.
+Die Tatsache des Confinement spiegelt sich auch in der Kopplungsstärke wieder,
+denn entgegen der Elektromagnetischen Wechselwirkung bei der mit größer
+werdenden Abständen das Potential immer kleiner wird, wächst die Kraft der
+starken WW mit größeren Abständen an. Die Ursache hierfür ist die Asymptotische
+Freiheit, die in allen nicht-abelschen SU(3) Theorien, wie der QCD auftritt und
+bewirkt, dass mit kleiner werdenden Energien also größeren Abständen die
+Kopplungskonstante steigt. siehe Bild.
+
+%______________________________________________________________________________
+%                                                               Hadron-Collider
+\section{Physik mit Hadron-Collidern}
+\label{theory:hadron_collider}
+
+\begin{itemize}
+    \item Luminosität, Schwerpunktsenergie
+    \item PDFs
+\end{itemize}
+
+
 
 %______________________________________________________________________________
 %                                                 Vorwärts-Rückwärts Asymmetrie
@@ -47,7 +186,7 @@ ganzzahligem Spin und den Fermionen mit halbzahligem Spin.
 
 \begin{itemize}
     \item Theoretische Beschreibung
-    \item Messung mit Hadron-Collidern
+    \item Collins-Soper
     \item vorangegangene Messungen / andere Messmethoden
     \item Grund der Messung (Higgs-Constraints)
 \end{itemize}
