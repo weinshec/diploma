@@ -20,12 +20,10 @@
 \section{Das Standardmodell der Teilchenphysik}
 \label{theory:standardmodell}
 
-\begin{itemize}
-    \item \sout{Einführung (Quarks, Leptonen, Wechselwirkungen, Eichinvarianz)}
-    \item \sout{Starke Wechselwirkung (Farbladung, Confinement)}
-    \item Elektroschwache Theorie (GSW, Mischungswinkel)
-    \item Spontane-Symmetriebrechung (Higgs-Mechanismus)
-\end{itemize}
+% + Einführung (Quarks, Leptonen, Wechselwirkungen, Eichinvarianz)
+% + Starke Wechselwirkung (Farbladung, Confinement)
+% + Elektroschwache Theorie (GSW, Mischungswinkel)
+% + Spontane-Symmetriebrechung (Higgs-Mechanismus)
 
 Das Standardmodell der Teilchenphysik beschreibt die Dynamik subatomarer
 Teilchen auf der Basis von drei fundamentalen Wechselwirkungen, der
@@ -211,6 +209,7 @@ zwischen der schwachen Hyperladung, dem schwachen Isospin und der elektrischen
 Ladung eines Leptons anzugeben:
 \begin{equation}
     Q = T_3 + \frac{Y}{2}
+    \label{eq:charge_relation}
 \end{equation}
 
 Die vier bisher vorgestellten Eichbosonen $W^i$ und $B^0$ haben keine Masse, da
@@ -223,10 +222,11 @@ Der Effekt der spontanen Symmetriebrechung bewirkt, dass die physikalischen
 Zustände als Rotation aus den masselosen Eichbosonen hervorgehen.
 \begin{alignat*}{4}
     \gamma &\;=\;  &B^0 \cos\theta_W + W^3\sin\theta_W \\
-    Z      &\;=\; -&B^0 \sin\theta_W + W^3\cos\theta_W \\
+    Z      &\;=\; -&B^0 \sin\theta_W + W^3\cos\theta_W
 \end{alignat*}
-Hierbei ist $\theta_W$ der nach S.Weinberg benannte Weinberg-Winkel. Die
-$W^\pm$-Bosonen gehen aus den masselosen $W^{1,2}$-Eichbosonen durch
+Hierbei ist $\theta_W$ der nach S.Weinberg benannte Weinberg-Winkel, auch mit
+\textit{schwacher Mischungswinkel} bezeichnet. Die $W^\pm$-Bosonen gehen aus den
+masselosen $W^{1,2}$-Eichbosonen durch
 \begin{equation*}
     W^\pm \;=\; \frac{1}{\sqrt{2}} \left( W^1 \mp W^2 \right)
 \end{equation*}
@@ -235,16 +235,24 @@ den nur an links-chirale Fermionen koppelnde $W^{1,2}$-Bosonen die Parität
 maximal verletzen, bewirkt die Mischung mit dem $B^0$-Feld, dass die elektrisch
 neutralen Photonen und $Z$-Bosonen auch an rechts-chirale Teilchen koppeln.
 
-Bei der Berechnung von Wirkungsquerschnitten mithilfe der Feynman-Regeln treten
+Bei der Berechnung von Matrixelementen mithilfe der Feynman-Regeln treten
 für jeden Vertex Terme auf, die die oben beschriebenen Kopplungen
 charakterisieren. Für den in dieser Arbeit interessanten Fall der Kopplung
 eines Z-Bosons an zwei geladene Leptonen (siehe Abbildung
-\ref{fig:fermion_vertex}) findet man als Vertex-Faktor:
+unten) findet man als Vertex-Faktor: \\
+\begin{minipage}{0.6\textwidth}
 \begin{equation}
     -i \frac{g\gamma^\mu}{\cos\theta_W} \left( \frac{1+\gamma^5}{2} c_R
         + \frac{1-\gamma^5}{2} c_L \right)
     \label{eq:coupling}
 \end{equation}
+\end{minipage}
+\hfill
+\begin{minipage}{0.3\textwidth}
+    \includegraphics[width=1.0\textwidth]{img/NCvertex}
+\end{minipage}
+\newline
+
 Hierbei ist $g$ die Kopplungskonstante, die ebenfalls über den Weinberg-Winkel
 mit der Elementarladung zusammenhängt ($g\sin\theta_W=e$). Die $c_R$ bzw.
 $c_L$ bezeichnen die Kopplungskonstanten für die rechts- bzw. links-chiralen
@@ -257,7 +265,7 @@ herausprojeziert werden. Für diese gilt:
     c_L &= - \frac{1}{2} + \sin^2\theta_W   \\
     c_R &= \sin^2\theta_W
 \end{align}
-Alternativ lässt sich sich Gleichung (\ref{eq:coupling}) anstelle der links-
+Alternativ lässt sich Gleichung (\ref{eq:coupling}) anstelle mit den links-
 und rechts-chiralen Kopplungskonstanten auch mit Vektor- ($c_V=c_L+c_R$) und
 Axialvektorkopplungen ($c_A=c_L-c_R$) schreiben:
 \begin{equation}
@@ -284,9 +292,68 @@ Kopplungskonstanten finden.
 %    \label{tab:couplings}
 %\end{table}
 
-Der Weinberg-Winkel $\theta_W$, oder gebräuchlicher $\sin^2\theta_W$ wurde vom
+Aufgrund der Renormalisierung der elektroschwachen Quantenfeldtheorie hängt der
+Wert des schwachen Mischungswinkels $\theta_W$, oder in gebräuchlicherer
+Notation $\sin^2\theta_W$, schwach von der betrachteten Energieskala $Q^2$
+ab\footnote{Wegen der Relevanz für die vorliegende Arbeit beziehen sich alle
+folgenden Bezüge oder Angaben zu $\sin^2\theta_W$ auf den Mischungswinkel am
+Z-Pol ($Q^2=91,2\GeV$)}. Zudem werden bei der Renormalisierung einige
+Korrekturterme höherer Ordnung absorbiert, während andere an Bedeutung
+gewinnen. Deshalb wird für gewöhnlich ein effektiver Mischungwinkel definiert,
+der gegenüber dem oben definierten Ausdruck verschoben ist:
+\begin{equation}
+    \sin^2\theta_W^\text{eff} = \sin^2\theta_W + 0,00029
+    \label{eq:effective_angle}
+\end{equation}
+Der aktuell genauest bekannte Wert (\cite{PhysRevD.86.010001}) für den
+effektiven schwachen Mischungswinkel beträgt:
+\begin{equation}
+    \sin^2\theta_W^\text{eff} = 0.23146 \pm 0.00012
+    \label{eq:literature_value}
+\end{equation}
 
 
+
+\subsection{Spontane Symmetrie-Brechung und Higgs-Mechanismus}
+Das Konzept der spontanen Symmetrie-Brechung ist verantwortlich für die
+Rotation der beobachteten $Z, \gamma$ Bosonen aus den fundamentalen Eichbosonen
+der $SU(2)_L \times U(1)_Y$ und die Entstehung derer Massen, rettet aber im
+Gegenzug die Eichinvarianz und Renormierbarkeit der elektroschwachen Theorie.
+
+Der Higgs-Mechanismus führt in die Lagrange-Dichte der elektroschwachen Theorie
+einen weiteren Term ein, dessen physikalische Entsprechung ein imaginäres
+skalares Feld $\phi$ ist, welches einem $SU(2)_L$ Dublett entspricht.
+\begin{equation}
+    \phi = \binom{\phi^+}{\phi^0}
+\end{equation}
+Die Indizes $^+$ und $^0$ an den imaginär skalaren Komponenten des Feldes
+deuten auf die resultierende elektrische Ladung hin\footnote{siehe Gleichung
+\ref{eq:charge_relation} für $Y(\phi)=1$ und $T_3(\phi)=\pm\tfrac{1}{2}$}.
+Der zusätzliche Term dieses Feldes in der Lagrange-Dichte ist
+\begin{equation}
+    \mathcal{L}_\text{Higgs} = (D_\mu\phi)^\dagger(D^\mu\phi) - V(\phi)
+\end{equation}
+mit dem Potential
+\begin{equation}
+    V(\phi) = \mu^2\phi^\dagger\phi + \lambda (\phi^\dagger\phi )^2
+\end{equation}
+Für $\mu^2<0$ folgt aus der Form des Potentials, dass der Vakuumerwartungswert
+(Grundzustand), nicht mit dem Symmetriepunkt im Ursprung zusammenfällt, sondern
+in der Form eines Kreises entartet ist:
+\begin{equation}
+    \braket{0\:|\phi|\:0} = \sqrt{\frac{-\mu^2}{\lambda}} \equiv \nu 
+\end{equation}
+Die spezielle Wahl des Grundzustandes $\braket{\phi_0}=\binom{0}{\nu/\sqrt{2}}$
+hat nun zur Folge, dass die Symmetrie gebrochen gebrochen wird und den vier
+Freiheitsgraden des Feldes $\phi$ nach dem Goldstone-Theorem vier skalare
+Bosonen entsprechen müssen\footnote{Diese explizite Wahl stellt sicher, dass
+das der Vakuumerwartungswert ungeldaden und reel ist}.
+
+Führt man nun eine Entwicklung um diesen Punkt durch verbleibt lediglich ein
+Freiheitsgrad, während die anderen drei von den Eichbosonen der $SU(2)_L$
+\textit{absorbiert} werden, welche so ihre Masse erlangen. Der übrige
+Freiheitsgrad ist nun in transversaler Richtung anregbar und entspricht somit
+einem physikalischen massiven skalaren Boson, dem Higgs-Boson.
 
 
 
