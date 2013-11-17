@@ -308,21 +308,23 @@ der gegenüber dem oben definierten Ausdruck verschoben ist:
 Der aktuell genauest bekannte Wert (\cite{PhysRevD.86.010001}) für den
 effektiven schwachen Mischungswinkel beträgt:
 \begin{equation}
-    \sin^2\theta_W^\text{eff} = 0.23146 \pm 0.00012
+    \sin^2\theta_W^\text{eff} = 0,23146 \pm 0,00012
     \label{eq:literature_value}
 \end{equation}
 
 
 
 \subsection{Spontane Symmetrie-Brechung und Higgs-Mechanismus}
-Das Konzept der spontanen Symmetrie-Brechung ist verantwortlich für die
-Rotation der beobachteten $Z, \gamma$ Bosonen aus den fundamentalen Eichbosonen
-der $SU(2)_L \times U(1)_Y$ und die Entstehung derer Massen, rettet aber im
-Gegenzug die Eichinvarianz und Renormierbarkeit der elektroschwachen Theorie.
+Der Higgs-Mechanismus benutzt das Konzept der spontanen Symmetrie-Brechung, um
+die Eichinvarianz und Renormierbarkeit der elektroschwachen Theorie
+wiederherzustellen. Der scheinbare Widerspruch zwischen den masselos
+statuierten Eichbosonen der $SU(2)_L \times U(1)_Y$ und den experimentell
+beobachteten massiven $W^\pm$- und $Z$-Bosonen wird durch deren Wechselwirkung
+mit einem den Raum durchziehenden Higgs-Feld behoben.
 
 Der Higgs-Mechanismus führt in die Lagrange-Dichte der elektroschwachen Theorie
 einen weiteren Term ein, dessen physikalische Entsprechung ein imaginäres
-skalares Feld $\phi$ ist, welches einem $SU(2)_L$ Dublett entspricht.
+skalares Feld $\phi$ ist, das einem $SU(2)_L$ Dublett genügt.
 \begin{equation}
     \phi = \binom{\phi^+}{\phi^0}
 \end{equation}
@@ -349,11 +351,18 @@ Freiheitsgraden des Feldes $\phi$ nach dem Goldstone-Theorem vier skalare
 Bosonen entsprechen müssen\footnote{Diese explizite Wahl stellt sicher, dass
 das der Vakuumerwartungswert ungeldaden und reel ist}.
 
-Führt man nun eine Entwicklung um diesen Punkt durch verbleibt lediglich ein
-Freiheitsgrad, während die anderen drei von den Eichbosonen der $SU(2)_L$
-\textit{absorbiert} werden, welche so ihre Masse erlangen. Der übrige
+Führt man nun eine Entwicklung um diesen Punkt durch, so verbleibt lediglich
+ein Freiheitsgrad, während die anderen drei von den Eichbosonen der $SU(2)_L$
+\textit{absorbiert} werden und so deren Masse erzeugen. Der übrige
 Freiheitsgrad ist nun in transversaler Richtung anregbar und entspricht somit
-einem physikalischen massiven skalaren Boson, dem Higgs-Boson.
+einem physikalischen massiven skalaren Boson, dem Higgs-Boson H(x).
+\begin{equation}
+    \phi(x) = \frac{1}{\sqrt{2}}\binom{0}{\nu+H(x)}
+\end{equation}
+Neben den Boson-Massen erzeugt das Higgs-Feld über Yukawa-Kopplungen auch die
+Massen der Fermionen, obgleich deren Wert durch den Higgs-Mechanismus nicht
+vorhergesagt wird. Dasselbe gilt auch für die Masse des Higgs-Bosons selbst,
+die experimentell zu ermitteln bleibt.
 
 
 
@@ -362,11 +371,92 @@ einem physikalischen massiven skalaren Boson, dem Higgs-Boson.
 \section{Physik mit Hadron-Collidern}
 \label{theory:hadron_collider}
 
-\begin{itemize}
-    \item Luminosität, Schwerpunktsenergie
-    \item PDFs
-    \item Jets (Verweis auf Hadronisierung)
-\end{itemize}
+% + Luminosität, Schwerpunktsenergie}
+% + PDFs
+
+Mit Hadron-Collidern, wie dem \ac{LHC}, ist es möglich geladene Hadronen in
+gegenläufigen Strahlen auf annähernd Lichtgeschwindigkeit zu beschleunigen und
+diese an fest definierten Punkten zur Kollision zu bringen. Die experimentell
+interessantesten Größen sind die Schwerpunktsenergie $\sqrt{s}$ und die
+instantane Luminosität $L$. Letztere stellt einen Zusammenhang zwischen der
+erwarteten Ereignisrate $\dot N$ und dem Wirkungsquerschnitt $\sigma_P$ des
+betrachteten Prozesses dar.
+\begin{equation}
+    \dot N \;=\; L \cdot \sigma_P
+\end{equation}
+Die Teilchen laufen in Collidern in der Regel in Paketen, sogenannten
+\textit{bunches} (vom engl. \textit{bunch}, Bündel), mit festdefiniertem
+zeitlichen Abstand um. Die instantane Luminosität ergibt sich dann aus
+\begin{equation}
+    L = \frac{n N_1 N_2 f}{A}
+\end{equation}
+wobei $n$ die Anzahl der Bunches und $f$ die Frequenz deren Zusammentreffens
+ist. $N_{1,2}$ bezeichnet die Anzahl der Teilchen pro Bunch, während $A$ die
+Querschnittsfläche der Pakete ist. Damit hat die Luminostität die Einheit
+$\centi\meter^{-2}\second^{-1}$.
+
+Der Wirkungsquerschnitt $\sigma_P$ ist ein Maß für die Wahrscheinlichkeit einen
+bestimmen Prozess zu beobachten und ist dabei von der zur Verfügung stehenden
+Energie abhängig. Die kollidierenden Hadronen sind zusammengesetzte Teilchen,
+sodass ab einer bestimmten Schwelle die Energien der Konstituenten die
+eigentlich relevante Größe sind. Aufgrund der Relevanz für die vorliegende
+Arbeit wird im folgenden von kollidierenden Protonen ausgegangen, deren Energie
+sehr viel höher ist, als das elastische Streuprozesse relevant würden. Diese
+sind aus drei Valenzquarks in der Kombination $uud$ und einem See aus
+Quark-Antiquark Paaren und Gluonen aufgebaut. Die einzelnen Konstituenten
+werden unter dem Begriff Partonen zusammengefasst, ein von Feynman und Bjorken
+eingeführter Begriff und die Grundlage des sogenannten Partonmodells
+(\cite{Bjorken:1968dy}). Man betrachtet dabei das Proton in einem Bezugssystem
+in dem die Transversalimpulse und Ruhemassen der Partonen vernachlässigbar
+sind\footnote{Dies ist im Falle von Hadron-Collidern, insbesondere des
+\ac{LHC}, sehr gut erfüllt}. Dann lässt sich der Impuls eines Partons mit $x$
+relativ zum Gesamtimpuls des Protons beschreiben
+
+Innerhalb des Partonmodells lässt sich die Wahrscheinlichkeit ein Parton mit
+einem Impulsbruchteil $x$ zu finden mit einer sogenannten \ac{PDF} beschreiben.
+Dabei besteht generell eine zusätzliche Abhängigkeit zur betrachteten Skala
+$Q^2$, da mit dieser die \textit{Auflösung} determiniert ist, mit der
+Substrukturen in Hadronen analysiert werden können. In Proton-Proton
+Kollisionen lässt sich der Wrikungsquerschnitt einer belieben Reaktion nun über
+das Integral der \ac{PDF}s und das entprechende Matrixelement $M$ auf
+Parton-Level ausdrücken:
+\begin{equation}
+    \sigma(pp\rightarrow X) \;=\; \sum_{a,b} \int_0^1 dx_a \int_0^1 dx_b \;
+        f_a(x_a,Q^2) \: f_b(x_b,Q^2) \: M(s,x_a,x_b)
+\end{equation}
+Hierbei bezeichnet $s$ die verfügbare Schwerpunktsenergie im Proton-Proton
+System und $f_a(x_a,Q^2)$ bzw. $f_b(x_b,Q^2)$ die \ac{PDF}s für die Partonen
+$a$ und $b$.
+
+Die \ac{PDF}s repräsentieren also das beste Wissen über den Aufbau und die
+Dynamik innerhalb der Hadronen, müssen jedoch rein durch experiementelle Daten
+bestimmt werden. Dazu verwendet man in großen Bereichen von $Q^2$ und $x$ die
+gemessenen Wirkungsquerschnitte bekannter Prozesse und kombiniert die Daten
+vieler Experimente. Abbildung \ref{fig:mstw} zeigt beispielhaft resultierende
+\ac{PDF}s bei zwei verschiedenen Skalen $Q^2$.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/mstw}
+    \caption[Parton-Verteilungs-Funktionen bei $Q^2=100\GeV^2$ und
+        $Q^2=10^4\GeV^2$]
+        {Parton-Verteilungs-Funktionen bei \mbox{$Q^2=100\GeV^2$} und 
+        \mbox{$Q^2=10^4\GeV^2$} bestimmt durch Martin, Stirling, Thorne und
+        Watt \cite{Martin:2009iq}}
+    \label{fig:mstw}
+\end{figure}
+
+Wie gut zu sehen ist haben die Verteilungsfunktionen für $u$- und $d$-Quarks
+ein lokales Maximum bei großen $x$, was auf die Valenzquark Zusammensetzung des
+Protons ($uud$) zurückzuführen ist. Die Verteilungen der übrigen Seequarks
+sinkt erwartungsgemäß mit den größer werdenden Massen ab.  Außerdem zeigt sich
+hier, dass die Seequark-Verteilungen für Quark und Antiquark identisch sind,
+wodurch die elektrische Nettoladung des Protons von $1$ nach außen hin
+sichergestellt ist. Beim Vergleich zwischen hohen und niedrigem $Q^2$ sieht
+man, dass im letztgenannten Fall die Wahrscheinlichkeiten für Seequarks und
+größer sind, als im Fall niedrieder Energie, was ebenfalls der Erwartung
+entspricht.
+
 
 
 
