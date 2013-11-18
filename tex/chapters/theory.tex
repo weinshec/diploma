@@ -220,16 +220,16 @@ würde. Aus diesem Grund sind die $W^i$ und $B^0$ nicht mit den in Abschnitt
 identifizierbar, die abgesehen vom Photon in Realität massenbehaftet auftreten.
 Der Effekt der spontanen Symmetriebrechung bewirkt, dass die physikalischen
 Zustände als Rotation aus den masselosen Eichbosonen hervorgehen.
-\begin{alignat*}{4}
+\begin{alignat}{4}
     \gamma &\;=\;  &B^0 \cos\theta_W + W^3\sin\theta_W \\
     Z      &\;=\; -&B^0 \sin\theta_W + W^3\cos\theta_W
-\end{alignat*}
+\end{alignat}
 Hierbei ist $\theta_W$ der nach S.Weinberg benannte Weinberg-Winkel, auch mit
 \textit{schwacher Mischungswinkel} bezeichnet. Die $W^\pm$-Bosonen gehen aus den
 masselosen $W^{1,2}$-Eichbosonen durch
-\begin{equation*}
+\begin{equation}
     W^\pm \;=\; \frac{1}{\sqrt{2}} \left( W^1 \mp W^2 \right)
-\end{equation*}
+\end{equation}
 hervor. Während die geladenen $W^\pm$-Bosonen aufgrund ihrerer Komposition aus
 den nur an links-chirale Fermionen koppelnde $W^{1,2}$-Bosonen die Parität
 maximal verletzen, bewirkt die Mischung mit dem $B^0$-Feld, dass die elektrisch
@@ -270,27 +270,28 @@ und rechts-chiralen Kopplungskonstanten auch mit Vektor- ($c_V=c_L+c_R$) und
 Axialvektorkopplungen ($c_A=c_L-c_R$) schreiben:
 \begin{equation}
     -i \frac{g\gamma^\mu}{\cos\theta_W} \left( \frac{c_V-c_A\gamma^5}{2}\right)
+    \label{eq:vertex}
 \end{equation}
 Für die ungeladenen Leptonen und die Quarks lassen sich analoge
-Kopplungskonstanten finden.
-%, die in Tabelle \ref{tab:couplings} gelistet sind.
-%\begin{table}
-%    \centering
-%    \renewcommand{\arraystretch}{1.4}
-%    \begin{tabular}{|c|r|r|}
-%        \hline
-%        \bf{Fermion} & $\mathbf{c_V}$ & $\mathbf{c_A}$ \\
-%        \hline \hline
-%        $\nu_e,\nu_\mu,\nu_\tau$ & $\frac{1}{2}$ & $\frac{1}{2}$ \\
-%        $e^-,\mu^-,\tau^-$ & $-\frac{1}{2}+2\sin^2\theta_W$ & $-\frac{1}{2}$   \\
-%        $u,c,t$ & $\frac{1}{2}-\frac{4}{3}\sin^2\theta_W$ & $\frac{1}{2}$   \\
-%        $d,s,b$ & $-\frac{1}{2}+\frac{2}{3}\sin^2\theta_W$ & $-\frac{1}{2}$ \\
-%        \hline
-%    \end{tabular}
-%    \caption{Vektor- und Axialvektorkopplungen der Fermionen an den neutralen
-%        Strom}
-%    \label{tab:couplings}
-%\end{table}
+Kopplungskonstanten finden, die in Tabelle \ref{tab:couplings} gelistet sind.
+
+\begin{table}
+    \centering
+    \renewcommand{\arraystretch}{1.4}
+    \begin{tabular}{|c|r|r|}
+        \hline
+        \bf{Fermion} & $\mathbf{c_V}$ & $\mathbf{c_A}$ \\
+        \hline \hline
+        $\nu_e,\nu_\mu,\nu_\tau$ & $\frac{1}{2}$ & $\frac{1}{2}$ \\
+        $e^-,\mu^-,\tau^-$ & $-\frac{1}{2}+2\sin^2\theta_W$ & $-\frac{1}{2}$   \\
+        $u,c,t$ & $\frac{1}{2}-\frac{4}{3}\sin^2\theta_W$ & $\frac{1}{2}$   \\
+        $d,s,b$ & $-\frac{1}{2}+\frac{2}{3}\sin^2\theta_W$ & $-\frac{1}{2}$ \\
+        \hline
+    \end{tabular}
+    \caption{Vektor- und Axialvektorkopplungen der Fermionen an den neutralen
+        Strom}
+    \label{tab:couplings}
+\end{table}
 
 Aufgrund der Renormalisierung der elektroschwachen Quantenfeldtheorie hängt der
 Wert des schwachen Mischungswinkels $\theta_W$, oder in gebräuchlicherer
@@ -311,6 +312,18 @@ effektiven schwachen Mischungswinkel beträgt:
     \sin^2\theta_W^\text{eff} = 0,23146 \pm 0,00012
     \label{eq:literature_value}
 \end{equation}
+
+\development
+
+\begin{quote}
+    $\sin^2\theta_W$ auf LO definiert. Höhere Korrekturen (Loops, Vertex)
+    ändern den Wert des schwachen Mischungswinkels und das unterschiedlich für
+    Leptonen und Quarks, wegen unterschiedlicher Kopplungen/Korrekturen.
+    Definiere effektive schwache Mischungswinkel, die die Korrekturen auf einen
+    Vertex \textit{zusammenziehen} und höhere Ordnungen berücksichtigen.
+\end{quote}
+
+\development
 
 
 
@@ -388,7 +401,7 @@ Die Teilchen laufen in Collidern in der Regel in Paketen, sogenannten
 \textit{bunches} (vom engl. \textit{bunch}, Bündel), mit festdefiniertem
 zeitlichen Abstand um. Die instantane Luminosität ergibt sich dann aus
 \begin{equation}
-    L = \frac{n N_1 N_2 f}{A}
+    L = \frac{n \cdot N_1 \cdot  N_2 \cdot f}{A}
 \end{equation}
 wobei $n$ die Anzahl der Bunches und $f$ die Frequenz deren Zusammentreffens
 ist. $N_{1,2}$ bezeichnet die Anzahl der Teilchen pro Bunch, während $A$ die
@@ -466,11 +479,153 @@ entspricht.
 \label{theory:afb}
 
 \begin{itemize}
-    \item Theoretische Beschreibung
+    \item \sout{Theoretische Beschreibung}
     \item Collins-Soper
     \item vorangegangene Messungen / andere Messmethoden
     \item Grund der Messung (Higgs-Constraints)
 \end{itemize}
+
+Die paritätsverletzende Struktur der elektroschwachen Theorie wurde bereits in
+Abschnitt \ref{theory:electroweak} erläutert und wird nun anhand des in dieser
+Arbeit betrachteten Signalprozesses, dem 1970 von S.Drell und T.Yan
+vorgeschlagenen Drell-Yan Prozesses (\cite{PhysRevLett.25.316}), vertieft.
+Abbildung \ref{fig:drell_yan} zeigt diesen Prozess als Feynman-Diagramm.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{img/drell_yan}
+    \caption{Der Drell-Yan Prozess in Proton-Proton Kollisionen}
+    \label{fig:drell_yan}
+\end{figure}
+Ein Quark und ein Antiquark annihilieren dabei zu einem Z-Boson oder virtuellen
+Photon $\gamma^*$, welches wiederum in ein Lepton-Antilepton Paar zerfällt.
+Zuerst konnte dieser Prozess in Proton-Uranium Kollisionen durch
+J.H.Christenson beobachtet werden (\cite{PhysRevLett.25.1523}). Der für diese
+Arbeit relevante Kanal ist der Zerfall in ein Elektron-Positron Paar, welcher
+im Folgenden betrachtet werden wird.
+
+
+
+\subsection{Definition}
+\label{theory:afb_definition}
+
+Zur Bestimmung des differentiellen Wirkungsquerschnittes
+$d\sigma(q\bar q \rightarrow \gamma^*/Z \rightarrow l^+l^-)/d\cos\theta$
+müssen die Parton-Matrixelemente für $Z$- und Photon-Propagator $M_Z$ und
+$M_\gamma$ nach den Feynman-Regeln bestimmt werden. $\theta$ ist hierbei der
+Emissionswinkel des Elektron relativ zur ursprünglichen Richtung des
+Quarksimpulses. Mit der auf Parton-Niveau zur Verfügung stehenden
+Schwerpunktsenergie $\hat s=q^2$ ergeben sich diese zu:
+\begin{align}
+    M_\gamma = &-e_q^2
+                \left[ \bar u(p_3) \gamma^\mu v(p_4) \right]
+                \frac{g_{\mu\nu}}{q^2}
+                \left[ \bar v(p_2) \gamma^\nu u(p_2) \right]
+                \label{eq:matrix_gamma} \\[5pt]
+    M_Z      = &-\frac{e^2}{4\sin^2\theta_W\cos^2\theta_W}
+                \nonumber \\[3pt] &\;\times\;
+                \left[ \bar u(p_3)\gamma^\mu(c_V^q-c_A^q\gamma^5)v(p_4)\right]
+                \left[ \bar v(p_2)\gamma^\nu(c_V^e-c_A^e\gamma^5)u(p_1)\right]
+                \label{eq:matrix_z} \\ &\;\times\;
+                \left( \frac{g_{\mu\nu} - q_\mu q_\nu/M_Z^2}{q^2 - M_Z^2 +iq^2
+                \Gamma_Z/M_Z}  \right) \nonumber
+\end{align}
+Hierbei sind $u,v,\bar u, \bar v$ die Dirac-Spinoren mit den Viererimpulsen
+$p_1,p_2,p_3,p_4$ für Elektron, Positron, Quark und Antiquark. $g_{\mu\nu}$
+bezeichnet den metrischen Tensor, während die $c_{V,A}^{q,e}$ die Vektor- und
+Axialvektor-Kopplungen aus Tabelle \ref{tab:couplings} meinen. In
+(\ref{eq:matrix_z}) finden sich die Vertex Faktoren aus (\ref{eq:vertex}) für
+die Kopplung des Z-Bosons an Fermionen wieder. Der nachfolgende Propagator-Term
+beinhaltet mit $M_Z$ und $\Gamma_Z$ die Masse und Zerfallsbreite des Z-Bosons.
+
+Die Matrixelemente (\ref{eq:matrix_gamma}) und (\ref{eq:matrix_z}) gehen nun
+quadratisch ($|M|^2=M^\dagger M$) in die Wirkungsquerschnitte ein. Betrachtet
+man die beiden Fälle getrennt ergeben sich folgende Zusammenhänge:
+\begin{align}
+    \frac{d\sigma(q\bar q\rightarrow \gamma^* \rightarrow e^+e^-)}{d\cos\theta}
+        &\;\propto\; \frac{1}{\hat s}\;(1+\cos^2\theta)
+        \label{eq:wq_gamma} \\[5pt]
+    \frac{d\sigma(q\bar q\rightarrow Z \rightarrow e^+e^-)}{d\cos\theta}
+        &\;\propto\;
+            \Bigl[
+                \bigl[ (c_V^q)^2 + (c_A^q)^2 \bigr]
+                \bigl[ (c_V^e)^2 + (c_A^e)^2 \bigr]
+                \bigl( 1 + \cos^2\theta      \bigr)
+                \nonumber \\[3pt] & \qquad
+                - 8 c_V^q c_A^q c_V^e c_A^e \cos\theta
+            \Bigr]
+            \label{eq:wq_z}
+\end{align}
+Wie sich zeigt ist (\ref{eq:wq_gamma}) symmetrisch im Elektronemissionswinkel
+$\theta$, während dies in (\ref{eq:wq_z}) nur für den ersten Term gilt. Der
+hintere Term ist linear in $\cos\theta$ und führt daher zu einer Asymmetrie in
+der Winkelverteilung.
+
+Für den Wirkungsquerschnitt des Drell-Yan Prozesses $q\bar q \rightarrow
+\gamma^*/Z \rightarrow e^+e^-$ müssen die beiden Wirkungsquerschnitte
+kombiniert werden\footnote{genauer werden die Matrixelemente
+(\ref{eq:matrix_gamma}) und (\ref{eq:matrix_z}) bei der Berechnung des
+Wirkungsquerschnittes quadratisch addiert werden}, was auch hier zu einem 
+asymmetrischen Beitrag in $\theta$ führt.
+\begin{equation}
+    \frac{d\sigma(q\bar q\rightarrow\gamma^*/Z\rightarrow e^+e^-)}{d\cos\theta}
+        = \frac{1}{3}
+          \left[
+              (1+\cos^2\theta) \; F_0(\hat s)
+              + 2\cos\theta \; F_1(\hat s)
+          \right]
+    \label{eq:wq_drell_yan}
+\end{equation}
+Die $F_i(\hat s)$ fassen dabei alle Kopplungskonstanten und den Z-Propagator
+zusammen:
+\begin{align}
+    F_0(\hat s) \; &= \;
+        \frac{\pi \alpha^2}{2 \hat s}
+        \Bigl(
+            e_q^2 e^2 + 2 \Real[\chi(\hat s)] e_q \:e\: c_V^q c_V^e
+            \nonumber \\ & \qquad
+            + |\chi(\hat s)|^2 ((c_V^q)^2+(c_A^q)^2)((c_V^e)^2+(c_A^e)^2)
+        \Bigr)
+        \\[5pt]
+    F_1(\hat s) \; &= \;
+        \frac{\pi \alpha^2}{2 \hat s}
+        \Bigl(
+            2\Real[\chi(\hat s)] e_q \:e\: c_A^q c_A^e
+            + 4|\chi(\hat s)|^2 c_V^q c_V^e c_A^q c_A^e
+        \Bigr)
+        \\[5pt]
+    \chi(\hat s) \; &= \;
+        \frac{\hat s}{\hat s - M_Z^2 + i\hat s \Gamma_Z/M_Z}
+\end{align}
+Die Asymmetrie verschwindet in der Integration über $\theta$ bei der
+Berechnung des totalen Wirkungsquerschnittes aus (\ref{eq:wq_drell_yan}), ruft
+allerdings in der differentiellen Betrachtung den Unterschied zwischen
+Vorwärts- ($\cos\theta > 0$) und Rückwärts- ($\cos\theta < 0$) Richtung hevor. 
+Man definiert aus diesem Grund die sogenannte
+\textit{Vorwärts-Rückwärts-Asymmetrie} $\afb$ durch das Verhältnis
+\begin{equation}
+    \afb \;=\; \frac{ \int_0^1    \frac{d\sigma}{d\cos\theta} d\cos\theta
+                    - \int_{-1}^0 \frac{d\sigma}{d\cos\theta} d\cos\theta
+                    }{\int_{-1}^1 \frac{d\sigma}{d\cos\theta} d\cos\theta}
+         \;=\; \frac{N_F - N_B}{N_F + N_B}
+\end{equation}
+wobei $N_F$ und $N_B$ die Anzahl der vorwärts bzw. rückwärts emmitierten
+Elektronen ist.
+
+
+
+\subsection{Messung der Asymmetrie in Proton-Proton Kollisionen}
+\label{theory:afb_hadron_collider}
+
+Die Messung der Vorwärts-Rückwärts-Asymmetrie bringt gewisse konzeptionelle
+Schwierigkeiten auf den Plan. Zunächst die tatsächlich im Ruhesystem des
+annihilierenden Quark-Antiquark Paares zur Verfügung stehende
+Schwerpunktsenergie keine zugän
+
+
+
+
+
+
 
 
 

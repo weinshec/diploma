@@ -36,7 +36,7 @@
 \usepackage[Sonny]{fncychap}
 \usepackage{url}
 \usepackage{acronym}
-%\usepackage{hyperref}
+\usepackage[colorlinks=false,pdfborder={0 0 0}]{hyperref}
 
 % Underline, overline...
 \usepackage{ulem}
@@ -57,12 +57,15 @@
 \newcommand{\cutitem}[3]{\item[#1]\hfill\begin{description}[leftmargin=!,labelwidth=\widthof{\bfseries Anwendung:}] \item[Anwendung:] #2 \item[Typ:] #3 \end{description}}
 
 % Custom definitions
-\newcommand{\del}{\partial}
-\newcommand{\eV}{\;\electronvolt}
-\newcommand{\MeV}{\;\mega\electronvolt}
-\newcommand{\GeV}{\;\giga\electronvolt}
-\newcommand{\TeV}{\;\tera\electronvolt}
-\newcommand{\fb} {\;\femto\barn}
+\newcommand{\del} {\partial}
+\newcommand{\Real}{\operatorname{Re}}
+\newcommand{\Imag}{\operatorname{Im}}
+\newcommand{\eV}  {\;\electronvolt}
+\newcommand{\MeV} {\;\mega\electronvolt}
+\newcommand{\GeV} {\;\giga\electronvolt}
+\newcommand{\TeV} {\;\tera\electronvolt}
+\newcommand{\fb}  {\;\femto\barn}
+\newcommand{\afb} {A_{FB}}
 
 %______________________________________________________________________________
 %                                                           General definitions
