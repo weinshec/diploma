@@ -10,7 +10,15 @@
 \chapter{Theoretischer Hintergrund}
 
 \begin{quote}
-    The abstact comes last
+    In diesem Kapitel soll zunächst der theoretische Grundstein der
+    vorliegenden Arbeit gelegt werden. Ausgangspunkt dabei ist das
+    Standardmodell der Teilchenphysik, welches im ersten Abschnitt vorgestellt
+    wird. Hierbei wird nach einer kurzen Einführung der Schwerpunkt auf die
+    elektroschwache Wechselwirkung gelegt, die den theoretischen Rahmen für die
+    Beschreibung der Vorwärts-Rückwärts Asymmetrie steckt. Anschließend werden
+    einige Besonderheiten der Physik mit Hadron-Collidern diskutiert, bevor mit
+    dem letzten Abschnitt auf die eigentliche Definition und Beschreibung der
+    Asymmetrie eingegangen wird.
 \end{quote}
 
 
@@ -57,7 +65,7 @@ notwendig gemacht hat. Die Bosonen der starken Wechselwirkung sind die acht
 Gluonen ($g$), die wiederum masselos sind keine elektrische Ladung Tragen. Eine
 Übersicht über die Austauschteilchen ist in Tabelle \ref{tab:bosons} zu finden.
 
-\begin{table}
+\begin{table}[h]
     \centering
     \begin{tabular}{|c|c|c|c|c|}
         \hline
@@ -293,37 +301,33 @@ Kopplungskonstanten finden, die in Tabelle \ref{tab:couplings} gelistet sind.
     \label{tab:couplings}
 \end{table}
 
-Aufgrund der Renormalisierung der elektroschwachen Quantenfeldtheorie hängt der
-Wert des schwachen Mischungswinkels $\theta_W$, oder in gebräuchlicherer
-Notation $\sin^2\theta_W$, schwach von der betrachteten Energieskala $Q^2$
-ab\footnote{Wegen der Relevanz für die vorliegende Arbeit beziehen sich alle
-folgenden Bezüge oder Angaben zu $\sin^2\theta_W$ auf den Mischungswinkel am
-Z-Pol ($Q^2=91,2\GeV$)}. Zudem werden bei der Renormalisierung einige
-Korrekturterme höherer Ordnung absorbiert, während andere an Bedeutung
-gewinnen. Deshalb wird für gewöhnlich ein effektiver Mischungwinkel definiert,
-der gegenüber dem oben definierten Ausdruck verschoben ist:
+Die bisherige Definition des schwachen Mischungswinkels basierte auf der
+Betrachtung von Wechselwirkungsprozessen in führender Ordnung. Berücksichtigt
+man jedoch Terme höherer Ordnung, wie Vakuumpolaristion oder Vertex- und
+Strahlungskorrekturen an den fundamentalen Vertices und Propagatoren, so ändert
+hat dies auch Einfluss auf den Wert von $\sin^2\theta$. Da für Leptonen und
+Quarks aufgrund ihrer unterschiedlichen Kopplungen unterschiedliche Korrekturen
+auftreten definiert man für beide Fälle \textit{effektive} Mischungswinkel. Für
+den leptonischen effektiven schwachen Mischungswinkel ergibt sich daraus
+folgende Verschiebung\footnote{Berechnung der Korrekturen: \cite{Baur:1997wa},
+\cite{CarloniCalame:2005vc}}:
 \begin{equation}
-    \sin^2\theta_W^\text{eff} = \sin^2\theta_W + 0,00029
+    \sin^2\theta_W^\text{eff,l} = \sin^2\theta_W + 0,00029
     \label{eq:effective_angle}
 \end{equation}
+
 Der aktuell genauest bekannte Wert (\cite{PhysRevD.86.010001}) für den
 effektiven schwachen Mischungswinkel beträgt:
 \begin{equation}
-    \sin^2\theta_W^\text{eff} = 0,23146 \pm 0,00012
+    \sin^2\theta_W^\text{eff,l} = 0,23146 \pm 0,00012
     \label{eq:literature_value}
 \end{equation}
 
-\development
-
-\begin{quote}
-    $\sin^2\theta_W$ auf LO definiert. Höhere Korrekturen (Loops, Vertex)
-    ändern den Wert des schwachen Mischungswinkels und das unterschiedlich für
-    Leptonen und Quarks, wegen unterschiedlicher Kopplungen/Korrekturen.
-    Definiere effektive schwache Mischungswinkel, die die Korrekturen auf einen
-    Vertex \textit{zusammenziehen} und höhere Ordnungen berücksichtigen.
-\end{quote}
-
-\development
+Die oben genannten Korrekturterme implizieren Abhängigkeiten des schwachen
+Mischungswinkels zur Masse des Higgs-Bosons und der des top-Quarks. Sind zwei
+der drei Größen hinreichend genau bekannt, lassen sich Einschränkungen auf die
+Dritte setzen. Diese Tatsache wurde unter anderen dafür genutzt, bereits vor
+dessen Entdeckung die Higgs-Masse einen Massenbereich einzuschränken. 
 
 
 
@@ -431,11 +435,12 @@ Dabei besteht generell eine zusätzliche Abhängigkeit zur betrachteten Skala
 $Q^2$, da mit dieser die \textit{Auflösung} determiniert ist, mit der
 Substrukturen in Hadronen analysiert werden können. In Proton-Proton
 Kollisionen lässt sich der Wrikungsquerschnitt einer belieben Reaktion nun über
-das Integral der \ac{PDF}s und das entprechende Matrixelement $M$ auf
-Parton-Level ausdrücken:
+das Integral der \ac{PDF}s und den entprechenden Parton-Level
+Wirkungsquerschnitt $\sigma^p$ auf Parton-Level ausdrücken:
 \begin{equation}
     \sigma(pp\rightarrow X) \;=\; \sum_{a,b} \int_0^1 dx_a \int_0^1 dx_b \;
-        f_a(x_a,Q^2) \: f_b(x_b,Q^2) \: M(s,x_a,x_b)
+        f_a(x_a,Q^2) \: f_b(x_b,Q^2) \: \sigma^p(s,x_a,x_b)
+    \label{eq:hadron_wq}
 \end{equation}
 Hierbei bezeichnet $s$ die verfügbare Schwerpunktsenergie im Proton-Proton
 System und $f_a(x_a,Q^2)$ bzw. $f_b(x_b,Q^2)$ die \ac{PDF}s für die Partonen
@@ -478,12 +483,9 @@ entspricht.
 \section{Vorwärts-Rückwärts Asymmetrie}
 \label{theory:afb}
 
-\begin{itemize}
-    \item \sout{Theoretische Beschreibung}
-    \item Collins-Soper
-    \item vorangegangene Messungen / andere Messmethoden
-    \item Grund der Messung (Higgs-Constraints)
-\end{itemize}
+% + Theoretische Beschreibung
+% + Collins-Soper
+% + Dilution
 
 Die paritätsverletzende Struktur der elektroschwachen Theorie wurde bereits in
 Abschnitt \ref{theory:electroweak} erläutert und wird nun anhand des in dieser
@@ -616,15 +618,75 @@ Elektronen ist.
 \subsection{Messung der Asymmetrie in Proton-Proton Kollisionen}
 \label{theory:afb_hadron_collider}
 
-% Dilution durch Quarkrichtung
-% Dilution durch Seequark-Seeantiquark
-% Transversalimpulse der Quarks
-% Bezugssystem der Leptonen
-
 Bei der Messung der Vorwärts-Rückwärts Asymmetrie in Proton-Proton Kollisionen
-gibt es gewisse konzeptionelle Aspekte zu beachten. So sind unter anderem die
-initialen Impulse des Quarks und des Antiquarks und dadurch auch die auf
-Parton-Niveau zur Verfügung stehende Schwerpunktsenergie nicht bekannt.
+gibt es einige konzeptionelle Eigenheiten zu beachten. So sind zunächst die
+initialen Impulse des kollidierenden Quark-Antiquark Paares unbekannt. Dies
+beinhaltet natürlich auch die ursprüngliche Flugrichtung des Quarks, die als
+Referenzachse für die Definition des Emissionswinkels des Elektrons $\theta$
+dient. Die Wahrscheinlichkeit für den Ursprung des Quarks ist somit gleich für
+beide Protonen, weshalb $\cos\theta$ lediglich bis auf das Vorzeichen bestimmt
+werden kann. Diesen Effekt bezeichnet man als \textit{Dilution} (vom engl.
+\textit{dilution}, Abschwächung - aufgrund der daraus resultierenden
+Abschwächung der Asymmetrie) und stellt die größte Schwierigkeit bei der
+Bestimmung der Asymmetrie in $pp$-Kollisionen dar.
+
+Statistisch gesehen tragen Valenz-Quarks mit höherer Wahrscheinlichkeit den
+größeren Impulsbruchteil $x$ als See-Antiquarks\footnote{siehe \acl{PDF}s in
+Abschnitt \ref{theory:hadron_collider}}, weshalb das resultierende Boson und
+damit auch das Bezugssystem des konsekutiven Zerfalls-Leptonpaares einen
+Lorentzboost in der selben Richtung tragen sollte. Dies kann zur Festlegung der
+ursprünglichen Quark-Richtung herangezogen werden und korrigiert somit
+teilweise den Dilution-Effekt. Der Fall kollidierender See-Quarks mit
+See-Antiquarks hingegen stellt hingegen einen irreduziblen Beitrag zur Beitrag
+zur Asymmetrie-Abschwächung.
+
+Die Wahl des Bezugssystems, in dem der Emissionswinkel $\cos\theta$ bestimmt
+werden soll, fällt aufgrund der a priori unbekannten Schwerpunktsenergie im
+System der kollidierenden Partonen selbstverständlich auf ein Ruhesystem des
+Lepton-Paares. Endliche Transversalimpulse der erzeugten $Z$-Bosonen, also
+deren Impulskomponente orthogonal zur Referenzachse der kollidierenden
+Protonen, haben zur Folge, dass im Lepton-Ruhesystem die Impulse der Protonen
+nicht mehr kolinear verlaufen, sondern einen gewissen Winkel zueinander
+einschließen. Zwangsläufig bedeutet dies für die Bestimmung von $\cos\theta$,
+dass die Referenzachse nicht mehr parallel zu einem der Proton-Impulse gewählt
+werden darf, sondern der Unkenntnis über den Ursprung des kollidierenden Quarks
+Rechnung getragen werden muss. J.Collins und D.Soper schlugen 1977 für diesen
+Fall die Wahl eines speziellen Leptonpaar-Ruhesystems vor
+(\cite{Collins:1977iv}), in dem die Senkrechte zur Winkelhalbierenden der
+Proton-Impulse als Refernzachse $z'$ für $\cos\theta$ gewählt wird (siehe
+Abbildung \ref{fig:collins_soper}).
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{img/collins_soper}
+    \caption[Leptonpaar-Ruhesystem nach Collins und Soper]
+        {Leptonpaar-Ruhesystem nach Collins und Soper (\cite{Collins:1977iv}).
+        Die Referenzachse $z'$ wird als Senkrechte zur Winkelhalbierenden der
+        Protonimpulse $P_a$ und $P_b$ gewählt.}
+    \label{fig:collins_soper}
+\end{figure}
+
+In Messgrößen des Laborsystems übersetzt erbigt sich der Emissionswinkel im
+Collins-Soper Bezugssystem zu
+\begin{equation}
+    \cos\theta^*_{CS} = \frac{2\left[ p^+(e^-)p^-(e^+)-p^+(e^+)p^-(e^-)\right]}
+        {m(e^+e^-) \sqrt{m^2(e^+e^-)+p_T^2(e^+e^-)}}
+    \label{eq:collins_soper_raw}
+\end{equation}
+wobei $m(e^+e^-)$ und $p_T(e^+e^-)$ die invariante Masse bzw. den
+Transversalimpuls des Lepton-Paares bezeichnen, während $p^\pm$ für Lepton bzw.
+Antilepton definiert sind als $p^\pm = \tfrac{1}{\sqrt{2}}(E\pm p_z)$, wobei
+$p_z$ die longitudinale Komponente des Elektronimpulses meint. Die Annahme über
+die Korellation zwischen ursprünglicher Quarkrichtung und dem Lorentzboost des
+$Z$-Bosons, wird über einen Vorzeichen wechselnden Vorfaktor zu Gleichung
+(\ref{eq:collins_soper_raw}) eingeführt:
+\begin{equation}
+    \cos\theta_{CS} = \frac{|p_z(e^+e^-)|}{p_z(e^+e^-)} \cdot \cos\theta^*_{CS}
+    \label{eq:collins_soper}
+\end{equation}
+Sofern nicht ausdrücklich abweichend angegeben beziehen sich alle folgenden
+Verweise auf $\cos\theta$ auf dessen Definition im Collins-Soper Bezugssystem
+nach Gleichung (\ref{eq:collins_soper}).
 
 
 
