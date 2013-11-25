@@ -17,17 +17,13 @@
 
 
 %______________________________________________________________________________
-%                                Untergrundabschätzung und Kontrollverteilungen
-\section{Untergrundabschätzung und Kontrollverteilungen}
-\label{afb:kinematics}
+%                                                      Datensätze und Selektion
+\section{Datensätze und Selektion}
+\label{afb:selection}
 
 % + benutzter Datensatz
 % + Selektion / Akzeptanz
-
-% + Benutzte Monte-Carlos
 % + Benutzte Gewichte
-
-% + MultiJet-Untergrund Bestimmung
 
 % + Kontroll-Plots der Masse / Winkelverteilung / Phi
 
@@ -43,7 +39,6 @@ Vorwärts-Elektronen (CF) und reinen Zentral-Zentral Ereignissen (CC) zunächst
 beibehalten wird. Die Analyse und Messung wird dann in diesen beiden Kanälen
 zuerst getrennt durchgeführt und abschließend zu einem kombiniertem Ergebnis
 zusammengefasst.
-
 \begin{table} [h]
     \centering
     \begin{tabular}{|l|r|r|}
@@ -66,16 +61,111 @@ zusammengefasst.
     \caption[Anzahl der Elektronkandidaten in Daten für CC und CF Selektion]
         {Anzahl der Elektronkandidaten in Daten nach für CC und CF Selektion.
         Die Auflistung ist inklusiv, d.h. untere Schnitte enthalten implizit
-        alle vorangegangenen Schnitte.}
+        alle vorangegangenen Schnitte. \development (check numbers with
+        calibration)}
     \label{tab:data_selection}
 \end{table}
+Auf alle Elektronkandidaten im Datensatz werden zuvor noch die entsprechenden
+Kalibrationfaktoren für die Energie angewendet (siehe Kapitel
+\ref{data_sim_selection:data} und \ref{energy_calibration}), sodass die
+Selektion auf kalibrierten Energiewerten stattfinden kann.
 
 Zur simulationsseitigen Beschreibung des Signalprozesses
 $pp \rightarrow \gamma^*/Z(e^+e^-) + X$, also dem elektroschwachen Zerfall
 eines $Z$-Bosons bzw. virtuellen Photons in ein Elektronpaar\footnote{auch hier
 wird der Begriff \textit{Elektron} wieder synonym für Teilchen und Antiteilchen
 verwendet}, wird das von \textsc{Powheg+Pythia} generierte Drell-Yan
-Monte-Carlo verwendet (siehe Kapitel \ref{used_mc_samples}).
+Monte-Carlo verwendet (siehe Kapitel \ref{used_mc_samples}). Es werden
+identische Selektionkriterien, wie auf den Daten angewendet, wobei die Energie
+der Elektronkandidaten zuvor einer Auflösungskorrektur unterzogen wird. Dabei
+wird eine künstliche Verschmierung der Energie eingeführt, um die oftmals zu
+optimistisch angenommene Energieauflösung im Monte-Carlo nachträglich zu
+korrigieren\footnote{weitere Details siehe Kapitel \ref{energy_calibration}}.
+Zudem wird für jedes selektierte Ereigniss ein spezifisches Gewicht errechnet,
+mit dem dieses Ereignis bei der Erstellung von statistischen Verteilungen
+beträgt. Es gehen hierbei Ereignis spezifische, sowie Elektron spezifische
+Korrekturfaktoren in die Bildung dieses Gewichtes ein, deren Ursprung und
+Benutzung in Kapitel \ref{mc_corrections} motiviert wurde. Zusammengefasst
+ergeben sich die Gesamtgewichte zu
+\begin{align}
+    w_\text{event}^\text{CC} &= w_\text{pu} \cdot w_\text{kFactor} \cdot
+        w_\text{vtx} \cdot w_\text{gen} \cdot \prod_{i=1,2} w_{\text{ID},i}
+        \cdot w_{\text{spur},i} \cdot w_{\text{trigger},i}
+        \\[2pt]
+    w_\text{event}^\text{CF} &= w_\text{pu} \cdot w_\text{kFactor} \cdot
+        w_\text{vtx} \cdot w_\text{gen} \cdot w_{\text{ID},1} \cdot
+        w_{\text{ID},2} \cdot w_{\text{spur}} \cdot w_{\text{trigger}}
+\end{align}
+wobei der Index $i$ in \ac{CC} Ereignissen verdeutlicht, dass die
+entsprechenden Korrekturfaktoren für beide Zentral-Elektronen separat eingehen.
+In \ac{CF} Ereignissen findet diese Unterscheidung nur für den Faktor der
+Identifikationseffizienz statt, da die beiden übrigen Effizienzkorrekturen
+nicht für Vorwärts-Elektronen definiert sind.
+
+Zur Abschätzung der Beiträge von Untergrundprozessen wird eine Kombination aus
+Simulation und datengestützter Betimmung verwendet. Beide Aspekte werden im
+Folgenden näher erläutert und deren Anteil an den selektierten Ereignissen
+quantifiziert.
+
+
+
+\subsection{Simulierte Untergrundbeiträge}
+\label{afb:monte_carlos}
+
+% + Benutzte Monte-Carlos
+
+Neben dem Drell-Yan Prozess mit zwei Elektronen im Endzustand gibt es
+zahlreiche weitere Prozesse, die eine ähnliche Signatur im Detektor zeigen und
+deshalb von der angewendeten Selektion inkludiert werden. Das Prinzip der
+Abschätzung dieser Untergrundbeiträge mittels Simulationen, beruht auf der
+Erstellung von Monte-Carlos für jeden relevanten, d.h. möglicherweise
+beitragenden, Prozess und der anschließenden Anwendung der selben
+Selektionsschnitte, analog zur Selektion in realen Daten. Die aus den
+verbleibenden Ereignissen gewonnenen Verteilungen\footnote{Selbstverständlich
+ist hierbei auch die mit Gleichung (\ref{eq:mc_scaling}) beschriebene
+Skalierung auf Luminosität erforderlich} quantifizieren sodann den Beitrag des
+jeweilig betrachteten Prozesses. Alle hier nachstehend aufgeführten Monte-Carlo
+Simulationen sind mit ihren Charakteristika bereits in Kapitel
+\ref{used_mc_samples} eingeführt worden und werden hier vom motivierenden
+Standpunkt der Untergrundabschätzung aus betrachtet.
+
+Mit den größten Beitrag zum Untergrund stellt die Produktion und der Zerfall
+eines Top-Antitop Quarkpaares dar. Topquarks haben ein Verzweigungsverhältnis
+von beinahe 100\% für den Zerfall in ein $b$-Quark und ein $W$-Boson. Solche
+Ereignisse passieren die Selektion, wenn entweder beide $W$-Bosonen leptonisch
+in jeweils ein Elektron und ein Antielektronneutrino zerfallen, oder
+Jets aus den $b$-Quarks bzw. dem hadronischen Zefall eines oder beider
+$W$-Bosonen fälschlicherweise als Elektron rekonstruiert werden. Ähnlich,
+jedoch in sehr viel geringerem Umfang, trägt auch die Produktion eines
+einzelnen Top-Quarks und dessen konsekutiver Fall zum Untergrund bei. Die
+relevanten Zerfallskanäle sind dieselben, wie bei der Paarproduktion bereits
+genannt, jedoch ist nun folgerichtig stets ein irrtümlich identifizierter Jet
+beteiligt.
+
+In obiger Erläuterung wurde bereits der leptonische Zerfall eines $W$-Bosons in 
+ein Elektron und ein Antielektronneutrino angeführt. Dieser Prozess liefert
+auch für sich allein gesehen einen Untergrundbeitrag. Hierbei ist ebenso stets
+die Beteiligung falsch rekonstruierter Jets implizit. Neben dem Zerfall in ein
+Elektron kann auch der verwandte Prozess des Zerfalls in ein $\tau$ und das
+entsprechende Antineutrino beisteuern, da $\tau$s eine Verzweigungsverhältnis
+von rund $18\%$ (\cite{PhysRevD.86.010001}) für den weiteren Zerfall in ein
+Elektron aufweisen.
+
+Ein weitere offensichtlich beitragender Prozess ist die Produktion von $WW$-,
+$WZ$- und $ZZ$-Bosonpaaren.
+
+% Erklärung der Plot-Bezeichnungen (ttbar, Singletop...)
+
+
+
+\subsection{Datengestützte Untergrundabschätzung}
+\label{afb:multijet}
+
+% + MultiJet-Untergrund Bestimmung
+
+
+
+
 
 
 
