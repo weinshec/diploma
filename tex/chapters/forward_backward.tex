@@ -116,7 +116,7 @@ quantifiziert.
 
 Neben dem Drell-Yan Prozess mit zwei Elektronen im Endzustand gibt es
 zahlreiche weitere Prozesse, die eine ähnliche Signatur im Detektor zeigen und
-deshalb von der angewendeten Selektion inkludiert werden. Das Prinzip der
+deshalb von der oben beschriebenen Selektion inkludiert werden. Das Prinzip der
 Abschätzung dieser Untergrundbeiträge mittels Simulationen, beruht auf der
 Erstellung von Monte-Carlos für jeden relevanten, d.h. möglicherweise
 beitragenden, Prozess und der anschließenden Anwendung der selben
@@ -129,32 +129,108 @@ Simulationen sind mit ihren Charakteristika bereits in Kapitel
 \ref{used_mc_samples} eingeführt worden und werden hier vom motivierenden
 Standpunkt der Untergrundabschätzung aus betrachtet.
 
-Mit den größten Beitrag zum Untergrund stellt die Produktion und der Zerfall
-eines Top-Antitop Quarkpaares dar. Topquarks haben ein Verzweigungsverhältnis
-von beinahe 100\% für den Zerfall in ein $b$-Quark und ein $W$-Boson. Solche
-Ereignisse passieren die Selektion, wenn entweder beide $W$-Bosonen leptonisch
-in jeweils ein Elektron und ein Antielektronneutrino zerfallen, oder
-Jets aus den $b$-Quarks bzw. dem hadronischen Zefall eines oder beider
-$W$-Bosonen fälschlicherweise als Elektron rekonstruiert werden. Ähnlich,
-jedoch in sehr viel geringerem Umfang, trägt auch die Produktion eines
-einzelnen Top-Quarks und dessen konsekutiver Fall zum Untergrund bei. Die
-relevanten Zerfallskanäle sind dieselben, wie bei der Paarproduktion bereits
-genannt, jedoch ist nun folgerichtig stets ein irrtümlich identifizierter Jet
-beteiligt.
+Einen der größten Beiträge zum Untergrund stellt die Produktion und der Zerfall
+eines Top-Antitop Quarkpaares dar (im Folgenden mit \texttt{ttbar} bezeichnet).
+Topquarks haben ein Verzweigungsverhältnis von beinahe 100\% für den Zerfall in
+ein $b$-Quark und ein $W$-Boson. Solche Ereignisse passieren die Selektion,
+wenn entweder beide $W$-Bosonen leptonisch in jeweils ein Elektron und ein
+Antielektronneutrino zerfallen, oder Jets aus den $b$-Quarks bzw. dem
+hadronischen Zefall eines oder beider $W$-Bosonen fälschlicherweise als
+Elektronen rekonstruiert werden. Ähnlich, jedoch in sehr viel geringerem
+Umfang, trägt auch die Produktion eines einzelnen Top-Quarks und dessen
+konsekutiver Zerfall zum Untergrund bei (nachfolgend \texttt{SingleTop}
+genannt). Die relevanten Zerfallskanäle sind dieselben, jedoch muss nun
+folgerichtig stets ein irrtümlich identifizierter Jet beteiligt sein.
 
-In obiger Erläuterung wurde bereits der leptonische Zerfall eines $W$-Bosons in 
-ein Elektron und ein Antielektronneutrino angeführt. Dieser Prozess liefert
-auch für sich allein gesehen einen Untergrundbeitrag. Hierbei ist ebenso stets
-die Beteiligung falsch rekonstruierter Jets implizit. Neben dem Zerfall in ein
-Elektron kann auch der verwandte Prozess des Zerfalls in ein $\tau$ und das
-entsprechende Antineutrino beisteuern, da $\tau$s eine Verzweigungsverhältnis
-von rund $18\%$ (\cite{PhysRevD.86.010001}) für den weiteren Zerfall in ein
-Elektron aufweisen.
+Der leptonische Zerfall eines $W$-Bosons in ein Elektron und ein
+Antielektronneutrino spielt auch für sich allein betrachtet eine wichtige
+Rolle. Der Wirkungsquerschnitt für die Produktion eines $W$-Bosons ist um
+einiges größer, als für den untersuchten Signal-Prozess. Wie schon beim
+Topquark-Untergrund tragen hier Ereignisse bei, in denen ein Jet von den
+Rekonstruktionsalgorithmen als Elektron erkannt wird. Auch der verwandte
+Prozess des $W$-Zerfalls in ein Tauon und das entsprechende Antineutrino
+liefern einen Beitrag, da Tauonen eine Verzweigungsverhältnis von rund $18\%$
+für den Zerfall in ein Elektron aufweisen. Zusammengefasst werden alle
+Untergründe dieser Art in der Folge mit \texttt{WJets} gekennzeichnet.
 
-Ein weitere offensichtlich beitragender Prozess ist die Produktion von $WW$-,
-$WZ$- und $ZZ$-Bosonpaaren.
+Ein weitere Kontribution zum Untergrund entstammt der Produktion von $WW$-,
+$WZ$- und $ZZ$-Bosonpaaren. Hier finden sich im Endzustand häufig zwei oder
+Elektronen, sodass die Wahrscheinlichkeit hoch ist, dass diese die
+kinematischen Anforderungen erfüllen und sie Selektion passieren können.
+Natürlich kommen hierbei auch wieder falsch identifizierte Jets aus
+hadronischen Zerfällen zum Tragen. Im folgenden werden aber alle Prozesse
+dieser Art, also solche, die die Produktion eines der genannten Bosonpaare
+beinhalten, unter dem Begriff \texttt{Diboson} zusammengefasst.
 
-% Erklärung der Plot-Bezeichnungen (ttbar, Singletop...)
+Einen sehr geringen, wenn auch nicht vernachlässigbaren Anteil liefert der
+Drell-Yan Prozess selbst, nämlich beim Zerfall in ein $\tau^+\tau^-$-Paar
+(\texttt{DYtautau}). Wie schon beim $W$-Untergrund erwähnt können Tauonen in
+Elektronen zerfallen, weshalb dieser Prozess in der Lage ist, von der Selektion
+erfasst zu werden.
+
+Abbildung \ref{fig:elec_kinematics} zeigen die
+Verteilungen des Transversalimpulses $p_T$ und der Pseudorapidität $\eta$ für
+die einzelnen Elektronen nach Anwendung der Selektionsschnitte. Die
+Untergrundbeiträge sind entsprechend der oben eingeführten Kürzel
+(\texttt{ttbar},...) farbig gekennzeichnet und aufeinandergestapelt
+dargestellt.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.48\textwidth]{plots/pt_cc}
+    \hfill
+    \includegraphics[width=0.48\textwidth]{plots/pt_cf}
+
+    \includegraphics[width=0.48\textwidth]{plots/eta_cc}
+    \hfill
+    \includegraphics[width=0.48\textwidth]{plots/eta_cf}
+    \caption[Kinematische Verteilungen der Elektronen nach Selektion in \ac{CC}
+        und \ac{CF}]
+        {Kinematische Verteilungen der Elektronen nach Selektion in \ac{CC}
+        (links) und \ac{CF} (rechts) für den Transversalimpuls (oben) und die
+        Pseudorapidität (unten). Der Quotient aus Daten und dargestellter
+        Untergundsumme ist jeweils unter den Histogrammen gezeigt.}
+    \label{fig:elec_kinematics}
+\end{figure}
+
+Erwartungsgemäß zeigen die Verteilungen des Transversalimpulses in Daten ein
+Maximum bei etwa $45\GeV$, also gerade der halben Masse des $Z$-Bosons
+und einen daran anschließenden starken Abfall mit steigendem Transversalimpuls.
+Ein analoges Verhalten wird bei der Simulation des Signalprozesses
+(\texttt{DYee}) beobachtet. Die übrigen Untergrundspektren weisen ebenfalls den
+erwarteten Verlauf eines mit größer werdendem $p_T$ abfallendes Spektrum auf,
+zeigen dagegen aber keine ausgeprägte Extremstelle. Einzige Ausnahme stellt das
+\texttt{DYtautau} Spektrum dar, welches ein solches Maximum unterhalb von
+$45\GeV$ aufweist. Die Verschiebung dieses Maximums unter die halbe $Z$-Masse
+liegt darin begründet, dass die Elektronen in diesem Prozess aus den
+direkten Zerfallsprodukten des Bosons, also den Tauonen, hervorgehen und
+folglich  nicht deren vollen Impuls tragen.
+
+Desweiteren fällt beim Vergleich zwischen den Spektren für \ac{CC}- und
+\ac{CF}-Selektion auf, dass sich der Umfang der Untergrundbeiträge deutlich 
+unterscheidet. Am deutlichsten zeigt sich dies beim \texttt{WJets}
+Untergrund, der in \ac{CF} den größten Beitrag zum Untergrund darstellt,
+während dessen Beitrag in \ac{CC} eine untergeordnete Rolle spielt. Die Ursache
+hierfür ist, dass im Vorwärts-Bereich die Wahrscheinlichkeit der
+Fehlidentifikation eines Jets als Elektron wesentlich höher ist, als im
+Zentral-Bereich, was unter anderem auf die fehlende Spurinformation im
+Vorwärts-Bereich zurückzuführen ist\footnote{siehe hierzu auch Kapitel \ref{}}.
+
+Unter jeder Abbildung ist zudem der Quotient aus der Datenverteilung und der
+Summe alle Monte-Carlos (Untergründe + Signal) dargestellt. Diese zeigt, gerade
+in Bereichen mit hohem Transversalimpuls eine deutliche Diskrepanz. Hierin
+verbirgt sich ein weiterer fehlender Untergundbeitrag der durch Prozesse der
+\ac{QCD} bestimmt ist und deshalb nur schwer simulierbar ist. Die Methode zur
+Abschätzung dieses Beitrags ist Gegenstand des nachfolgenden Abschnitts.
+
+Bei der Betrachtung der Spektren der Pseudorapidität ist zu beachten, dass
+diese auf unterschiedlichen Skalen, entsprechend der jeweiligen Schnitte in der
+Selektion, aufgetragen sind. Die Form der Verteilungen in Daten zeigen im
+\ac{CC} Kanal einen leicht nach außen abfallenden Verlauf, während im \ac{CF}
+Kanal zwei deutliche symmetrische Erhebungen auszumachen sind. Dies ist den
+angewendeten Selektionkriterien geschuldet, die den Öffnungswinkel zwischen den
+beiden Elektronen gerade in der \ac{CF}-Selektion einschränken. 
+
 
 
 
