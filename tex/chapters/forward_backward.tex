@@ -175,7 +175,7 @@ Untergrundbeiträge sind entsprechend der oben eingeführten Kürzel
 (\texttt{ttbar},...) farbig gekennzeichnet und aufeinandergestapelt
 dargestellt.
 
-\begin{figure}[h]
+\begin{figure}[hp]
     \centering
     \includegraphics[width=0.48\textwidth]{plots/pt_cc}
     \hfill
@@ -199,18 +199,18 @@ und einen daran anschließenden starken Abfall mit steigendem Transversalimpuls.
 Ein analoges Verhalten wird bei der Simulation des Signalprozesses
 (\texttt{DYee}) beobachtet. Die übrigen Untergrundspektren weisen ebenfalls den
 erwarteten Verlauf eines mit größer werdendem $p_T$ abfallendes Spektrum auf,
-zeigen dagegen aber keine ausgeprägte Extremstelle. Einzige Ausnahme stellt das
-\texttt{DYtautau} Spektrum dar, welches ein solches Maximum unterhalb von
-$45\GeV$ aufweist. Die Verschiebung dieses Maximums unter die halbe $Z$-Masse
-liegt darin begründet, dass die Elektronen in diesem Prozess aus den
-direkten Zerfallsprodukten des Bosons, also den Tauonen, hervorgehen und
-folglich  nicht deren vollen Impuls tragen.
+zeigen dagegen aber keine ausgeprägte Extremstelle. Einzige Ausnahme dabei
+stellt das \texttt{DYtautau} Spektrum dar, welches ein solches Maximum
+unterhalb von $45\GeV$ aufweist. Die Verschiebung dieses Maximums unter die
+halbe $Z$-Masse liegt darin begründet, dass die Elektronen in diesem Prozess
+aus den direkten Zerfallsprodukten des Bosons, den Tauonen, hervorgehen und
+folglich nicht deren vollen Impuls tragen.
 
 Desweiteren fällt beim Vergleich zwischen den Spektren für \ac{CC}- und
 \ac{CF}-Selektion auf, dass sich der Umfang der Untergrundbeiträge deutlich 
 unterscheidet. Am deutlichsten zeigt sich dies beim \texttt{WJets}
 Untergrund, der in \ac{CF} den größten Beitrag zum Untergrund darstellt,
-während dessen Beitrag in \ac{CC} eine untergeordnete Rolle spielt. Die Ursache
+während dessen Rolle in \ac{CC} von geringer Bedeutung ist. Die Ursache
 hierfür ist, dass im Vorwärts-Bereich die Wahrscheinlichkeit der
 Fehlidentifikation eines Jets als Elektron wesentlich höher ist, als im
 Zentral-Bereich, was unter anderem auf die fehlende Spurinformation im
@@ -219,25 +219,103 @@ Vorwärts-Bereich zurückzuführen ist\footnote{siehe hierzu auch Kapitel \ref{}
 Unter jeder Abbildung ist zudem der Quotient aus der Datenverteilung und der
 Summe alle Monte-Carlos (Untergründe + Signal) dargestellt. Diese zeigt, gerade
 in Bereichen mit hohem Transversalimpuls eine deutliche Diskrepanz. Hierin
-verbirgt sich ein weiterer fehlender Untergundbeitrag der durch Prozesse der
-\ac{QCD} bestimmt ist und deshalb nur schwer simulierbar ist. Die Methode zur
-Abschätzung dieses Beitrags ist Gegenstand des nachfolgenden Abschnitts.
+verbirgt sich ein weiterer bisher nicht betrachteter Untergundbeitrag der durch
+Prozesse der \ac{QCD} bestimmt ist und deshalb nur schwer simulierbar ist. Die
+Methode zur Abschätzung dieses Beitrags ist Gegenstand des nachfolgenden
+Abschnitts.
 
-Bei der Betrachtung der Spektren der Pseudorapidität ist zu beachten, dass
-diese auf unterschiedlichen Skalen, entsprechend der jeweiligen Schnitte in der
-Selektion, aufgetragen sind. Die Form der Verteilungen in Daten zeigen im
-\ac{CC} Kanal einen leicht nach außen abfallenden Verlauf, während im \ac{CF}
-Kanal zwei deutliche symmetrische Erhebungen auszumachen sind. Dies ist den
-angewendeten Selektionkriterien geschuldet, die den Öffnungswinkel zwischen den
-beiden Elektronen gerade in der \ac{CF}-Selektion einschränken. 
-
+Bei der Betrachtung der Spektren der Pseudorapidität ist zunächst zu beachten,
+dass diese auf unterschiedlichen Skalen, entsprechend der jeweiligen Schnitte
+in der Selektion, aufgetragen sind. In beiden Selektionen zeigen sich
+natürlicherweise um Null symmetrische Spektren und die Exklusionen der
+Kalorimeter Übergangsregionen ist deutlich sichtbar. Die Form der Verteilungen
+im \ac{CC} Kanal zeigen einen leicht nach außen abfallenden Verlauf, während im
+\ac{CF} Kanal zwei deutliche Erhebungen auszumachen sind. Diese haben ihr
+Maximum bei $\eta\approx\pm 2,5$, was dem Übergang zwischen Zentral- und
+Vorwärts-Bereich entspricht. Die Ausprägung dieser Struktur ist den
+angewendeten Selektionkriterien geschuldet, die den Öffnungswinkel
+zwischen den beiden Elektronen in der \ac{CF}-Selektion
+einschränken\footnote{die \ac{CF} Selektion unterdrückt Ereignisse mit
+Öffnungswinkeln $\theta \approx \pi$}. Die Untergrundbeiträge tragen hier
+selbstverständlich im gleichen Maße bei, wie schon bei den Spektren des
+Transversalimpulses erläutert. Schaut auf den jeweils darunter dargestellten
+Quotienten aus Daten und Monte-Carlo, lässt sich etwas über den bisher
+vernachlässigten Beitrag des \ac{QCD} Untergrundes etwas lernen. So resultiert
+dessen Ignorieren im \ac{CC}-Kanal zu einem breiten, den vollen $\eta$-Bereich
+abdeckenden Überschuss an Datenereignissen, während im \ac{CF}-Kanal diese
+Überschüsse auf die Randbereiche ($|\eta| > 4,0$) und um das Zentrum ($\eta=0$)
+konzentrieren.
 
 
 
 \subsection{Datengestützte Untergrundabschätzung}
 \label{afb:multijet}
+Nachdem im vorangegangenen Abschnitt die Untergrundbeiträge simulierbarer
+Prozesse untersucht wurden, steht nun die Examinierung der eben bereits
+erwähnten Beiträge durch reine Prozesse der starken Wechselwirkung an. Die
+Anzahl der möglichen Parton-Konstellationen innerhalb dieser Prozesse ist groß,
+jedoch ist allen beitragenden Ereignissen gemein, dass sie mindestens zwei Jets
+im Endzustand aufweisen, die irrtümlich als Elektronen rekonstruiert werden,
+weshalb im Folgenden auch von \texttt{MultiJet} Untergrund gesprochen wird.
 
-% + MultiJet-Untergrund Bestimmung
+Zu dessen Abschätzung wird die sogenannte \textit{ReverseID}-Methode (vom engl.
+reverse, umgekehrt) benutzt. Das Grundprinzip dabei sieht vor, einen neuen Satz
+von Selektionsschnitten zu erstellen, der sich gegenüber der normalen
+Signalselektion lediglich in der Umkehrung der Identifiaktionskriterien
+unterscheidet. Das heißt konkret man verlangt anstelle einer bestimmten
+Identifikationsstufe\footnote{z.B. \textit{tight++} (siehe Kapitel
+\ref{})} für Elektronkandidaten die darunter liegende Stufe und fordert
+gleichzeitig das Scheitern des ursprünglichen Kriteriums. Abbildung
+\ref{fig:reverseID} veranschaulicht dies.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{img/reverseID}
+    \caption[Mengentheoretische Darstellung der Selektion in der
+        ReverseID-Methode]
+        {Mengentheoretische Darstellung der Selektion in der ReverseID-Methode.
+        \textbf{Signalselektion:} $B\quad$ \textbf{ReverseID-Selektion:}
+        $A \backslash B$}
+    \label{fig:reverseID}
+\end{figure}
+Da die Menge der Elektronen, die eine bestimmte ID-Stufe erfüllen stets eine
+Teilmenge der darunterliegenden Stufe ist, ist die Menge der mit ReverseID
+selektierten Elektronen statistisch unabhängig von der ursprünglichen Menge.
+Auf den vollen Datensatz angewendet ist das Ziel dabei die Auslese jener
+Ereignisse mit signalähnlichen Jets, die eine hohe Wahrscheinlichkeit haben als
+Elektronen identifiziert zu werden.
+
+Man trifft nun die Annahme, dass die statistische Verteilung dieser Ereignisse
+geeignet ist, um die Form des \texttt{MultiJet} Untergrundbeitrages zu
+repräsentieren, lediglich die Skalierung bleibt noch zu bestimmen. Letzteres
+wird erreicht, indem man alle simulierten Untergünde (s.o.), das Signal
+Monte-Carlo und die \texttt{MultiJet} Verteilung aufaddiert und diese Summe
+mittels eines freien Skalierungsfaktors für die \texttt{MultiJet} Verteilung an
+die beobachtete Datenverteilung anpasst.
+
+In dieser Arbeit wird für die Signalselektion die Identifikationsstufe
+\textit{tight++} für Zentral- bzw. \textit{fwdTight} für Vorwärts-Elektronen
+verwendet. Dementsprechend wird für die ReverseID-Methode die folgende
+ID-Kriterien gefordert:
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|
+                     >{\centering\arraybackslash}p{45mm} |
+                     >{\centering\arraybackslash}p{45mm} |
+                   }
+        \hline
+        \bf{Bereich} & \bf{Signal Selektion} & \bf{ReverseID Selektion} \\
+        \hline\hline
+        Zentral  & \it{tight++}  & \textit{medium++} $\wedge$ !\it{tight++} \\
+        \hline
+        Vorwärts & \it{fwdTight} & \textit{fwdMedium} $\wedge$ !\it{fwdTight} \\
+        \hline
+    \end{tabular}
+    \caption[Identifikations Kriterien der ReverseID-Methode]
+        {Identifikations Kriterien der ReverseID-Methode. Ein '!' meint eine
+        logische Verneinung.}
+    \label{tab:reverseID}
+\end{table}
+
 
 
 
