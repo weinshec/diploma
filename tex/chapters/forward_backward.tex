@@ -292,29 +292,75 @@ Monte-Carlo und die \texttt{MultiJet} Verteilung aufaddiert und diese Summe
 mittels eines freien Skalierungsfaktors für die \texttt{MultiJet} Verteilung an
 die beobachtete Datenverteilung anpasst.
 
+Um Doppelzählungen mit fehlrekonstruierten Jets aus bereits simulierten
+Untergründen (siehe voheriger Abschnitt) auszuschließen wird die ReverseID
+Selektion ebenfalls auf alle bereits verwendeten Monte-Carlos angewandt und
+deren Beitrag von der aus Daten erzeugten Verteilung subtrahiert.
+
 In dieser Arbeit wird für die Signalselektion die Identifikationsstufe
 \textit{tight++} für Zentral- bzw. \textit{fwdTight} für Vorwärts-Elektronen
-verwendet. Dementsprechend wird für die ReverseID-Methode die folgende
+verwendet. Dementsprechend werden für die ReverseID-Methode die folgenden
 ID-Kriterien gefordert:
 \begin{table}[h]
     \centering
-    \begin{tabular}{|c|
-                     >{\centering\arraybackslash}p{45mm} |
-                     >{\centering\arraybackslash}p{45mm} |
+    \begin{tabular}{
+                        |c|
+                        >{\centering\arraybackslash}p{45mm} |
+                        >{\centering\arraybackslash}p{45mm} |
                    }
         \hline
         \bf{Bereich} & \bf{Signal Selektion} & \bf{ReverseID Selektion} \\
         \hline\hline
-        Zentral  & \it{tight++}  & \textit{medium++} $\wedge$ !\it{tight++} \\
+        Zentral  & \it{tight++}  & \textit{medium++} $\wedge$!\it{tight++} \\
         \hline
-        Vorwärts & \it{fwdTight} & \textit{fwdMedium} $\wedge$ !\it{fwdTight} \\
+        Vorwärts & \it{fwdTight} & \textit{fwdMedium} $\wedge$!\it{fwdTight} \\
         \hline
     \end{tabular}
     \caption[Identifikations Kriterien der ReverseID-Methode]
         {Identifikations Kriterien der ReverseID-Methode. Ein '!' meint eine
-        logische Verneinung.}
+        logische Negierung.}
     \label{tab:reverseID}
 \end{table}
+
+Zur Bestimmung des Skalierungsfaktors wird das, bereits für die
+Kurvenanpassungen der Energiekalibration verwendete, Software-Paket
+\textsc{RooFit} (\cite{Verkerke:2003ir}) verwendet. Dieses stellt die
+Möglichkeit bereit Histogramme als Anpassungsmodelle zu verwenden. Oben
+definierte \texttt{MultiJet} Verteilung wird nun als solches Modell mittels des
+freien Skalierungsfakotrs an die Datenverteilung angepasst.
+
+Abbildung \ref{fig:multijet} zeigt das Ergebnis dieser Anpassung im invarianten
+Massenspektrum der Elektronpaare für den \ac{CC} und \ac{CF} Kanal.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=.48\textwidth]{plots/mee_cc}
+    \hfill
+    \includegraphics[width=.48\textwidth]{plots/mee_cf}
+    \caption[Invariante Masse der Elektronpaare nach MultiJet
+        Untergrundanpassung]
+        {Invariante Masse der Elektronpaare mit MultiJet Untergrundanpassung
+        und allen simulierten Untergründen im \ac{CC}-Kanal (links) und
+        \ac{CF}-Kanal (rechts). Die darunter dargestellten Quotienten aus Daten
+        und Summe aller Untergründe mit Signal Monte-Carlo zeigen die
+        Übereinstimmung vor (blau) und nach (grün) MultiJet-Anpassung.}
+    \label{fig:multijet}
+\end{figure}
+Dabei ist zunächst zu beachten, dass der Bereich der invarianten Masse auf
+$70\GeV < M_{ee} < 150\GeV$ eingeschränkt wurde,was zwei Gründe hat. Zum einen
+wurde diese Einschränkung schon im Hinblick auf die spätere Extraktion des
+schwachen Mischungswinkels vorgenommen und zum anderen weißt die
+ReverseID-Methode in höheren Massenbereichen signifkante Defizite auf, welche
+deren Anwengung nicht mehr rechtfertigen lassen. So ist zum Beispiel die stetig
+abnehmende Statistik ein Problem, viel mehr jedoch die unhaltbare Annahme Jets
+würden sich über alle Energien und Bereiche des Detektors stets gleich
+verhalten. Alternative Möglichkeiten zur Abschätzung der \ac{QCD}
+Untergrundbeiträge werden am Ende des Kapitel diskutiert werden.
+
+% Diskutiere Abbildungen detailiert
+
+
+
+
 
 
 
@@ -349,7 +395,7 @@ ID-Kriterien gefordert:
 % + Diskussion
 %   - Systematische Betrachtungen
 %   - Vergleich mit anderen Experimenten
-%   - Ausblick
+%   - Ausblick (..., Alternativen zur ReverseID, ...)
  
 
 
