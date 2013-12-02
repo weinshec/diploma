@@ -395,6 +395,10 @@ longitudinalen Impulsterm des Elektronpaares $p_z(e^+e^-)/|p_z(e^+e^-)|$,
 welcher die Annahme über die Korrelation zwischen der ursprünglichen
 Quarkrichtung und dem Lorentz-Boost des Elektronpaares wiederspiegelt. 
 
+
+
+\subsection{Korrelation der Quark-Richtung mit dem Lorentz-Boost des Z-Bosons}
+\label{afb:dilution}
 Der Geltungsbereich dieser Annahme lässt sich mittels Monte-Carlo Simulationen
 untersuchen. Dazu werden mit dem Monte-Carlo Generator \textsc{Pythia8}
 (\cite{Sjostrand:2007gs}) für unterschiedliche Bereiche in der invarianten
@@ -405,9 +409,195 @@ der im Prozess beteiligten Partonen zur Verfügung stellt, lässt sich ein
 Vergleich zwischen obigem Vorzeichen-Faktor und der originären Quarkrichtung
 ziehen.
 
-Die Simulation findet mit einer eigenständigen Installation von
-\textsc{Pythia8} statt deren Konfiguration in Anhang \ref{pythia8} zu finden
-ist. Für jeden Massenbereich wurden statistisch
+Die Simulation findet mit einer eigenständigen Installation\footnote{d.h. keine
+von der ATLAS Monte-Carlo Workingroup verifizierte Simulation, was für den
+angestrebten Zweck unnötig ist} von \textsc{Pythia8} statt deren
+Konfiguration in Anhang \ref{pythia8:dilution} zu finden ist. Für insgesammt
+sieben verschiedene Massenbereiche bis zu $1 \TeV$ wurden statistisch
+unabhängige Datensätze von je $10$ Millionen Ereignissen generiert und jeweils
+die Übereinstimmung zwischen der wahren Quark-Richtung und dem nach
+$p_z(e^+e^-)/|p_z(e^+e^-)|$ Vorzeichen verglichen. Abbildung \ref{fig:dilution}
+zeigt die resultierenden Verteilungen in Abhängigkeit vom Betrag der Rapidität
+$|Y_{ee}|$ des Elektronpaares.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{plots/dilution}
+    \caption[Vergleich zwischen Quark-Richtung und long. Komponente des
+        Z-Boosts]
+        {Vergleich zwischen wahrer Quark-Richtung und der longitudinal
+        Komponente des Elektronpaar-Lorentzboosts. Die durchgezogenen
+        Verteilungen beinhalten alle Elektronpaare, die Kreise nur solche mit
+        korrekter Zuordnung der Quark-Richtung.}
+    \label{fig:dilution}
+\end{figure}
+
+Für jeden Massenbereich sind zwei Verteilungen gezeigt. Mit einer
+durchgezogenen Linie sind alle Elektronpaare repräsentiert, während die Kreise
+all jene Elektronpaare mit korrekter Zuordnung der Quark-Richtung zeigen, d.h.
+alle Paare für die gilt:
+\begin{equation}
+    p_z^q \cdot q_z^{e^+e^-} > 0
+\end{equation}
+Wie in jedem Massenbereich gut zu sehen ist nimmt die Übereinstimmung mit
+größerem Betrag der Rapidität zu. Dies ist besonders eindrucksvoll an der
+darunter gezeigten Verhältnissen zu sehen, die auch als
+Wahrscheinlichkeitsverteilungen für die Fehlzuordnung der Quarkrichtung durch
+die obige Annahme interpretiert werden können. Über alle Massenbereich hinweg
+zeigt sich für Rapiditäten nahe bei Null eine Rate von $50\%$ für falsch
+zugeordnete Quarkrichtungen, welche dann mit steigender Rapidität stetig
+kleiner wird. Die Rate der korrekten Zuordnungen verbessert sich hingegen bei
+konstanter Pseudorapidität mit steigender Masse, was sich in den
+unterschiedlichen Steigungen der Verhältnisse wiederspiegelt.
+ 
+Den Einfluss dieses Effekts auf die Messung der Asymmetrie im \ac{CC}- und
+\ac{CF}-Kanal lässt sich am besten anhand der gemessenen Rapiditätsverteilungen
+abschätzen. Diese sind in Abbildung \ref{fig:rapidities} gezeigt. Hier lässt
+sich leich erkennen, dass die Ereignisse im \ac{CF}-Kanal vorwiegend die
+Bereiche um $Y_{ee}=2,5$ populieren, während die Verteilung im \ac{CC}-Kanal
+ihr Maximum bei $Y_{ee}=0$ zeigt, und dann nach außen hin abfällt.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.48\textwidth]{plots/yee_cc}
+    \hfill
+    \includegraphics[width=0.48\textwidth]{plots/yee_cf}
+    \caption[Rapiditäts-Verteilungen der Elektronpaare im \ac{CC}-Kanal
+        und \ac{CF}-Kanal]
+        {Rapiditäts-Verteilungen der Elektronpaare im \ac{CC}-Kanal
+        (links) und \ac{CF}-Kanal (rechts) ohne \texttt{MultiJet}-Untergrund}
+    \label{fig:rapidities}
+\end{figure}
+
+Alle falsch zugeordneten Ereignisse tragen mit zur Abschwächung (Dilution) der
+Vorwärts-Rückwärts Asymmetrie bei, was sich somit vorwiegend im \ac{CC}-Kanal
+bemerkbar machen sollte. Ein zusätzlicher Schnitt auf den Betrag der Rapidität
+der Elektronpaare wäre denkbar, würde allerdings die Akzeptanz in hohem Maße
+einschränken, sodass gerade im \ac{CC}-Kanal enorm an statistischer Signifikanz 
+eingebüßt werden müsste. Deshalb wird in dieser Arbeit auf einen solchen
+Schnitt verzichtet.
+
+
+
+\subsection{Verteilungen der Vorwärts-Rückwärts Asymmetrie}
+Die Bestimmung der Vorwärts-Rückwärts Asymmetrie erfolgt für kleine Intervalle
+der invarianten Masse der Elektronpaare aus der Differenz zwischen der Anzahl
+vorwärts- und rückwärts-emittierter Elektronen normiert auf deren Gesamtzahl.
+\begin{equation}
+    \afb = \frac{N_F - N_B}{N_F + N_B}
+    \label{eq:afb_simple}
+\end{equation}
+Wobei die Klassifizierung \textit{vorwärts} und \textit{rückwärts} nach dem
+Vorzeichen von $\cos\theta_{cs}$ geschieht\footnote{siehe auch Gleichung
+(\ref{eq:afb})}:
+\begin{equation}
+    \cos\theta_{cs} > 0 \quad\text{(vorwärts)}
+    \qquad \qquad
+    \cos\theta_{cs} < 0 \quad\text{(rückwärts)}
+\end{equation}
+Die Unterteilung in der invarianten Masse erfolgt in den gleichen Grenzen, wie
+schon die Kurvenanpassungen der Energiekalibration der Vorwärts-Elektronen,
+d.h. in einem Fenster um die Z-Resonanz zwischen $75\GeV$ und $105\GeV$. Die
+Aufteilung findet prinzipiell in Schritten von $2\GeV$ statt, wobei die
+statistisch weniger polpulierten Randbreiche in größeren Abständen unterteilt
+werden. Die folgende Tabelle \ref{tab:binning_afb} zeigt die gewählte
+Einteilung über den Massenbereich.
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+        \multicolumn{12}{c}{\textbf{Invariante Masse} [$\GeV\:$]} \\
+        \hline
+        $75,0$ & $80,0$ & $83,0$ & $85,0$ & $87,0$ & $89,0$ & $91,0$ & $93,0$ &
+        $95,0$ & $97,0$ & $100,0$ & $105,0$
+        \\ \hline
+    \end{tabular}
+    \caption[Unterteilung in der invarianten Masse des Elektronpaares zur
+        Bestimmung der Vorwärts-Rückwärts Asymmetrie]
+        {Unterteilung in der invarianten Masse des Elektronpaares zur
+        Bestimmung der Vorwärts-Rückwärts Asymmetrie}
+    \label{tab:binning_afb}
+\end{table}
+
+Zur Berechnung der Vorwärts-Rückwärts Asymmetrie werden nun die Daten,
+Untegründe und die Signal-Simulation nach oben beschriebener Selektion
+(Abschnitt \ref{afb:selection}) und ggf. Anwendung der Korrekturen in je zwei
+Histogramme der invarianten Masse aufgeteilt. Eines mit Ereingissen
+vorwärts-emittierter Elektronen und eines mit Ereignissen rückwärts-emittierter
+Elektronen. Von beiden Verteilungen der realen Daten werden anschließend die
+entsprechenden Histogramme aller Untergründe subtrahiert. Die Berechnung der
+Asymmetrie nach Gleichung (\ref{eq:afb_simple}) geschieht dann für die
+untergrund-reduzierten Daten und das Signal Monte-Carlo in jedem Bereich der
+invarianten Masse (Tabelle \ref{tab:binning_afb}) separat. Abbildung
+\ref{fig:afb_raw} zeigt die resultierenden Asymmetrie-Verteilungen für die
+beiden Selektionskanäle \ac{CC} und \ac{CF}.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.48\textwidth]{plots/afb_cc}
+    \hfill
+    \includegraphics[width=0.48\textwidth]{plots/afb_cf}
+    \caption[Verteilung der Vorwärts-Rückwärts Asymmetrie im \ac{CC}-Kanal
+        und \ac{CF}-Kanal]
+        {Verteilung der Vorwärts-Rückwärts Asymmetrie im \ac{CC}-Kanal
+        (links) und \ac{CF}-Kanal (rechts) um die Z-Resonanz. (Nur statistische
+        Unsicherheiten)}
+    \label{fig:afb_raw}
+\end{figure}
+
+In der Verteilung der Daten zeigt sich die erwartete Form der
+Asymmetrie\footnote{vgl. Abbildung \ref{}}, wobei zunächst auffällt, dass diese
+im \ac{CF}-Kanal sehr viel stärker ausgeprägt ist, als im \ac{CC}-Kanal. Die
+Skalierung der Ordinate macht dies deutlich. Die Ursache dafür liegt in der
+bereits in Abschnitt \ref{afb:dilution} diskutierten höheren Wahrscheinlichkeit
+einer falschen Zuordnung der Quark-Richtung für Ereignisse mit niedriger
+Rapidität $Y_{ee}$ des Elektronpaares\footnote{Die Verteilungen der Rapiditäten
+sind in Abbildung \ref{fig:rapidities} gezeigt}, was zu einer Abschwächung der
+Asymmetrie führt.
+
+Desweiteren zeigt sich in beiden Kanälen, jedoch prominenter im \ac{CF}-Kanal
+zu beobachten, dass die Steigung der Asymmetrie sehr nahe an der Z-Resonanz
+kleiner ist, als in den Bereichen darunter und darüber. Die theoretische Form
+der Verteilung (Abbildung \ref{}) weist disen Effekt hingegen nicht auf. Da
+dieses Verhalten allerdings auch im Signal Monte-Carlo zu beobachten ist, liegt
+die Vermutung nahe, dass die endliche Massenauflösung des Detektors dafür
+verantwortlich ist. So wird später bei der Erstellung der Form-Vorlagen zur
+Extraktion des schwachen Mischungswinkels die Einführung von Detektoreffekten
+in die Theorie-Verteilungen zum gleichen Effekt führen (siehe nachfolgenden
+Abschnitt \ref{afb:extraction_method}).
+
+Unterhalb der Asymmetrie-Verteilungen ist die Differenz zwischen der aus Daten
+gewonnen Verteilung und dem Singal Monte-Carlo in Einheiten der Standabweichung
+gezeigt, wobei zu beachten ist, dass nur statistische Unsicherheiten erfasst
+werden. Wie sich leicht erkennen lässt liegen die meisten Punkte innerhalb
+einer $1\sigma$ Umgebung, was für eine gute Beschreibung der Daten durch die
+Simulation spricht. Die signifkantesten Abweichungen jedoch zeigen sich in den
+niedrigeren Bereichen der invarianten Masse, für die bereits in Abschnitt
+\ref{afb:selection} belegt wurde, dass die Beschreibung der der Daten durch die
+Untergründe und die Simulation nicht ausreichend gewährleistet ist.
+
+Für die Untersuchung systematischer Einflüsse auf die Vorwärts-Rückwärts
+Asymmtrie blieben im Rahmen dieser Arbeit keine Kapazitäten mehr, sodass deren
+Bedeutung lediglich qualitativ diskutiert werden kann. Da die Asymmetrie aus
+dem Quotienten (\ref{eq:afb_simple}) hervorgeht, spielen Einflüsse, welche die
+Ereignismengen $N_F$ und $N_B$ gleichermaßen skalieren, keine Rolle. Dagegen 
+tragen Variationen, die die Zugehörigkeit von Ereignissen zu einer oder der
+anderen Menge ändern, sogannte Migrations-Effekte, erhebliche Relevanz. In der
+vorangegangenen Analyse der Vorwärts-Rückwärts Asymmetrie mit \acs{ATLAS}-Daten
+des Vorjahres bei $7\TeV$ Schwerpunktsenergie (\cite{ATLAS-CONF-2013-043})
+konnte gezeigt werden, dass die größten systematischen Unsicherheiten aus der
+Energiekalibration der Elektronen\footnote{genauer die Unsicherheiten auf die
+Kalibrationsfaktoren} und der Wahl der simulationsseitig zugrunde liegenden
+\acl{PDF} resultieren. Beide Quellen sind in der Lage die Verteilung der
+Asymmetrie sowohl zu verzerren, als auch zu verschieben. In wenig geringerem
+Maße Einfluss nehmend sind die Unsicherheiten auf die Korrektur der
+Energieauflösung, deren Zweck bereits die Migration von Ereignissen in der
+invarianten Masse ist. Alle genannten Effekte lassen sich durch deren Variation
+und der anschließenden Bestimmung der enstehenden Differenz zu obiger
+Asymmetrie-Verteilung abschätzen.
+
+
+
+
 
 
 
@@ -417,9 +607,27 @@ ist. Für jeden Massenbereich wurden statistisch
 \section{Extraktion des effektiven Schwachen Mischungswinkels}
 \label{afb:sin2theta}
 
+Die Messung der Vorwärts-Rückwärts Asymmetrie ist die Grundlage für die
+Extraktion des schwachen Mischungswinkels. Dessen Bestimmung findet weiterhin
+in den Kanälen \ac{CC} und \ac{CF} getrennt statt, und wird erst am Ende zu
+einem Gesamt-Ergebnis zusammengefasst. Der nun folgende Abschnitt beschreibt
+zunächst die Methode, die zur Extraktion des Mischungswinkels aus den
+Verteilungen der Asymmetrie verwendet wird.
+
+
+
+\subsection{Extraktionsmethode}
+\label{afb:extraction_method}
+
 % + Extraktionsmethode
 %   - Template Erzeugung
 %   - Faltung mit Detektoreffekten
+%   - Template zeigen (wg. Z-Resonanz AFB)
+
+
+
+
+
 % + Extraktion
 %   - Template Fits
 %   - Closure-Test
