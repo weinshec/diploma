@@ -376,16 +376,38 @@ ATLAS Arbeitsgruppe untersucht wird.
 
 
 %______________________________________________________________________________
-%                                                         Asymmetrie Verteilung
-\section{Vorwärts-Rückwärts Asymmetrie Verteilung}
+%                            Winkelverteilung und Vorwärts-Rückwärts Asymmetrie
+\section{Winkelverteilung und Vorwärts-Rückwärts Asymmetrie}
 \label{afb:afb}
 
+% + Pythia Dilution Studie
 % + Rohe Verteilung
 % + Untergund reduzierte Verteilung
 % + Vergleich mit Signal-Simulation
 
 Nach der Abschätzung der Untergrundbeiträge folgt nun die Messung der
-Vorwärts-Rückwärts Asymmetrie.
+Vorwärts-Rückwärts Asymmetrie. Die relevanten Observablen hierbei sind die
+invariante Masse $M_{ee}$ des Elektronpaares und der Emissionswinkel des
+Elektrons definiert im Collins-Soper Bezugssystem $\cos\theta_{cs}$ (siehe
+Gleichung (\ref{eq:collins_soper})). Letztere beinhaltet gegenüber der reinen
+Definition (\ref{eq:collins_soper_raw}) den Vorzeichen bestimmenden
+longitudinalen Impulsterm des Elektronpaares $p_z(e^+e^-)/|p_z(e^+e^-)|$,
+welcher die Annahme über die Korrelation zwischen der ursprünglichen
+Quarkrichtung und dem Lorentz-Boost des Elektronpaares wiederspiegelt. 
+
+Der Geltungsbereich dieser Annahme lässt sich mittels Monte-Carlo Simulationen
+untersuchen. Dazu werden mit dem Monte-Carlo Generator \textsc{Pythia8}
+(\cite{Sjostrand:2007gs}) für unterschiedliche Bereiche in der invarianten
+Masse Ereignisse simuliert. Eine anschließende Detektor-Simulation findet nicht
+statt\footnote{Die Simulation der Detektor-Antwort ist für die angestrebte
+Untersuchung irrelevant}. Da der Generator die volle kinematische Information
+der im Prozess beteiligten Partonen zur Verfügung stellt, lässt sich ein
+Vergleich zwischen obigem Vorzeichen-Faktor und der originären Quarkrichtung
+ziehen.
+
+Die Simulation findet mit einer eigenständigen Installation von
+\textsc{Pythia8} statt deren Konfiguration in Anhang \ref{pythia8} zu finden
+ist. Für jeden Massenbereich wurden statistisch
 
 
 

@@ -7,6 +7,36 @@
 
 %______________________________________________________________________________
 %                                                     PYTHIA8 Parameter
-\chapter{\textsc{PYTHIA8} Parameter zur Template-Generierung}
+\chapter{\textsc{PYTHIA8} Konfigurationen}
 
-Jede Menge Pythia Kram
+Die gezeigten Ausschnitte sind C++ Quellcode und werden verwendet, um
+\textsc{Pythia8} für die jeweils angegeben Zwecke zu konfigurieren. Weitere
+Details zu den verwendeten Optionen sind im Manual zu finden.
+
+\section{Studie zur Dilution}
+Die Variabeln \texttt{mMax} und \texttt{mMin} werden zuvor extern entsprechend
+den Anforderungen gesetzt. \texttt{mySeed} wird bei jedem Aufruf aus
+elektrischem Rauschen bestimmt.
+
+\lstset{language=C++}
+\begin{small}
+\begin{lstlisting}[frame=single]
+// Set C.M. energy to 8 TeV
+pythia.readString("Beams:eCM=8000.");
+
+// Use custom random seed
+pythia.readString("Random:SetSeed=on");
+pythia.readString("Random:seed=mySeed");
+
+// Choose process: qqbar->gamma*/Z
+pythia.readString("WeakSingleBoson:ffbar2gmZ=on");
+
+// Set decay mode to electrons only
+pythia.readString("23:onMode=off");
+pythia.readString("23:onIfAny=11");
+
+// Specify invariant mass range
+pythia.readString("PhaseSpace:mHatMax=mMax");
+pythia.readString("PhaseSpace:mHatMin=mMin");
+\end{lstlisting}
+\end{small}
