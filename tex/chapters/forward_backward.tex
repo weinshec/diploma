@@ -597,26 +597,19 @@ Asymmetrie-Verteilung abschätzen.
 
 
 
-
-
-
-
-
 %______________________________________________________________________________
 %                          Extraktion des effektiven Schwachen Mischungswinkels
 \section{Extraktion des effektiven Schwachen Mischungswinkels}
 \label{afb:sin2theta}
 
 Die Messung der Vorwärts-Rückwärts Asymmetrie ist die Grundlage für die
-Extraktion des schwachen Mischungswinkels. Dessen Bestimmung findet weiterhin
-in den Kanälen \ac{CC} und \ac{CF} getrennt statt, und wird erst am Ende zu
-einem Gesamt-Ergebnis zusammengefasst. Der nun folgende Abschnitt beschreibt
-zunächst die Methode, die zur Extraktion des Mischungswinkels aus den
-Verteilungen der Asymmetrie verwendet wird.
+Extraktion des effektiven schwachen Mischungswinkels. Dessen Bestimmung findet
+weiterhin in den Kanälen \ac{CC} und \ac{CF} getrennt statt, und wird erst am
+Ende zu einem Gesamt-Ergebnis kombiniert. 
 
 
 
-\subsection{Extraktionsmethode}
+\subsection{Beschreibung der Extraktionsmethode}
 \label{afb:extraction_method}
 
 % + Extraktionsmethode
@@ -624,6 +617,121 @@ Verteilungen der Asymmetrie verwendet wird.
 %   - Faltung mit Detektoreffekten
 %   - Template zeigen (wg. Z-Resonanz AFB)
 
+Zur Extraktion des effektiven schwachen Mischungswinkels aus den Verteilungen
+der Vorwärts-Rückwärts Asymmetrie wird eine Vorlagen basierte Methode
+verwendet. Die grundlegende Idee hierbei ist die Erstellung eines Satzes von
+simulierten Asymmetrie-Verteilungen für verschiedene Werte des schwachen
+Mischungswinkels und einem anchließenden $\chi^2$-Test, der die Übereinstimmung
+jeder dieser Verteilungen mit der real in Daten beobachteten Verteilung
+quantifiziert. Die resultierenden $\chi^2$-Werte aufgetragen gegen den
+schwachen Mischungswinkel mit dem die entsprechende Verteilung simuliert wurde
+sollten eine Parabel beschreiben, deren Minimum den angestrebten Messwert von
+$\sin^2\theta_w$ liefert. Abbildung \ref{fig:templates} illustriert den Prozess
+der Vorlagen-Generierung und der Extraktion des Mischungswinkels.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1.0\textwidth]{img/templates}
+    \caption[Schematische Darstellung des Extraktionsprozesses]
+        {Schematische Darstellung des Extraktionsprozesses}
+    \label{fig:templates}
+\end{figure}
+
+Die Simulation der Asymmetrie-Verteilungen für verschiedene Werte des schwachen
+Mischungswinkels wird mit \textsc{Pythia8} durchgeführt\footnote{Wie schon in
+obigen Abschnitt \ref{afb:dilution} wird hierfür die lokale Installation von
+\textsc{Pythia8} verwendet, die keiner Verifikation durch die ATLAS Monte-Carlo
+Workinggroup unterliegt} und erfolgt zunächst rein auf Generator-Level (blau in
+Abb. \ref{fig:templates}). Mit \textsc{Pythia8} ist es möglich den Wert von
+$\sin^2\theta_W$ und $\sin^2\theta_W^\text{eff,l}$ innerhalb fester Grenzen
+($0,2250 \: ... \: 0,2400$) auf einen beliebigen Wert festzulegen. Für den
+hiesigen Zweck wurden deshalb in Schritten von $0,0005$ beide Parameter
+simultan variiert, wobei die in Gleichung (\ref{eq:effective_angle}) gezeigte
+Differenz von $0,00029$ zwischen $\sin^2\theta_W$ und
+$\sin^2\theta_W^\text{eff,l}$ stets beibehalten wurde. Für alle Einstellungen
+wurden anschließend Datensätze mit je 50 Millionen Ereignissen simuliert. Dabei
+wurden für beide Kanäle \ac{CC} und \ac{CF} getrennte Sätze an Simulationen
+erzeugt, um den unterschiedlichen Phasenräumen beider Selektionen Rechnung zu
+tragen. Die verwendete Konfiguration von \textsc{Pythia8} ist in Anhang
+\ref{pythia8:templates} augeführt.
+
+Um Vergleiche mit gemessenen Daten sinnvoll anstellen zu können bedarf es
+aber noch der Berücksichtigung von Detektoreffekten, wie Auflösung, Akzeptanz
+und Rekonstruktionseffizienz. Diese Aufgabe übernimmt normalerweise das in
+Kapitel \ref{event_generation} erwähnte Paket \textsc{GEANT4} zur Simulation
+der Detektorantwort, was jedoch äußert komplex und rechenintensiv ist. Aus
+diesem Grund wird in dieser Arbeit ein anderer Ansatz gewählt. Man nutzt die
+Tatsache aus, dass bei der Produktion des Signal Monte-Carlos neben den
+rekonstruierten Größen (gelb in Abb. \ref{fig:templates}) auch die
+darunterliegenden Generator-Level Informationen bekannt sind, sodass auf
+statistischer Basis der Einfluss des Detektors studiert werden kann. Es wird
+eine Matrix erzeugt, die den Übergang von Werten auf Generator-Level zu Werten
+auf Rekonstruktions-Level repräsentiert.
+\begin{equation}
+    \bf r = M \cdot \bf{g}
+    \label{eq:folding}
+\end{equation}
+Im Falle einer einzigen Observablen, beispielsweise der invarianten Masse des
+Elektronpaares, wären $\bf{r}$ und $\bf{g}$ Histogramme der Massenspektren auf
+Rekonstruktions- bzw. Generator-Level, mit jeweils $n$ Unterteilungen -
+mathematisch dargestellt durch $n$-dimensionale Vektoren. Die Faltungsmatrix
+$\bf{M}$ wäre somit von der Dimension $n \times n$. Für die Messung der
+Vorwärts-Rückwärts Asymmetrie ist allerdings neben der invarianten Masse noch
+der Emissionswinkel des Elektrons $\cos\theta_{cs}$ nötig, sodass die Objekte
+in Gleichung (\ref{eq:folding}) erweitert werden müssen. Für $m$ Unterteilungen
+der Histogramme von $\cos\theta_{cs}$ müssen $\bf{r}$ und $\bf{g}$ nun durch 
+$n \times m$-Matrizen dargestellt werden, während $\bf{M}$ zu einem Tensor
+vierter Stufe wird\footnote{der Einfachheit halber wird im Folgenden dennoch
+der Begriff Faltungs\textit{matrix} für $\bf{M}$ verwendet}.
+
+Tatsächlich wird die invariante Masse nach Tabelle \ref{tab:binning_afb} in 11
+Bereiche unterteilt, während der Emissionswinkel lediglich nach
+\textit{vorwärts} und \textit{rückwärts} ($=2$ Unterteilungen) unterschieden
+wird. Zur Erstellung und Verwaltung von $\bf{M}$ wird das Software-Paket
+\textsc{RooUnfold} (\cite{2011arXiv1105.1160A}) in der Version 1.1.1 verwendet.
+Dieses bietet die Möglichkeit der komfortablen Erstellung einer solchen Matrix
+und implementiert zudem Algorithmen zum Entfalten oder Falten statistischer
+Verteilungen.
+
+Die Faltung der oben beschriebenen Sätze von Generator-Level Verteilungen mit
+variierten schwachen Mischungswinkeln mit der Faltungsmatrix $\bf{M}$ führt nun
+also zu Verteilungs-Vorlagen, die zum Verglich mit real gemessen Daten
+brauchbar sind. Abbildung \ref{fig:vorlage} zeigt beispielhaft die Asymmetrie
+Verteilung einer solchen Vorlage.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.48\textwidth]{plots/templates_cf_comp}
+    \hfill
+    \includegraphics[width=0.48\textwidth]{plots/templates_cf}
+    \caption[Asymmetrie-Vorlagen zur Extraktion des schwachen Mischungswinkels]
+        {Asymmetrie-Vorlagen zur Extraktion des schwachen Mischungswinkels im
+        \ac{CF}-Kanal. \textbf{Links:} Vergleich zwischen der
+        Asymmetrie-Verteilung auf Generator-Level und nach Anwendung der
+        Faltungsmatrix. \textbf{Rechts:} Asymmetire-Vorlagen nach Faltung für
+        drei verschiedene Werte von $\sin^2\theta_w^\text{eff,l}$.}
+    \label{fig:vorlage}
+\end{figure}
+
+Auf der linken Seite von Abb. \ref{fig:vorlage} ist der Vergleich zwischen der
+Asymmetrie-Verteilung auf Generator-Level und nach der Asymmetrie nach
+Anwendung der Faltungsmatrix, also mit Berücksichtigung von Detektoreffekten,
+dargestellt. Man erkennt die deutliche Abschwächung der Asymmetrie
+hervorgerufen von Migrationseffekten und Detektorineffizienzen (siehe voriger
+Abschnitt \ref{afb:afb}). Zudem ist die am Ende des vorigen Abschnitts
+beschrieben Änderung der Steigung um die Z-Masse nach der Einführung der
+Detektoreffekte sehr deutlich zu beobachten. Auf der rechten Seite von Abb.
+\ref{fig:vorlage} sind für den niedrigsten, den höchsten und den nominellen
+Wert des effektiven schwachen Mischungswinkels die resultierenden
+Asymmetrie-Vorlagen gezeigt. Letztere liegt dabei erwartungsgemäß zwischen den
+beiden Vorlagen der Randwerte von $\sin^2\theta_w^\text{eff,l}$.
+
+% BOOTSTRAPPING
+
+Jede Vorlage eines Satzes\footnote{gemeint sind die Sätze für den \ac{CC}-Kanal
+und \ac{CF}-Kanal} muss nun mit der entsprechenden untergrundreduzierten
+Asymmetrie-Verteilung aus Daten verglichen werden und die $\chi^2$
+Teststatistik berechnet werden.
 
 
 
