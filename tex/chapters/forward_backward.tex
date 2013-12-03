@@ -696,8 +696,8 @@ Verteilungen.
 Die Faltung der oben beschriebenen Sätze von Generator-Level Verteilungen mit
 variierten schwachen Mischungswinkeln mit der Faltungsmatrix $\bf{M}$ führt nun
 also zu Verteilungs-Vorlagen, die zum Verglich mit real gemessen Daten
-brauchbar sind. Abbildung \ref{fig:vorlage} zeigt beispielhaft die Asymmetrie
-Verteilung einer solchen Vorlage.
+verwendet werden können. Abbildung \ref{fig:vorlage} zeigt beispielhaft die
+Asymmetrie Verteilung einer solchen Vorlage.
 
 \begin{figure}
     \centering
@@ -726,20 +726,44 @@ Wert des effektiven schwachen Mischungswinkels die resultierenden
 Asymmetrie-Vorlagen gezeigt. Letztere liegt dabei erwartungsgemäß zwischen den
 beiden Vorlagen der Randwerte von $\sin^2\theta_w^\text{eff,l}$.
 
-% BOOTSTRAPPING
+Die gezeigten Unsicherheiten sind rein statistischer Natur und beinhalten die
+statistische Signifkanz der Generator-Level Verteilungen, sowie die
+statistische Unsichterheit aus der Faltungsmatrix. Um den Einfluss der
+letztgenannanten Quelle abzuschätzen bedarf es einer besonderen Methode. Es
+wird hierfür sogenanntes \textit{Bootstrapping} (\cite{zbMATH03631774})
+benutzt, wobei jedem Ereigniss, dass zum Füllen der Faltungsmatrix verwendet
+werden ein individuelles, zufälliges Gewicht zugewiesen wird. Die Gewichte
+folgen insgesammt einer Poisson-Verteilung um 1, sodass die eingführte
+Umgewichtung unitär ist und die Normierung der Matrix erhalten bleibt. Man
+erstellt nun $n$ Faltungsmatrizen aus ein und der selben Monte-Carlo
+Simulation, aber mit jeweils unterschiedlichen Sätzen an Ereignisgewichten.
+Diese werden nun nacheinander, wie oben beschrieben, zur Faltung der
+Generator-Level Verteilungen verwendet, wodurch sich für jede dieser
+Verteilungen $n$ Asymmetrie-Vorlagen entstehen. Schlussendlich wird für jeden
+Massenbereich der Mittelwert und die Standardabweichung aus den $n$ Vorlagen
+berechnet, um zur finalen Asymmetrie-Vorlage zu gelangen.
 
-Jede Vorlage eines Satzes\footnote{gemeint sind die Sätze für den \ac{CC}-Kanal
+Jede Vorlage eines Satzes\footnote{gemeint sind hier die Sätze für \ac{CC}- und
 und \ac{CF}-Kanal} muss nun mit der entsprechenden untergrundreduzierten
 Asymmetrie-Verteilung aus Daten verglichen werden und die $\chi^2$
 Teststatistik berechnet werden.
 
 
 
+\subsection{Extraktion}
+\label{afb:extraction}
 
 % + Extraktion
 %   - Template Fits
 %   - Closure-Test
 %   - Resultate (einzeln und kombiniert)
+
+
+
+
+\subsection{Diskussion und Ausbklick}
+\label{afb:diskussion}
+
 % + Diskussion
 %   - Systematische Betrachtungen
 %   - Vergleich mit anderen Experimenten
