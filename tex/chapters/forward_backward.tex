@@ -745,7 +745,21 @@ berechnet, um zur finalen Asymmetrie-Vorlage zu gelangen.
 Jede Vorlage eines Satzes\footnote{gemeint sind hier die Sätze für \ac{CC}- und
 und \ac{CF}-Kanal} muss nun mit der entsprechenden untergrundreduzierten
 Asymmetrie-Verteilung aus Daten verglichen werden und die $\chi^2$
-Teststatistik berechnet werden.
+Teststatistik berechnet werden. Diese wird definiert als
+\begin{equation}
+    \chi^2 \;=\; \sum_{i=1}^{11}
+        \frac{
+            \left(
+                {(\afb^\text{data})}_i - {(\afb^\text{templ})}_i
+            \right)^2
+        }{
+            (\sigma_i^\text{data})^2 + (\sigma_i^\text{templ})^2
+        }
+\end{equation}
+wobei der Index $i$ über alle Bereiche der invarianten Masse läuft. Die
+hochgestellten Indizes \textit{data} und \textit{templ} beziehen sich auf die
+Asymmetrie ($\afb$) und die jeweilige Unsicherheit ($\sigma$) in Daten bzw. den
+Vorlagen.
 
 
 
