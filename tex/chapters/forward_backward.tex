@@ -718,7 +718,7 @@ Anwendung der Faltungsmatrix, also mit Berücksichtigung von Detektoreffekten,
 dargestellt. Man erkennt die deutliche Abschwächung der Asymmetrie
 hervorgerufen von Migrationseffekten und Detektorineffizienzen (siehe voriger
 Abschnitt \ref{afb:afb}). Zudem ist die am Ende des vorigen Abschnitts
-beschrieben Änderung der Steigung um die Z-Masse nach der Einführung der
+beschriebe Änderung der Steigung um die Z-Masse nach der Einführung der
 Detektoreffekte sehr deutlich zu beobachten. Auf der rechten Seite von Abb.
 \ref{fig:vorlage} sind für den niedrigsten, den höchsten und den nominellen
 Wert des effektiven schwachen Mischungswinkels die resultierenden
@@ -726,28 +726,28 @@ Asymmetrie-Vorlagen gezeigt. Letztere liegt dabei erwartungsgemäß zwischen den
 beiden Vorlagen der Randwerte von $\sin^2\theta_w^\text{eff,l}$.
 
 Die gezeigten Unsicherheiten sind rein statistischer Natur und beinhalten die
-statistische Signifkanz der Generator-Level Verteilungen, sowie die
-statistische Unsichterheit aus der Faltungsmatrix. Um den Einfluss der
+statistische Unsicherheit der Generator-Level Verteilungen, sowie die der
+Faltungsmatrix. Um den Einfluss der
 letztgenannanten Quelle abzuschätzen bedarf es einer besonderen Methode. Es
 wird hierfür sogenanntes \textit{Bootstrapping} (\cite{zbMATH03631774})
-benutzt, wobei jedem Ereigniss, dass zum Füllen der Faltungsmatrix verwendet
-werden ein individuelles, zufälliges Gewicht zugewiesen wird. Die Gewichte
-folgen insgesammt einer Poisson-Verteilung um 1, sodass die eingführte
+benutzt, wobei jedem Ereignis, dass zum Füllen der Faltungsmatrix verwendet
+wird ein individuelles, zufälliges Gewicht zugewiesen wird. Die Gewichte
+folgen dabei insgesammt einer Poisson-Verteilung um 1, sodass die eingführte
 Umgewichtung unitär ist und die Normierung der Matrix erhalten bleibt. Man
-erstellt nun $n$ Faltungsmatrizen aus ein und der selben Monte-Carlo
-Simulation, aber mit jeweils unterschiedlichen Sätzen an Ereignisgewichten.
-Diese werden nun nacheinander, wie oben beschrieben, zur Faltung der
-Generator-Level Verteilungen verwendet, wodurch sich für jede dieser
-Verteilungen $n$ Asymmetrie-Vorlagen entstehen. Schlussendlich wird für jeden
-Massenbereich der Mittelwert und die Standardabweichung aus den $n$ Vorlagen
-berechnet, um zur finalen Asymmetrie-Vorlage zu gelangen.
+erstellt nun $n$ Faltungsmatrizen aus ein und dem selben Singal Monte-Carlo,
+aber mit jeweils unterschiedlichen Sätzen an Ereignisgewichten.
+Diese werden nun einzeln, wie oben beschrieben, zur Faltung der Generator-Level
+Verteilungen verwendet, wodurch für jede dieser Verteilungen $n$
+Asymmetrie-Vorlagen entstehen. Schlussendlich wird für jeden Massenbereich der
+Mittelwert und die Standardabweichung aus den $n$ Vorlagen berechnet, um zur
+finalen Asymmetrie-Vorlage zu gelangen.
 
-Jede Vorlage eines Satzes\footnote{gemeint sind hier die Sätze für \ac{CC}- und
-und \ac{CF}-Kanal} muss nun mit der entsprechenden untergrundreduzierten
-Asymmetrie-Verteilung aus Daten verglichen werden und die $\chi^2$
-Teststatistik berechnet werden. Diese wird definiert als
+Jede Vorlage eines Kanals\footnote{gemeint sind \ac{CC}- und \ac{CF}-Kanal}
+muss nun mit der entsprechenden untergrundreduzierten Asymmetrie-Verteilung aus
+Daten verglichen werden und die $\chi^2$ Teststatistik berechnet werden. Diese
+ist definiert als
 \begin{equation}
-    \chi^2 \;=\; \sum_{i=1}^{11}
+    \chi^2 \;=\; \sum_{i=1}^{N}
         \frac{
             \left(
                 {(\afb^\text{data})}_i - {(\afb^\text{templ})}_i
@@ -756,10 +756,10 @@ Teststatistik berechnet werden. Diese wird definiert als
             (\sigma_i^\text{data})^2 + (\sigma_i^\text{templ})^2
         }
 \end{equation}
-wobei der Index $i$ über alle Bereiche der invarianten Masse läuft. Die
+wobei der Index $i$ über alle Bereiche $N$ der invarianten Masse läuft. Die
 hochgestellten Indizes \textit{data} und \textit{templ} beziehen sich auf die
-Asymmetrie ($\afb$) und die jeweilige Unsicherheit ($\sigma$) in Daten bzw. den
-Vorlagen.
+Asymmetrie-Verteilung ($\afb$) und die jeweilige Unsicherheit ($\sigma$) in
+Daten bzw. den Vorlagen.
 
 
 
@@ -771,6 +771,106 @@ Vorlagen.
 %   - Closure-Test
 %   - Resultate (einzeln und kombiniert)
 
+Vor der eigentlichen Messung des schwachen Mischungswinkels nach gerade
+beschriebenem Prinzip, soll zuvor noch die Methode an sich verifiziert werden.
+Dazu wird statt der Asymmetrie-Verteilung aus Daten die entsprechende
+Verteilung des Signal Monte-Carlos verwendet und überprüft, ob die Prozedur den
+Wert des schwachen Mischungswinkel reproduziert, mit dem die Simulation erzeugt
+wurde. Abbildung \ref{fig:closure} zeigt die resultierenden
+$\chi^2$-Verteilungen.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.48\textwidth]{plots/sin2theta_cc_closure}
+    \hfill
+    \includegraphics[width=0.48\textwidth]{plots/sin2theta_cf_closure}
+    \caption[Extraktion des simulierten schwachen Mischungswinkels zur
+        Verifikation der Methode]
+        {Extraktion des simulierten schwachen Mischungswinkels zur
+        Verifikation der Methode im \ac{CC}-Kanal (links) und \ac{CF}-Kanal
+        (links)}
+    \label{fig:closure}
+\end{figure}
+
+Die Kurvenanpassung der Parabel wurde mithilfe des quelloffenen Python Paketes
+\textsc{SciPy} (\cite{scipy}) durchgeführt, wobei für die Parabel folgende
+analytische Form gewählt wurde:
+\begin{equation}
+    f(x)=a+b\cdot(x-c)^2
+    \label{eq:parabola}
+\end{equation}
+Der Parameter $c$ entspricht in dieser Parametrisierung dem Minimum der
+Parabel, also dem Messwert für den schwachen Mischungswinkel. Die Unsicherheit
+auf diesen Wert ergibt sich aus der Öffnung der Parabel, genauer dem Betrag der
+Differenz zwischen der Stelle des Minimums und einem der Punkte, an denen die
+Parabel auf $f(x_\text{min})+1$ angestiegen ist:
+\begin{align}
+    \sigma \;&=\; |x_\text{min} - x_{1,2}|
+        \qquad \text{mit:} \quad f(x_{1,2}) = f(x_\text{min})+1
+        \\[5pt]
+    \Longrightarrow \quad \sigma \;&=\; \sqrt{\frac{1}{b}}
+    \label{eq:sigma}
+\end{align}
+Gleichung (\ref{eq:sigma}) zeigt bereits den analytischen Ausdruck, dieser
+Unsicherheit, der sich aus der Form (\ref{eq:parabola}) ableiten lässt.
+
+Die beiden aus der Extraktion resultierenden Werte für den schwachen
+Mischungswinkel sind in Abb. \ref{fig:closure} jeweils rechts unten gezeigt.
+Bei deren Betrachtung fällt zunächst auf, dass die Unsicherheit im
+\ac{CC}-Kanal größer ist, als im \ac{CF}-Kanal, was in der im Zentral-Bereich
+viel stärker ausgeprägten Abschwächung der Asymmetrie durch
+Dilution-Effekte\footnote{siehe Abschnitt \ref{afb:dilution} und Abbildung
+\ref{fig:dilution}} begründet liegt. Die sonstige Fluktuation der Punkte um die
+Parabel wird am ehesten durch die limitierte Statistik des Signal-Monte Carlos
+induziert. Berechnet man jedoch das reduzierte $\chi^2_\text{red}$ aus dem Wert
+am Minimum ($\chi^2_\text{min} = a$), geteilt durch die Anazahl der
+Freiheitsgrade ($n_\text{dof} = 11$, siehe Tabelle \ref{tab:binning_afb}) so
+ergibt sich im \ac{CC}-Kanal eine Wert von $0,26$ und im \ac{CF}-Kanal von
+$0,21$, was insgesammt für eine gute Qualität der Anpassung spricht. Der
+nominelle Wert des schwachen Mischungswinkels, mit dem das Signal Monte-Carlo
+erstellt wurde, entspricht dem Welt-Mittelwert von $\sin^2\theta_w^\text{eff,l}
+=0,23146$. Die extrahierten Werte nach obiger Prozedur stimmen somit im Rahmen
+der angegebenen Toleranzen mit diesem Wert überein, was die Anwendung der
+Methode zur Extraktion aus realen Daten legitimiert. Dennoch bleiben die
+beobachteten großen Unsicherheiten und die Fluktuationen innerhalb der
+$\chi^2$-Verteilungen kritisch zu hinterfragen\footnote{Eine Diskussion der
+vorgestellten Methode und potentielle Verbesserungsmöglichkeiten schließt sich
+nach der Präsentation der Ergebnisse aus den Daten, am Ende dieses Kapitel an}.
+
+Nach der Verifikation der Extraktionsprozedur wird diese auf die
+Asymmetrie-Vertei"-lungen der Daten angewendet. Abbildung \ref{fig:sin2theta}
+zeigt die entstehende $\chi^2$-Verteilung beider Kanäle.
+\begin{figure}[p]
+    \centering
+    \includegraphics[width=1.0\textwidth]{plots/sin2theta_cc_data}
+
+    \includegraphics[width=1.0\textwidth]{plots/sin2theta_cf_data}
+    \caption[Extraktion des schwachen Mischungswinkels aus Verteilungen der
+        Asymmetrie in Daten]
+        {Extraktion des schwachen Mischungswinkels aus Verteilungen der
+        Asymmetrie in Daten im \ac{CC}-Kanal (links) und \ac{CF}-Kanal
+        (rechts)}
+    \label{fig:sin2theta}
+\end{figure}
+Die aus der Anapassung der Parabel an die $\chi^2$-Verteilungen gewonnenen
+Werte für den schwachen Mischungswinkel ergeben sich zu:
+\begin{align*}
+    \sin^2\theta_w^\text{eff,l (CC)} &\;=\; 0.2316
+        \;\pm\; 0.0008 \;\text{(stat)}
+    \\[5pt]
+    \sin^2\theta_w^\text{eff,l (CF)} &\;=\; 0.2313
+        \;\pm\; 0.0007 \;\text{(stat)}
+\end{align*}
+Auch hier zeigt sich das bereits erwartete Verhalten, dass die Unsicherheit auf
+den Wert des schwachen Mischungswinkels im \ac{CC}-Kanal größer ist, als im
+\ac{CF}-Kanal. Insgesammt jedoch haben sich die Unsicherheiten im Vergleich zur
+vorangegangen Überprüfung mit dem Signal Monte-Carlo verkleinert, was an der
+höheren statisitschen Signifikanz der Daten liegt. Die Werte für das reduzierte
+$\chi^2_\text{red}$ ergeben sich hier zu $2,2$ für \ac{CC} und zu $2,1$ für
+\ac{CF}, was im Rahmen einer zufreidenstellenden Beschreibung ist.
+
+Möchte man nun die Ergebnisse aus beien Kanälen zu einem kombinierten Wert
+zusammenfassen, so geschieht dies nach folgender Formel:
 
 
 
@@ -783,6 +883,7 @@ Vorlagen.
 %   - Systematische Betrachtungen
 %   - Vergleich mit anderen Experimenten
 %   - Ausblick (..., Alternativen zur ReverseID, ...)
+%   - kritische Diskussion der Extraktions-Methode
  
 
 
