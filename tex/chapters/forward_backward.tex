@@ -479,6 +479,7 @@ Schnitt verzichtet.
 
 
 \subsection{Verteilungen der Vorwärts-Rückwärts Asymmetrie}
+\label{afb:distributions}
 Die Bestimmung der Vorwärts-Rückwärts Asymmetrie erfolgt für kleine Intervalle
 der invarianten Masse der Elektronpaare aus der Differenz zwischen der Anzahl
 vorwärts- und rückwärts-emittierter Elektronen normiert auf deren Gesamtzahl.
@@ -625,7 +626,7 @@ jeder dieser Verteilungen mit der real in Daten beobachteten Verteilung
 quantifiziert. Die resultierenden $\chi^2$-Werte aufgetragen gegen den
 schwachen Mischungswinkel mit dem die entsprechende Verteilung simuliert wurde
 sollten eine Parabel beschreiben, deren Minimum den angestrebten Messwert von
-$\sin^2\theta_w$ liefert. Abbildung \ref{fig:templates} illustriert den Prozess
+$\sin^2\theta_W$ liefert. Abbildung \ref{fig:templates} illustriert den Prozess
 der Vorlagen-Generierung und der Extraktion des Mischungswinkels.
 
 \begin{figure}[h]
@@ -648,10 +649,11 @@ hiesigen Zweck wurden deshalb in Schritten von $0,0005$ beide Parameter
 simultan variiert, wobei die in Gleichung (\ref{eq:effective_angle}) gezeigte
 Differenz von $0,00029$ zwischen $\sin^2\theta_W$ und
 $\sin^2\theta_W^\text{eff,l}$ stets beibehalten wurde. Für alle Einstellungen
-wurden anschließend Datensätze mit je 50 Millionen Ereignissen simuliert. Dabei
-wurden für beide Kanäle \ac{CC} und \ac{CF} getrennte Sätze an Simulationen
-erzeugt, um den unterschiedlichen Phasenräumen beider Selektionen Rechnung zu
-tragen. Die verwendete Konfiguration von \textsc{Pythia8} ist in Anhang
+wurden anschließend Datensätze mit je 10 Millionen Ereignissen im \ac{CC}-Kanal
+und je 1 Million im \ac{CF}-Kanal simuliert. Dabei wurden für beide Kanäle
+getrennte Konfigurationen für die Simulationen verwendet, um den
+unterschiedlichen Phasenräumen beider Selektionen Rechnung zu tragen. Die
+verwendete Konfiguration von \textsc{Pythia8} ist in Anhang
 \ref{pythia8:templates} augeführt.
 
 Um Vergleiche mit gemessenen Daten sinnvoll anstellen zu können bedarf es
@@ -663,7 +665,7 @@ diesem Grund wird in dieser Arbeit ein anderer Ansatz gewählt. Man nutzt die
 Tatsache aus, dass bei der Produktion des Signal Monte-Carlos neben den
 rekonstruierten Größen (gelb in Abb. \ref{fig:templates}) auch die
 darunterliegenden Generator-Level Informationen bekannt sind, sodass auf
-statistischer Basis der Einfluss des Detektors studiert werden kann. Es wird
+statistischer Basis der Einfluss des Detektors einbezogen werden kann. Es wird
 eine Matrix erzeugt, die den Übergang von Werten auf Generator-Level zu Werten
 auf Rekonstruktions-Level repräsentiert.
 \begin{equation}
@@ -708,7 +710,7 @@ Asymmetrie Verteilung einer solchen Vorlage.
         \ac{CF}-Kanal. \textbf{Links:} Vergleich zwischen der
         Asymmetrie-Verteilung auf Generator-Level und nach Anwendung der
         Faltungsmatrix. \textbf{Rechts:} Asymmetire-Vorlagen nach Faltung für
-        drei verschiedene Werte von $\sin^2\theta_w^\text{eff,l}$.}
+        drei verschiedene Werte von $\sin^2\theta_W^\text{eff,l}$.}
     \label{fig:vorlage}
 \end{figure}
 
@@ -723,7 +725,7 @@ Detektoreffekte sehr deutlich zu beobachten. Auf der rechten Seite von Abb.
 \ref{fig:vorlage} sind für den niedrigsten, den höchsten und den nominellen
 Wert des effektiven schwachen Mischungswinkels die resultierenden
 Asymmetrie-Vorlagen gezeigt. Letztere liegt dabei erwartungsgemäß zwischen den
-beiden Vorlagen der Randwerte von $\sin^2\theta_w^\text{eff,l}$.
+beiden Vorlagen der Randwerte von $\sin^2\theta_W^\text{eff,l}$.
 
 Die gezeigten Unsicherheiten sind rein statistischer Natur und beinhalten die
 statistische Unsicherheit der Generator-Level Verteilungen, sowie die der
@@ -817,29 +819,33 @@ Unsicherheit, der sich aus der Form (\ref{eq:parabola}) ableiten lässt.
 Die beiden aus der Extraktion resultierenden Werte für den schwachen
 Mischungswinkel sind in Abb. \ref{fig:closure} jeweils rechts unten gezeigt.
 Bei deren Betrachtung fällt zunächst auf, dass die Unsicherheit im
-\ac{CC}-Kanal größer ist, als im \ac{CF}-Kanal, was in der im Zentral-Bereich
+\ac{CC}-Kanal größer ist, als im \ac{CF}-Kanal, was an der im Zentral-Bereich
 viel stärker ausgeprägten Abschwächung der Asymmetrie durch
 Dilution-Effekte\footnote{siehe Abschnitt \ref{afb:dilution} und Abbildung
-\ref{fig:dilution}} begründet liegt. Die sonstige Fluktuation der Punkte um die
-Parabel wird am ehesten durch die limitierte Statistik des Signal-Monte Carlos
-induziert. Berechnet man jedoch das reduzierte $\chi^2_\text{red}$ aus dem Wert
-am Minimum ($\chi^2_\text{min} = a$), geteilt durch die Anazahl der
-Freiheitsgrade ($n_\text{dof} = 11$, siehe Tabelle \ref{tab:binning_afb}) so
-ergibt sich im \ac{CC}-Kanal eine Wert von $0,26$ und im \ac{CF}-Kanal von
-$0,21$, was insgesammt für eine gute Qualität der Anpassung spricht. Der
-nominelle Wert des schwachen Mischungswinkels, mit dem das Signal Monte-Carlo
-erstellt wurde, entspricht dem Welt-Mittelwert von $\sin^2\theta_w^\text{eff,l}
-=0,23146$. Die extrahierten Werte nach obiger Prozedur stimmen somit im Rahmen
-der angegebenen Toleranzen mit diesem Wert überein, was die Anwendung der
-Methode zur Extraktion aus realen Daten legitimiert. Dennoch bleiben die
-beobachteten großen Unsicherheiten und die Fluktuationen innerhalb der
-$\chi^2$-Verteilungen kritisch zu hinterfragen\footnote{Eine Diskussion der
-vorgestellten Methode und potentielle Verbesserungsmöglichkeiten schließt sich
-nach der Präsentation der Ergebnisse aus den Daten, am Ende dieses Kapitel an}.
+\ref{fig:dilution}} begründet liegt. Für die sonstige Fluktuation der Punkte um
+die Parabel, existieren mehrere mögliche Quellen. Zum einen könnte die
+limitierte Statistik des Signal Monte-Carlos, welches hier zur Verifikation und
+zur Erstellung der Faltungsmatrix verwendet wird. Das gleiche Argument gilt
+aber auch für die Vorlagen an sich und würde sich somit auch für die
+eigentliche Extraktion aus Daten Bestand haben. Berechnet man das reduzierte
+$\chi^2_\text{red}$ aus dem Wert am Minimum ($\chi^2_\text{min} = a$), geteilt
+durch die Anazahl der Freiheitsgrade ($n_\text{dof} = 11$, siehe Tabelle
+\ref{tab:binning_afb}) so ergibt sich im \ac{CC}-Kanal eine Wert von $0,26$
+und im \ac{CF}-Kanal von $0,21$, was insgesammt für eine gute Qualität der
+Anpassung spricht. Der nominelle Wert des schwachen Mischungswinkels, mit dem
+das Signal Monte-Carlo erstellt wurde, entspricht dem Welt-Mittelwert von
+$\sin^2\theta_W^\text{eff,l}=0,23146$. Die extrahierten Werte nach obiger
+Prozedur stimmen somit im Rahmen der angegebenen Toleranzen mit diesem Wert
+überein, was die Anwendung der Methode zur Extraktion aus realen Daten
+legitimiert. Dennoch bleiben die beobachteten großen Unsicherheiten und die
+Fluktuationen innerhalb der $\chi^2$-Verteilungen kritisch zu
+hinterfragen\footnote{Eine Diskussion der vorgestellten Methode und potentielle
+Verbesserungsmöglichkeiten schließt sich nach der Präsentation der Ergebnisse
+aus den Daten, am Ende dieses Kapitel an}.
 
-Nach der Verifikation der Extraktionsprozedur wird diese auf die
+Nach der Verifikation der Extraktionsprozedur wird diese nun auf die
 Asymmetrie-Vertei"-lungen der Daten angewendet. Abbildung \ref{fig:sin2theta}
-zeigt die entstehende $\chi^2$-Verteilung beider Kanäle.
+zeigt die entstehende $\chi^2$-Verteilungen beider Kanäle.
 \begin{figure}[p]
     \centering
     \includegraphics[width=1.0\textwidth]{plots/sin2theta_cc_data}
@@ -855,10 +861,10 @@ zeigt die entstehende $\chi^2$-Verteilung beider Kanäle.
 Die aus der Anapassung der Parabel an die $\chi^2$-Verteilungen gewonnenen
 Werte für den schwachen Mischungswinkel ergeben sich zu:
 \begin{align*}
-    \sin^2\theta_w^\text{eff,l (CC)} &\;=\; 0.2316
+    \sin^2\theta_W^\text{eff,l (CC)} &\;=\; 0.2316
         \;\pm\; 0.0008 \;\text{(stat)}
     \\[5pt]
-    \sin^2\theta_w^\text{eff,l (CF)} &\;=\; 0.2313
+    \sin^2\theta_W^\text{eff,l (CF)} &\;=\; 0.2313
         \;\pm\; 0.0007 \;\text{(stat)}
 \end{align*}
 Auch hier zeigt sich das bereits erwartete Verhalten, dass die Unsicherheit auf
@@ -867,23 +873,81 @@ den Wert des schwachen Mischungswinkels im \ac{CC}-Kanal größer ist, als im
 vorangegangen Überprüfung mit dem Signal Monte-Carlo verkleinert, was an der
 höheren statisitschen Signifikanz der Daten liegt. Die Werte für das reduzierte
 $\chi^2_\text{red}$ ergeben sich hier zu $2,2$ für \ac{CC} und zu $2,1$ für
-\ac{CF}, was im Rahmen einer zufreidenstellenden Beschreibung ist.
+\ac{CF} und liegen somit im Rahmen einer zufreidenstellenden Beschreibung.
+Wie schon beim Signal Monte-Carlo wird hier allerdings in ähnlichem Maße eine
+gewisse Fluktuation der $\chi^2$-Werte um die Parabel beobachtet, was nun am
+ehesten auf die statistische Signifikanz der der Vorlagen und der
+Faltungsmatrix zurückzuführen ist.
 
-Möchte man nun die Ergebnisse aus beien Kanälen zu einem kombinierten Wert
-zusammenfassen, so geschieht dies nach folgender Formel:
-
-
+Durch die Zusammenfassung der Ergebnisse beider Kanäle zu einem kombinierten
+Messergebnis 
+\begin{equation}
+    \sin^2\theta_W^\text{eff,l} \;=\; 0.2314
+        \;\pm\; 0.0005 \;\text{(stat)}
+\end{equation}
+kann die statistische Unsicherheit noch reduziert werden. Wie schon bei der
+Messung der Vorwärts-Rückwärts Asymmetrie blieb im Rahmen dieser Arbeit kein
+Raum zum Studium systematischer Einflüsse auf dieses Ergebnis. Eine qualitative
+Diskussion erfolgt ebenso wie der Vergleich dieses Wertes mit vorangegangenen
+Experimenten im folgenden Abschnitt.
 
 
 
 \subsection{Diskussion und Ausbklick}
 \label{afb:diskussion}
 
-% + Diskussion
-%   - Systematische Betrachtungen
-%   - Vergleich mit anderen Experimenten
-%   - Ausblick (..., Alternativen zur ReverseID, ...)
-%   - kritische Diskussion der Extraktions-Methode
- 
+In diesem Kapitel wurde die Vermessung der Vorwärts-Rückwärts Asymmetrie im
+Drell-Yan Prozess am $Z$-Pol und die anschließende Extraktion des effektiven
+schwachen Mischungswinkels mittels Vorlagen-Tests präsentiert.
 
+Der resultierende Wert von $\sin^2\theta_W^\text{eff,l}=0.2314\pm0.0005
+\text{(stat)}$ soll nun in den Kontext früherer Messungen gesetzt werden. Die
+bis heute genauesten Messungen des schwachen Mischungswinkels konnten in
+Elektron-Positron Kollisionen durch LEP\footnote{\acf{LEP}} und
+SLD\footnote{\acf{SLD}} erzielt werden, die ebenfalls die Vorwärts-Rückwärts
+Asymmetrie am $Z$-Pol in leptonischen und hadronischen Endzuständen
+untersuchten. Bei \ac{SLD} wurde darüber hinaus in Kollsisionen polarisierter
+Elektronen mit unpolarisierten Positronen die Links-Rechts Asymmetrie zur
+Bestimmung des schwachen Mischungswinkels verwendet. Zieht man alle Experimente
+in betracht ergibt sich ein Mittelwert von $0,23069\pm0,00020$
+(\cite{PhysRevD.86.010001}) für \ac{SLD} und $0,23181\pm0,00028$
+(\cite{PhysRevD.86.010001}) für \ac{LEP}. In Hadron-Kollisionen konnte am
+Tevatron\footnote{Proton-Antiproton Kollsisionen} mit dem D0-Detektor ein Wert
+von $0,2309\pm0,0010$ (\cite{Abazov:2011ws}) für den schwachen Mischungswinkel
+bestimmt werden. Dazu wurden in ähnlicher Weise Vorlagen-Tests verwendet, wie
+es in der vorliegenden Arbeit der Fall ist. Ebenfalls am \ac{LHC} wurde mit den
+2011 aufgenommenen Daten in Proton-Proton Kollisionen durch \acs{CMS} der
+schwache Mischungwinkel auf $0,2287\pm0,0032$ (\cite{Chatrchyan:2011ya})
+bestimmt. Zusammengefasst ergibt sich derzeit ein Weltmittelwert von
+$0,23146\pm0,00012$ (\cite{PhysRevD.86.010001}), mit dem die vorliegende
+Messung innerhalb der Unsicherheiten übereinstimmt. Abbildung
+\ref{fig:results_comparison} fasst alle genannten Werte nochmals in einer
+Übersicht zusammen.
+
+Bei der Einordnung des resultierenden Wertes dieser Arbeit in den Kontext der
+vorangegangenen Experimente bleibt allerdings zu beachten, dass keinerlei
+systematischer Einflüsse auf diesen Wert Brücksichtigung gefunden haben. Wie
+schon am Ende von Abschnitt \ref{afb:distributions} erläutert haben vor allem
+die Wahl der \ac{PDF} und die Energiekalibration der Elektronen den größten
+Einfluss auf die Verteilung der Vorwärts-Rückwärts Asymmetrie und somit auch
+auf die Extraktion des schwachen Mischungswinkels. Der Einfluss der \ac{PDF}
+schlägt sich bei der verwendeten Methode zusätzlich noch in der Erzeugung der
+Vorlagen\footnote{siehe Anschnitt \ref{afb:extraction_method}} nieder, da sie
+zum einen die Generator-Level Vorlagen selbst aber auch das zur Erstellung der
+Faltungsmatrix verwendete Signal Monte-Carlo formen. Desweiteren spielt gerade
+bei der Erstellung der Vorlagen die Anzahl der simulierten Ereignisse eine
+tragende Rolle. Auf Seiten der Generator-Level Vorlagen als auch auf Seiten der
+Faltungsmatrix bestimmt diese die statistische Signifikanz. Die in Abschnitt
+\ref{afb:extraction} beobachteten Flukuationen der $\chi^2$-Punkte um die
+Parabel wird durch diese bestimmt. Beim Vergleich der Asymmetrie-Verteilungen
+der Vorlagen und Daten kommt bei letztgenannter auch die Qualität der
+Abschätzung von Untergrundbeiträgen zum tragen. Insbesondere die datengestützte
+Methode zur Ermittlung von Beiträgen der \ac{QCD} trifft stark vereinfachende
+Annahmen und induziert somit zusätzliche Unsicherheiten systematischer Art.
+Hier würde die Wahl einer suffizienteren Methode eine mögliche Verbesserung
+darstellen.
+
+Insgesammt konnte gezeigt werden, dass die vorgestellte Methode zur Extraktion
+des schwachen Mischungswinkels zufriedenstellende und mit anderen Experimenten
+vergleichbare Werte liefert.
 
