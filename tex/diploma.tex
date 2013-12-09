@@ -30,7 +30,8 @@
 \usepackage{braket}
 \usepackage{tensor}
 
-%\SI-Units (Details: http://mirrors.ctan.org/macros/latex/contrib/SIunits/SIunits.pdf)
+%\SI-Units
+%(Details: http://mirrors.ctan.org/macros/latex/contrib/SIunits/SIunits.pdf)
 \usepackage[thickspace,squaren]{SIunits}
 
 % Source code listings
@@ -46,7 +47,8 @@
 \usepackage{ulem}
 
 % Declare abstract environment
-\newenvironment{abstract}{\cleardoublepage\null\vfill\begin{center}\bfseries Zusammenfassung \end{center}}{\vfill\null}
+\newenvironment{abstract}{\cleardoublepage\null\vfill\begin{center}\bfseries
+    Zusammenfassung \end{center}}{\vfill\null}
 
 % Declare development marker
 \usepackage{color}
@@ -58,7 +60,9 @@
 % Create cut description environment
 \usepackage{calc}
 \usepackage{enumitem}
-\newcommand{\cutitem}[3]{\item[#1]\hfill\begin{description}[leftmargin=!,labelwidth=\widthof{\bfseries Anwendung:}] \item[Anwendung:] #2 \item[Typ:] #3 \end{description}}
+\newcommand{\cutitem}[3]{\item[#1]\hfill\begin{description}
+    [leftmargin=!,labelwidth=\widthof{\bfseries Anwendung:}]
+    \item[Anwendung:] #2 \item[Typ:] #3 \end{description}}
 
 % Custom definitions
 \newcommand{\del} {\partial}
@@ -73,7 +77,7 @@
 
 %______________________________________________________________________________
 %                                                           General definitions
-\title {Messung der Vorwärts-Rückwärts-Asymmetrie in Endzuständen mit Elektron-Positron-Paaren}
+\title {Messung der Vorwärts-Rückwärts-Asymmetrie in Endzuständen mit Elektron-Positron Paaren}
 \author{Christoph Weinsheimer}
 \date  {10. Dezember 2013}
 
@@ -91,5 +95,6 @@
 \backmatter
 \bibliography{bib/diploma}
 \bibliographystyle{bib/hep}
+% \bibliographystyle{bib/h-physrev}
 
 \end{document}
