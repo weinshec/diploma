@@ -10,14 +10,15 @@
 \chapter{Daten, Simulation \texorpdfstring{\&}{und} Selektion}
 
 \begin{quote}
-    Die Grundlage jeder wissentschaftlichen Arbeit ist die Datenerhebung. In
+    Die Grundlage jeder wissenschaftlichen Arbeit ist die Datenerhebung. In
     diesem Kapitel wird zunächst kurz auf die Parameter des Beschleunigers und
-    des Detektors während der Datenahme eingegangen und der erhobene Datensatz
-    charakterisiert. Anschließend werden Aspekte der vergleichenden Monte-Carlo 
-    Simulation erörtert und die in dieser Arbeit benutzten simulierten
-    Datensätze vorgestellt. Abschließend werden noch eine Reihe von
-    Selektionskriterien erläutert, die aus der Gesamtheit der erhobenen Daten
-    die für die folgende Analyse interessanten Informationen filtern.
+    des Detektors während der Aufzeichnung der Daten eingegangen und der
+    erhobene Datensatz charakterisiert. Anschließend werden Aspekte der
+    vergleichenden Monte-Carlo Simulation erörtert und die in dieser Arbeit
+    benutzten simulierten Datensätze vorgestellt. Abschließend werden noch eine
+    Reihe von Selektionskriterien erläutert, die aus der Gesamtheit der
+    erhobenen Daten die für die folgende Analyse interessanten Informationen
+    filtern.
 \end{quote}
 
 
@@ -35,36 +36,38 @@ Die Daten, die dieser Arbeit zugrunde liegen, wurden vom ATLAS-Detektor im Jahr
 2012 bei erstmalig $8 \TeV$ Schwerpunktsenergie aufgenommen. Der \ac{LHC} wird
 mit Paketen von Protonen, sogenannte Bunches (vom engl. Bunch: Bündel) gefüllt,
 die für einige Stunden im Beschleuniger zirkulieren\footnote{weitere Details:
-siehe Kapitel \ref{}}.
-Eine solche Füllung steht für identische Einstellungen des Beschleunigers bzw.
-Detektors und wird in ATLAS mit einer fortlaufenden Nummer identifiziert.
-Die Füllungs-Nummern größerer Perioden konstanter Bedingungen, wie das zu der
-Zeit implementierte Trigger-Menü oder globale \ac{LHC} Parameter, werden dann
-mit einem Buchstaben zusammengefasst (Periode A, B, ...).
+siehe Kapitel \ref{lhc}}. Eine solche Füllung steht für größtenteils identische
+Einstellungen des Beschleunigers bzw. Detektors und wird in ATLAS mit einer
+fortlaufenden Nummer identifiziert. Die Füllungs-Nummern größerer Perioden
+konstanter Bedingungen, wie die zu der Zeit implementierten Trigger oder
+globale \ac{LHC} Parameter, werden dann mit einem Buchstaben zusammengefasst
+(Periode A, B, ...).
 
 Der vorliegende Datensatz wurde in der Zeit zwischen dem 04. April 2012 und dem
 16. Dezember 2012 aufgenommen und umfasst 10 Perioden, die einer integrierten
-Gesamtluminosität von $20,3 \fb^{-1}$ entsprechen\footnote{nach Anwenung der
-\ac{GRL} (siehe Kapitel \ref{})} (siehe Abbildung \ref{fig:lumi}). Der
-Beschleuniger wurde hierbei in einer Konfiguration betrieben, die einen
-zeitlichen Abstand zwischen den Teilchen-Paketen von $50\:\nano\second$
-gewährleistet, woraus eine instantane Luminosität\footnote{Erläuterungen zur
-Messung der Luminosität in ATLAS finden sich in Kapitel \ref{}} von bis zu
+Gesamtluminosität von $20,3 \fb^{-1}$ entsprechen\footnote{nach Anwendung der
+\ac{GRL} (siehe Kapitel \ref{data_sim_selection:selection})} (siehe Abbildung
+\ref{fig:lumi}). Der Beschleuniger wurde hierbei in einer Konfiguration
+betrieben, die einen zeitlichen Abstand zwischen den Teilchen-Paketen von
+$50\:\nano\second$ gewährleistet, woraus eine instantane Luminosität von bis zu
 $7,73 \cdot 10^{-33} \centi\meter^{-2}\second^{-1}$ resultiert.
 
 Eine hohe instantane Luminosität verspricht eine große Rate interessanter
-Ereignisse, jedoch bedingt sie auch viele unerwünschte Neben-Ereignisse,
-vorwiegend aus inelastischen Streuprozessen, die einen signifikanten Einfluss
-auf die Messung nehmen können. Dieser Effekt wird als \textit{Pile-Up}
-bezeichnet und ist in Abbildung \ref{fig:pileup} illustriert.
+Ereignisse, jedoch bedingt sie auch viele unerwünschte Neben-Ereignisse, aus
+inelastischen Streuprozessen, die einen signifikanten Einfluss auf die Messung
+nehmen können. Dieser Effekt wird als \textit{Pile-Up} bezeichnet und ist in
+Abbildung \ref{fig:pileup} illustriert.
 
 \begin{figure}
     \begin{minipage}[b]{0.48\textwidth}
         \centering
         \includegraphics[width=1.\textwidth]{plots/lumi}
         \captionsetup{format=plain}
-        \caption{Verfügbare, aufgezeichnete und validierte integrierte
-            Luminosität aufgetragen gegen die Zeit innerhalb der Messkampange}
+        \caption[Verfügbare, aufgezeichnete und validierte integrierte
+            Luminosität aufgetragen gegen die Zeit]
+            {Verfügbare, aufgezeichnete und validierte integrierte
+            Luminosität aufgetragen gegen die Zeit innerhalb der Messkampagne.
+            Quelle: \cite{ATLAS:Public}}
         \label{fig:lumi}
     \end{minipage}
     \hfill
@@ -72,16 +75,18 @@ bezeichnet und ist in Abbildung \ref{fig:pileup} illustriert.
         \centering
         \includegraphics[width=1.\textwidth]{img/pileup}
         \captionsetup{format=plain}
-        \caption{Ereignisse mit $Z \rightarrow \mu\mu$ Kandidat und hohem
-            Pile-Up. 25 rekonstruierte Vertizes.}
+        \caption[Ereignisse mit $Z \rightarrow \mu\mu$ Kandidat und hohem
+            Pile-Up]
+            {Ereignisse mit $Z \rightarrow \mu\mu$ Kandidat und hohem Pile-Up
+            (25 rekonstruierte Vertizes). Quelle: \cite{ATLAS:Public}}
         \label{fig:pileup}
     \end{minipage}
 \end{figure}
 
-Das in dieser Arbeit verwendete Speicherformat für Daten basiert auf den in
-Abschnitt \ref{} beschriebenen D3PD Tupeln in SMWZ Konfiguration. Für die
-Verwendung innerhalb der Arbeitsgruppe in Mainz wurden diese Tupel zum Zwecke
-der Speicherplatz-Ersparnis auf Ereignisse beschnitten, die mindestens zwei
+Das in dieser Arbeit verwendete Speicherformat für Daten basiert auf dem in
+Abschnitt \ref{trigger_daq} beschriebenen DPD Format. Für die Verwendung
+innerhalb der Arbeitsgruppe in Mainz wurden diese Tupel zum Zwecke der
+Speicherplatz-Ersparnis auf Ereignisse beschnitten, die mindestens zwei
 Elektronkandidaten mit je $23 \GeV$ bzw. $14 \GeV$ aufweisen.
 
 Die Energie der Elektronkandidaten in diesen Tupeln beruht auf der Information
@@ -89,9 +94,10 @@ aus den Rekonstruktionsalgorithmen und bedarf noch der Kalibration. Für
 Elektronen im Zentral-Bereich werden dazu Kalibrations-Faktoren benutzt, die
 von der zuständigen ATLAS Arbeitsgruppe für die Kalibration des
 elektromagnetischen Kalorimeters (\textit{Electron Gamma Working Group}, kurz:
-egamma) bereitsgestellt werden. Für Elektronen im Vorwärts-Bereich wurden noch
+egamma) bereitgestellt werden. Für Elektronen im Vorwärts-Bereich wurden noch
 keine Kalibrations-Faktoren bereitgestellt, weshalb diese in Kapitel
 \ref{energy_calibration} dieser Arbeit selbst bestimmt werden.
+
 
 
 %______________________________________________________________________________
@@ -108,7 +114,7 @@ keine Kalibrations-Faktoren bereitgestellt, weshalb diese in Kapitel
 % + LumiScaling
 
 Die Simulation von Ereignissen und des Detektors ist ein wichtiger Bestandteil
-von Analysen in der Hochernergiephysik. Sie repräsentiert einerseits das
+von Analysen in der Hochenergiephysik. Sie repräsentiert einerseits das
 beste Wissen über die betrachteten Prozesse und die genaue Kenntnis des
 Detektors, andererseits lassen sich mit Simulationen die Erweiterungen durch
 neue theoretische Modelle untersuchen und deren Einfluss auf bereits bekannte
@@ -123,33 +129,37 @@ Die Erstellung einer Simulation, im folgenden meist nur noch als
 \textit{Monte-Carlo} bezeichnet, geschieht für gewöhnlich in mehreren
 Schritten. Eine grobe Unterteilung ist die Unterscheidung zwischen der
 Simulation des eigentlichen physikalischen Prozesses, wie beispielsweise die
-Annihilation eines Quarks und eines Antiquarks zu einem Z-Boson und dessen
-nachfolgenden Zerfall in ein Leptonpaar, und die Simulation der
-Detektorantwort, also der Beschreibung aller physikalischer Subprozesse, die
-von den Produkt-Teilchen im Detektor induziert werden (Detektor-Antwort).
+Annihilation eines Quarks und eines Antiquarks in Proton-Proton Kollisionen zu
+einem Z-Boson und dessen nachfolgenden Zerfall in ein Leptonpaar, und die
+Simulation der Detektorantwort, also der Beschreibung aller physikalischer
+Subprozesse, die von den Produkt-Teilchen im Detektor induziert werden
+(Detektor-Antwort).
 
 Im ersten Schritt, der Ereignis-Simulation, kommen so genannte
-\textit{Monte-Carlo Generatoren} zum Einsatz. Dies sind meist von theoretischen
-Physikern implementierte Software Pakete, die, hochkonfigurierbar, mittels
-Zufallszahlen die gewünschten Prozesse, samt der kinematischen Parameter der
-eingehenden und ausgehenden Teilchen als Ereignisse simulieren. Dies geschieht
-auf der Basis von Matrixelementen und der Beschreibung des Phasenraumes. Die
-voran gestellte Berechnung der Matrixelemente findet meist in führender (LO)
-oder nächst-führender (NLO) Ordnung statt. Betrachtungen höherer Ordnungen
-werden aufgrund der übermäßigen Komplexität in der Regel durch Umgewichtungen
-von Simulationen niedrigerer Ordnung realisiert\footnote{siehe auch Abschnitt
-\ref{mc_corrections}}. Neben dem harten Streuprozess inklusive aller
-beteiligten Partonen werden anschließend weitere Effekte wie beispielsweise
-Hadronisierung oder Bremsstrahlung berücksichtigt. Alle bis zu diesem Punkt
-gewonnenen Werte bezeichnet man als \textit{Generator-Level}.
+\textit{Monte-Carlo Generatoren} zum Einsatz. Dies sind konfigurierbare
+Software Pakete, die mittels Zufallsmethoden die gewünschten Prozesse, samt der
+kinematischen Parameter der eingehenden und ausgehenden Teilchen als Ereignisse
+simulieren. Dies geschieht auf der Basis von theoretischen
+Wirkungsquerschnitten und der Definition des Phasenraumes. Die voran gestellte
+Berechnung der Matrixelemente\footnote{siehe auch Kapitel
+\ref{theory:electroweak}} findet meist in führender (LO) oder nächst-führender
+(NLO) Ordnung statt. Betrachtungen höherer Ordnungen werden aufgrund der
+übermäßigen Komplexität in der Regel durch Umgewichtungen von Simulationen
+niedrigerer Ordnung durch sogenannte \textit{kFaktoren}
+realisiert\footnote{siehe auch Abschnitt \ref{mc_corrections}}, zu deren
+Bestimmung das Verhältnis der Wirkungsquerschnitte der höheren und niedrigeren
+Ordnung gebildet wird. Neben dem harten Streuprozess inklusive aller
+beteiligten Partonen und möglichen Zerfallsprodukten werden anschließend
+weitere Effekte wie beispielsweise Hadronisierung oder Bremsstrahlung
+berücksichtigt. Alle bis zu diesem Punkt gewonnenen Werte bezeichnet man als
+\textit{Generator-Level}.
 
-Die kinematische Information der Produkt-Teilchen auf Generator-Level wird nun
-der Detektor-Simulation übergeben, welche die Wechselwirkung mit
+Die kinematische Information der Teilchen im Endzustand auf Generator-Level
+wird nun der Detektor-Simulation übergeben, welche die Wechselwirkung mit
 Detektormaterial und die elektronische Antwort des Detektors beschreibt, sodass
 an deren Ende ein mit realen Signalen vergleichbarer Datensatz entsteht. Diese
-Aufgabe übernimmt in ATLAS das \textsc{GEANT4}-Paket\footnote{\textsc{GEANT4}:
-Softwarepaket zur Simulation von Teilchen in Materie
-(\cite{Agostinelli:2002hh})}, mithilfe dessen eine sehr detailgetreue virtuelle
+Aufgabe übernimmt in ATLAS das \textsc{GEANT4}-Paket
+(\cite{Agostinelli:2002hh}), mithilfe dessen eine sehr detailgetreue virtuelle
 Beschreibung des Detektors erstellt wurde.
 
 
@@ -170,66 +180,65 @@ Im Folgenden wird eine kurze Übersicht über die möglichen Korrekturen gegeben
 
 \begin{description}
     \item[Pile-Up:] Der oben beschriebene Effekt des Pile-Up, also der
-        gleichzeitig stattfindenden zusätzlichen Teilchen-Kollisionen ist
-        schlecht simulierbar, da das Prinzip von Monte-Carlo Generatoren auf
-        einzelnen zeitlich unabhängigen Ereignissen/Kollisionen beruht. Dieser
-        Missstand wird durch Umgewichten der simulierten Pile-Up Verteilung auf
-        die real gemessene Verteilung behoben, welche im Folgenden mit
-        $w_\text{pu}$ bezeichnet werden.
+        gleichzeitig stattfindenden zusätzlichen Teilchen-Kollisionen ist nur
+        schwer vorhersagbar. Deshalb wird die Pile-Up Verteilung der
+        Monte-Carlo Simulationen auf die entsprechende Verteilung der
+        gemessenen Daten umgewichtet. Die dafür nötigen Ereignis-Gewichte
+        werden im Folgenden mit $w_\text{pu}$ bezeichnet.
     \item[Energieauflösung:] Die Simulation der Detektor-Antwort nimmt die
         Energieauflösung des Kalorimeters\footnote{Aufgrund der Thematik dieser
         Arbeit ist nur die Auflösung des elektromatischen Kalorimeters relevant
-        und hier gemeint} oftmals zu optimistisch an, sodass eine zusätzlich
+        und hier gemeint} oftmals zu optimistisch an, sodass eine zusätzliche
         Energieverschmierung eingeführt wird, um dies zu korrigieren. Die
         Bestimmung der Korrektur-Faktoren ist Teil dieser Arbeit und wird in
         Kapitel \ref{energy_calibration} besprochen.
     \item[Elektron-Rekonstruktions-Effizienz:] Die Effizienz mit der Elektronen
         im ATLAS-Detektor rekonstruiert werden ist nicht einfach zu
         beschreiben, weshalb hier zusätzlich Skalenfaktoren pro betrachtetem
-        Elektron notwenig werden. Man führt insgesamt drei Korrekturfaktoren
-        ein um die Effizienz von \textit{Identifikation} ($w_\text{ID}$),
-        \textit{Spur-Rekonstruktion} ($w_\text{spur}$) und des
-        \textit{Triggers} ($w_\text{trigger}$) zu korrigieren, wobei die
-        letzten beiden aufgrund der Abwesenheit von Trigger und Spurinformation
-        im Vorwärts-Bereich\footnote{siehe hierzu auch Kapitel \ref{}} nicht
-        für Vorwärts-Elektronen definiert sind\footnote{siehe auch Kapitel
-        \ref{}}.
+        Elektron notwendig werden. Man führt insgesamt drei Korrekturfaktoren
+        ein um die Effizienz des \textit{Triggers} ($w_\text{trigger}$), der 
+        \textit{Spur-Rekonstruktion} ($w_\text{spur}$) und der
+        \textit{Identifikation} ($w_\text{ID}$) zu korrigieren, wobei die
+        beiden erstgenannten aufgrund der Abwesenheit von Trigger und
+        Spurinformation im Vorwärts-Bereich\footnote{siehe hierzu auch Kapitel
+        \ref{atlas_detector}} nicht für Vorwärts-Elektronen definiert sind.
     \item[kFaktoren:] Als kFaktoren bezeichnet man die Skalenfaktoren, die der
-        Umgewichtung eines simulierten Datensatzes auf die nächste höhere
+        Umgewichtung eines simulierten Datensatzes auf die nächst höhere
         Ordnung dienen also beispielsweise NLO $\rightarrow$ NNLO. Sie werden
-        pro Ereigniss definiert, hängen meist von der invarianten Masse des
-        betrachteten Prozesses ab und werden im Folgenden mit
-        $w_\text{kFactor}$ bezeichnet.
+        pro Ereignis angewendet und hängen meist von der jeweiligen
+        invarianten Masse ab. Im Folgenden werden sie mit $w_\text{kFactor}$
+        bezeichnet.
     \item[Vertex-Position:] Die Position des Wechselwirkungspunktes hat
         Einfluss auf die Rekonstruktion der Elektronen und zählt ebenfalls zu
         den schwer zu simulierenden Größen. Skalenfaktoren ($w_\text{vtx}$)
         korrigieren ereignisweise die Verteilung im Monte-Carlo.
     \item[Generator-Ereignisgewicht:] Einige Monte-Carlo Generatoren,
         insbesondere jene, die Ereignisse auf nächst-führender Ordnung
-        simulieren, setzen für manche der erzeugen Ereignisse ein Gewicht
+        simulieren, setzen für manche der erzeugten Ereignisse ein Gewicht
         abweichend von 1 fest, um intrinsische Doppelzählung zu korrigieren.
-        Diese Gewichte ($w_\text{gen}$) werden ereignisweise mit den sonstigen
-        Gewichten multipliziert.
+        Diese Gewichte ($w_\text{gen}$) werden mit den sonstigen Gewichten
+        multipliziert.
 \end{description}
 
 Für alle hier beschriebenen Korrekturen, mit Ausnahme der
-Generator-Ereignisgewichte werden von den zuständigen Arbeitsgruppen in ATLAS
+Generator-Ereignis"-gewichte, werden von den zuständigen Arbeitsgruppen in ATLAS
 Software-Pakete bereitgestellt, die alle benötigten Skalenfaktoren beinhalten
-und regelmäßig auf den Stand neuster Erkenntnis aktualisiert werden.
+und regelmäßig auf den Stand neuester Erkenntnis aktualisiert werden.
 
 
 
 \subsection{Benutzte Monte-Carlo Simulationen}
 \label{used_mc_samples}
-Die meisten in dieser verwendeten Monte-Carlo Simulationen werden von der ATLAS
-\textit{Monte-Carlo Working Group} produziert und verifiziert\footnote{alle
-eigens generierten Monte-Carlo Simulationen werden gesondert gekennzeichnet}.
-Sie unterscheiden sich vor allem in der Wahl des Generators und des simulierten
-Prozesses, durchlaufen aber ausnahmslos dieselbe Detektorsimulation.
+Die meisten in dieser Arbeit verwendeten Monte-Carlo Simulationen werden von
+der ATLAS \textit{Monte-Carlo Working Group} produziert und
+verifiziert\footnote{alle eigens generierten Monte-Carlo Simulationen werden
+gesondert gekennzeichnet}. Sie unterscheiden sich vor allem in der Wahl des
+Generators und des simulierten Prozesses, durchlaufen aber ausnahmslos dieselbe
+Detektorsimulation.
 
 Eine Übersicht über die verschiedenen Prozesse und Generatoren wird im
 folgenden gegeben und ist in Anhang \ref{appendix:monte_carlo_samples}
-zusammengefasst; detailiertere Informationen über die Motivation und die
+zusammengefasst; detailliertere Informationen über die Motivation und die
 tatsächliche Verwendung der jeweiligen Monte-Carlos wird später in den
 betreffenden Kapiteln gegeben.
 
@@ -249,7 +258,7 @@ statistische Signifikanz zu gewährleisten. Das erste dieser massenbeschränkten
 Monte-Carlos hat eine untere Grenze von $m_{ee} > 120 \GeV$, sodass bei
 gleichzeitiger Verwendung mit dem inklusiv generierten Monte-Carlo letzteres an
 dieser Grenze auf Generator-Level abgeschnitten werden muss. Die Arbeitsgruppe
-für die Suche nach schweren Eichboson in ATLAS (\textit{ZPrime}) stellt für
+für die Suche nach schweren Eichbosonen in ATLAS (\textit{ZPrime}) stellt für
 diese Monte-Carlos massenabhängige kFaktoren bereit, die die bestehende
 Simulation auf NNLO umgewichten.
 
@@ -257,32 +266,33 @@ Ebenso sind für den verwandten Prozess
 $q\bar q \rightarrow \gamma^*/Z \rightarrow \tau^+\tau^-$ analog zu obiger 
 Herangehensweise und Konfiguration Monte-Carlos produziert worden, die in
 der vorliegenden Arbeit zur Abschätzung des Untergrundes durch diesen Prozess
-verwendet werden. Die Schnittgrenze zwischen den massenbeschränkten und dem
-inklusiv produzierten Monte-Carlo liegt hier allerdings doppelt so hoch, bei
-$250 \GeV$.
+verwendet werden\footnote{$\tau$-Leptonen zerfallen mit gewisser
+Wahrscheinlichkeit in Elektronen}. Die Schnittgrenze zwischen den
+massenbeschränkten und dem inklusiv produzierten Monte-Carlo liegt hier
+allerdings etwa doppelt so hoch, bei $250 \GeV$.
 
 \subsubsection*{W+Lepton}
 Der Zerfall eines W-Bosons in ein Elektron bzw. Positron und ein entsprechendes
-Neutrino oder in ein $\tau^+/\tau^-$ und ein entsprechendes Neutrino wird mit
-der selben Kombination von Generatoren, wie schon beim Drell-Yan Prozess
-simuliert und dient ebenfalls der späteren Untergrundabschätzung. Jeder der
-eben genannten Prozesse wird dabei separat generiert, sodass also insgesammt
-vier Sätze von Simulationen erzeugt wurden mit insgesamt etwa 40 Millionen
-Ereignissen für den Zerfall in Elektronen oder Positron und 7 Millionen
-Ereignissen für den Zerfall in $\tau$-Leptonen.
+(Anti-)Neutrino oder in ein $\tau^+/\tau^-$ und ein entsprechendes
+(Anti-)Neutrino wird mit der selben Kombination von Generatoren, wie schon beim
+Drell-Yan Prozess simuliert und dient ebenfalls der späteren
+Untergrundabschätzung. Jeder der eben genannten Prozesse wurde zu diesem Zweck
+separat simuliert. Für den Zerfall in Elektronen/Positronen wurden dabei
+jeweils etwa 40 Millionen und für den Zerfall in $\tau^+/\tau^-$ je 7
+Millionen Ereignisse generiert.
 
 \subsubsection*{Top-Produktion}
-Die Produktion eines einzelnen Top-Quarks oder eines Paares von Top-Quarks ist
-ein relevanter Prozess für die Abschätzung des Untergrundes der späteren
-Analyse. Top-Quarks Zerfallen mit fast 100\% Verzweigungsverhältnis in ein
-b-Quark und ein W-Boson, wobei letzteres wie oben beschrieben in ein Lepton
-und ein entsprechendes Neutrino zerfallen kann.
+Die Produktion eines einzelnen Top-Quarks oder eines Paares von Top-Quarks und
+deren Zerfall sind relevante Prozesse für die Abschätzung des Untergrundes der
+späteren Analyse. Top-Quarks zerfallen mit fast 100\% Verzweigungsverhältnis in
+ein b-Quark und ein W-Boson, wobei letzteres wie oben beschrieben in ein Lepton
+und ein entsprechendes (Anti-)Neutrino zerfallen kann.
 
 Abbildung \ref{fig:singletop} zeigt die möglichen Produktionskanäle für ein
-einzelnes Top-Quark. Für jeden der gezeigten Kanäle (a,b,c) wird ein separates
+einzelnes Top-Quark. Für jeden der gezeigten Kanäle (a,b,c) wurde ein separates
 Monte-Carlo generiert, wobei für (a) und (b) jeweils noch zwischen dem
-konsekutiven Zerfall des W-Boson in ein Elektron/Positron und $\tau^+/\tau^-$
-unterschieden wird.
+konsekutiven Zerfall des $W$-Boson in ein Elektron/Positron und ein
+$\tau^+/\tau^-$ unterschieden wurde.
 
 \begin{figure}
     \centering
@@ -297,23 +307,24 @@ unterschieden wird.
 Für die Produktion im t-Kanal (b) wurde für die Simulation des Streuprozesses
 \textsc{AcerMC} (\cite{Kersevan:2004yg}) als Generator verwendet, der eine
 Schnittstelle zu \textsc{Pythia6} (\cite{1126-6708-2006-05-026}) zur
-Beschreibung von Bremsstrahlung und Hadronisierung bereitstellt. Die beiden
-anderen Kanäle (a) und (c) und die Produktion eines Top-Antitop Paares wurden
-hingegen mit \textsc{MC@NLO} (\cite{Frixione:2002ik}) simuliert, einem
-Generator, der auf nächsführender Ordnung \ac{QCD} Prozesse zu simulieren in
-der Lage ist. Für die Top-Antitop Paarproduktion konnte von der oben bereits
-erwähnten \textit{ZPrime} Gruppe der Wirkungsquerschnitt auf NNLO bestimmt
-werden, was bei der weiter unten beschriebenen Skalierung der Monte-Carlos
-relevant wird.
+Beschreibung der Hadronisierung bereitstellt. Die beiden anderen Kanäle (a) und
+(c) und die Produktion eines Top-Antitop Paares wurden hingegen mit
+\textsc{MC@NLO} (\cite{Frixione:2002ik}) simuliert, einem Generator, der in der
+Lage ist, auf nächstführender Ordnung \ac{QCD} Prozesse zu simulieren. Für die
+Top-Antitop Paarproduktion konnte von der oben bereits erwähnten
+\textit{ZPrime} Gruppe der Wirkungsquerschnitt auf NNLO berechnet
+werden\footnote{Die Wirkungsquerschnitte aller verwendeten Monte-Carlos ist in
+Anhang \ref{appendix:monte_carlo_samples} zu finden}, was bei der weiter unten
+beschriebenen Skalierung der Monte-Carlos relevant wird.
 
 \subsubsection{Diboson}
 Weitere Beiträge zur Untergrundabschätzung liefert die Simulation von der
 Produktion zweier schwerer Eichbosonen. Dabei werden für jede Kombination, also
 WW/WZ/ZZ separate Monte-Carlos generiert. Der hierfür verwendete Generator ist
 \textsc{Herwig++} (\cite{Bahr:2008pv}), der in führender Ordnung die
-Streuprozesse und Hadronisierung simuliert. Auch für diese Simulationen konnten
-von der \textit{ZPrime} Gruppe die Wirkungsquerschnitte auf NLO bestimmt
-werden.
+Streuprozesse und die Hadronisierung simuliert. Auch für diese Simulationen
+konnten von der \textit{ZPrime} Gruppe die Wirkungsquerschnitte auf NLO
+berechnet werden.
 
 
 
@@ -335,9 +346,9 @@ Dabei bezeichnet $\sigma$ den Wirkungsquerschnitt des generierten Monte-Carlos
 und $L$ die integrierte Luminosität des Datensatzes, auf den skaliert wird,
 also im vorliegenden Fall $20.3 \fb^{-1}$. Anstelle durch die Gesamtzahl der
 generierten Ereignisse zu dividieren, müssen die nicht-unitären Gewichte, wie
-Pile-Up- und Generator-Ereignisgewicht, berücksichtigt werden und anstelle
-durch deren Produkt, summiert über alle Ereignisse geteilt werden. Auf einige
-der erzeugten Monte-Carlos wurde ein zusätzlicher Filter eingesetzt, um nicht
+Pile-Up und Generator-Ereignisgewicht, berücksichtigt werden und durch deren
+Produkt, summiert über alle Ereignisse, geteilt werden. Bei einigen der
+erzeugten Monte-Carlos wurde ein zusätzlicher Filter eingesetzt, um nicht
 relevante Ereignisse\footnote{zum Beispiel Ereignisse deren Produktteilchen
 nicht im angestrebten Phasenraum zu finden sind} zu unterdrücken. Die Effizienz
 dieser Filter wird mit $\epsilon$ berücksichtigt.
@@ -364,14 +375,14 @@ Teilmenge von Ereignissen führt, die nur noch für die angestrebte Analyse
 relevante Informationen enthält. Dies dient der Unterdrückung von
 Untergrundbeiträgen und der gleichzeitigen Anreicherung mit Signalereignissen.
 Als Kriterien kommen vielfältige Bedingungen an die enthaltenen Teilchen oder
-das Ereignis an sich in Frage. Die einfachste und zugleich meist genutze Form
+das Ereignis an sich in Frage. Die einfachste und zugleich meist genutzte Form
 solcher Bedingungen sind simple Schnitte, bei denen einer Observablen ein
-fester Grenzwert zugewiesen wird, sodann ein Über- oder Unterschreiten dieses
+fester Grenzwert zugewiesen wird und ein Über- oder Unterschreiten dieses
 Wertes das Verwerfen des Ereignisses bedingt. Auch komplexere Forderungen sind
 denkbar, wie beispielsweise die logische Verkettung von Ja/Nein-Entscheidungen
-(siehe Trigger-Entscheidungen, Abschnitt \ref{}),
+(siehe z.B. Trigger-Entscheidungen, Abschnitt \ref{trigger_daq})
 oder mehrdimensionale Schnittwerte auf der Basis multivariater Studien (siehe
-Vorwärts-Elektron Identifikation, Abschnitt \ref{}).
+Vorwärts-Elektron Identifikation, Abschnitt \ref{identification}).
 
 Man kann grob zwei Klassen von Kriterien unterscheiden, jene die sich auf das
 Ereignis als ganzes beziehen und solche, die auf Eigenschaften einzelner
@@ -381,9 +392,13 @@ Chronologie, wie sie auch in der späteren Analyse eingehalten wurde.
 
 \begin{description}
     \cutitem{Good-Run-List (GRL)}{nur auf Daten}{Ereignis-Kriterium}
-        Die Anwendung der \ac{GRL} wurde bereits in Kapitel \ref{} motiviert
-        und erläutert und ist hier lediglich der Vollständigkeit halber
-        aufgeführt. Die verwendete \ac{GRL} trägt die ATLAS interne Bezeichnung
+        Während der Datennahme muss sicher gestellt werden, dass alle
+        Komponenten des Detektors innerhalb normaler Parameter arbeiten. Die
+        Good-Run-List ist ein Verzeichnis mit dem dies dokumentiert wird. Hier
+        sind alle Ereignisse\footnote{genauer die fortlaufende Nummer von
+        Gruppen von Ereignissen} gelistet, die zur physikalischen Analyse
+        verwendet werden können. Die hier benutzte \ac{GRL} trägt die ATLAS
+        interne Bezeichnung
         \begin{verbatim}
     data12_8TeV.periodAllYear_DetStatus-v61-pro14-02_
     DQDefects-00-01-00_PHYS_StandardGRL_All_Good_
@@ -392,24 +407,28 @@ Chronologie, wie sie auch in der späteren Analyse eingehalten wurde.
         elektromagnetischen Kalorimeter im Vorwärts-Bereich.
 
     \cutitem{Trigger}{Daten \& Simulation}{Ereignis-Kriterium}
-        Wie schon in Kapitel \ref{} erklärt, reduziert die Wahl des richtigen
-        Triggers die Gesamtzahl der Ereignisse auf eine überschaubare
+        Wie schon in Kapitel \ref{trigger_daq} erklärt, reduziert die Wahl des
+        richtigen Triggers die Gesamtzahl der Ereignisse auf eine überschaubare
         Teilmenge, welche nur noch jene Ereignisse enthält, die bestimmten
         grundlegenden Anforderungen genügen und somit für die angestrebte
         Analyse als interessant gelten. Hierdurch findet bereits eine enorme
         Unterdrückung von Untergrund-Prozessen statt. Die von der
         \textit{egamma}-Gruppe empfohlene Trigger-Konfiguration für Analysen
-        mit einem Elektronkandidaten ist die Verknpüfung durch ein logisches
+        mit einem Elektronkandidaten ist die Verknüpfung durch ein logisches
         \emph{ODER} der beiden \acl{HLT}
         \begin{verbatim}
     e24vhi_medium1   (oder)   e60_medium1 \end{verbatim}
-        Darin steht \texttt{eXX} für das Passieren der Level-2
+        Darin steht \texttt{eXX} für das Passieren der \acf{EF}
         Triggerentscheidung eines Elektronkandidaten mit Transversal-Impuls
         größer \texttt{XX} $\GeV$. Die Bezeichnung \texttt{medium1}
         repräsentiert das Äquivalent zur Identifikationsstufe\footnote{siehe
-        Kapitel \ref{}} \textit{medium++} und die Anhänge \texttt{vhi} fordern
-        einen isolierten Elektronkandidaten, ohne Energiedeposition im
-        dahinterliegedenden hadronischen Kalorimeter.
+        Kapitel \ref{identification}} \textit{medium++} und der Anhang
+        \texttt{vhi} fordert einen isolierten\footnote{d.h. ohne Überlapp des
+        Elektron-Clusters mit einer benachbarten Energiedeposition im
+        Kalorimeter} Elektronkandidaten, ohne Energiedeposition im dahinter
+        liegendenden hadronischen Kalorimeter.
+
+\pagebreak
 
     \cutitem{Spuren in Primärvertex}{Daten \& Simulation}{Ereignis-Kriterium}
         Als letztes ereignisbasiertes Kriterium wird die Anforderung an den
@@ -418,19 +437,19 @@ Chronologie, wie sie auch in der späteren Analyse eingehalten wurde.
         des Vertex und erhöht die Qualität der Zuordnung der Teilchenspuren.
 
     \cutitem{Pseudorapidität}{Daten \& Simulation}{Elektron-Schnitt}
-        Die in Kapitel \ref{} dargelegte
-        Geometrie des Detektors initiierte die Unterscheidung zwischen
-        Zentral- und Vorwärts-Elektronen. Eben diese Trennung macht eine
-        Klassifizierung der Ereignisse in Zentral-Vorwärts, das heißt ein
-        Elektron wird im Zentral-Bereich, das andere im Vorwärts-Bereich,
-        rekonstruiert und Zentral-Zentral, also beide Elektronen im
-        Zentral-Bereich, sinnvoll. Der Einfachheit halber werden diese beiden
-        Klassen im Folgenden entsprechend ihrer englischen Übersetzung mit
-        \emph{CC} (central-central) und \emph{CF} (central-forward) abgekürzt. 
+        Die in Kapitel \ref{calorimeter} dargelegte Geometrie des Detektors
+        initiierte die Unterscheidung zwischen Zentral- und
+        Vorwärts-Elektronen. Eben diese Trennung macht eine Klassifizierung der
+        Ereignisse in Zentral-Vorwärts, das heißt ein Elektron wird im
+        Zentral-Bereich, das andere im Vorwärts-Bereich rekonstruiert und
+        Zentral-Zentral, also beide Elektronen im Zentral-Bereich, sinnvoll.
+        Der Einfachheit halber werden diese beiden Klassen im Folgenden
+        entsprechend ihrer englischen Übersetzung mit \emph{CC}
+        (central-central) und \emph{CF} (central-forward) abgekürzt. 
 
-        Die Schnitte auf die Elektron-Kandidaten sind analog zur
+        Die Schnitte auf die Elektronkandidaten sind analog zur
         Detektor-Geometrie gewählt, wobei die Übergangsregionen zwischen den
-        Kalorimetern exludiert wurden.
+        Kalorimetern exkludiert wurden.
         \begin{table}[h!]
             \centering
             \begin{tabular}{|c|c|c|}
@@ -444,8 +463,8 @@ Chronologie, wie sie auch in der späteren Analyse eingehalten wurde.
         \end{table}
 
         Durch diese Exklusion der Übergangsregionen wird gewährleistet, dass
-        sich die Schauer der Elektronkandidaten wohl innerhalb des aktiven
-        Kalorimetermaterials enwickeln und so ein Energieverlust in den
+        sich die Schauer der Elektronkandidaten innerhalb des aktiven
+        Kalorimetermaterials entwickeln und so ein Energieverlust in den
         schlecht instrumentierten Bereichen unterbunden wird.
 
 
@@ -457,7 +476,7 @@ Chronologie, wie sie auch in der späteren Analyse eingehalten wurde.
         Konformität der Vorwärts-Elektronen. Bei der Wahl des Schnittwertes ist
         darauf zu achten, dass dieser oberhalb der intrinsischen
         Trigger-Schwelle liegt, um zu gewährleisten, dass die Selektion nicht
-        jene Elektronkandidaten ausschließt, die zu eine positiven
+        jene Elektronkandidaten ausschließt, die zu einer positiven
         Trigger-Entscheidung geführt haben.
 
         In dieser Arbeit wurden zwei Konfigurationen von Grenzwerten für den
@@ -466,7 +485,7 @@ Chronologie, wie sie auch in der späteren Analyse eingehalten wurde.
         gegeben.
 
         Für die eigentliche Analyse, der Messung der Vorwärts-Rückwärts
-        Asymmetrie (Kapitel \ref{})
+        Asymmetrie (Kapitel \ref{afb})
         wurde ein Grenzwert von \emph{$30\GeV$} symmetrisch für Zentral- und
         Vorwärts-Elektronen gewählt.
 
@@ -478,7 +497,7 @@ Chronologie, wie sie auch in der späteren Analyse eingehalten wurde.
     \cutitem{Autor}{Daten \& Simulation}{Elektron-Schnitt}
         Mit diesem Kriterium wird sichergestellt, dass die Elektronkandidaten
         vom jeweils korrekten Rekonstruktionsalgorithmus\footnote{die
-        Rekonstruktionsalgorithmen wurden in Kapitel \ref{}
+        Rekonstruktionsalgorithmen wurden in Kapitel \ref{reconstruction}
         erläutert} analysiert wurden. Diese tragen eine interne eindeutige
         Nummer, den sogenannten Autor, die während der Rekonstruktion in die
         Teilchenattribute eingetragen wird. Es werden deshalb für jeden
@@ -498,13 +517,15 @@ Chronologie, wie sie auch in der späteren Analyse eingehalten wurde.
 
     \cutitem{Identifikation}{Daten \& Simulation}{Elektron-Schnitt}
         Dieser Schnitt legt die Identifikationsstufe für die Elektronkandidaten
-        fest. Diese wurden in Kapitel \ref{} definiert und unterscheiden sich
-        in 3 Kategorien. Für die vorliegende Arbeit wurde, wenn nicht explizit
-        abweichend notiert, sowohl für Zentral- als auch für
-        Vorwärts-Elektronen das höchste Niveau der Identifikation gefordet,
-        also \textbf{\textit{tight++}} bzw. \textbf{\textit{forward-tight}},
-        was die größte Diskriminierung gegen andersartige Teilchen,
-        Fake-Elektronen\footnote{siehe Kapitel \ref{}}, gewährleistet.
+        fest. Diese wurden in Kapitel \ref{identification} definiert und
+        unterscheiden sich in 3 Kategorien. Für die vorliegende Arbeit wurde,
+        wenn nicht explizit abweichend notiert, sowohl für Zentral- als auch
+        für Vorwärts-Elektronen das höchste Niveau der Identifikation
+        gefordert, also \textbf{\textit{tight++}} bzw.
+        \textbf{\textit{fwdTight}}, was die größte Diskriminierung gegen
+        andersartige Teilchen gewährleistet.
+
+\pagebreak
 
     \cutitem{Ladung}{Daten \& Simulation (nur CC)}{Elektron-Schnitt}
         Der betrachtete Signalprozess dieser Arbeit impliziert gegensätzliche
@@ -515,7 +536,7 @@ Chronologie, wie sie auch in der späteren Analyse eingehalten wurde.
         Schnitt kann jedoch nur bei der Selektion von \ac{CC} Ereignissen
         implementiert werden, da die Bestimmung des Ladungsvorzeichens eines
         Teilchens im Vorwärts-Bereich des Detektors grundsätzlich  nicht
-        möglich ist (vgl. Kapitel \ref{}).
+        möglich ist (vgl. Kapitel \ref{inner_detector}).
 
     \cutitem{Objekt-Qualität}{Daten \& Simulation}{Elektron-Schnitt}
         Das letzte Kriterium der Selektionsreihe prüft die Integrität
