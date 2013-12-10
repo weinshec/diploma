@@ -16,18 +16,17 @@
     ist von essentieller Bedeutung nicht nur für Messung der
     Vorwärts-Rückwärts-Asymmetrie, sondern vielmehr für jede Analyse oder
     Messung, die Elektronen einbezieht. Dieses Kapitel beschreibt die
-    Kalibration der Energie und Auflösung für Elektronen mit hohen
-    Pseudorapiditäten.
+    Kalibration der Energie und die Korrektur der Auflösung für Elektronen mit
+    hohen Pseudorapiditäten.
 
-    Dabei werden im ersten Abschnitt \ref{energy_calibration:grundlagen}
-    zunächst die Grundlagen und bereits vorangegangen Schritte auf dem Weg zur
-    Energiemessung erläutert. Anschließend wird in
-    \ref{energy_calibration:beschreibung_der_methode} detailiert die verwendete
-    Methode zur Extraktion der Kalibrations-Faktoren beschrieben und elementare
-    Definitionen und Annahmen eingeführt. Der darauf folgende Abschnitt
+    Dabei werden im ersten Abschnitt zunächst die Grundlagen und bereits
+    vorangegangene Schritte auf dem Weg zur Energiemessung erläutert.
+    Anschließend wird in \ref{energy_calibration:beschreibung_der_methode}
+    detailiert die verwendete Methode zur Extraktion der Kalibrations-Faktoren
+    beschrieben. Der darauf folgende Abschnitt
     \ref{energy_calibration:extraktion_der_kalibrations-konstanten} legt dann
     die eigentliche Extraktion der Kalibrations-Faktoren dar und zeigt
-    systematische Betrachtungen zur Abschätzung der Unsicherheiten. Der letzte
+    systematische Betrachtungen zur Bestimmung der Unsicherheiten. Der letzte
     Abschnitt \ref{energy_calibration:ergebnisse_und_ausblick} fasst dann
     nochmals die wichtigsten Ergebnisse zusammen und zeigt Wege auf, wie die
     Kalibration in Zukunft weiter verbessert kann.
@@ -47,29 +46,32 @@
 % + Was im folgenden passiert (Vorwärts-Kalibration, in-situ kalibration, was ist noch zu kalibrieren)
 % + Zusätzliches Material
 
-Das Grundlegende Prinzip mit dem in ATLAS die Energie von Elektronen in den
-elektromagnetischen Kalorimetern gemessen wird ist bereits in Kapitel \ref{}
-erläutert worden. Die gewünschte Information über die Energiedeposition in
-einem Elektron-Cluster durchläuft ausgehend von den rohen Signalen, also
-Spannungen und Ströme, zahlreiche Stufen der Kalibration um zu physikalisch
-sinnvollen Einheiten wie $Elektronvolt$ zu gelangen. Dazu zählen die
-Konvertierung der digitalisierten Pulsformen einzelner Zellen in $\MeV$ auf der
-Basis von Kalibrations-Faktoren, die vor Montage des Detektors mit
+Das grundlegende Prinzip mit dem in ATLAS die Energie von Elektronen in den
+elektromagnetischen Kalorimetern gemessen wird ist bereits in Kapitel
+\ref{calorimeter} erläutert worden. Die gewünschte Information über die
+Energiedeposition in einem Elektron-Cluster durchläuft ausgehend von den rohen
+Signalen, also Spannungen und Ströme, zahlreiche Stufen der Kalibration, um zu
+physikalisch sinnvollen Einheiten wie $\GeV$ zu gelangen. Dazu zählen
+die Konvertierung der digitalisierten Pulsformen einzelner Zellen in $\MeV$ auf
+der Basis von Kalibrations-Faktoren, die vor Montage des Detektors mit
 Test-Strahlen definierter Energie ermittelt wurden (siehe \cite{Aleksa:942528}
-und \cite{1748-0221-3-02-P02002}), sowie das clustern benachbarter Zellen durch
-die Rekonstruktionsalgorithmen\footnote{vgl. Kapitel \ref{}}.
+und \cite{1748-0221-3-02-P02002}), sowie das Zusammenfassen benachbarter Zellen
+durch die Rekonstruktionsalgorithmen\footnote{vgl. Kapitel
+\ref{reconstruction}}.
 
 Der letzte Schritt ist die Bestimmung der Energieskala durch eine
 \textit{in-situ} Kalibration mithilfe realer Ereignisse. Durch diese werden
-dann die genaue Lage der einzelnen Kalorimeter-Komponenten im Detektor und das
-für die Konstruktion notwendige zusätzliche Material, welches die Elektronen
-auf dem Weg ins Kalorimeter passieren, berücksichtigt. In der vorliegenden
+dann die einzelnen Kalorimeter-Komponenten gegeneinander kalibriert und
+Energieverluste durch, für die Konstruktion des Detektors notwendiges
+zusätzliches Material, welches die Elektronen auf dem Weg ins Kalorimeter
+passieren, berücksichtigt. In der vorliegenden
 Arbeit wird dieser letzte Kalibrationsschritt für Elektronen im
 Vorwärts-Bereich angestrebt, da diese in der späteren Messung der
-Vorwärts-Rückwärts-Asymmetrie eine zentrale Rolle spielen werden, wobei die
+Vorwärts-Rückwärts Asymmetrie und des schwachen Mischungswinkels eine zentrale
+Rolle spielen werden, wobei die
 bestmögliche Messung der Energie obligat ist. Für den Zentral-Bereich liegen
 bereits vorläufige Kalibration-Faktoren, welche von der zuständigen internen
-Arbeitsgruppe bereitgestellt werden\footnote{fehlende referenz \cite{}}.
+Arbeitsgruppe bereitgestellt werden.
 
 
 
@@ -88,25 +90,25 @@ Arbeitsgruppe bereitgestellt werden\footnote{fehlende referenz \cite{}}.
 % + Fit-Modelle
 
 Für die Kalibration der Vorwärts-Elektronen betrachtet man den elektroschwachen
-Zerfalls-Prozess $Z/\gamma^* \rightarrow ee$ eines Z-Bosons in zwei
-Elektronen\footnote{Die Bezeichnung \textit{Elektron} wird hier und im
-Folgenden synonym für Elektronen und Positronen verwendet}. Dabei werden nur
+Zerfalls-Prozess $Z/\gamma^* \rightarrow e^+e^-$ eines Z-Bosons in zwei
+Elektronen\footnote{Es wird weiterhin die Bezeichnung \textit{Elektron}
+synonym für Elektronen und Positronen verwendet}. Dabei werden nur
 Ereignisse selektiert, in denen eines der beiden Elektronen im Zentral-Bereich,
 das andere im Vorwärts-Bereich detektiert wird. Diese Einbeziehung der Zentral-
 Elektronen ist aus mehreren Gründen notwendig. Zum einen stehen entsprechende
 Elektron-Trigger\footnote{siehe hierzu Kapitel
-\ref{experimenteller_aufbau:atlas_detector:trigger-system}}
+\ref{trigger_daq}}
 nur im Zentral-Bereich zur Verfügung. Zum anderen wäre die Selektion von
 Ereignissen mit beiden Elektronen im Vorwärts-Bereich, in hohem Maße von
 Untergrund-Prozessen dominiert, bei denen andere Objekte, überwiegend Jets,
 fälschlicherweise als Elektronen rekonstruiert werden\footnote{vgl. Kapitel
-\ref{experimenteller_aufbau:elektronen_in_atlas}}.
+\ref{electrons}}.
 Allerdings stellt die Hinzunahme der Zentral-Elektronen die Kalibration der
 Vorwärts-Elektronen ab initio in die Abhängigkeit einer vorangegangen 
 Kalibration der Zentral-Elektronen.
 
 Im folgenden Abschnitt werden zunächst einige grundlegende Annahmen eingeführt
-und die Kalibration-Konstanten für Vorwärts-Elektronen definiert.
+und die Kalibrations-Konstanten für Vorwärts-Elektronen definiert.
 
 
 
@@ -119,13 +121,13 @@ gegenüber ihren Energien vernachlässigt werden können, ergibt sich aus
     \label{invariant_mass:basic}
     m = \sqrt{ 2 \cdot E_1 E_2 (1-\cos\theta_{12}) }
 \end{equation}
-Dabei bezeichnet $E_{1/2}$ die Energie des Teilchens 1 bzw. 2 und $\theta_{12}$
+Dabei bezeichnet $E_{1,2}$ die Energie des Teilchens 1 bzw. 2 und $\theta_{12}$
 den Öffnungswinkel zwischen beiden. Für die hier beschriebene Kalibration der
 Vorwärts-Elektronen identifiziert man o.B.d.A. die Energie des Elektrons im
 Zentral-Bereich mit $E_1$ und die Energie des Vorwärts-Elektrons mit $E_2$.
 
-Man definiert nun den Kalibrations-Faktor $\alpha_i$, der die Abweichung
-zischen wahrer und gemessener Energie korrigiert, wobei als beste Schätzung für
+Man definiert nun einen Kalibrations-Faktor $\alpha_i$, der die Abweichung
+zwischen wahrer und gemessener Energie korrigiert, wobei als beste Schätzung für
 die \textit{wahre Energie} die \acs{MC}-Simulation des betrachteten Prozesses
 herangezogen wird:
 \begin{equation}
@@ -136,19 +138,19 @@ Der Index $i$ weist darauf hin, dass für verschiedene Bereiche des
 EM-Kalorimeters unterschiedliche Kalibrationskonstanten gelten. Man wählt eine
 Unterteilung in der Pseudorapidität $\eta$, da mögliche Unterschiede vor allem
 durch nicht-simuliertes passives Material, welches die Elektronen vor ihrem 
-Eintritt in das Kalorimeter passieren, verursacht werden. Die grundsätzlich
-inhomogene Verteilung von Materie vor dem Kalorimeter ist in Abbildung
+Eintritt in das Kalorimeter passieren, verursacht werden. Die Verteilung von
+Materie vor dem Kalorimeter ist in Abbildung
 \ref{fig:extra_material} dargestellt.
 
 \begin{figure}
     \centering
     \includegraphics[width=0.7\textwidth]{img/extra_material}
     \caption[Material vor dem EM-Kalorimeter]
-        {Die Menge an Material in Einheiten der Strahlungslänge $X_0$, die die
-        Elektronen vor dem Kalorimeter durchfliegen, als Funktion der 
+        {Die Verteilung an Material in Einheiten der Strahlungslänge $X_0$, die
+        die Elektronen vor dem Kalorimeter passieren, als Funktion der 
         Pseudorapidität $\eta$. Das zusätzliche Material wurde hier lediglich 
         zu systematischen Studien eingeführt und entspricht nicht der 
-        tatsächlichen Verteilung. (Quelle: \cite{Aad:2011mk})}
+        tatsächlichen Verteilung. Quelle: \cite{Aad:2011mk}}
     \label{fig:extra_material}
 \end{figure}
 
@@ -172,14 +174,14 @@ Für die Messung der invarianten Masse (\ref{invariant_mass:basic}) des
 (\ref{definition:perfect_central_electrons}):
 \begin{align}
     m_\text{(data)}   &= \sqrt{ 2 \cdot E^C_\text{(data)} E^F_{\text{(data)}}
-                         (1-\cos\theta)} 
+                         (1-\cos\theta^{CF})} 
                          \qquad ^C: \text{zentral}, \quad ^F: \text{vorwärts}
                          \nonumber \\[5pt]
                       &= \sqrt{ 2 \cdot E^C_\text{(MC)} E^F_{\text{(MC)}}
-                         (1+\alpha^F_i)(1-\cos\theta)}
+                         (1+\alpha^F_i)(1-\cos\theta^{CF})}
                          \nonumber \\[15pt]
     m^2_\text{(data)} &= 2 \cdot E^C_\text{(MC)} E^F_{\text{(MC)}}
-                         (1+\alpha^F_i)(1-\cos\theta)
+                         (1+\alpha^F_i)(1-\cos\theta^{CF})
                          \nonumber \\[5pt]
                       &= m^2_\text{(MC)} (1+\alpha^F_i)
                          \label{eq:invariant_mass_sq}
@@ -191,20 +193,17 @@ Extraktion der Kalibrations-Faktoren
     \alpha_i^F = \frac{m^2_\text{(data)}}{m^2_\text{(MC)}} - 1
 \end{equation}
 
-Neben der der Korrektur der Energieskala in Daten, muss auf Seiten der
-Simulation noch die Energieauflösung\footnote{siehe hierzu auch Kapitel
-\ref{experimenteller_aufbau:atlas_detector:elektromagnetisches_kalorimeter}}
-korrigiert werden. Wie eingangs bereits erwähnt ist die Auflösung des
-Kalorimeters in der Simulation oftmals überschätzt, sodass eine zusätzliche
+Neben der Korrektur der Energieskala in Daten, muss auf Seiten der
+Simulation noch die Energieauflösung korrigiert werden. Diese wird durch die
+Simulation oftmals überschätzt, sodass eine zusätzliche
 künstliche Verschmierung eingeführt wird um dies zu kompensieren.
 
-Nach Gleichung (\ref{eq:calorimeter_resolution}) ist die Auflösung des
-Kalorimeters gegeben durch 
+Die Auflösung des Kalorimeters ist gegeben durch
 \begin{equation}
     \left(\frac{\sigma_E}{E}\right)_\text{(MC)} =
         \frac{a}{\sqrt{E}} \oplus \frac{b}{E} \oplus c
 \end{equation}
-Der sognannte \textit{Sampling Term} $a$ wird dabei als von der Simulation
+Der sogenannte \textit{Sampling Term} $a$ wird dabei als von der Simulation
 wohl modelliert angenommen, während der \textit{Rauschterm} $b$ aus Messungen
 mit Test-Strahlen extrahiert wird (siehe \cite{1748-0221-5-11-P11006}). Jeder
 zusätzliche Beitrag spiegelt sich im konstanten Term $c$ wieder. Dieser ist
@@ -213,19 +212,19 @@ in den Daten gewonnen werden. Dazu bildet man die partiellen Ableitungen von
 Gleichung (\ref{invariant_mass:basic})
 \begin{align}
     \frac{\del m}{\del E_i} \;&=\; \frac{1}{2m} \frac{m^2}{E_i}
-        \;=\; \frac{m}{2 E_i} \qquad\quad i \in \{1,2\}
+        \;=\; \frac{m}{2 E_i} \qquad\quad i \in \{C,F\}
 \end{align}
 und bildet die Gaußsche Fehlerfortpflanzung für die Auflösung der invarianten
 Masse:
 \begin{align}
-    \sigma_m^2 \;&=\; \left(\frac{\del m}{\del E_1}\sigma_{E_1}\right)^2 +
-                      \left(\frac{\del m}{\del E_2}\sigma_{E_2}\right)^2
-                \;=\; \frac{m^2}{4E_1^2}\sigma_{E_1}^2 +
-                      \frac{m^2}{4E_2^2}\sigma_{E_2}^2
+    \sigma_m^2 \;&=\; \left(\frac{\del m}{\del E_C}\sigma_{E_C}\right)^2 +
+                      \left(\frac{\del m}{\del E_F}\sigma_{E_F}\right)^2
+                \;=\; \frac{m^2}{4E_C^2}\sigma_{E_C}^2 +
+                      \frac{m^2}{4E_F^2}\sigma_{E_F}^2
                       \nonumber \\[5pt]
     \Longleftrightarrow \quad
-    \frac{4\sigma_m^2}{m^2} &= \frac{\sigma_{E_1}^2}{E_1^2} +
-                               \frac{\sigma_{E_2}^2}{E_2^2}
+    \frac{4\sigma_m^2}{m^2} &= \frac{\sigma_{E_C}^2}{E_C^2} +
+                               \frac{\sigma_{E_F}^2}{E_F^2}
 \end{align}
 Führt man nun für die Auflösung in der Simulation den konstanten Term $c$ ein
 und vergleicht mit der Auflösung in den Daten so folgt:
@@ -234,24 +233,26 @@ und vergleicht mit der Auflösung in den Daten so folgt:
     \nonumber \\[10pt]
     &4\left(\frac{\sigma_m^2}{m^2}\right)_\text{(data)}
         = 4\left(\frac{\sigma_m^2}{m^2}\right)_\text{(MC)}
-        + c_1^2 + c_2^2
+        + c_C^2 + c_F^2
 \end{align}
 Auch hier wird, wie schon bei der Energieskala, die Kalibration der
-Zentral-Elektronen als perfekt angenommen, sodass $c_1 = 0$ gesetzt werden
+Zentral-Elektronen als perfekt angenommen, sodass $c_C = 0$ gesetzt werden
 kann. Desweiteren wird ebenfalls eine Unterteilung des Kalorimeters in der
-Pseudorapidität $\eta$ vorgenommen\footnote{Es handelt sich um die selbe
-Unterteilung, wie schon für die Kalibrations-Faktoren der Energieskala},
-was durch den Index $i$ angezeigt wird.
+Pseudorapidität $\eta$ vorgenommen\footnote{Es handelt sich um dieselbe
+Unterteilung, wie schon für die Korrektur-Faktoren der Energieskala},
+was durch den Index $i$ angezeigt wird\footnote{Der Einfachheit halber wird der
+Index $F$ im Folgenden weggelassen, da nur Korrektur-Faktoren für
+Vorwärts-Elektronen betrachtet werden}.
 \begin{align}
     \label{eq:extraction_constant_terms}
     4\left(\frac{\sigma_m^2}{m^2}\right)_\text{(data)}
         &= 4\left(\frac{\sigma_m^2}{m^2}\right)_\text{(MC)}
-        + \left(c_i^F\right)^2
+    + \left(c_i\right)^2
 \end{align}
 Gleichung (\ref{eq:extraction_constant_terms}) bietet somit die Möglichkeit zur
 Extraktion der Verschmierungsterme
 \begin{align}
-    c_i^F &= \sqrt{ 4 \left[ \left(\frac{\sigma_m}{m}\right)^2_\text{(data)}
+    c_i &= \sqrt{ 4 \left[ \left(\frac{\sigma_m}{m}\right)^2_\text{(data)}
              - \left(\frac{\sigma_m}{m}\right)^2_\text{(MC)} \right] }
     \label{eq:constant_terms}
 \end{align}
@@ -260,7 +261,7 @@ Extraktion der Verschmierungsterme
 
 \subsection{Extraktionsmethode}
 \label{energy_calibration:extraktionsmethode}
-Nachdem nun die notwendigen Definitionen und Annahmen zur Exktraktion der
+Nachdem nun die notwendigen Definitionen und Annahmen zur Extraktion der
 Kali\-brations-Faktoren getroffen wurden, kann eine Prozedur zu deren
 Bestimmung entwickelt werden.
 
@@ -268,8 +269,7 @@ Es müssen die Energieskalen\footnote{Der obere Index $F$ an den
 Kalibrations-Faktoren wird hier und im Folgenden der Einfachheit halber
 weggelassen} $\alpha_i$ und die Verschmierungsterme $c_i$ für jeden Bereich in
 $\eta$ separat gewonnen werden. Angepasst an die typischen Größen der
-Elektronschauer\footnote{vlg hierzu auch Kapitel
-\ref{experimenteller_aufbau:elektronen_in_atlas}} im Kalorimeter hat sich
+Elektronschauer im Kalorimeter hat sich
 folgene Unterteilung in der Pseudorapidität als sinnvoll erwiesen:
 
 \begin{table}[h]
@@ -277,7 +277,7 @@ folgene Unterteilung in der Pseudorapidität als sinnvoll erwiesen:
     \begin{tabular}{|c|c|c|c|c|c|}
         \multicolumn{6}{c}{\textbf{EMEC}} \\
         \hline
-        2.5 - 2.6 & 2.6 - 2.7 & 2.7 - 2.8 & 2.8 - 2.9 & 2.9 - 3.0 & 3.0 - 3.16
+        2,5 - 2,6 & 2,6 - 2,7 & 2,7 - 2,8 & 2,8 - 2,9 & 2,9 - 3,0 & 3,0 - 3,16
         \\ \hline
     \end{tabular}
     \vspace{10pt}
@@ -285,7 +285,7 @@ folgene Unterteilung in der Pseudorapidität als sinnvoll erwiesen:
     \begin{tabular}{|c|c|c|}
         \multicolumn{3}{c}{\textbf{FCal}} \\
         \hline
-        3.35 - 3.6 & 3.6 - 4.0 & 4.0 - 4.9 \\
+        3,35 - 3,6 & 3,6 - 4,0 & 4,0 - 4,9 \\
         \hline
     \end{tabular}
     \caption{Unterteilung der Vorwärts-Kalorimeter in der Pseudorapidität
@@ -307,25 +307,20 @@ Zur Erstellung der invarianten Massenspektren werden Selektions-Schnitte
 angewendet, die auf Seiten der Daten für eine Unterdrückung des Untergrundes
 sorgen. Tabelle \ref{tab:calibration_cuts} zeigt eine Übersicht über die
 verwendeten Schnitte\footnote{Eine detailiertere Beschreibung der Schnitte
-findet sich in Kapitel \ref{daten_simulation_selektion:selektion}} auf Daten
+findet sich in Kapitel \ref{data_sim_selection:selection}} auf Daten
 und Simulation.
 
-\begin{savenotes}
 \begin{table}[h]
     \centering
     \begin{tabular}{|c|c|}
         \hline
         \multicolumn{2}{|c|}{\textbf{Event basierte Schnitte}} \\
         \hline\hline
-        \acs{GRL} (nur Daten) & (...)\_EgammaForward.xml\footnote{Verwendete
-            \ac{GRL}:
-            data12\_8TeV.periodAllYear\_DetStatus-v61-pro14-02
-            \_DQDefects-00-01-00\_PHYS\_StandardGRL\_All\_Good
-            \_EgammaForward.xml} \\
+        \acs{GRL} (nur Daten) & (...)\_EgammaForward.xml \\
         \hline
         Trigger & e24vhi\_medium1 \textit{or} e60\_medium1 \\
         \hline
-        primärer Vertex & $\geq 3$ \\
+        primärer Vertex & $\geq 3$ Spuren \\
         \hline
     \end{tabular}
     \vspace{15pt}
@@ -335,9 +330,9 @@ und Simulation.
         \multicolumn{3}{|c|}{\textbf{Elektron basierte Schnitte}} \\
         \textbf{Schnitt}&\textbf{Zentral-Elektron}&\textbf{Vorwärts-Elektron}\\
         \hline \hline
-        Pseudorapidität & $|\eta| \leq 2.47$ & $2.5 \leq |\eta| \leq 4.9$ \\
+        Pseudorapidität & $|\eta| \leq 2,47$ & $2,5 \leq |\eta| \leq 4,9$ \\
         \hline
-        Transversal-Impuls & $p_T > 25.0 \GeV$ & $p_T > 20.0 \GeV$ \\
+        Transversal-Impuls & $p_T > 25 \GeV$ & $p_T > 20 \GeV$ \\
         \hline
         Autor & 1 \textit{or} 3 & 8 \\
         \hline
@@ -350,7 +345,6 @@ und Simulation.
         Selektions-Schnitte auf Daten und Simulation}
     \label{tab:calibration_cuts}
 \end{table}
-\end{savenotes}
 
 Für die Kurvenanpassung wird zur Beschreibung des Signal-Anteils die aus der
 theoretischen Vorhersage bekannte Breit-Wigner-Verteilung\footnote{siehe
@@ -359,21 +353,21 @@ des Detektors sowie Bremsstrahlungseffekte der Elektronen zu berücksichtigen,
 wird diese Verteilung mit einer Crystal-Ball Distribution\footnote{siehe
 \cite[Appendix F]{Gaiser:1982yw}} gefaltet. Diese besteht aus einer Gaußschen
 Glockenkurve zur Beschreibung der Auflösung und geht links des Maximums in
-einen langsam Abfallenden Polynomischen Anteil über, der die Verschiebung zu
-niederigeren invarianten Massen durch Bremsstrahlung repräsentiert (siehe
+einen langsam abfallenden polynomischen Anteil über, der die Verschiebung zu
+niedrigeren invarianten Massen durch Bremsstrahlung repräsentiert (siehe
 Abbildung \ref{fig:crystal_ball}, rechts). Die analytische Form beider
 Verteilungen zeigen die Gleichungen (\ref{eq:breit_wigner}) und
 (\ref{eq:crystal_ball}) 
 \begin{align}
-    f_\text{BW}(x) &= \frac{1}{(x-\mu)^2+\frac{1}{4}\sigma^2}
+    f_\text{BW}(x;\mu,\sigma) &= \frac{1}{(x-\mu)^2+\frac{1}{4}\sigma^2}
     \label{eq:breit_wigner}\\[10pt]
-    f_\text{CB}(x) &=
+    f_\text{CB}(x;\alpha,\mu,\sigma,n) &=
         \begin{cases}
             \frac{(\frac{n}{|\alpha|})^n e^{-\frac{1}{2}\alpha^2}}
                  {\left( \frac{n}{|\alpha|}-|\alpha|-x \right)^n}
-                & \text{,für}\quad x < -|\alpha| \\
+                & \text{, für}\quad x < -|\alpha| \\
             \exp\Bigl[-\frac{1}{2}\left( \frac{x-\mu}{\sigma} \right)^2 \Bigr]
-                & \text{,für}\quad x > -|\alpha|
+                & \text{, für}\quad x > -|\alpha|
         \end{cases}
     \label{eq:crystal_ball}
 \end{align}
@@ -400,7 +394,7 @@ den Spektren der Simulation zur Kurvenanpassung verwendet.
 Zur Anpassung an die Datenverteilungen muss die obige Gleichung
 (\ref{eq:fit_model}) noch um einen weiteren Term erweitert werden, um den nach
 Selektion noch verbleibenden Untergrund abzuschätzen. Hierfür wird eine
-exponentiel abfallende Verteilung benutzt:
+exponentiell abfallende Verteilung benutzt:
 \begin{equation}
     f_\text{sig+bkg}(m_{ee}) = f_\text{BW}(m_{ee})
         \;\otimes\; f_\text{CB}(m_{ee})
@@ -418,7 +412,7 @@ die Breite der Breit-Wigner-Verteilung $\sigma_\text{BW}$, werden während der
 Kurvenanpassung konstant gehalten, um Interferenzen mit den relevanten
 Parametern zu umgehen. Die Wahl der festen Parameter ist in Tabelle
 \ref{tab:fit_parameters} zu finden, wobei der Wert für $\sigma_{BW}$ auf die
-Breite des Z-Resonanz gesetzt wurde (siehe \cite{PhysRevD.86.010001})
+natürliche Linienbreite der Z-Resonanz gesetzt wurde (siehe \cite{PhysRevD.86.010001})
 
 \begin{table}[h]
     \centering
@@ -427,9 +421,9 @@ Breite des Z-Resonanz gesetzt wurde (siehe \cite{PhysRevD.86.010001})
         \textbf{Verteilung} & \textbf{Parameter} & \textbf{Wert} \\
         \hline \hline
         \multirow{2}{*}{Breit-Wigner} & $\mu_\text{BW}$      & frei       \\
-                                      & $\sigma_\text{BW}$   & $2.49\GeV$ \\
+                                      & $\sigma_\text{BW}$   & $2,49\GeV$ \\
         \hline
-        \multirow{4}{*}{Crystal-Ball} & $\mu_\text{CB}$      & $0.00\GeV$ \\
+        \multirow{4}{*}{Crystal-Ball} & $\mu_\text{CB}$      & $0,00\GeV$ \\
                                       & $\sigma_\text{CB}$   & frei       \\
                                       & $\alpha_\text{CB}$   & frei       \\
                                       & $n_\text{CB}$        & frei       \\
@@ -459,7 +453,7 @@ mehrstufig aufgebaut und lässt sich iterativ beschreiben:
         Energieskalen $\alpha_i$ für Vorwärts-Elektronen in Daten.
     \item[Extraktion II:]
         Erstellung der invarianten Massenspektren und Durchführung der
-        Kurvenanpassung. Extraktion der Kalibration-Faktoren $c_i$ der
+        Kurvenanpassung. Extraktion der Korrektur-Faktoren $c_i$ der
         Auflösung aus den Parametern $\mu_\text{BW}$ und $\sigma_{CB}$ der
         Kurvenanpassung mittels Gleichung (\ref{eq:constant_terms}).
 \end{description}
@@ -489,14 +483,21 @@ und somit die oben beschriebene Mehrstufigkeit indiziert.
 Der Kalibration zugrunde liegen der volle Datensatz aus 2012 mit $8\TeV$
 Schwer\-punktsenergie und einer integrierten Gesamtluminosität\footnote{nach
 Anwendung der \ac{GRL}} von $20.3\fb^{-1}$, sowie simulationsseitig das
-inklusiv in der invarianten Masse generierte $Z\rightarrow ee$
-Signal-Monte-Carlo\footnote{Dataset ID: 147806 (siehe Tabelle
-\ref{tab:MC_samples})} mit etwa 10 Millionen generierten Ereignissen. Nach
-Anwendung der Selektions-Kriterien (Tabelle \ref{tab:calibration_cuts})
-verbleiben noch 4577323 Ereignisse ($\approx 12\%$) in Daten und 949095
-Ereignisse ($\approx 1\%$) in der Simulation. Tabelle
-\ref{tab:remaining_electrons} zeigt eine detailiertere Darstellung über Anzahl
-der Elektronkandidaten nach jedem Schnitt.
+inklusiv in der invarianten Masse generierte $pp\rightarrow Z(e^+e^-) +X$
+Signal-Monte-Carlo\footnote{Dataset ID: 147806 (siehe Anhang
+\ref{appendix:monte_carlo_samples})} mit etwa 10 Millionen
+Ereignissen. Es werden alle in Abschnitt \ref{data_sim_selection:selection}
+eingeführten Selektions-Kriterien
+angewendet, wobei hier der Schnitt auf den Transversal-Impuls der
+Vorwärts-Elektronen zunächst noch auf $7\GeV$ verringert wurde, um qualitative
+Studien zu dessen Einfluss auf die Form der Z-Resonanz durchführen zu können.
+Für die eigentliche Extraktion der Kalibrations-Faktoren wurde der Schnitt dann
+auf den in \ref{data_sim_selection:selection} angegebenen Wert von $20\GeV$
+erhöht. Tabelle \ref{tab:remaining_electrons} zeigt eine detailliertere
+Darstellung über Anzahl der Elektronkandidaten nach jedem Schnitt\footnote{Die
+detailierte Auflistung ist nur in der $p_T > 7\GeV$ Konfiguration der
+Vorwärts-Elektronen verfügbar, da die Erhöhung auf $20\GeV$ außerhalb des
+eigentlichen Selektionsalgorithmus stattfand}.
 
 \begin{table}[h]
     \centering
@@ -519,9 +520,9 @@ der Elektronkandidaten nach jedem Schnitt.
     \caption[Anzahl der Elektronkandidaten in Simulation und Daten nach
         Selektionschnitten]
         {Anzahl der Elektronkandidaten in Simulation und Daten nach
-        Selektionschnitten. Die Auflistung ist inklusiv, d.h. untere Schnitte
-        enthalten implizit alle vorangegangenen Schnitte. \textit{\ac{GRL}} und
-    \textit{Detektor Status} sind für Simulationsergeignisse irrelevant.}
+        Selektionschnitten mit $7\GeV$ Schnitt auf den Transversal-Impuls der
+        Vorwärts-Elektronen. (\textit{\ac{GRL}} und \textit{Detektor Status}
+        sind für Simulationsergeignisse irrelevant)}
     \label{tab:remaining_electrons}
 \end{table}
 
@@ -531,18 +532,17 @@ zwischen $75 \GeV$ und $105 \GeV$ betrachtet. In simulierte Spektren gehen die
 Monte-Carlo-Ereignisse dabei stets mit einem individuellen Gewicht in die
 Histogramme ein. Die Zusammensetzung der Gewichte 
 \begin{equation}
-    w_\text{event} = w_\text{pile-up} \cdot w_\text{vertex-pos} \cdot
-                     w_\text{ID} \cdot w_\text{reco} \cdot w_\text{trigger}
+    w_\text{event} = w_\text{pu} \cdot w_\text{vtx} \cdot
+                     w_\text{ID}^\text{cen} \cdot w_\text{ID}^\text{fwd} \cdot
+                     w_\text{spur} \cdot w_\text{trigger} \cdot w_\text{gen}
     \label{eq:calibration_weights}
 \end{equation}
 beinhaltet Korrekturen für ungleiche Pile-Up Bedingungen, die Position des
 Primärvertex, sowie unterschiedliche Effizienzen bei der Rekonstruktion,
 Identifikation und Triggersimulation der Elektronen\footnote{mehr zu Grundlagen
 und Anwendung der verwendeten Gewichte in Kapitel
-\ref{daten_simulation_selektion:korrekturen}}.
-
-Abbildung \ref{fig:example_mee_p26} zeigt beispielhaft zwei resultierende
-Massenspektren aus Daten und Simulation.
+\ref{mc_corrections}}. Abbildung \ref{fig:example_mee_p26} zeigt beispielhaft
+zwei resultierende Massenspektren aus Daten und Simulation.
 
 \begin{figure}
     \centering
@@ -559,7 +559,7 @@ Massenspektren aus Daten und Simulation.
 
 Für die Kurvenanpassung wird das von W. Verkerke, D. Kirkby entwickelte
 \textit{\textsc{RooFit} Paket für Datenmodellierung} (\cite{Verkerke:2003ir})
-verwendet, dass bereits als \textsc{C++}-Bibliothek in \textsc{ROOT} zur
+verwendet, das bereits als \textsc{C++}-Bibliothek in \textsc{ROOT} zur
 Verfügung steht und native Implementationen aller benötigten Verteilungen aus
 (\ref{eq:fit_model}) bzw. (\ref{eq:fit_model_bkg}) bereit stellt.
 
@@ -572,7 +572,7 @@ wirft allerdings zunächst zwei Probleme auf.
 
 Zum einen hängen die Werte der resultierenden Parameter stark davon ab, welcher
 Satz von Startparametern an die Minimierungsprozedur übergeben wird, da diese
-häufig vor erreichen des globalen Minimums in lokale Minima konvergiert. Zur
+häufig in lokale Minima konvergiert. Zur
 Umgehung dieses Problems wird deshalb jede Kurvenanpassung 1000 mal
 durchgeführt, wobei jedesmal ein anderer, zufällig innerhalb bestimmter Grenzen
 generierter Satz von Parametern als Startwerte vorgegeben wird. Aus den dadurch
@@ -599,12 +599,13 @@ Strahlachse liegenden Bereich des Kalorimeters.
     \caption[Kurvenanpassung ohne Berücksichtigung der Verzerrung der
         Z-Resonanz durch die kinematischen Schnitte]
         {Kurvenanpassung ohne Berücksichtigung der Verzerrung der Z-Resonanz
-        durch die kinematischen Schnitte für den mittleren \acs{FCal}-Bereich
+        durch die kinematischen Schnitte für den letzten \acs{FCal}-Bereich
         in Daten (links) und Simulation (rechts)}
     \label{fig:example_fits}
 \end{figure}
 
-Die Lösung dieses Problems liegt in der Erweiterung der Modelle um eine weitere
+Die Lösung dieses Problems liegt in der Erweiterung der Modelle um eine
+zusätzliche
 Funktion, welche die oben beschriebene Verzerrung des Spektrums abbildet. Eine
 Betrachtung der invarianten Massenverteilung der Elektronen auf Generator-Level
 gibt Aufschluss über die Auswirkung der kinematischen Schnitte ohne die
@@ -653,7 +654,7 @@ Unter Berücksichtigung der kinematischen Akzeptanz verbessert sich die
 Beschreibung der Datenpunkte durch die analytischen Modelle nach
 Kurvenanpassung deutlich. Abbildung \ref{fig:good_example_fit} zeigt die
 Kurvenanpassung im selben Bereich des Kalorimeters unter Einbeziehung der
-kinematischen Akzeptanz Funktion in das Modell.
+kinematischen Akzeptanz-Funktion in das Modell.
 
 \begin{figure}
     \centering
@@ -662,7 +663,7 @@ kinematischen Akzeptanz Funktion in das Modell.
     \includegraphics[width=0.5\textwidth]{plots/fit_mc_p40}
     \caption[Kurvenanpassung mit Berücksichtigung der kinematischen Akzeptanz]
         {Kurvenanpassung mit Berücksichtigung der kinematischen Akzeptanz für
-        den mittleren \acs{FCal}-Bereich in Daten (links) und Simulation
+        den letzten \acs{FCal}-Bereich in Daten (links) und Simulation
         (rechts).}
     \label{fig:good_example_fit}
 \end{figure}
@@ -697,7 +698,7 @@ in Abschnitt \ref{energy_calibration:systematics}}.
         \centering
         \includegraphics[width=1.\textwidth]{plots/cdata_stat}
         \captionsetup{format=plain}
-        \caption{Kalibrations-Faktoren der Auflösung für die verschiedenen
+        \caption{Korrektur-Faktoren der Auflösung für die verschiedenen
             Bereiche des Kalorimeters (nur statistische Unsicherheiten)}
         \label{fig:cdata_stat}
     \end{minipage}
@@ -710,7 +711,7 @@ und positiven Pseudorapiditäts-Bereich aufweisen.
 Diese Faktoren werden nun verwendet, um in der zweiten Iteration die
 Energieskala der Vorwärts-Elektronen in den Daten zu korrigieren
 (\textit{Vorbereitung II}) und anschließend die Extraktion der
-Kalibrations-Faktoren der Auflösung (\textit{Extraktion II}) vorzunehmen.
+Korrektur-Faktoren der Auflösung (\textit{Extraktion II}) vorzunehmen.
 Dabei beobachtet man in einigen Bereichen des Kalorimeters, dass der Radikand
 in Gleichung (\ref{eq:constant_terms}) negative Werte annimmt, sodass die
 Wurzel auf den reellen Zahlen nicht mehr definiert ist. Dieser Fall tritt immer
@@ -726,7 +727,7 @@ Die resultierenden Werte für diese Faktoren $c_i$ sind in Abbildung
 aufgetragen. Für den oben beschriebenen Fall (\ref{eq:resolution}) wurde hier
 das Vorzeichen des Radikanden vor die Wurzel gezogen (negative $c_i$), um ein
 Maß für den Unterschied der Auflösung in Daten und Simulation zu gewinnen. Auch
-für die Kalibrations-Faktoren der Auflösung liegen die Korrekturen im
+für die Korrektur-Faktoren der Auflösung liegen die Korrekturen im
 Prozent-Bereich und zeigen in ihrer Struktur eine gewisse Symmetrie.
 
 In dieser zweiten Iteration ist es zudem möglich eine Konsistenz-Prüfung der
@@ -758,8 +759,8 @@ der ermitteln Kalibrations-Faktoren bestätigt.
 
 \subsection{Systematische Unsicherheiten}
 \label{energy_calibration:systematics}
-Die Bestimmung der Kalibrations-Faktoren für Energie und Auflösung basiert auf
-gewissen Annahmen und Vorraussetzungen wie bespielsweise die vorangegangene
+Die Bestimmung der Faktoren für Energie und Auflösung basiert auf
+gewissen Annahmen und Voraussetzungen wie beispielsweise die vorangegangene
 Kalibration der Zentral-Elektronen (vgl. Abschnitt
 \ref{energy_calibration:definitionen_und_annahmen}).
 Hierdurch werden unter Umständen systematische Effekte eingeführt, die sich auf
@@ -780,11 +781,10 @@ deren Variation im Sinne der oben beschriebenen Änderungen der Konfiguration.
         Elektronen im Zentral-Bereich. Da diese in
         \ref{energy_calibration:definitionen_und_annahmen} als perfekt
         kalibriert angenommen wurden hat deren Unsicherheit direkten Einfluss
-        auf die Extraktion der Kakibrations-Faktoren.
+        auf die Extraktion der Kakibrationsfaktoren.
         
         Das zur Anwendung der Korrekturen von ATLAS bereitgestellte
-        Software-Paket\footnote{siehe Abschnit \ref{},
-        \textit{EnergyRescalerUpgrade}} bietet die Möglichkeit systematische
+        Software-Paket bietet die Möglichkeit systematische
         Variationen der Kalibrations-Faktoren für die Zentral-Elektronen
         durchzuführen. Diese werden, entsprechend der internen Empfehlungen zu
         diesem Paket, separat durchgeführt die resultierenden Abweichungen
@@ -827,7 +827,7 @@ deren Variation im Sinne der oben beschriebenen Änderungen der Konfiguration.
         \[
             f_\text{bkg}(m_{ee}) \sim\;\frac{a}{m_{ee}^4}
         \]
-        gewählt und so der Einfluss des Untergundmodells ermittelt.
+        gewählt und so der Einfluss des Untergrundmodells ermittelt.
 
     \item[Parameter der kinematischen Akzeptanz:]
         In Abschnitt
@@ -878,7 +878,7 @@ Fehlerabschätzung zu gelangen.
         \]
         \includegraphics[width=1.\textwidth]{plots/cdata_uncert}
         \captionsetup{format=plain}
-        \caption{Abweichungen von den Kalibration-Faktoren $c_i$ der
+        \caption{Abweichungen von den Korrektur-Faktoren $c_i$ der
         Auflösung unter systematischen Variationen}
         \label{fig:cdata_uncert}
     \end{minipage}
@@ -891,9 +891,9 @@ Fall ist. Die Ursache liegt in der Sensitivität der Parameterschätzung der
 Breite auf die Qualität der Kurvenanpassung. Während die Bestimmung der
 Resonanz-Position sehr stabil ist, hängt die Anpassung der Breite
 empfindlich von der Beschreibung der Flanken durch das analytische Modell ab.
-Obwohl die Übereinstimmung der Kurvenform der Datenpunkt mit dem Modell durch
+Obwohl die Übereinstimmung der Kurvenform der Datenpunkte mit dem Modell durch
 die Einführung der kinematischen Akzeptanz deutlich verbessert werden konnte
-(vgl.  Abbschnit \ref{energy_calibration:erweiterung_der_modelle_und_prozedur}
+(vgl.  Abbschnitt \ref{energy_calibration:erweiterung_der_modelle_und_prozedur}
 und Abbildung \ref{fig:good_example_fit}), bleiben Bereiche in denen die
 Beschreibung durch statistische Fluktuationen verschlechtert wird. Abbildung
 \ref{fig:still_bad_fit} zeigt ein Beispiel hierfür.
@@ -913,11 +913,11 @@ Es ist offensichtlich, dass hier die Breite durch die Kurvenanpassung
 überschätzt wird. Mögliche Lösungsansätze hierfür werden im folgenden Kapitel
 diskutiert.
 
-Als nächstes fällt auf, dass die resultierende Gesamtunsicherheit auf die
+Als nächstes fällt auf, dass die resultierende Gesamt-Unsicherheit auf die
 Kalibrations-Faktoren $\alpha_i$ von einer bestimmten Variation dominiert sind.
 In der Abbildung wird diese Konfiguration mit ESCALE\_METHOD bezeichnet und
 basiert auf der Variation der Extraktions-Methode für die Kalibrations-Faktoren
-der Zentral-Elektronen. Man verwendete dort neben des Standard-Likelihood noch
+der Zentral-Elektronen. Man verwendete dort neben einer Likelihood-Methode noch
 einen Ansatz, der auf dem Vergleich der Massenspektren in Daten mit simulierten
 Formvorlagen basiert\footnote{Für eine genauere Erläuterung siehe
 \cite{Agustoni:1335395}}. Hierin spiegelt sich die bereits in Abschnitt
@@ -925,14 +925,14 @@ Formvorlagen basiert\footnote{Für eine genauere Erläuterung siehe
 von der Kalibration der Zentral-Elektronen wieder.
 
 Alle übrigen Variationen zeigen weit weniger Einfluss auf die Extraktion der
-Kalibrations-Faktoren. Zur Bestimmung der systeamtischen Gesamtunsicherheit auf
+Kalibrations-Faktoren. Zur Bestimmung der systematischen Gesamt-Unsicherheit auf
 die in \ref{energy_calibration:extraction_energy_scales} bestimmten Werte von
 $\alpha_i$ und $c_i$ werden die Abweichungen von unabhängig angenommenen
 Variation (Effizienz-Skalenfaktoren, Zentral-Elektronen Kalibration,
 Massenfenster, Untergrundmodell) quadratisch, die Abweichungen korrelierter
 Variationen (Parameter der kinematischen Akzeptanz) linear aufsummiert.
 
-Tabelle \ref{tab:energy_scales} im Anhang fasst die Kalibrationsfaktoren
+Tabelle \ref{tab:energy_scales} im Anhang fasst die Kalibrations-Faktoren
 inklusive aller Unsicherheiten in einer Übersicht zusammen.
 
 
@@ -949,7 +949,7 @@ inklusive aller Unsicherheiten in einer Übersicht zusammen.
 % + Verbesserungen ( Neue Zentral-Skalen, Template-Ansatz )
 
 In den vorangegangen Abschnitten wurde die Methodik zur Extraktion der
-Kalibrations-Faktoren der Energie und Auflösung für Elektronen im
+Korrektur-Faktoren der Energie und Auflösung für Elektronen im
 Vorwärts-Bereich beschrieben und deren Durchführung präsentiert. Zusätzlich
 wurden Studien zu systematischen Einflüssen betrieben und deren Effekt auf die
 Unsicherheiten der extrahierten Faktoren untersucht. Die Abbildungen
@@ -970,7 +970,7 @@ die resultierenden Werte inklusive der vollen Unsicherheiten.
         \centering
         \includegraphics[width=1.\textwidth]{plots/cdata_syst}
         \captionsetup{format=plain}
-        \caption{Kalibrations-Faktoren der Auflösung für die verschiedenen
+        \caption{Korrektur-Faktoren der Auflösung für die verschiedenen
             Bereiche des Kalorimeters (stat. und syst. Unsicherheiten)}
         \label{fig:cdata_syst}
     \end{minipage}
@@ -1000,13 +1000,13 @@ dominiert. Da die zuständige interne Arbeitsgruppe bei ATLAS stets bemüht ist
 deren Methode zu verfeinern und die Unsicherheiten zu reduzieren, würde
 auch die vorliegende Kalibration im Vorwärts-Bereich unmittelbar von diesen
 Verbesserungen profitieren. Die systematischen Unsicherheiten für dir
-Kalibrations-Faktoren der Auflösung sind em ehesten von der unvollkommenen
+Korrektur-Faktoren der Auflösung sind em ehesten von der unvollkommenen
 Beschreibung durch die Modelle beherrscht, sodass hier vermutlich erst mit der
 Einführung einer anderen, möglicherweise der oben beschriebenen Methode der
 $\chi^2$-Tests mit Formvorlagen mit einer Verbesserung zu rechnen ist.
 
 Die in dieser Arbeit bestimmten Kalibrations-Faktoren sind inzwischen von der
 Arbeitsgruppe für die Kalibration von Elektronen in ATLAS in das interne 
-Software-Paket und deren Empfehlungen zur Durchführung von Elektron basierten
-Analysen aufgenommen worden.
+Software-Paket\footnote{egammaAnalysisUtils, ab Version 00-04-46} und deren
+Empfehlungen zur Durchführung von Elektron basierten Analysen aufgenommen worden.
 
