@@ -11,7 +11,19 @@
 \label{afb}
 
 \begin{quote}
-    The abstact comes last
+    In diesem Kapitel geht es um die eigentliche physikalische Analyse dieser
+    Arbeit, der Messung der Vorwärts-Rückwärts Asymmetrie und die daran
+    anschließende Extraktion des schwachen Mischungswinkels. Dazu wird im
+    ersten Abschnitt kurz der Datensatz und die hier verwendeten
+    Selektionskriterien besprochen. Anschließend werden die Untergrundbeiträge
+    zum Signal-Prozess mittels Monte-Carlo Simulationen und eines
+    datengestützten Verfahrens abgeschätzt. Die Betrachtung der Verteilung des
+    Elektron-Emissionswinkels im Collins-Soper Bezugssystem ist Thema des
+    darauffolgenden Abschnitts, woran sich die Präsentation der
+    Vorwärts-Rückwärts Asymmetrie anschließt. Im letzten Block wird dann nach
+    der detaillierten Beschreibung der Extraktionsmethode die Messung des
+    schwachen Mischungswinkels präsentiert und ein Vergleich mit
+    vorangegangenen Messungen gezogen.
 \end{quote}
 
 
@@ -43,7 +55,7 @@ zusammengefasst.
     \centering
     \begin{tabular}{|l|r|r|}
         \hline
-        & \multicolumn{2}{|c|}{Elektronkandidaten}   \\
+        & \multicolumn{2}{|c|}{Ereignisse}   \\
         \textbf{Schnitt} & \textbf{CC} & \textbf{CF} \\  % escale CF
         \hline\hline
         \ac{GRL}           & 389741202 & 389741202   \\  % 3954702112
@@ -58,19 +70,19 @@ zusammengefasst.
         OQ                 &   4245028 &    988991   \\  %   75178238
         \hline
     \end{tabular}
-    \caption[Anzahl der Elektronkandidaten in Daten für CC und CF Selektion]
+    \caption[Anzahl der Ereignisse in Daten für CC und CF Selektion]
         {Anzahl der Elektronkandidaten in Daten nach für CC und CF Selektion.
         Die Auflistung ist inklusiv, d.h. untere Schnitte enthalten implizit
-        alle vorangegangenen Schnitte. (\development check numbers again)}
+        alle vorangegangenen Schnitte.}
     \label{tab:data_selection}
 \end{table}
 Auf alle Elektronkandidaten im Datensatz werden zuvor noch die entsprechenden
-Kalibrationfaktoren für die Energie angewendet (siehe Kapitel
+Kalibrations-Faktoren für die Energie angewendet (siehe Kapitel
 \ref{data_sim_selection:data} und \ref{energy_calibration}), sodass die
 Selektion auf kalibrierten Energiewerten stattfinden kann.
 
 Zur simulationsseitigen Beschreibung des Signalprozesses
-$pp \rightarrow \gamma^*/Z(e^+e^-) + X$, also dem elektroschwachen Zerfall
+$pp \rightarrow Z/\gamma^*(e^+e^-) + X$, also dem elektroschwachen Zerfall
 eines $Z$-Bosons bzw. virtuellen Photons in ein Elektronpaar\footnote{auch hier
 wird der Begriff \textit{Elektron} wieder synonym für Teilchen und Antiteilchen
 verwendet}, wird das von \textsc{Powheg+Pythia} generierte Drell-Yan
@@ -88,7 +100,7 @@ Benutzung in Kapitel \ref{mc_corrections} motiviert wurde. Zusammengefasst
 ergeben sich die Gesamtgewichte zu
 \begin{align}
     w_\text{event}^\text{CC} &= w_\text{pu} \cdot w_\text{kFactor} \cdot
-        w_\text{vtx} \cdot w_\text{gen} \cdot \prod_{i=1,2} w_{\text{ID},i}
+        w_\text{vtx} \cdot w_\text{gen} \cdot \prod_{i=C,F} w_{\text{ID},i}
         \cdot w_{\text{spur},i} \cdot w_{\text{trigger},i}
         \\[2pt]
     w_\text{event}^\text{CF} &= w_\text{pu} \cdot w_\text{kFactor} \cdot
@@ -102,7 +114,7 @@ Identifikationseffizienz statt, da die beiden übrigen Effizienzkorrekturen
 nicht für Vorwärts-Elektronen definiert sind.
 
 Zur Abschätzung der Beiträge von Untergrundprozessen wird eine Kombination aus
-Simulation und datengestützter Betimmung verwendet. Beide Aspekte werden im
+Simulation und datengestützter Bestimmung verwendet. Beide Aspekte werden im
 Folgenden näher erläutert und deren Anteil an den selektierten Ereignissen
 quantifiziert.
 
@@ -117,7 +129,7 @@ Neben dem Drell-Yan Prozess mit zwei Elektronen im Endzustand gibt es
 zahlreiche weitere Prozesse, die eine ähnliche Signatur im Detektor zeigen und
 deshalb von der oben beschriebenen Selektion inkludiert werden. Das Prinzip der
 Abschätzung dieser Untergrundbeiträge mittels Simulationen, beruht auf der
-Erstellung von Monte-Carlos für jeden relevanten, d.h. möglicherweise
+Verwendung von Monte-Carlos für jeden relevanten, d.h. möglicherweise
 beitragenden, Prozess und der anschließenden Anwendung der selben
 Selektionsschnitte, analog zur Selektion in realen Daten. Die aus den
 verbleibenden Ereignissen gewonnenen Verteilungen\footnote{Selbstverständlich
@@ -134,12 +146,11 @@ Topquarks haben ein Verzweigungsverhältnis von beinahe 100\% für den Zerfall i
 ein $b$-Quark und ein $W$-Boson. Solche Ereignisse passieren die Selektion,
 wenn entweder beide $W$-Bosonen leptonisch in jeweils ein Elektron und ein
 Antielektronneutrino zerfallen, oder Jets aus den $b$-Quarks bzw. dem
-hadronischen Zefall eines oder beider $W$-Bosonen fälschlicherweise als
+hadronischen Zerfall eines oder beider $W$-Bosonen fälschlicherweise als
 Elektronen rekonstruiert werden. Ähnlich, jedoch in sehr viel geringerem
 Umfang, trägt auch die Produktion eines einzelnen Top-Quarks und dessen
 konsekutiver Zerfall zum Untergrund bei (nachfolgend \texttt{SingleTop}
-genannt). Die relevanten Zerfallskanäle sind dieselben, jedoch muss nun
-folgerichtig stets ein irrtümlich identifizierter Jet beteiligt sein.
+genannt).
 
 Der leptonische Zerfall eines $W$-Bosons in ein Elektron und ein
 Antielektronneutrino spielt auch für sich allein betrachtet eine wichtige
@@ -213,12 +224,13 @@ während dessen Rolle in \ac{CC} von geringer Bedeutung ist. Die Ursache
 hierfür ist, dass im Vorwärts-Bereich die Wahrscheinlichkeit der
 Fehlidentifikation eines Jets als Elektron wesentlich höher ist, als im
 Zentral-Bereich, was unter anderem auf die fehlende Spurinformation im
-Vorwärts-Bereich zurückzuführen ist\footnote{siehe hierzu auch Kapitel \ref{}}.
+Vorwärts-Bereich zurückzuführen ist\footnote{siehe hierzu auch Kapitel
+\ref{inner_detector}}.
 
 Unter jeder Abbildung ist zudem der Quotient aus der Datenverteilung und der
-Summe alle Monte-Carlos (Untergründe + Signal) dargestellt. Diese zeigt, gerade
+Summe aller Monte-Carlos (Untergründe + Signal) dargestellt. Dieser zeigt, gerade
 in Bereichen mit hohem Transversalimpuls eine deutliche Diskrepanz. Hierin
-verbirgt sich ein weiterer bisher nicht betrachteter Untergundbeitrag der durch
+verbirgt sich ein weiterer bisher nicht betrachteter Untergrundbeitrag der durch
 Prozesse der \ac{QCD} bestimmt ist und deshalb nur schwer simulierbar ist. Die
 Methode zur Abschätzung dieses Beitrags ist Gegenstand des nachfolgenden
 Abschnitts.
@@ -226,8 +238,8 @@ Abschnitts.
 Bei der Betrachtung der Spektren der Pseudorapidität ist zunächst zu beachten,
 dass diese auf unterschiedlichen Skalen, entsprechend der jeweiligen Schnitte
 in der Selektion, aufgetragen sind. In beiden Selektionen zeigen sich
-natürlicherweise um Null symmetrische Spektren und die Exklusionen der
-Kalorimeter Übergangsregionen ist deutlich sichtbar. Die Form der Verteilungen
+um Null symmetrische Spektren und die Exklusionen der
+Kalorimeter-Übergangsregionen ist deutlich sichtbar. Die Form der Verteilungen
 im \ac{CC} Kanal zeigen einen leicht nach außen abfallenden Verlauf, während im
 \ac{CF} Kanal zwei deutliche Erhebungen auszumachen sind. Diese haben ihr
 Maximum bei $\eta\approx\pm 2,5$, was dem Übergang zwischen Zentral- und
@@ -237,9 +249,9 @@ zwischen den beiden Elektronen in der \ac{CF}-Selektion
 einschränken\footnote{die \ac{CF} Selektion unterdrückt Ereignisse mit
 Öffnungswinkeln $\theta \approx \pi$}. Die Untergrundbeiträge tragen hier
 selbstverständlich im gleichen Maße bei, wie schon bei den Spektren des
-Transversalimpulses erläutert. Schaut auf den jeweils darunter dargestellten
+Transversalimpulses erläutert. Betrachtet man den jeweils darunter dargestellten
 Quotienten aus Daten und Monte-Carlo, lässt sich etwas über den bisher
-vernachlässigten Beitrag des \ac{QCD} Untergrundes etwas lernen. So resultiert
+vernachlässigten Beitrag des \ac{QCD} Untergrundes lernen. So resultiert
 dessen Ignorieren im \ac{CC}-Kanal zu einem breiten, den vollen $\eta$-Bereich
 abdeckenden Überschuss an Datenereignissen, während im \ac{CF}-Kanal diese
 Überschüsse auf die Randbereiche ($|\eta| > 4,0$) und um das Zentrum ($\eta=0$)
@@ -264,7 +276,7 @@ Signalselektion lediglich in der Umkehrung der Identifiaktionskriterien
 unterscheidet. Das heißt konkret man verlangt anstelle einer bestimmten
 Identifikationsstufe\footnote{z.B. \textit{tight++} (siehe Kapitel
 \ref{})} für Elektronkandidaten die darunter liegende Stufe und fordert
-gleichzeitig das Scheitern des ursprünglichen Kriteriums. Abbildung
+gleichzeitig das Scheitern des ursprünglichen höheren Kriteriums. Abbildung
 \ref{fig:reverseID} veranschaulicht dies.
 \begin{figure}[h]
     \centering
@@ -276,7 +288,7 @@ gleichzeitig das Scheitern des ursprünglichen Kriteriums. Abbildung
         $A \backslash B$}
     \label{fig:reverseID}
 \end{figure}
-Da die Menge der Elektronen, die eine bestimmte ID-Stufe erfüllen stets eine
+Da die Menge der Elektronen, die eine bestimmte ID-Stufe erfüllen, stets eine
 Teilmenge der darunterliegenden Stufe ist, ist die Menge der mit ReverseID
 selektierten Elektronen statistisch unabhängig von der ursprünglichen Menge.
 Auf den vollen Datensatz angewendet ist das Ziel dabei die Auslese jener
@@ -324,9 +336,9 @@ ID-Kriterien gefordert:
 Zur Bestimmung des Skalierungsfaktors wird das, bereits für die
 Kurvenanpassungen der Energiekalibration verwendete, Software-Paket
 \textsc{RooFit} (\cite{Verkerke:2003ir}) verwendet. Dieses stellt die
-Möglichkeit bereit Histogramme als Anpassungsmodelle zu verwenden. Oben
+Möglichkeit bereit Histogramme als Anpassungsmodelle zu verwenden. Die oben
 definierte \texttt{MultiJet} Verteilung wird nun als solches Modell mittels des
-freien Skalierungsfakotrs an die Datenverteilung angepasst.
+freien Skalierungsfaktors an die Datenverteilung angepasst.
 
 Abbildung \ref{fig:multijet} zeigt das Ergebnis dieser Anpassung im invarianten
 Massenspektrum der Elektronpaare für den \ac{CC} und \ac{CF} Kanal.
@@ -341,15 +353,16 @@ Massenspektrum der Elektronpaare für den \ac{CC} und \ac{CF} Kanal.
         und allen simulierten Untergründen im \ac{CC}-Kanal (links) und
         \ac{CF}-Kanal (rechts). Die darunter dargestellten Quotienten aus Daten
         und Summe aller Untergründe mit Signal Monte-Carlo zeigen die
-        Übereinstimmung vor (blau) und nach (grün) MultiJet-Anpassung.}
+        Übereinstimmung vor (blau) und nach (grün) MultiJet-Anpassung. Im
+        CC-Kanal lieferte die Anpassung keinen von Null verschiedenen Beitrag.}
     \label{fig:multijet}
 \end{figure}
 Dabei ist zunächst zu beachten, dass der Bereich der invarianten Masse auf
 $70\GeV < M_{ee} < 150\GeV$ eingeschränkt wurde,was zwei Gründe hat. Zum einen
 wurde diese Einschränkung schon im Hinblick auf die spätere Extraktion des
 schwachen Mischungswinkels vorgenommen und zum anderen weißt die
-ReverseID-Methode in höheren Massenbereichen signifkante Defizite auf, welche
-deren Anwengung nicht mehr rechtfertigen lassen. So ist zum Beispiel die stetig
+ReverseID-Methode in höheren Massenbereichen signifikante Defizite auf, welche
+deren Anwendung nicht mehr rechtfertigen lassen. So ist zum Beispiel die stetig
 abnehmende Statistik ein Problem, viel mehr jedoch die unhaltbare Annahme Jets
 würden sich über alle Energien und Bereiche des Detektors stets gleich
 verhalten. Alternative Möglichkeiten zur Abschätzung der \ac{QCD}
@@ -358,7 +371,7 @@ Untergrundbeiträge werden am Ende des Kapitel diskutiert werden.
 Die ermittelten Skalenfaktoren für beide Kanäle sind in Abbildung
 \ref{fig:multijet} selbst dargestellt. Im \ac{CF}-Kanal, für den ein großer
 Beitrag von \ac{QCD} Ereignissen erwartet wird, zeigt sich dieser mit einem
-großen Anteil am Untegrundspektrum. Die Form der \texttt{MultiJet} Verteilung
+großen Anteil am Untergrundspektrum. Die Form der \texttt{MultiJet} Verteilung
 ist ebenfalls gemäß der Erwartung durchweg flach. Die unter der Verteilung
 dargestellten Verhältnisse von Daten zur Summe aller Untergründe und
 Signal Monte-Carlo zeigt eine deutliche Verbesserung der Übereinstimmung unter
@@ -366,7 +379,7 @@ Hinzunahme des \texttt{MultiJet} Untergrundes. Für den \ac{CC} Kanal zeigt
 sich, dass der Beitrag durch \ac{QCD} Ereignisse vernachlässigbar klein
 gegenüber alle anderen Untergründen ist, sodass hier kein von Null
 verschiedener Faktor ermittelt werden konnte. Die Betrachtung des Verhältnisses
-darunter zeigt auch bereits eine hinreichend gute Übereintummung.  Einzig der
+darunter zeigt auch bereits eine hinreichend gute Übereinstimmung.  Einzig der
 Bereich unterhalb von $80\GeV$ weist eine erhebliche Abweichung auf, welches
 aber auf ein bekanntes Problem mit der Detektor-Beschreibung innerhalb der
 Monte-Carlo Simulation zurückführen ist, welches derzeit von der zuständigen
@@ -411,7 +424,7 @@ ziehen.
 Die Simulation findet mit einer eigenständigen Installation\footnote{d.h. keine
 von der ATLAS Monte-Carlo Workingroup verifizierte Simulation, was für den
 angestrebten Zweck unnötig ist} von \textsc{Pythia8} statt deren
-Konfiguration in Anhang \ref{pythia8:dilution} zu finden ist. Für insgesammt
+Konfiguration in Anhang \ref{pythia8:dilution} zu finden ist. Für insgesamt
 sieben verschiedene Massenbereiche bis zu $1 \TeV$ wurden statistisch
 unabhängige Datensätze von je $10$ Millionen Ereignissen generiert und jeweils
 die Übereinstimmung zwischen der wahren Quark-Richtung und dem nach
@@ -421,7 +434,7 @@ $|Y_{ee}|$ des Elektronpaares.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.6\textwidth]{plots/dilution}
+    \includegraphics[width=0.9\textwidth]{plots/dilution}
     \caption[Vergleich zwischen Quark-Richtung und long. Komponente des
         Z-Boosts]
         {Vergleich zwischen wahrer Quark-Richtung und der longitudinal
@@ -434,26 +447,28 @@ $|Y_{ee}|$ des Elektronpaares.
 Für jeden Massenbereich sind zwei Verteilungen gezeigt. Mit einer
 durchgezogenen Linie sind alle Elektronpaare repräsentiert, während die Kreise
 all jene Elektronpaare mit korrekter Zuordnung der Quark-Richtung zeigen, d.h.
-alle Paare für die gilt:
+alle Paare für die gilt
 \begin{equation}
     p_z^q \cdot q_z^{e^+e^-} > 0
 \end{equation}
-Wie in jedem Massenbereich gut zu sehen ist nimmt die Übereinstimmung mit
-größerem Betrag der Rapidität zu. Dies ist besonders eindrucksvoll an der
+wobei $p_z$ die Impulskomponente in z-Richtung des Quarks bzw. des
+Elektronpaares bezeichnet.
+Wie in jedem Massenbereich gut zu sehen ist, nimmt die Übereinstimmung mit
+größerem Betrag der Rapidität zu. Dies ist besonders eindrucksvoll an den
 darunter gezeigten Verhältnissen zu sehen, die auch als
 Wahrscheinlichkeitsverteilungen für die Fehlzuordnung der Quarkrichtung durch
-die obige Annahme interpretiert werden können. Über alle Massenbereich hinweg
+die obige Annahme interpretiert werden können. Über alle Massenbereiche hinweg
 zeigt sich für Rapiditäten nahe bei Null eine Rate von $50\%$ für falsch
 zugeordnete Quarkrichtungen, welche dann mit steigender Rapidität stetig
 kleiner wird. Die Rate der korrekten Zuordnungen verbessert sich hingegen bei
 konstanter Pseudorapidität mit steigender Masse, was sich in den
-unterschiedlichen Steigungen der Verhältnisse wiederspiegelt.
+unterschiedlichen Steigungen der Verhältnisse widerspiegelt.
  
 Den Einfluss dieses Effekts auf die Messung der Asymmetrie im \ac{CC}- und
 \ac{CF}-Kanal lässt sich am besten anhand der gemessenen Rapiditätsverteilungen
 abschätzen. Diese sind in Abbildung \ref{fig:rapidities} gezeigt. Hier lässt
-sich leich erkennen, dass die Ereignisse im \ac{CF}-Kanal vorwiegend die
-Bereiche um $Y_{ee}=2,5$ populieren, während die Verteilung im \ac{CC}-Kanal
+sich leicht erkennen, dass die Ereignisse im \ac{CF}-Kanal vorwiegend die
+Bereiche um $|Y_{ee}|=2,5$ populieren, während die Verteilung im \ac{CC}-Kanal
 ihr Maximum bei $Y_{ee}=0$ zeigt, und dann nach außen hin abfällt.
 
 \begin{figure}[h]
@@ -499,7 +514,7 @@ Die Unterteilung in der invarianten Masse erfolgt in den gleichen Grenzen, wie
 schon die Kurvenanpassungen der Energiekalibration der Vorwärts-Elektronen,
 d.h. in einem Fenster um die Z-Resonanz zwischen $75\GeV$ und $105\GeV$. Die
 Aufteilung findet prinzipiell in Schritten von $2\GeV$ statt, wobei die
-statistisch weniger polpulierten Randbreiche in größeren Abständen unterteilt
+statistisch weniger populierten Randbreiche in größeren Abständen unterteilt
 werden. Die folgende Tabelle \ref{tab:binning_afb} zeigt die gewählte
 Einteilung über den Massenbereich.
 \begin{table}[h]
@@ -518,15 +533,36 @@ Einteilung über den Massenbereich.
     \label{tab:binning_afb}
 \end{table}
 
+Trägt man für den gesamten relevanten Massenbereich den
+Elektron-Emissionswinkel $\cos\theta_{cs}$ im Collins-Soper Bezugssystem in
+beiden Kanälen auf, so ergeben sich die Verteilungen in Abbildung
+\ref{fig:cosTheta}.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.48\textwidth]{plots/cosTheta_cc}
+    \hfill
+    \includegraphics[width=0.48\textwidth]{plots/cosTheta_cf}
+    \caption[Verteilung des Elektron-Emissionswinkels im Collins-Soper
+        Bezugssystem]
+        {Verteilung des Elektron-Emissionswinkels im Collins-Soper
+        Bezugssystem für den CC-Kanal (links) und den CF-Kanal (rechts)}
+    \label{fig:cosTheta}
+\end{figure}
+Sowohl im CC-Kanal als auch im CF-Kanal wird die Verteilung in Daten gut durch
+die Summe aus Signal Monte-Carlo und Untergründen beschrieben. Die jeweils
+darunter dargestellten Quotienten verdeutlichen dies. Aufgrund der
+logarithmischen Skala der y-Achse ist die Asymmetrie zwischen vorwärts- und
+rückwärts-emittierten Elektronen nur schwach, aber am ehesten im CF-Kanal zu
+erkennen.
+
 Zur Berechnung der Vorwärts-Rückwärts Asymmetrie werden nun die Daten,
-Untegründe und die Signal-Simulation nach oben beschriebener Selektion
-(Abschnitt \ref{afb:selection}) und ggf. Anwendung der Korrekturen in je zwei
-Histogramme der invarianten Masse aufgeteilt. Eines mit Ereingissen
+Untergründe und die Signal-Simulation in je zwei
+Histogramme der invarianten Masse aufgeteilt. Eines mit Ereignissen
 vorwärts-emittierter Elektronen und eines mit Ereignissen rückwärts-emittierter
 Elektronen. Von beiden Verteilungen der realen Daten werden anschließend die
 entsprechenden Histogramme aller Untergründe subtrahiert. Die Berechnung der
 Asymmetrie nach Gleichung (\ref{eq:afb_simple}) geschieht dann für die
-untergrund-reduzierten Daten und das Signal Monte-Carlo in jedem Bereich der
+Untergrund-reduzierten Daten und das Signal Monte-Carlo in jedem Bereich der
 invarianten Masse (Tabelle \ref{tab:binning_afb}) separat. Abbildung
 \ref{fig:afb_raw} zeigt die resultierenden Asymmetrie-Verteilungen für die
 beiden Selektionskanäle \ac{CC} und \ac{CF}.
@@ -545,20 +581,21 @@ beiden Selektionskanäle \ac{CC} und \ac{CF}.
 \end{figure}
 
 In der Verteilung der Daten zeigt sich die erwartete Form der
-Asymmetrie\footnote{vgl. Abbildung \ref{}}, wobei zunächst auffällt, dass diese
+Asymmetrie, wobei zunächst auffällt, dass diese
 im \ac{CF}-Kanal sehr viel stärker ausgeprägt ist, als im \ac{CC}-Kanal. Die
 Skalierung der Ordinate macht dies deutlich. Die Ursache dafür liegt in der
 bereits in Abschnitt \ref{afb:dilution} diskutierten höheren Wahrscheinlichkeit
 einer falschen Zuordnung der Quark-Richtung für Ereignisse mit niedriger
-Rapidität $Y_{ee}$ des Elektronpaares\footnote{Die Verteilungen der Rapiditäten
+Rapidität $|Y_{ee}|$ des Elektronpaares\footnote{Die Verteilungen der Rapiditäten
 sind in Abbildung \ref{fig:rapidities} gezeigt}, was zu einer Abschwächung der
 Asymmetrie führt.
 
 Desweiteren zeigt sich in beiden Kanälen, jedoch prominenter im \ac{CF}-Kanal
 zu beobachten, dass die Steigung der Asymmetrie sehr nahe an der Z-Resonanz
 kleiner ist, als in den Bereichen darunter und darüber. Die theoretische Form
-der Verteilung (Abbildung \ref{}) weist disen Effekt hingegen nicht auf. Da
-dieses Verhalten allerdings auch im Signal Monte-Carlo zu beobachten ist, liegt
+der Verteilung weist diesen Effekt hingegen nicht auf. Da
+dieses Verhalten allerdings auch im Signal Monte-Carlo nach Detektor-Simulation
+zu beobachten ist, liegt
 die Vermutung nahe, dass die endliche Massenauflösung des Detektors dafür
 verantwortlich ist. So wird später bei der Erstellung der Form-Vorlagen zur
 Extraktion des schwachen Mischungswinkels die Einführung von Detektoreffekten
@@ -566,29 +603,29 @@ in die Theorie-Verteilungen zum gleichen Effekt führen (siehe nachfolgenden
 Abschnitt \ref{afb:extraction_method}).
 
 Unterhalb der Asymmetrie-Verteilungen ist die Differenz zwischen der aus Daten
-gewonnen Verteilung und dem Singal Monte-Carlo in Einheiten der Standabweichung
+gewonnen Verteilung und dem Signal Monte-Carlo in Einheiten der Standardabweichung
 gezeigt, wobei zu beachten ist, dass nur statistische Unsicherheiten erfasst
 werden. Wie sich leicht erkennen lässt liegen die meisten Punkte innerhalb
 einer $1\sigma$ Umgebung, was für eine gute Beschreibung der Daten durch die
-Simulation spricht. Die signifkantesten Abweichungen jedoch zeigen sich in den
+Simulation spricht. Die signifikantesten Abweichungen jedoch zeigen sich in den
 niedrigeren Bereichen der invarianten Masse, für die bereits in Abschnitt
-\ref{afb:selection} belegt wurde, dass die Beschreibung der der Daten durch die
+\ref{afb:selection} belegt wurde, dass die Beschreibung der Daten durch die
 Untergründe und die Simulation nicht ausreichend gewährleistet ist.
 
-Für die Untersuchung systematischer Einflüsse auf die Vorwärts-Rückwärts
-Asymmtrie blieben im Rahmen dieser Arbeit keine Kapazitäten mehr, sodass deren
+Die Untersuchung systematischer Einflüsse auf die Vorwärts-Rückwärts
+Asymmetrie konnte im Rahmen dieser Arbeit nicht mehr durchgeführt werden, sodass deren
 Bedeutung lediglich qualitativ diskutiert werden kann. Da die Asymmetrie aus
 dem Quotienten (\ref{eq:afb_simple}) hervorgeht, spielen Einflüsse, welche die
 Ereignismengen $N_F$ und $N_B$ gleichermaßen skalieren, keine Rolle. Dagegen 
 tragen Variationen, die die Zugehörigkeit von Ereignissen zu einer oder der
-anderen Menge ändern, sogannte Migrations-Effekte, erhebliche Relevanz. In der
+anderen Menge ändern, sogenannte Migrations-Effekte, erhebliche Relevanz. In der
 vorangegangenen Analyse der Vorwärts-Rückwärts Asymmetrie mit \acs{ATLAS}-Daten
 des Vorjahres bei $7\TeV$ Schwerpunktsenergie (\cite{ATLAS-CONF-2013-043})
 konnte gezeigt werden, dass die größten systematischen Unsicherheiten aus der
 Energiekalibration der Elektronen\footnote{genauer die Unsicherheiten auf die
 Kalibrationsfaktoren} und der Wahl der simulationsseitig zugrunde liegenden
 \acl{PDF} resultieren. Beide Quellen sind in der Lage die Verteilung der
-Asymmetrie sowohl zu verzerren, als auch zu verschieben. In wenig geringerem
+Asymmetrie sowohl zu verzerren, als auch zu verschieben. In geringerem
 Maße Einfluss nehmend sind die Unsicherheiten auf die Korrektur der
 Energieauflösung, deren Zweck bereits die Migration von Ereignissen in der
 invarianten Masse ist. Alle genannten Effekte lassen sich durch deren Variation
@@ -621,7 +658,7 @@ Zur Extraktion des effektiven schwachen Mischungswinkels aus den Verteilungen
 der Vorwärts-Rückwärts Asymmetrie wird eine Vorlagen basierte Methode
 verwendet. Die grundlegende Idee hierbei ist die Erstellung eines Satzes von
 simulierten Asymmetrie-Verteilungen für verschiedene Werte des schwachen
-Mischungswinkels und einem anchließenden $\chi^2$-Test, der die Übereinstimmung
+Mischungswinkels und einem anschließenden $\chi^2$-Test, der die Übereinstimmung
 jeder dieser Verteilungen mit der real in Daten beobachteten Verteilung
 quantifiziert. Die resultierenden $\chi^2$-Werte aufgetragen gegen den
 schwachen Mischungswinkel mit dem die entsprechende Verteilung simuliert wurde
@@ -654,7 +691,7 @@ und je 1 Million im \ac{CF}-Kanal simuliert. Dabei wurden für beide Kanäle
 getrennte Konfigurationen für die Simulationen verwendet, um den
 unterschiedlichen Phasenräumen beider Selektionen Rechnung zu tragen. Die
 verwendete Konfiguration von \textsc{Pythia8} ist in Anhang
-\ref{pythia8:templates} augeführt.
+\ref{pythia8:templates} aufgeführt.
 
 Um Vergleiche mit gemessenen Daten sinnvoll anstellen zu können bedarf es
 aber noch der Berücksichtigung von Detektoreffekten, wie Auflösung, Akzeptanz
@@ -709,7 +746,7 @@ Asymmetrie Verteilung einer solchen Vorlage.
         {Asymmetrie-Vorlagen zur Extraktion des schwachen Mischungswinkels im
         \ac{CF}-Kanal. \textbf{Links:} Vergleich zwischen der
         Asymmetrie-Verteilung auf Generator-Level und nach Anwendung der
-        Faltungsmatrix. \textbf{Rechts:} Asymmetire-Vorlagen nach Faltung für
+        Faltungsmatrix. \textbf{Rechts:} Asymmetrie-Vorlagen nach Faltung für
         drei verschiedene Werte von $\sin^2\theta_W^\text{eff,l}$.}
     \label{fig:vorlage}
 \end{figure}
@@ -730,19 +767,38 @@ beiden Vorlagen der Randwerte von $\sin^2\theta_W^\text{eff,l}$.
 Die gezeigten Unsicherheiten sind rein statistischer Natur und beinhalten die
 statistische Unsicherheit der Generator-Level Verteilungen, sowie die der
 Faltungsmatrix. Um den Einfluss der
-letztgenannanten Quelle abzuschätzen bedarf es einer besonderen Methode. Es
+letztgenannten Quelle abzuschätzen bedarf es einer besonderen Methode. Es
 wird hierfür sogenanntes \textit{Bootstrapping} (\cite{zbMATH03631774})
 benutzt, wobei jedem Ereignis, dass zum Füllen der Faltungsmatrix verwendet
 wird ein individuelles, zufälliges Gewicht zugewiesen wird. Die Gewichte
-folgen dabei insgesammt einer Poisson-Verteilung um 1, sodass die eingführte
+folgen dabei insgesamt einer Poisson-Verteilung um 1, sodass die eingeführte
 Umgewichtung unitär ist und die Normierung der Matrix erhalten bleibt. Man
-erstellt nun $n$ Faltungsmatrizen aus ein und dem selben Singal Monte-Carlo,
+erstellt nun $n$ Faltungsmatrizen aus ein und dem selben Signal Monte-Carlo,
 aber mit jeweils unterschiedlichen Sätzen an Ereignisgewichten.
 Diese werden nun einzeln, wie oben beschrieben, zur Faltung der Generator-Level
 Verteilungen verwendet, wodurch für jede dieser Verteilungen $n$
 Asymmetrie-Vorlagen entstehen. Schlussendlich wird für jeden Massenbereich der
 Mittelwert und die Standardabweichung aus den $n$ Vorlagen berechnet, um zur
 finalen Asymmetrie-Vorlage zu gelangen.
+
+Abbildung \ref{fig:afb_comp} zeigt einen Vergleich zwischen der
+Asymmetrie-Verteilung der Vorlagen nach Einführung der Detektoreffekte und
+der Verteilung in Daten bzw. dem Signal Monte-Carlo.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.48\textwidth]{plots/afb_comp_cc}
+    \hfill
+    \includegraphics[width=0.48\textwidth]{plots/afb_comp_cf}
+    \caption[Asymmetrie-Vorlagen im Vergleich mit Daten und Signal Monte-Carlo]
+        {Asymmetrie-Vorlagen im Vergleich mit Daten und Signal Monte-Carlo im
+        \ac{CC}-Kanal (links) und  \ac{CF}-Kanal (rechts).}
+    \label{fig:afb:afb_comp}
+\end{figure}
+Dabei ist zu beobachten, dass die Asymmetrie-Verteilung des Signal Monte-Carlos
+unter Berücksichtigung der Unsicherheiten stets innerhalb des durch die
+Vorlagen definierten Bereiches liegt. Einzige Ausnahme hiervon ist ein Punkt im
+unteren Bereich des Massenspektrums im CC-Kanal, der allerdings mit einer
+vergleichsweise großen statistischen Unsicherheit behaftet ist.
 
 Jede Vorlage eines Kanals\footnote{gemeint sind \ac{CC}- und \ac{CF}-Kanal}
 muss nun mit der entsprechenden untergrundreduzierten Asymmetrie-Verteilung aus
@@ -829,9 +885,9 @@ zur Erstellung der Faltungsmatrix verwendet wird. Das gleiche Argument gilt
 aber auch für die Vorlagen an sich und würde sich somit auch für die
 eigentliche Extraktion aus Daten Bestand haben. Berechnet man das reduzierte
 $\chi^2_\text{red}$ aus dem Wert am Minimum ($\chi^2_\text{min} = a$), geteilt
-durch die Anazahl der Freiheitsgrade ($n_\text{dof} = 11$, siehe Tabelle
+durch die Anzahl der Freiheitsgrade ($n_\text{dof} = 11$, siehe Tabelle
 \ref{tab:binning_afb}) so ergibt sich im \ac{CC}-Kanal eine Wert von $0,26$
-und im \ac{CF}-Kanal von $0,21$, was insgesammt für eine gute Qualität der
+und im \ac{CF}-Kanal von $0,21$, was insgesamt für eine gute Qualität der
 Anpassung spricht. Der nominelle Wert des schwachen Mischungswinkels, mit dem
 das Signal Monte-Carlo erstellt wurde, entspricht dem Welt-Mittelwert von
 $\sin^2\theta_W^\text{eff,l}=0,23146$. Die extrahierten Werte nach obiger
@@ -858,7 +914,7 @@ zeigt die entstehende $\chi^2$-Verteilungen beider Kanäle.
         (rechts)}
     \label{fig:sin2theta}
 \end{figure}
-Die aus der Anapassung der Parabel an die $\chi^2$-Verteilungen gewonnenen
+Die aus der Anpassung der Parabel an die $\chi^2$-Verteilungen gewonnenen
 Werte für den schwachen Mischungswinkel ergeben sich zu:
 \begin{align*}
     \sin^2\theta_W^\text{eff,l (CC)} &\;=\; 0.2316
@@ -869,11 +925,11 @@ Werte für den schwachen Mischungswinkel ergeben sich zu:
 \end{align*}
 Auch hier zeigt sich das bereits erwartete Verhalten, dass die Unsicherheit auf
 den Wert des schwachen Mischungswinkels im \ac{CC}-Kanal größer ist, als im
-\ac{CF}-Kanal. Insgesammt jedoch haben sich die Unsicherheiten im Vergleich zur
+\ac{CF}-Kanal. Insgesamt jedoch haben sich die Unsicherheiten im Vergleich zur
 vorangegangen Überprüfung mit dem Signal Monte-Carlo verkleinert, was an der
-höheren statisitschen Signifikanz der Daten liegt. Die Werte für das reduzierte
+höheren statistischen Signifikanz der Daten liegt. Die Werte für das reduzierte
 $\chi^2_\text{red}$ ergeben sich hier zu $2,2$ für \ac{CC} und zu $2,1$ für
-\ac{CF} und liegen somit im Rahmen einer zufreidenstellenden Beschreibung.
+\ac{CF} und liegen somit im Rahmen einer zufriedenstellenden Beschreibung.
 Wie schon beim Signal Monte-Carlo wird hier allerdings in ähnlichem Maße eine
 gewisse Fluktuation der $\chi^2$-Werte um die Parabel beobachtet, was nun am
 ehesten auf die statistische Signifikanz der der Vorlagen und der
@@ -893,7 +949,7 @@ Experimenten im folgenden Abschnitt.
 
 
 
-\subsection{Diskussion und Ausbklick}
+\subsection{Diskussion}
 \label{afb:diskussion}
 
 In diesem Kapitel wurde die Vermessung der Vorwärts-Rückwärts Asymmetrie im
@@ -906,18 +962,18 @@ bis heute genauesten Messungen des schwachen Mischungswinkels konnten in
 Elektron-Positron Kollisionen durch LEP\footnote{\acf{LEP}} und
 SLD\footnote{\acf{SLD}} erzielt werden, die ebenfalls die Vorwärts-Rückwärts
 Asymmetrie am $Z$-Pol in leptonischen und hadronischen Endzuständen
-untersuchten. Bei \ac{SLD} wurde darüber hinaus in Kollsisionen polarisierter
+untersuchten. Bei \ac{SLD} wurde darüber hinaus in Kollisionen polarisierter
 Elektronen mit unpolarisierten Positronen die Links-Rechts Asymmetrie zur
 Bestimmung des schwachen Mischungswinkels verwendet. Zieht man alle Experimente
-in betracht ergibt sich ein Mittelwert von $0,23069\pm0,00020$
+in Betracht ergibt sich ein Mittelwert von $0,23069\pm0,00020$
 (\cite{PhysRevD.86.010001}) für \ac{SLD} und $0,23181\pm0,00028$
 (\cite{PhysRevD.86.010001}) für \ac{LEP}. In Hadron-Kollisionen konnte am
-Tevatron\footnote{Proton-Antiproton Kollsisionen} mit dem D0-Detektor ein Wert
+Tevatron\footnote{Proton-Antiproton Kollisionen} mit dem D0-Detektor ein Wert
 von $0,2309\pm0,0010$ (\cite{Abazov:2011ws}) für den schwachen Mischungswinkel
 bestimmt werden. Dazu wurden in ähnlicher Weise Vorlagen-Tests verwendet, wie
 es in der vorliegenden Arbeit der Fall ist. Ebenfalls am \ac{LHC} wurde mit den
 2011 aufgenommenen Daten in Proton-Proton Kollisionen durch \acs{CMS} der
-schwache Mischungwinkel auf $0,2287\pm0,0032$ (\cite{Chatrchyan:2011ya})
+schwache Mischungswinkel auf $0,2287\pm0,0032$ (\cite{Chatrchyan:2011ya})
 bestimmt. Zusammengefasst ergibt sich derzeit ein Weltmittelwert von
 $0,23146\pm0,00012$ (\cite{PhysRevD.86.010001}), mit dem die vorliegende
 Messung innerhalb der Unsicherheiten übereinstimmt. Abbildung
@@ -936,7 +992,7 @@ Messung innerhalb der Unsicherheiten übereinstimmt. Abbildung
 
 Bei der Einordnung des resultierenden Wertes dieser Arbeit in den Kontext der
 vorangegangenen Experimente bleibt allerdings zu beachten, dass keinerlei
-systematischer Einflüsse auf diesen Wert Brücksichtigung gefunden haben. Wie
+systematischer Einflüsse auf diesen Wert Berücksichtigung gefunden haben. Wie
 schon am Ende von Abschnitt \ref{afb:distributions} erläutert haben vor allem
 die Wahl der \ac{PDF} und die Energiekalibration der Elektronen den größten
 Einfluss auf die Verteilung der Vorwärts-Rückwärts Asymmetrie und somit auch
@@ -948,7 +1004,7 @@ Faltungsmatrix verwendete Signal Monte-Carlo formen. Desweiteren spielt gerade
 bei der Erstellung der Vorlagen die Anzahl der simulierten Ereignisse eine
 tragende Rolle. Auf Seiten der Generator-Level Vorlagen als auch auf Seiten der
 Faltungsmatrix bestimmt diese die statistische Signifikanz. Die in Abschnitt
-\ref{afb:extraction} beobachteten Flukuationen der $\chi^2$-Punkte um die
+\ref{afb:extraction} beobachteten Fluktuationen der $\chi^2$-Punkte um die
 Parabel wird durch diese bestimmt. Beim Vergleich der Asymmetrie-Verteilungen
 der Vorlagen und Daten kommt bei letztgenannter auch die Qualität der
 Abschätzung von Untergrundbeiträgen zum tragen. Insbesondere die datengestützte
@@ -957,7 +1013,7 @@ Annahmen und induziert somit zusätzliche Unsicherheiten systematischer Art.
 Hier würde die Wahl einer suffizienteren Methode eine mögliche Verbesserung
 darstellen.
 
-Insgesammt konnte gezeigt werden, dass die vorgestellte Methode zur Extraktion
+Insgesamt konnte gezeigt werden, dass die vorgestellte Methode zur Extraktion
 des schwachen Mischungswinkels zufriedenstellende und mit anderen Experimenten
 vergleichbare Werte liefert.
 
